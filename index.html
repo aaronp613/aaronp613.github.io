@@ -5,84 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aaron Perris</title>
   <style>
-    body.dark {
-      background: #121212;
-      color: #f1f1f1;
-    }
-    body.dark .container {
-      background: #1e1e1e;
-    }
-    body.dark .work-card {
-      background-color: #1e1e1e;
-      border: 1px solid #333;
-    }
-    .work-card {
-      display: flex;
-      flex-direction: column;
-      border-radius: 16px;
-      padding: 1rem 1.25rem;
-      background-color: #fff;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      border: 1px solid #e5e5e5;
-      transition: box-shadow 0.3s ease;
-      cursor: pointer;
-      min-width: 220px;
-      max-width: 240px;
-      height: auto;
-      justify-content: center;
-      align-items: center;
-      text-align: left;
-      align-self: flex-start;
-    }
-    .work-card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    /* Unify work-details separator for dark mode */
-    body.dark .work-card .work-details {
-      border-top: 1px solid rgba(255,255,255,0.12);
-    }
-    body.dark .work-details .date {
-      color: #aaa;
-    }
-    body.dark .links a img {
-      filter: brightness(0.8);
-    }
-    body.dark .links a img {
-      filter: none !important;
-    }
-    .toolbar {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .theme-icon {
-      width: 28px;
-      height: 28px;
-      display: none;
-    }
-    .theme-icon.light {
-      display: inline;
-    }
-    body.dark .theme-icon.light {
-      display: none;
-    }
-    body.dark .theme-icon.dark {
-      display: inline;
-    }
-
-    #theme-toggle {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: inherit;
-      transition: transform 0.2s ease;
-    }
-    #theme-toggle:hover {
-      transform: scale(1.1);
-    }
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
     body {
@@ -97,6 +19,21 @@
       padding: 2rem;
       box-sizing: border-box;
     }
+
+    body.dark {
+      background: #121212;
+      color: #f1f1f1;
+    }
+
+    body.dark .container {
+      background: #1e1e1e;
+    }
+
+    body.dark .work-card {
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+    }
+
     .container {
       max-width: 1000px;
       width: 100%;
@@ -107,6 +44,7 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.08);
       text-align: center;
     }
+
     .profile-pic {
       width: 150px;
       height: 150px;
@@ -116,29 +54,34 @@
       margin-bottom: 1rem;
       box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.1);
     }
+
     body.dark .profile-pic {
       box-shadow: 0 0 20px 6px rgba(255, 255, 255, 0.05);
     }
+
     h1 {
       margin-top: 1rem;
       font-weight: 700;
       font-size: 2.5rem;
     }
+
     .links {
       margin-top: 1.5rem;
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1.25rem;
       flex-wrap: wrap;
-      max-width: 100%;
       margin-left: auto;
       margin-right: auto;
+      max-width: 100%;
     }
+
     .links a {
       color: #0077cc;
       text-decoration: none;
       transition: transform 0.3s ease;
     }
+
     .links img {
       width: 48px;
       height: 48px;
@@ -149,15 +92,18 @@
     .links a:hover {
       transform: translateY(-5px);
     }
+
     .work-history {
       margin-top: 3rem;
     }
+
     .work-history h2 {
       text-align: center;
       margin-bottom: 1.5rem;
       font-size: 1.75rem;
       font-weight: 600;
     }
+
     .work-history-container {
       display: flex;
       flex-wrap: wrap;
@@ -165,15 +111,85 @@
       gap: 1.25rem;
     }
 
+    .work-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 16px;
+      padding: 1rem 1.25rem;
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid #e5e5e5;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+      min-width: 220px;
+      max-width: 240px;
+      height: auto;
+      justify-content: center;
+      align-items: center;
+      text-align: left;
+      align-self: flex-start;
+    }
+
+    .work-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    body.dark .work-card .work-details {
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    body.dark .work-details .date {
+      color: #aaa;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .theme-icon {
+      width: 28px;
+      height: 28px;
+      display: none;
+    }
+
+    .theme-icon.light {
+      display: inline;
+    }
+
+    body.dark .theme-icon.light {
+      display: none;
+    }
+
+    body.dark .theme-icon.dark {
+      display: inline;
+    }
+
+    #theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: inherit;
+      transition: transform 0.2s ease;
+    }
+
+    #theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
     .work-card-header {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.75rem;
-      /* margin-bottom removed for vertical centering */
       text-align: left;
       width: 100%;
     }
+
     .company-icon {
       width: 48px;
       height: 48px;
@@ -184,10 +200,12 @@
       border: 1px solid rgba(0, 0, 0, 0.08);
       box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
+
     body.dark .company-icon {
       border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow: 0 2px 6px rgba(255, 255, 255, 0.08);
     }
+
     /* Remove border and shadow for Havoc, Packix, and AppleDB icons only */
     .work-card:nth-child(3) .company-icon,
     .work-card:nth-child(4) .company-icon,
@@ -195,12 +213,14 @@
       border: none;
       box-shadow: none;
     }
+
     body.dark .work-card:nth-child(3) .company-icon,
     body.dark .work-card:nth-child(4) .company-icon,
     body.dark .work-card:nth-child(5) .company-icon {
       border: none;
       box-shadow: none;
     }
+
     .work-card-header span {
       font-size: 1.1rem;
       font-weight: 600;
@@ -240,32 +260,45 @@
       padding: 0.5rem 0;
       border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
+
     .work-details .role:last-child {
       border-bottom: none;
     }
+
     body.dark .work-details .role {
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
+
     .work-details .role strong {
       font-size: 1rem;
       font-weight: 500;
       color: inherit;
     }
+
     .work-details .date {
       font-size: 0.85rem;
       color: #777;
     }
 
+    @media (max-width: 480px) {
+      .links {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        justify-content: center;
+        gap: 1.25rem;
+        row-gap: 0.75rem;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-  <div class="toolbar">
-    <button id="theme-toggle" title="Toggle Theme">
-      <img src="lightmode.svg" alt="Light Mode" class="theme-icon light" />
-      <img src="darkmode.svg" alt="Dark Mode" class="theme-icon dark" />
-    </button>
-  </div>
+    <div class="toolbar">
+      <button id="theme-toggle" title="Toggle Theme">
+        <img src="lightmode.svg" alt="Light Mode" class="theme-icon light" />
+        <img src="darkmode.svg" alt="Dark Mode" class="theme-icon dark" />
+      </button>
+    </div>
     <img src="aaron.jpg" alt="Aaron" class="profile-pic" onerror="this.onerror=null;this.src='https://placehold.co/150x150/EFEFEF/333333?text=AP';"/>
     <h1>Aaron Perris</h1>
     <div class="links">
@@ -284,9 +317,12 @@
       <a href="https://github.com/aaronp613" target="_blank">
         <img src="socials/github.svg" alt="GitHub" title="GitHub" />
       </a>
+      <a href="https://discord.gg/jb" target="_blank">
+        <img src="socials/discord.svg" alt="Discord" title="Discord" />
+      </a>
     </div>
     <div class="work-history">
-      <h2>What I've Done</h2>
+      <h2>Where I've Been</h2>
       <div class="work-history-container">
         <div class="work-card" onclick="toggleDetails(this, event)">
           <div class="work-card-header">
@@ -387,9 +423,11 @@
       });
       clickedCard.classList.toggle('expanded');
     }
+
     if (localStorage.getItem('theme') === 'dark') {
       document.body.classList.add('dark');
     }
+
     document.getElementById('theme-toggle').addEventListener('click', () => {
       document.body.classList.toggle('dark');
       localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
