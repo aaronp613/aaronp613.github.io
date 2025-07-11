@@ -3,49 +3,381 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aaron P.</title>
+  <title>Aaron Perris</title>
   <style>
+    body.dark {
+      background: #121212;
+      color: #f1f1f1;
+    }
+    body.dark .container {
+      background: #1e1e1e;
+    }
+    body.dark .work-card {
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+    }
+    .work-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 16px;
+      padding: 1rem 1.25rem;
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid #e5e5e5;
+      transition: box-shadow 0.3s ease;
+      cursor: pointer;
+      min-width: 220px;
+      max-width: 240px;
+      height: auto;
+      justify-content: center;
+      align-items: center;
+      text-align: left;
+      align-self: flex-start;
+    }
+    .work-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    /* Unify work-details separator for dark mode */
+    body.dark .work-card .work-details {
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    body.dark .work-details .date {
+      color: #aaa;
+    }
+    body.dark .links a img {
+      filter: brightness(0.8);
+    }
+    body.dark .links a img {
+      filter: none !important;
+    }
+    .toolbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .theme-icon {
+      width: 28px;
+      height: 28px;
+      display: none;
+    }
+    .theme-icon.light {
+      display: inline;
+    }
+    body.dark .theme-icon.light {
+      display: none;
+    }
+    body.dark .theme-icon.dark {
+      display: inline;
+    }
+
+    #theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: inherit;
+      transition: transform 0.2s ease;
+    }
+    #theme-toggle:hover {
+      transform: scale(1.1);
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Inter', Arial, sans-serif;
       margin: 0;
       background: #f4f4f4;
       color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 2rem;
+      box-sizing: border-box;
     }
     .container {
-      max-width: 700px;
-      margin: 50px auto;
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
       padding: 2rem;
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
       text-align: center;
     }
-    img {
+    .profile-pic {
       width: 150px;
       height: 150px;
-      border-radius: 50%;
+      border-radius: 25%;
       object-fit: cover;
+      border: 2px solid white;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.1);
+    }
+    body.dark .profile-pic {
+      box-shadow: 0 0 20px 6px rgba(255, 255, 255, 0.05);
     }
     h1 {
       margin-top: 1rem;
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+    .links {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
     }
     .links a {
-      margin: 0 10px;
       color: #0077cc;
       text-decoration: none;
+      transition: transform 0.3s ease;
     }
+    .links img {
+      width: 48px;
+      height: 48px;
+      vertical-align: middle;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .links a:hover {
+      transform: translateY(-5px);
+    }
+    .work-history {
+      margin-top: 3rem;
+    }
+    .work-history h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+    .work-history-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+
+    .work-card-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      /* margin-bottom removed for vertical centering */
+      text-align: left;
+      width: 100%;
+    }
+    .company-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background-color: #eee;
+      object-fit: cover;
+      align-self: center;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    body.dark .company-icon {
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 2px 6px rgba(255, 255, 255, 0.08);
+    }
+    .work-card-header span {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: inherit;
+      text-align: center;
+      width: 100%;
+    }
+
+    @keyframes clickPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(0.97); }
+      100% { transform: scale(1); }
+    }
+
+    .work-card-header:active {
+      animation: clickPulse 0.25s ease;
+    }
+
+    .work-card strong {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .work-details {
+      border-top: 1px solid rgba(0,0,0,0.08);
+      margin-top: 1rem;
+      width: 100%;
+      display: none;
+    }
+
+    .work-card.expanded .work-details {
+      display: block;
+    }
+
+    .work-details .role {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .work-details .role:last-child {
+      border-bottom: none;
+    }
+    body.dark .work-details .role {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .work-details .role strong {
+      font-size: 1rem;
+      font-weight: 500;
+      color: inherit;
+    }
+    .work-details .date {
+      font-size: 0.85rem;
+      color: #777;
+    }
+
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="aaron.jpg" alt="Aaron" />
-    <h1>Aaron P.</h1>
-    <p>Level 3 Mac Technician • Tech Enthusiast • Problem Solver</p>
+  <div class="toolbar">
+    <button id="theme-toggle" title="Toggle Theme">
+      <img src="lightmode.svg" alt="Light Mode" class="theme-icon light" />
+      <img src="darkmode.svg" alt="Dark Mode" class="theme-icon dark" />
+    </button>
+  </div>
+    <img src="aaron.jpg" alt="Aaron" class="profile-pic" onerror="this.onerror=null;this.src='https://placehold.co/150x150/EFEFEF/333333?text=AP';"/>
+    <h1>Aaron Perris</h1>
     <div class="links">
-      <a href="mailto:your@email.com">Email</a>
-      <a href="https://linkedin.com/in/YOURNAME">LinkedIn</a>
-      <a href="https://github.com/aaronp613">GitHub</a>
+      <a href="https://x.com/intent/follow?screen_name=aaronp613" target="_blank">
+        <img src="socials/x.svg" alt="X" title="X" />
+      </a>
+      <a href="https://www.reddit.com/user/aaronp613" target="_blank">
+        <img src="socials/reddit.svg" alt="Reddit" title="Reddit" />
+      </a>
+      <a href="mailto:aaronp613@gmail.com">
+        <img src="socials/email.svg" alt="Email" title="Email" />
+      </a>
+      <a href="https://www.linkedin.com/in/aaronperris/" target="_blank">
+        <img src="socials/linkedin.svg" alt="LinkedIn" title="LinkedIn" />
+      </a>
+      <a href="https://github.com/aaronp613" target="_blank">
+        <img src="socials/github.svg" alt="GitHub" title="GitHub" />
+      </a>
+    </div>
+    <div class="work-history">
+      <h2>What I've Done</h2>
+      <div class="work-history-container">
+        <div class="work-card" onclick="toggleDetails(this, event)">
+          <div class="work-card-header">
+            <img src="work/bh.svg" class="company-icon" alt="B&H Photo logo" />
+            <span>B&amp;H Photo</span>
+          </div>
+          <div class="work-details">
+            <div class="role">
+              <strong>Desktop Support Mac Technician - Level 3</strong>
+              <div class="date">Jun 2025 – Present</div>
+            </div>
+            <div class="role">
+              <strong>Desktop Support Mac Technician - Level 2</strong>
+              <div class="date">Jan 2025 – Jun 2025</div>
+            </div>
+            <div class="role">
+              <strong>Desktop Support Technician - Level 2</strong>
+              <div class="date">Feb 2024 – Jan 2025</div>
+            </div>
+            <div class="role">
+              <strong>Desktop Support Technician - Level 1</strong>
+              <div class="date">Jan 2023 – Feb 2024</div>
+            </div>
+            <div class="role">
+              <strong>Service Desk Technician</strong>
+              <div class="date">Aug 2022 – Dec 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="work-card" onclick="toggleDetails(this, event)">
+          <div class="work-card-header">
+            <img src="work/macrumors.svg" class="company-icon" alt="MacRumors logo" />
+            <span>MacRumors</span>
+          </div>
+          <div class="work-details">
+            <div class="role">
+              <strong>Contributor</strong>
+              <div class="date">Nov 2023 – Present</div>
+            </div>
+          </div>
+        </div>
+        <div class="work-card" onclick="toggleDetails(this, event)">
+          <div class="work-card-header">
+            <img src="work/havoc.svg" class="company-icon" alt="Havoc logo" />
+            <span>Havoc</span>
+          </div>
+          <div class="work-details">
+            <div class="role">
+              <strong>Seller Relations Lead</strong>
+              <div class="date">Mar 2025 – Present</div>
+            </div>
+            <div class="role">
+              <strong>Customer Experience Lead</strong>
+              <div class="date">Feb 2022 – Mar 2025</div>
+            </div>
+          </div>
+        </div>
+        <div class="work-card" onclick="toggleDetails(this, event)">
+          <div class="work-card-header">
+            <img src="work/packix.svg" class="company-icon" alt="Packix logo" />
+            <span>Packix</span>
+          </div>
+          <div class="work-details">
+            <div class="role">
+              <strong>Customer Relations Specialist</strong>
+              <div class="date">May 2021 – Feb 2022</div>
+            </div>
+            <div class="role">
+              <strong>Technical Support Specialist</strong>
+              <div class="date">May 2020 – May 2021</div>
+            </div>
+          </div>
+        </div>
+        <div class="work-card" onclick="toggleDetails(this, event)">
+          <div class="work-card-header">
+            <img src="work/appledb.svg" class="company-icon" alt="AppleDB logo" />
+            <span>AppleDB</span>
+          </div>
+          <div class="work-details">
+            <div class="role">
+              <strong>Contributor</strong>
+              <div class="date">2021 – Present</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <script>
+    function toggleDetails(clickedCard, event) {
+      if (event.target.closest('.work-details')) return;
+      const allCards = document.querySelectorAll('.work-card');
+      allCards.forEach(card => {
+        if (card !== clickedCard) {
+          card.classList.remove('expanded');
+        }
+      });
+      clickedCard.classList.toggle('expanded');
+    }
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+    }
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
