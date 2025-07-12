@@ -318,6 +318,54 @@
         row-gap: 0.75rem;
       }
     }
+
+    .articles {
+      margin-top: 4rem;
+      text-align: center;
+    }
+    .articles h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+    .carousel a {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      padding: 0.5rem;
+      border-radius: 12px;
+      background: #f1f1f1;
+      color: #333;
+      text-decoration: none;
+      width: 240px;
+      transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .carousel a img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+    .carousel a span {
+      font-size: 0.95rem;
+    }
+    .carousel a:hover {
+      transform: scale(1.03);
+    }
+    body.dark .carousel a {
+      background: #2a2a2a;
+      color: #f1f1f1;
+    }
   </style>
 </head>
 <body>
@@ -439,7 +487,43 @@
         </div>
       </div>
     </div>
-  </div>
+    <div class="articles">
+      <h2>My Articles</h2>
+      <div class="carousel">
+<a href="https://www.macrumors.com/2024/07/04/leak-confirms-apples-work-on-home-accessory/" target="_blank">
+  <img src="https://images.macrumors.com/t/i4Kp3qjnMz55ksLNT9fglAbPKK8=/1600x0/article-new/2021/04/HomePod-G4-Feature.jpg" alt="Thumbnail" />
+  <span>Leak Confirms Apple's Work on Home Accessory</span>
+</a>
+<a href="https://www.macrumors.com/2024/05/14/vision-pro-chinese-database/" target="_blank">
+  <img src="https://images.macrumors.com/t/QKhvAq5D9Ln0Tbtg9bloGOYld6I=/1600x0/article-new/2024/01/Apple-Vision-Pro-Dual-Loop-Band-Purple-Feature-2.jpg" alt="Thumbnail" />
+  <span>Vision Pro Referenced in Chinese Regulatory Database</span>
+</a>
+<a href="https://www.macrumors.com/2024/03/27/ios-18-topographic-maps/" target="_blank">
+  <img src="https://images.macrumors.com/t/J8H3fQ7niLo4PFtSwPXcm0KO22s=/1600x0/article-new/2023/04/watchos-10-maps-app.jpg" alt="Thumbnail" />
+  <span>iOS 18 to Add Topographic Maps</span>
+</a>
+<a href="https://www.macrumors.com/2024/03/26/apple-maps-custom-routes-ios-18/" target="_blank">
+  <img src="https://images.macrumors.com/t/DahKijosREv4QETfFdx_rq-5p3M=/1600x0/article-new/2022/03/apple-maps-3d-feature.jpg" alt="Thumbnail" />
+  <span>Apple Maps Custom Routes Coming in iOS 18</span>
+</a>
+<a href="https://www.macrumors.com/2024/03/13/vision-pro-keyboard-new-languages/" target="_blank">
+  <img src="https://images.macrumors.com/t/Ptkf6AcSt00_uPpFlev4ur6v2CQ=/1600x0/article-new/2024/01/apple-vision-pro-virtual-keyboard.jpg" alt="Thumbnail" />
+  <span>Vision Pro Keyboard Gains New Languages</span>
+</a>
+<a href="https://www.macrumors.com/2024/02/29/apple-self-service-repair-m3-macs/" target="_blank">
+  <img src="https://images.macrumors.com/t/4K_hSodkECIXXY6LVkCuNchR55M=/1600x0/article-new/2024/02/Apple-Self-Service-Repair-MacBook.jpeg" alt="Thumbnail" />
+  <span>Apple Adds M3 Macs to Self Service Repair Program</span>
+</a>
+<a href="https://www.macrumors.com/2024/02/02/apple-vision-pro-developer-strap-diagnostics-mode/" target="_blank">
+  <img src="https://images.macrumors.com/t/q1rN3yG3rxDE8PU3EmIfJD59iL4=/1600x0/article-new/2024/02/vision-pro-developer-strap-diagnostics.jpg" alt="Thumbnail" />
+  <span>Vision Pro Developer Strap Has Diagnostics Mode</span>
+</a>
+<a href="https://www.macrumors.com/2024/01/29/tvos-17-4-homeos-mention/" target="_blank">
+  <img src="https://images.macrumors.com/t/KalJGT_p_yW-QM1s6LQIA8V-XAQ=/1600x0/article-new/2021/06/homeOS2.jpg" alt="Thumbnail" />
+  <span>tvOS 17.4 Beta Code References 'homeOS'</span>
+</a>
+      </div>
+    </div>
 
   <script>
     function toggleDetails(clickedCard, event) {
