@@ -24,6 +24,51 @@
   <link rel="canonical" href="https://aaronperris.com/" />
   <link rel="manifest" href="/favicon/site.webmanifest" />
   <style>
+
+    .share-button-icon {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 6px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.2s ease;
+      line-height: 0;
+    }
+
+    .share-button-icon img {
+      width: 20px !important;
+      height: 20px !important;
+      display: block;
+      pointer-events: none;
+      margin: 0;
+      vertical-align: middle;
+      filter: invert(1);
+    }
+
+    .share-button-icon:hover {
+      background: rgba(240, 240, 240, 1);
+    }
+
+    body.dark .share-button-icon {
+      background: rgba(32, 32, 32, 0.85);
+    }
+
+    body.dark .share-button-icon:hover {
+      background: rgba(64, 64, 64, 1);
+    }
+
+    body.dark .share-button-icon img {
+      filter: none;
+    }
     .dropdown-icon {
       width: 20px;
       height: 20px;
@@ -343,6 +388,28 @@
       padding-bottom: 1rem;
       scroll-snap-type: x mandatory;
     }
+
+    /* Scrollbar indicator animation for carousels */
+    .carousel::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(to right, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 100%);
+      margin-top: 4px;
+      border-radius: 2px;
+      animation: scrollHint 2s ease-out 1;
+    }
+
+    @keyframes scrollHint {
+      0% { opacity: 0; transform: translateX(-20%); }
+      20% { opacity: 1; transform: translateX(0); }
+      100% { opacity: 0; transform: translateX(100%); }
+    }
+
+    body.dark .carousel::after {
+      background: linear-gradient(to right, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+    }
     .carousel::-webkit-scrollbar {
       height: 6px;
     }
@@ -357,6 +424,7 @@
       background: rgba(255, 255, 255, 0.15);
     }
     .carousel a {
+      position: relative;
       flex: 0 0 auto;
       scroll-snap-align: start;
       padding: 0.5rem;
@@ -643,34 +711,58 @@
 <a href="https://www.macrumors.com/2024/07/04/leak-confirms-apples-work-on-home-accessory/" target="_blank">
   <img src="https://images.macrumors.com/t/i4Kp3qjnMz55ksLNT9fglAbPKK8=/1600x0/article-new/2021/04/HomePod-G4-Feature.jpg" alt="Thumbnail" />
   <span>Leak Confirms Apple's Work on Home Accessory</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2024/07/04/leak-confirms-apples-work-on-home-accessory/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2024/05/14/vision-pro-chinese-database/" target="_blank">
   <img src="https://images.macrumors.com/t/QKhvAq5D9Ln0Tbtg9bloGOYld6I=/1600x0/article-new/2024/01/Apple-Vision-Pro-Dual-Loop-Band-Purple-Feature-2.jpg" alt="Thumbnail" />
   <span>Vision Pro Referenced in Chinese Regulatory Database</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2024/05/14/vision-pro-chinese-database/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2024/03/27/ios-18-topographic-maps/" target="_blank">
   <img src="https://images.macrumors.com/t/J8H3fQ7niLo4PFtSwPXcm0KO22s=/1600x0/article-new/2023/04/watchos-10-maps-app.jpg" alt="Thumbnail" />
   <span>iOS 18 to Add Topographic Maps</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2024/03/27/ios-18-topographic-maps/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2024/03/26/apple-maps-custom-routes-ios-18/" target="_blank">
   <img src="https://images.macrumors.com/t/DahKijosREv4QETfFdx_rq-5p3M=/1600x0/article-new/2022/03/apple-maps-3d-feature.jpg" alt="Thumbnail" />
   <span>Apple Maps Custom Routes Coming in iOS 18</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2024/03/26/apple-maps-custom-routes-ios-18/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2024/03/13/vision-pro-keyboard-new-languages/" target="_blank">
   <img src="https://images.macrumors.com/t/Ptkf6AcSt00_uPpFlev4ur6v2CQ=/1600x0/article-new/2024/01/apple-vision-pro-virtual-keyboard.jpg" alt="Thumbnail" />
   <span>Vision Pro Keyboard Gains New Languages</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2024/03/13/vision-pro-keyboard-new-languages/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2024/02/29/apple-self-service-repair-m3-macs/" target="_blank">
   <img src="https://images.macrumors.com/t/4K_hSodkECIXXY6LVkCuNchR55M=/1600x0/article-new/2024/02/Apple-Self-Service-Repair-MacBook.jpeg" alt="Thumbnail" />
   <span>Apple Adds M3 Macs to Self Service Repair Program</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2024/02/29/apple-self-service-repair-m3-macs/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2024/02/02/apple-vision-pro-developer-strap-diagnostics-mode/" target="_blank">
   <img src="https://images.macrumors.com/t/q1rN3yG3rxDE8PU3EmIfJD59iL4=/1600x0/article-new/2024/02/vision-pro-developer-strap-diagnostics.jpg" alt="Thumbnail" />
   <span>Vision Pro Developer Strap Has Diagnostics Mode</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2024/02/02/apple-vision-pro-developer-strap-diagnostics-mode/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2024/01/29/tvos-17-4-homeos-mention/" target="_blank">
   <img src="https://images.macrumors.com/t/KalJGT_p_yW-QM1s6LQIA8V-XAQ=/1600x0/article-new/2021/06/homeOS2.jpg" alt="Thumbnail" />
   <span>tvOS 17.4 Beta Code References 'homeOS'</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2024/01/29/tvos-17-4-homeos-mention/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
       </div>
     </div>
@@ -681,51 +773,92 @@
 <a href="https://www.macrumors.com/2025/06/26/apple-codebase-unreleased-audio-product/" target="_blank">
   <img src="https://images.macrumors.com/t/nx9V28XkJ1ZfWzBrP0IlwVGtsW0=/800x0/article-new/2025/05/airpods-pro-2-pinnk.jpeg?lossy" alt="AirPods Pro 3" />
   <span>AirPods Pro 3</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2025/06/26/apple-codebase-unreleased-audio-product/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2023/03/21/ios-16-4-airpods-reference/" target="_blank">
   <img src="https://images.macrumors.com/t/biWqlDz6FHZFiekTaZK2c_8ijVU=/800x0/article-new/2022/07/airpodsd-3-purple-4.jpg?lossy" alt="AirPods Pro 2" />
   <span>AirPods Pro 2</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2023/03/21/ios-16-4-airpods-reference/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2024/09/16/mac-mini-5-usb-c-ports-leak/" target="_blank">
   <img src="https://images.macrumors.com/t/DwD32v0RxVcwiXBFkftPFZDR5K4=/800x0/article-new/2024/08/M4-Mac-mini-Black-Ortho-Cooler.jpg?lossy" alt="M4 Mac Mini" />
   <span>M4 Mac Mini</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2024/09/16/mac-mini-5-usb-c-ports-leak/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2023/08/09/tvos-code-a17-chip-iphone-15/" target="_blank">
   <img src="https://images.macrumors.com/t/vdCo_Y6Bx5VlU1CuwRCgy_wR-pQ=/800x0/article-new/2023/08/iPhone-15-Blue-Three-Quarters-Perspective-Feature.jpg?lossy" alt="iPhone 15" />
   <span>iPhone 15</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2023/08/09/tvos-code-a17-chip-iphone-15/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2023/05/09/apple-working-on-new-beats-studio-pro/" target="_blank">
   <img src="https://images.macrumors.com/t/mWxGKdH69pNEyixG6ESpkW6AjWw=/800x0/article-new/2023/05/beats-studio-pro.jpg?lossy" alt="Beats Studio Pro" />
   <span>Beats Studio Pro</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2023/05/09/apple-working-on-new-beats-studio-pro/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2024/02/27/apple-working-on-beats-solo-4-headphones/" target="_blank">
   <img src="https://images.macrumors.com/t/rULS-Wc82cpgBPK3kG2shCbG9jM=/800x0/article-new/2024/02/new-beats-solo-4.jpg?lossy" alt="Beats Solo 4" />
   <span>Beats Solo 4</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2024/02/27/apple-working-on-beats-solo-4-headphones/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2024/05/07/apple-beats-pill-ios-17-5/" target="_blank">
   <img src="https://images.macrumors.com/t/dIzJ7x-turBMrUL6pctAhyFx60c=/800x0/article-new/2024/05/New-Beats-Pill-iOS-17.5-Feature.jpg?lossy" alt="Beats Pill" />
   <span>Beats Pill</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2024/05/07/apple-beats-pill-ios-17-5/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2022/07/29/apple-new-beats-fit-pro-colors/" target="_blank">
   <img src="https://images.macrumors.com/t/50A0ts1cGQQHUeciHTMIyiC6Ntk=/800x0/article-new/2022/07/Mica-Ochre-Umber-Beats-Feature.jpg?lossy" alt="Kim K Beats Fit Pro" />
   <span>Beats Fit Pro - Kim Kardashian Edition</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2022/07/29/apple-new-beats-fit-pro-colors/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2022/06/23/ios-16-new-siri-remote-for-apple-tv-rumor/" target="_blank">
   <img src="https://images.macrumors.com/t/yB1Davlw98iKUQOUDFv3RXtQ3wQ=/800x0/article-new/2021/04/apple-tv-4k-design-clue.jpg?lossy" alt="Siri Remote (3rd generation)" />
   <span>Siri Remote (3rd generation)</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2022/06/23/ios-16-new-siri-remote-for-apple-tv-rumor/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2024/10/21/apple-new-magic-mouse-trackpad-keyboard/" target="_blank">
   <img src="https://images.macrumors.com/t/rsT7_VUXXol4Wifu8PQHLygfa0o=/800x0/article-new/2022/02/mac-magic-keyboard.jpg?lossy" alt="USB-C Magic Accessories" />
   <span>USB-C Magic Accessories</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2024/10/21/apple-new-magic-mouse-trackpad-keyboard/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
 <a href="https://www.macrumors.com/2023/04/26/2023-apple-watch-price-face-band/" target="_blank">
   <img src="https://images.macrumors.com/t/g06yczIq9EUb7A6lcitU7Fhbivo=/800x0/article-new/2023/04/2023-pride-watch-face-band-feature.jpg?lossy" alt="2023 Pride Face/Band" />
   <span>2023 Pride Band</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2023/04/26/2023-apple-watch-price-face-band/')">
+    <img src="share.svg" alt="Share" />
+  </button>
 </a>
       </div>
     </div>
 
   <script>
+    function shareArticle(url) {
+      if (navigator.share) {
+        navigator.share({ title: document.title, url });
+      } else {
+        navigator.clipboard.writeText(url);
+        alert('Link copied to clipboard!');
+      }
+    }
     function toggleDetails(clickedCard, event) {
       if (event.target.closest('.work-details')) return;
       const allCards = document.querySelectorAll('.work-card');
@@ -756,6 +889,6 @@
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('dropdown').classList.toggle('hidden');
     });
-  </script>
+</script>
 </body>
 </html>
