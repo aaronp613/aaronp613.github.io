@@ -453,8 +453,10 @@
       clickedCard.classList.toggle('expanded');
     }
 
-    if (localStorage.getItem('theme') === 'dark') {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark' || (storedTheme === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.body.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     }
 
     document.getElementById('theme-toggle').addEventListener('click', () => {
