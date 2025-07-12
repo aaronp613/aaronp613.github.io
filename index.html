@@ -250,6 +250,7 @@
       margin-top: 1rem;
       width: 100%;
       display: none;
+      padding-bottom: 0;
     }
 
     .work-card.expanded .work-details {
@@ -257,17 +258,21 @@
     }
 
     .work-details .role {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 0.5rem 0 0.25rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     .work-details .role:last-child {
       border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
 
     body.dark .work-details .role {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
     }
+
+
 
     .work-details .role strong {
       font-size: 1rem;
