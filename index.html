@@ -24,6 +24,17 @@
   <link rel="canonical" href="https://aaronperris.com/" />
   <link rel="manifest" href="/favicon/site.webmanifest" />
   <style>
+    .dropdown-icon {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+      opacity: 0.85;
+      filter: brightness(0.2); /* Darken icons in light mode */
+    }
+    body.dark .dropdown-icon {
+      filter: none; /* Reset in dark mode */
+    }
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
     body {
@@ -37,6 +48,7 @@
       min-height: 100vh;
       padding: 2rem;
       box-sizing: border-box;
+      overflow-x: hidden;
     }
 
     body.dark {
@@ -331,6 +343,19 @@
       padding-bottom: 1rem;
       scroll-snap-type: x mandatory;
     }
+    .carousel::-webkit-scrollbar {
+      height: 6px;
+    }
+    .carousel::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+    }
+    .carousel::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    body.dark .carousel::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+    }
     .carousel a {
       flex: 0 0 auto;
       scroll-snap-align: start;
@@ -382,6 +407,11 @@
       border: none;
       color: inherit;
       cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    #hamburger:hover {
+      transform: scale(1.1);
     }
 
     .dropdown {
@@ -391,18 +421,28 @@
       background: #fff;
       border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 12px;
-      padding: 0.75rem 1rem;
+      padding: 0.75rem 1.25rem;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.5rem;
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      min-width: 180px;
+      min-width: 240px;
       animation: fadeIn 0.2s ease-in-out;
+    }
+    .dropdown-separator {
+      border: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      margin: 0.5rem 0;
+    }
+
+    body.dark .dropdown-separator {
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     body.dark .dropdown {
       background: #1e1e1e;
       border: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
     }
 
     .dropdown.hidden {
@@ -415,17 +455,27 @@
       border: none;
       color: inherit;
       text-decoration: none;
-      font: 500 1rem 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
       text-align: left;
       padding: 0.4rem 0.5rem;
       border-radius: 8px;
-      transition: background 0.2s ease;
+      transition: background 0.2s ease, transform 0.2s ease;
       cursor: pointer;
     }
 
     .dropdown a:hover,
-    .dropdown button:hover {
-      background: rgba(255, 255, 255, 0.1);
+    .dropdown button:hover,
+    #floating-theme-toggle:hover {
+      background: rgba(0, 0, 0, 0.06);
+      transform: scale(1.02);
+    }
+
+    body.dark .dropdown a:hover,
+    body.dark .dropdown button:hover,
+    body.dark #floating-theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.12);
     }
 
     @keyframes fadeIn {
@@ -435,12 +485,19 @@
 
 
     #floating-theme-toggle {
+      display: block;
       background: none;
       border: none;
-      cursor: pointer;
       color: inherit;
-      font-size: 1.25rem;
-      padding: 0;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      text-align: left;
+      padding: 0.4rem 0.5rem;
+      border-radius: 8px;
+      transition: background 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -450,13 +507,23 @@
     <div class="menu-toggle">
       <button id="hamburger" aria-label="Menu">☰</button>
       <div id="dropdown" class="dropdown hidden">
-        <a href="#work-history">Where I've Been</a>
-        <a href="#articles">My Articles</a>
-        <a href="#leaks">Products I've Leaked</a>
-        <button id="floating-theme-toggle" title="Toggle Theme">
-          <img src="lightmode.svg" alt="Light Mode" class="theme-icon light" />
-          <img src="darkmode.svg" alt="Dark Mode" class="theme-icon dark" />
-        </button>
+        <a href="#work-history">
+          <img src="menubar/jobs.svg" class="dropdown-icon" alt="Jobs" />
+          Where I've Been
+        </a>
+        <a href="#articles">
+          <img src="menubar/articles.svg" class="dropdown-icon" alt="Articles" />
+          My Articles
+        </a>
+        <a href="#leaks">
+          <img src="menubar/products.svg" class="dropdown-icon" alt="Products" />
+          Products I've Leaked
+        </a>
+        <hr class="dropdown-separator" />
+        <a id="floating-theme-toggle" href="#" title="Toggle Theme">
+          <img src="menubar/toggletheme.svg" class="dropdown-icon" alt="Toggle Theme" />
+          Toggle Theme
+        </a>
       </div>
     </div>
     <img src="aaron.jpg" alt="Aaron" class="profile-pic" onerror="this.onerror=null;this.src='https://placehold.co/150x150/EFEFEF/333333?text=AP';"/>
@@ -644,8 +711,8 @@
   <span>Beats Fit Pro - Kim Kardashian Edition</span>
 </a>
 <a href="https://www.macrumors.com/2022/06/23/ios-16-new-siri-remote-for-apple-tv-rumor/" target="_blank">
-  <img src="https://images.macrumors.com/t/yB1Davlw98iKUQOUDFv3RXtQ3wQ=/800x0/article-new/2021/04/apple-tv-4k-design-clue.jpg?lossy" alt="Siri Remote" />
-  <span>Siri Remote</span>
+  <img src="https://images.macrumors.com/t/yB1Davlw98iKUQOUDFv3RXtQ3wQ=/800x0/article-new/2021/04/apple-tv-4k-design-clue.jpg?lossy" alt="Siri Remote (3rd generation)" />
+  <span>Siri Remote (3rd generation)</span>
 </a>
 <a href="https://www.macrumors.com/2024/10/21/apple-new-magic-mouse-trackpad-keyboard/" target="_blank">
   <img src="https://images.macrumors.com/t/rsT7_VUXXol4Wifu8PQHLygfa0o=/800x0/article-new/2022/02/mac-magic-keyboard.jpg?lossy" alt="USB-C Magic Accessories" />
@@ -681,7 +748,10 @@
       localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
     }
 
-    document.getElementById('floating-theme-toggle').addEventListener('click', toggleTheme);
+    document.getElementById('floating-theme-toggle').addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleTheme();
+    });
 
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('dropdown').classList.toggle('hidden');
