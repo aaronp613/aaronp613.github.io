@@ -9,20 +9,15 @@
   <link rel="shortcut icon" href="/favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="Aaron Perris" />
-  <!-- Open Graph meta tags -->
   <meta property="og:title" content="Aaron Perris" />
   <meta property="og:description" content="Personal site for Aaron Perris" />
   <meta property="og:image" content="https://aaronperris.com/ap.png" />
   <meta property="og:url" content="https://aaronperris.com/" />
   <meta property="og:type" content="website" />
-
-  <!-- Twitter Card meta tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Aaron Perris" />
   <meta name="twitter:description" content="Personal site for Aaron Perris" />
   <meta name="twitter:image" content="https://aaronperris.com/ap.png" />
-
-  <!-- SEO meta tags -->
   <meta name="description" content="Aaron Perris — personal website, work history, and social links. Follow updates, connect professionally, or explore open-source work." />
   <meta name="keywords" content="Aaron Perris, Mac Technician, Apple, Jamf, macOS, IT Support, Havoc, Packix, AppleDB, LinkedIn, GitHub, Apple" />
   <meta name="author" content="Aaron Perris" />
@@ -59,10 +54,12 @@
     }
 
     .container {
+      position: relative;
       max-width: 1000px;
       width: 100%;
       margin: 0 auto;
       padding: 2rem;
+      padding-top: 4.5rem;
       background: white;
       border-radius: 16px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.08);
@@ -348,6 +345,8 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      min-height: 160px;
+      justify-content: flex-start;
     }
     .carousel a img {
       width: 100%;
@@ -355,9 +354,12 @@
       object-fit: cover;
       border-radius: 8px;
       margin-bottom: 0.5rem;
+      flex-shrink: 0;
     }
     .carousel a span {
       font-size: 0.95rem;
+      line-height: 1.3;
+      text-align: center;
     }
     .carousel a:hover {
       transform: scale(1.03);
@@ -366,15 +368,96 @@
       background: #2a2a2a;
       color: #f1f1f1;
     }
+
+    .menu-toggle {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 10;
+    }
+
+    #hamburger {
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      min-width: 180px;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+
+    body.dark .dropdown {
+      background: #1e1e1e;
+      border: none;
+    }
+
+    .dropdown.hidden {
+      display: none;
+    }
+
+    .dropdown a,
+    .dropdown button {
+      background: none;
+      border: none;
+      color: inherit;
+      text-decoration: none;
+      font: 500 1rem 'Inter', sans-serif;
+      text-align: left;
+      padding: 0.4rem 0.5rem;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+      cursor: pointer;
+    }
+
+    .dropdown a:hover,
+    .dropdown button:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+
+    #floating-theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: inherit;
+      font-size: 1.25rem;
+      padding: 0;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="toolbar">
-      <button id="theme-toggle" title="Toggle Theme">
-        <img src="lightmode.svg" alt="Light Mode" class="theme-icon light" />
-        <img src="darkmode.svg" alt="Dark Mode" class="theme-icon dark" />
-      </button>
+
+    <div class="menu-toggle">
+      <button id="hamburger" aria-label="Menu">☰</button>
+      <div id="dropdown" class="dropdown hidden">
+        <a href="#work-history">Where I've Been</a>
+        <a href="#articles">My Articles</a>
+        <a href="#leaks">Products I've Leaked</a>
+        <button id="floating-theme-toggle" title="Toggle Theme">
+          <img src="lightmode.svg" alt="Light Mode" class="theme-icon light" />
+          <img src="darkmode.svg" alt="Dark Mode" class="theme-icon dark" />
+        </button>
+      </div>
     </div>
     <img src="aaron.jpg" alt="Aaron" class="profile-pic" onerror="this.onerror=null;this.src='https://placehold.co/150x150/EFEFEF/333333?text=AP';"/>
     <h1>Aaron Perris</h1>
@@ -398,7 +481,7 @@
         <img src="socials/discord.svg" alt="Discord" title="Discord" />
       </a>
     </div>
-    <div class="work-history">
+    <div class="work-history" id="work-history">
       <h2>Where I've Been</h2>
       <div class="work-history-container">
         <div class="work-card" onclick="toggleDetails(this, event)">
@@ -487,7 +570,7 @@
         </div>
       </div>
     </div>
-    <div class="articles">
+    <div class="articles" id="articles">
       <h2>My Articles</h2>
       <div class="carousel">
 <a href="https://www.macrumors.com/2024/07/04/leak-confirms-apples-work-on-home-accessory/" target="_blank">
@@ -525,6 +608,56 @@
       </div>
     </div>
 
+    <div class="articles" id="leaks">
+      <h2>Products I've Leaked</h2>
+      <div class="carousel">
+<a href="https://www.macrumors.com/2025/06/26/apple-codebase-unreleased-audio-product/" target="_blank">
+  <img src="https://images.macrumors.com/t/nx9V28XkJ1ZfWzBrP0IlwVGtsW0=/800x0/article-new/2025/05/airpods-pro-2-pinnk.jpeg?lossy" alt="AirPods Pro 3" />
+  <span>AirPods Pro 3</span>
+</a>
+<a href="https://www.macrumors.com/2023/03/21/ios-16-4-airpods-reference/" target="_blank">
+  <img src="https://images.macrumors.com/t/biWqlDz6FHZFiekTaZK2c_8ijVU=/800x0/article-new/2022/07/airpodsd-3-purple-4.jpg?lossy" alt="AirPods Pro 2" />
+  <span>AirPods Pro 2</span>
+</a>
+<a href="https://www.macrumors.com/2024/09/16/mac-mini-5-usb-c-ports-leak/" target="_blank">
+  <img src="https://images.macrumors.com/t/DwD32v0RxVcwiXBFkftPFZDR5K4=/800x0/article-new/2024/08/M4-Mac-mini-Black-Ortho-Cooler.jpg?lossy" alt="M4 Mac Mini" />
+  <span>M4 Mac Mini</span>
+</a>
+<a href="https://www.macrumors.com/2023/08/09/tvos-code-a17-chip-iphone-15/" target="_blank">
+  <img src="https://images.macrumors.com/t/vdCo_Y6Bx5VlU1CuwRCgy_wR-pQ=/800x0/article-new/2023/08/iPhone-15-Blue-Three-Quarters-Perspective-Feature.jpg?lossy" alt="iPhone 15" />
+  <span>iPhone 15</span>
+</a>
+<a href="https://www.macrumors.com/2023/05/09/apple-working-on-new-beats-studio-pro/" target="_blank">
+  <img src="https://images.macrumors.com/t/mWxGKdH69pNEyixG6ESpkW6AjWw=/800x0/article-new/2023/05/beats-studio-pro.jpg?lossy" alt="Beats Studio Pro" />
+  <span>Beats Studio Pro</span>
+</a>
+<a href="https://www.macrumors.com/2024/02/27/apple-working-on-beats-solo-4-headphones/" target="_blank">
+  <img src="https://images.macrumors.com/t/rULS-Wc82cpgBPK3kG2shCbG9jM=/800x0/article-new/2024/02/new-beats-solo-4.jpg?lossy" alt="Beats Solo 4" />
+  <span>Beats Solo 4</span>
+</a>
+<a href="https://www.macrumors.com/2024/05/07/apple-beats-pill-ios-17-5/" target="_blank">
+  <img src="https://images.macrumors.com/t/dIzJ7x-turBMrUL6pctAhyFx60c=/800x0/article-new/2024/05/New-Beats-Pill-iOS-17.5-Feature.jpg?lossy" alt="Beats Pill" />
+  <span>Beats Pill</span>
+</a>
+<a href="https://www.macrumors.com/2022/07/29/apple-new-beats-fit-pro-colors/" target="_blank">
+  <img src="https://images.macrumors.com/t/50A0ts1cGQQHUeciHTMIyiC6Ntk=/800x0/article-new/2022/07/Mica-Ochre-Umber-Beats-Feature.jpg?lossy" alt="Kim K Beats Fit Pro" />
+  <span>Beats Fit Pro - Kim Kardashian Edition</span>
+</a>
+<a href="https://www.macrumors.com/2022/06/23/ios-16-new-siri-remote-for-apple-tv-rumor/" target="_blank">
+  <img src="https://images.macrumors.com/t/yB1Davlw98iKUQOUDFv3RXtQ3wQ=/800x0/article-new/2021/04/apple-tv-4k-design-clue.jpg?lossy" alt="Siri Remote" />
+  <span>Siri Remote</span>
+</a>
+<a href="https://www.macrumors.com/2024/10/21/apple-new-magic-mouse-trackpad-keyboard/" target="_blank">
+  <img src="https://images.macrumors.com/t/rsT7_VUXXol4Wifu8PQHLygfa0o=/800x0/article-new/2022/02/mac-magic-keyboard.jpg?lossy" alt="USB-C Magic Accessories" />
+  <span>USB-C Magic Accessories</span>
+</a>
+<a href="https://www.macrumors.com/2023/04/26/2023-apple-watch-price-face-band/" target="_blank">
+  <img src="https://images.macrumors.com/t/g06yczIq9EUb7A6lcitU7Fhbivo=/800x0/article-new/2023/04/2023-pride-watch-face-band-feature.jpg?lossy" alt="2023 Pride Face/Band" />
+  <span>2023 Pride Band</span>
+</a>
+      </div>
+    </div>
+
   <script>
     function toggleDetails(clickedCard, event) {
       if (event.target.closest('.work-details')) return;
@@ -543,9 +676,15 @@
       localStorage.setItem('theme', 'dark');
     }
 
-    document.getElementById('theme-toggle').addEventListener('click', () => {
+    function toggleTheme() {
       document.body.classList.toggle('dark');
       localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    }
+
+    document.getElementById('floating-theme-toggle').addEventListener('click', toggleTheme);
+
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('dropdown').classList.toggle('hidden');
     });
   </script>
 </body>
