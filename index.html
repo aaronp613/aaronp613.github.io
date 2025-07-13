@@ -87,7 +87,6 @@
       display: block;
       pointer-events: none;
       margin: 0;
-      vertical-align: middle;
       filter: invert(1);
     }
 
@@ -498,12 +497,11 @@
     }
 
     .cve-entry a {
-      color: white;
+      color: inherit;
       text-decoration: underline;
     }
-
     body.dark .cve-entry a {
-      color: white;
+      color: inherit;
     }
 
     .cve-entry:hover {
@@ -651,6 +649,14 @@
         <a href="#cves">
           <img src="menubar/bug.svg" class="dropdown-icon" alt="CVEs" />
           CVEs
+        </a>
+        <a href="https://paypal.me/aaronp613" target="_blank">
+          <img src="menubar/pay.svg" class="dropdown-icon" alt="Tip" />
+          Buy Me a Coffee
+        </a>
+        <a href="https://aaronperris.com/partnerships">
+          <img src="menubar/partner.svg" class="dropdown-icon" alt="Partnerships" />
+          Partner With Me
         </a>
         <hr class="dropdown-separator" />
         <a id="floating-theme-toggle" href="#" title="Toggle Theme">

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brand Partnerships</title>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Aaron Perris" />
+  <meta property="og:title" content="Brand Partnerships" />
+  <meta property="og:description" content="Brand partnership opportunities with Aaron Perris" />
+  <meta property="og:image" content="https://aaronperris.com/ap.png" />
+  <meta property="og:url" content="https://aaronperris.com/partnerships" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Brand Partnerships – Aaron Perris" />
+  <meta name="twitter:description" content="Brand partnership opportunities with Aaron Perris" />
+  <meta name="twitter:image" content="https://aaronperris.com/ap.png" />
+  <meta name="description" content="Partner with Aaron Perris for sponsored posts, product reviews, and campaigns." />
+  <meta name="keywords" content="Aaron Perris, Brand Partnerships, Sponsored, Product Review, Social Media, Collaboration" />
+  <meta name="author" content="Aaron Perris" />
+  <link rel="canonical" href="https://aaronperris.com/partnerships" />
+  <style>
+    .platform-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 37px;
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      margin: 0 0.25rem;
+      background: rgba(255, 255, 255, 0.9);
+    }
+    .platform-box img {
+      width: 20px;
+      height: 20px;
+      margin-bottom: 0.25rem;
+      filter: brightness(0.2);
+    }
+    .platform-box span {
+      font-size: 0.65rem;
+      font-weight: 500;
+    }
+    body.dark .platform-box {
+      background: rgba(32, 32, 32, 0.9);
+    }
+    body.dark .platform-box img {
+      filter: brightness(1.2);
+    }
+    .hamburger-icon {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .hamburger-icon.open {
+      transform: rotate(90deg);
+    }
+    .share-button-icon {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 6px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.2s ease;
+      line-height: 0;
+    }
+    .share-button-icon img {
+      width: 20px !important;
+      height: 20px !important;
+      display: block;
+      pointer-events: none;
+      margin: 0;
+      filter: invert(1);
+    }
+    .share-button-icon:hover {
+      background: rgba(240, 240, 240, 1);
+    }
+    body.dark .share-button-icon {
+      background: rgba(32, 32, 32, 0.85);
+    }
+    body.dark .share-button-icon:hover {
+      background: rgba(64, 64, 64, 1);
+    }
+    body.dark .share-button-icon img {
+      filter: none;
+    }
+    .dropdown-icon {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+      opacity: 0.85;
+      filter: brightness(0.2);
+    }
+    body.dark .dropdown-icon {
+      filter: none;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 2rem;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+    body.dark {
+      background: #121212;
+      color: #f1f1f1;
+    }
+    body.dark .container {
+      background: #1e1e1e;
+    }
+    .container {
+      position: relative;
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2rem;
+      padding-top: 4.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 25%;
+      object-fit: cover;
+      border: 2px solid white;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.1);
+    }
+    body.dark .profile-pic {
+      box-shadow: 0 0 20px 6px rgba(255, 255, 255, 0.05);
+    }
+    h1 {
+      margin-top: 1rem;
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+    .links {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 100%;
+    }
+    .links a {
+      color: #0077cc;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    .links img {
+      width: 48px;
+      height: 48px;
+      vertical-align: middle;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .links a:hover {
+      transform: translateY(-5px);
+    }
+    .toolbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .theme-icon {
+      width: 28px;
+      height: 28px;
+      display: none;
+    }
+    .theme-icon.light {
+      display: inline;
+    }
+    body.dark .theme-icon.light {
+      display: none;
+    }
+    body.dark .theme-icon.dark {
+      display: inline;
+    }
+    #theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: inherit;
+      transition: transform 0.2s ease;
+    }
+    #theme-toggle:hover {
+      transform: scale(1.1);
+    }
+    .menu-toggle {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 10;
+    }
+    #hamburger {
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    #hamburger:hover {
+      transform: scale(1.1);
+    }
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      min-width: 240px;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+    .dropdown-separator {
+      border: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      margin: 0.5rem 0;
+    }
+    body.dark .dropdown-separator {
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    body.dark .dropdown {
+      background: #1e1e1e;
+      border: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    }
+    .dropdown.hidden {
+      display: none;
+    }
+    .dropdown a,
+    .dropdown button {
+      background: none;
+      border: none;
+      color: inherit;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      text-align: left;
+      padding: 0.4rem 0.5rem;
+      border-radius: 8px;
+      transition: background 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
+    }
+    .dropdown a:hover,
+    .dropdown button:hover,
+    #floating-theme-toggle:hover {
+      background: rgba(0, 0, 0, 0.06);
+      transform: scale(1.02);
+    }
+    body.dark .dropdown a:hover,
+    body.dark .dropdown button:hover,
+    body.dark #floating-theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #floating-theme-toggle {
+      display: block;
+      background: none;
+      border: none;
+      color: inherit;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      text-align: left;
+      padding: 0.4rem 0.5rem;
+      border-radius: 8px;
+      transition: background 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
+    }
+    .benq-embed {
+      max-height: 240px;
+      overflow: hidden;
+      position: relative;
+      border-radius: 12px;
+    }
+    .benq-embed::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.9));
+      pointer-events: none;
+    }
+    body.dark .benq-embed::after {
+      background: linear-gradient(to bottom, transparent, #1e1e1e);
+    }
+    .partnerships-list {
+      margin-bottom: 2rem;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 500px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2rem;
+    }
+    input, textarea {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    body.dark input,
+    body.dark textarea {
+      background: #2a2a2a;
+      border: 1px solid #555;
+      color: #fff;
+    }
+    button[type="submit"] {
+      padding: 0.75rem;
+      font-size: 1rem;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background: #005fa3;
+    }
+    .carousel {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1rem;
+    }
+    .partner-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 16px;
+      padding: 1rem 1.25rem;
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid #e5e5e5;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+      min-width: 220px;
+      max-width: 240px;
+      height: auto;
+      text-align: center;
+      scroll-snap-align: start;
+    }
+    .partner-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+    body.dark .partner-card {
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      color: #fff;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 20;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      color: #000;
+      padding: 1.5rem;
+      max-width: 500px;
+      border-radius: 16px;
+      position: relative;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e5e5e5;
+    }
+    .close {
+      position: absolute;
+      top: 0.75rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    body.dark .modal-content {
+      background: #1e1e1e;
+      color: #f1f1f1;
+      border: 1px solid #333;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+    .down-icon {
+      transition: filter 0.2s ease;
+    }
+    body.dark .down-icon {
+      filter: invert(1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="menu-toggle">
+      <button id="hamburger" aria-label="Menu">
+        <span class="hamburger-icon" id="hamburger-icon">☰</span>
+      </button>
+      <div id="dropdown" class="dropdown hidden">
+        <a href="https://aaronperris.com">
+          <img src="menubar/home.svg" class="dropdown-icon" alt="Home" />
+          Home
+        </a>
+        <a href="https://aaronperris.com/#work-history">
+          <img src="menubar/jobs.svg" class="dropdown-icon" alt="Jobs" />
+          Where I've Been
+        </a>
+        <a href="https://aaronperris.com/#articles">
+          <img src="menubar/articles.svg" class="dropdown-icon" alt="Articles" />
+          My Articles
+        </a>
+        <a href="https://aaronperris.com/#leaks">
+          <img src="menubar/products.svg" class="dropdown-icon" alt="Products" />
+          Products I've Leaked
+        </a>
+        <a href="https://aaronperris.com/#cves">
+          <img src="menubar/bug.svg" class="dropdown-icon" alt="CVEs" />
+          CVEs
+        </a>
+        <a href="https://paypal.me/aaronp613" target="_blank">
+          <img src="menubar/pay.svg" class="dropdown-icon" alt="Tip" />
+          Buy Me a Coffee
+        </a>
+        <hr class="dropdown-separator" />
+        <a id="floating-theme-toggle" href="#" title="Toggle Theme">
+          <img src="menubar/toggletheme.svg" class="dropdown-icon" alt="Toggle Theme" />
+          Toggle Theme
+        </a>
+      </div>
+    </div>
+    
+    <h1>Brand Partnerships</h1>
+    
+    <h2>Featured Campaigns</h2>
+    <div class="carousel" id="partnership-carousel">
+      <div class="partner-card" onclick="openModal('benq')">
+        <strong>BenQ</strong>
+        <span>ScreenBar Halo</span>
+        <img src="down.svg" alt="Expand" style="margin-top: 0.75rem; width: 25px; height: 25px; filter: invert(0.4);" class="down-icon" />
+      </div>
+      <div class="partner-card" onclick="openModal('macpaw')">
+        <strong>MacPaw</strong>
+        <span>Eney</span>
+        <img src="down.svg" alt="Expand" style="margin-top: 0.75rem; width: 25px; height: 25px; filter: invert(0.4);" class="down-icon" />
+      </div>
+      <div class="partner-card" onclick="openModal('setapp-showcase')">
+        <strong>SetApp</strong>
+        <span>Apps Showcase</span>
+        <img src="down.svg" alt="Expand" style="margin-top: 0.75rem; width: 25px; height: 25px; filter: invert(0.4);" class="down-icon" />
+      </div>
+      <div class="partner-card" onclick="openModal('setapp-survey')">
+        <strong>SetApp</strong>
+        <span>Mac Developer Survey</span>
+        <img src="down.svg" alt="Expand" style="margin-top: 0.75rem; width: 25px; height: 25px; filter: invert(0.4);" class="down-icon" />
+      </div>
+    </div>
+
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p style="max-width: 500px; margin: 2rem auto 1rem auto; font-size: 1rem; text-align: center;">
+      I'm always open to new collaboration opportunities, don't hesitate to get in touch!
+    </p>
+    <form action="https://formspree.io/f/xpwlarlz" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="company" placeholder="Company Name (optional)">
+      <textarea name="message" placeholder="Tell me about your opportunity..." rows="5" required style="resize: vertical; min-height: 150px;"></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <div id="success-message" style="display:none; text-align:center; margin-top:1rem; font-weight:500; color:green;">
+      Thanks for reaching out! I’ll get back to you as soon as I can.
+    </div>
+  </div>
+  <script>
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modal-body');
+    function openModal(id) {
+      const tweetTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+      let content = '';
+      switch (id) {
+        case 'benq':
+          content = `<div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem;">
+  <strong style="font-size: 1.1rem;">BenQ</strong>
+  <span style="font-size: 0.95rem; color: gray;">ScreenBar Halo</span>
+</div>
+<p style="margin-bottom: 1rem; text-align: left;">
+  BenQ collaborated with me to present the ScreenBar Halo in a three-part campaign. Over the course of three days, I posted about the unboxing experience, explored its functionalities, and demonstrated its integration into my workspace. My posts emphasized its user-friendliness, space-efficient design, and the lighting benefits it provides to my setup. I also linked to the product page to drive interest and enable my followes to learn more or make a purchase.
+</p>
+<div class="tweet-wrapper benq-embed">
+  <blockquote class="twitter-tweet" data-theme="${tweetTheme}">
+    <p lang="en" dir="ltr">
+      <a href="https://twitter.com/aaronp613/status/1907782576011354255">https://twitter.com/aaronp613/status/1907782576011354255</a>
+    </p>
+  </blockquote>
+</div>`;
+          break;
+        case 'macpaw':
+          content = `<div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem;">
+  <strong style="font-size: 1.1rem;">MacPaw</strong>
+  <span style="font-size: 0.95rem; color: gray;">Eney</span>
+</div>
+<p style="margin-bottom: 1rem; text-align: left;">
+  I collaborated with MacPaw to develop a four-part thread that introduced Eney, their new AI companion for Mac. The initial post provided an overview of its fluid, native-feeling design, highlighting its seamless integration with macOS. Subsequent posts showcased various features designed to enhance workflows and increase productivity. The introductory post also included a link to the beta signup page to generate early interest.
+</p>
+<div class="tweet-wrapper benq-embed">
+  <blockquote class="twitter-tweet" data-theme="${tweetTheme}">
+    <p lang="en" dir="ltr">
+      <a href="https://twitter.com/aaronp613/status/1925544799920075146">https://twitter.com/aaronp613/status/1925544799920075146</a>
+    </p>
+  </blockquote>
+</div>`;
+          break;
+        case 'setapp-showcase':
+          content = `<div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem;">
+  <strong style="font-size: 1.1rem;">SetApp</strong>
+  <span style="font-size: 0.95rem; color: gray;">Apps Showcase</span>
+</div>
+<p style="margin-bottom: 1rem; text-align: left;">
+  I collaborated with SetApp to showcase several Mac apps available on their alternative App Store over a three-month period. The posts detailed the functionality of each application, my personal usage, integration into my workflow, and included screenshots demonstrating their use. Each thread also provided a link to access SetApp for a free 30-day trial.
+</p>
+<div class="tweet-wrapper benq-embed">
+  <blockquote class="twitter-tweet" data-theme="${tweetTheme}">
+    <p lang="en" dir="ltr">
+      <a href="https://twitter.com/aaronp613/status/1889308517913264205">https://twitter.com/aaronp613/status/1889308517913264205</a>
+    </p>
+  </blockquote>
+</div>`;
+          break;
+        case 'setapp-survey':
+          content = `<div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem;">
+  <strong style="font-size: 1.1rem;">SetApp</strong>
+  <span style="font-size: 0.95rem; color: gray;">Mac Developer Survey</span>
+</div>
+<p style="margin-bottom: 1rem; text-align: left;">
+  I worked with SetApp to promote their Mac Developer Survey by highlighting three key insights from the report. The post offered a snapshot of the most interesting findings and included a link for readers to view the full report.
+</p>
+<div class="tweet-wrapper benq-embed">
+  <blockquote class="twitter-tweet" data-theme="${tweetTheme}">
+    <p lang="en" dir="ltr">
+      <a href="https://twitter.com/aaronp613/status/1866470188746526881">https://twitter.com/aaronp613/status/1866470188746526881</a>
+    </p>
+  </blockquote>
+</div>`;
+          break;
+      }
+      modalBody.innerHTML = content;
+      modal.style.display = 'flex';
+      if (window.twttr?.widgets?.load) twttr.widgets.load(modalBody);
+    }
+    function closeModal() {
+      modal.style.display = 'none';
+      modalBody.innerHTML = '';
+    }
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) closeModal();
+    });
+    const applyTheme = (theme) => {
+        if (theme === 'dark') {
+            document.body.classList.add('dark');
+        } else {
+            document.body.classList.remove('dark');
+        }
+        localStorage.setItem('theme', theme);
+    };
+    const storedTheme = localStorage.getItem('theme');
+    const preferredScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    applyTheme(storedTheme || preferredScheme);
+    function toggleTheme() {
+      const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+      applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    }
+    document.getElementById('floating-theme-toggle').addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleTheme();
+    });
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('dropdown').classList.toggle('hidden');
+      document.getElementById('hamburger-icon').classList.toggle('open');
+    });
+    document.addEventListener('click', function(event) {
+        const dropdown = document.getElementById('dropdown');
+        const hamburger = document.getElementById('hamburger');
+        if (!dropdown.contains(event.target) && !hamburger.contains(event.target)) {
+            dropdown.classList.add('hidden');
+            document.getElementById('hamburger-icon').classList.remove('open');
+        }
+    });
+</script>
+<script>
+  const form = document.querySelector("form");
+  const successMessage = document.getElementById("success-message");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const email = form.querySelector('input[name="email"]').value.trim();
+    const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+    if (!emailPattern.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+    const formData = new FormData(form);
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        successMessage.style.display = "block";
+      }
+    });
+  });
+</script>
+</body>
