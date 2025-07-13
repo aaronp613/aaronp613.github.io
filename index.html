@@ -24,6 +24,14 @@
   <link rel="canonical" href="https://aaronperris.com/" />
   <link rel="manifest" href="/favicon/site.webmanifest" />
   <style>
+    .hamburger-icon {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .hamburger-icon.open {
+      transform: rotate(90deg);
+    }
 
     .share-button-icon {
       position: absolute;
@@ -581,7 +589,9 @@
   <div class="container">
 
     <div class="menu-toggle">
-      <button id="hamburger" aria-label="Menu">☰</button>
+      <button id="hamburger" aria-label="Menu">
+        <span class="hamburger-icon" id="hamburger-icon">☰</span>
+      </button>
       <div id="dropdown" class="dropdown hidden">
         <a href="#work-history">
           <img src="menubar/jobs.svg" class="dropdown-icon" alt="Jobs" />
@@ -594,6 +604,10 @@
         <a href="#leaks">
           <img src="menubar/products.svg" class="dropdown-icon" alt="Products" />
           Products I've Leaked
+        </a>
+        <a href="#cves">
+          <img src="menubar/bug.svg" class="dropdown-icon" alt="CVEs" />
+          CVEs
         </a>
         <hr class="dropdown-separator" />
         <a id="floating-theme-toggle" href="#" title="Toggle Theme">
@@ -917,6 +931,7 @@
 
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('dropdown').classList.toggle('hidden');
+      document.getElementById('hamburger-icon').classList.toggle('open');
     });
 </script>
 </body>
