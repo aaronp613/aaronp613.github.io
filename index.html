@@ -10,14 +10,14 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="Aaron Perris" />
   <meta property="og:title" content="Aaron Perris" />
-  <meta property="og:description" content="Personal site for Aaron Perris" />
-  <meta property="og:image" content="https://aaronperris.com/ap.png" />
+  <meta property="og:description" content="Researcher, analyst, code sleuth; I’ve been called all these and more. I’ve broken stories at MacRumors, uncovered unreleased Apple products, and love finding out what features companies are working on next." />
+  <meta property="og:image" content="https://aaronperris.com/embed.png" />
   <meta property="og:url" content="https://aaronperris.com/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Aaron Perris" />
-  <meta name="twitter:description" content="Personal site for Aaron Perris" />
-  <meta name="twitter:image" content="https://aaronperris.com/ap.png" />
+  <meta name="twitter:description" content="Researcher, analyst, code sleuth; I’ve been called all these and more. I’ve broken stories at MacRumors, uncovered unreleased Apple products, and love finding out what features companies are working on next." />
+  <meta name="twitter:image" content="https://aaronperris.com/embed.png" />
   <meta name="description" content="Aaron Perris — personal website, work history, and social links. Follow updates, connect professionally, or explore open-source work." />
   <meta name="keywords" content="Aaron Perris, Mac Technician, Apple, Jamf, macOS, IT Support, Havoc, Packix, AppleDB, LinkedIn, GitHub, Apple" />
   <meta name="author" content="Aaron Perris" />
@@ -39,7 +39,7 @@
       width: 20px;
       height: 20px;
       margin-bottom: 0.25rem;
-      filter: brightness(0.2); /* Darken in light mode */
+      filter: brightness(0.2);
     }
 
     .platform-box span {
@@ -51,7 +51,7 @@
       background: rgba(32, 32, 32, 0.9);
     }
     body.dark .platform-box img {
-      filter: brightness(1.2); /* Brighten in dark mode */
+      filter: brightness(1.2);
     }
     .hamburger-icon {
       display: inline-block;
@@ -111,10 +111,10 @@
       vertical-align: middle;
       margin-right: 8px;
       opacity: 0.85;
-      filter: brightness(0.2); /* Darken icons in light mode */
+      filter: brightness(0.2);
     }
     body.dark .dropdown-icon {
-      filter: none; /* Reset in dark mode */
+      filter: none;
     }
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -320,7 +320,6 @@
       box-shadow: 0 2px 6px rgba(255, 255, 255, 0.08);
     }
 
-    /* Remove border and shadow for Havoc, Packix, and AppleDB icons only */
     .work-card:nth-child(3) .company-icon,
     .work-card:nth-child(4) .company-icon,
     .work-card:nth-child(5) .company-icon {
@@ -667,6 +666,9 @@
     </div>
     <img src="aaron.jpg" alt="Aaron" class="profile-pic" onerror="this.onerror=null;this.src='https://placehold.co/150x150/EFEFEF/333333?text=AP';"/>
     <h1>Aaron Perris</h1>
+    <p style="margin-top: 0.5rem; font-size: 1rem; font-weight: 500; max-width: 700px; margin-left: auto; margin-right: auto;">
+      Researcher, analyst, code sleuth; I’ve been called all these and more. I’ve broken stories at MacRumors, uncovered unreleased Apple products, and love finding out what features companies are working on next.
+    </p>
     <div class="links">
       <a href="https://x.com/intent/follow?screen_name=aaronp613" target="_blank">
         <img src="socials/x.svg" alt="X" title="X" />
@@ -978,7 +980,6 @@
       }
     }
 
-    // Function to set theme based on preference
     const applyTheme = (theme) => {
         if (theme === 'dark') {
             document.body.classList.add('dark');
@@ -987,31 +988,21 @@
         }
         localStorage.setItem('theme', theme);
     };
-    
-    // Initial theme check
     const storedTheme = localStorage.getItem('theme');
     const preferredScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     applyTheme(storedTheme || preferredScheme);
-
-    // Theme toggle function
     function toggleTheme() {
       const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
       applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
     }
-
-    // Event listener for the theme toggle button in the dropdown
     document.getElementById('floating-theme-toggle').addEventListener('click', (e) => {
       e.preventDefault();
       toggleTheme();
     });
-
-    // Event listener for the hamburger menu
     document.getElementById('hamburger').addEventListener('click', () => {
       document.getElementById('dropdown').classList.toggle('hidden');
       document.getElementById('hamburger-icon').classList.toggle('open');
     });
-
-    // Close dropdown if clicking outside of it
     document.addEventListener('click', function(event) {
         const dropdown = document.getElementById('dropdown');
         const hamburger = document.getElementById('hamburger');
@@ -1020,7 +1011,6 @@
             document.getElementById('hamburger-icon').classList.remove('open');
         }
     });
-
 </script>
 </body>
 </html>
