@@ -389,27 +389,6 @@
       scroll-snap-type: x mandatory;
     }
 
-    /* Scrollbar indicator animation for carousels */
-    .carousel::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(to right, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 100%);
-      margin-top: 4px;
-      border-radius: 2px;
-      animation: scrollHint 2s ease-out 1;
-    }
-
-    @keyframes scrollHint {
-      0% { opacity: 0; transform: translateX(-20%); }
-      20% { opacity: 1; transform: translateX(0); }
-      100% { opacity: 0; transform: translateX(100%); }
-    }
-
-    body.dark .carousel::after {
-      background: linear-gradient(to right, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
-    }
     .carousel::-webkit-scrollbar {
       height: 6px;
     }
@@ -458,6 +437,35 @@
       transform: scale(1.03);
     }
     body.dark .carousel a {
+      background: #2a2a2a;
+      color: #f1f1f1;
+    }
+
+    .cve-card {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #f1f1f1;
+      color: #333;
+      width: 220px;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      height: 240px;
+      justify-content: space-between;
+    }
+
+    .cve-card > strong {
+      min-height: 3em;
+      display: flex;
+    }
+
+    .cve-card > strong {
+      align-items: flex-start;
+    }
+
+    body.dark .cve-card {
       background: #2a2a2a;
       color: #f1f1f1;
     }
@@ -847,6 +855,27 @@
     <img src="share.svg" alt="Share" />
   </button>
 </a>
+      </div>
+    </div>
+
+    <div class="articles" id="cves">
+      <h2>CVEs and Acknowledgements</h2>
+      <div class="carousel">
+        <div class="cve-card">
+          <strong>CVE-2020-9829</strong>
+          <div style="margin-top: 0.5rem;"><em>Impact:</em> Processing a maliciously crafted text message may lead to application denial of service.</div>
+          <div style="margin-top: auto;"><em>Fixed in:</em> iOS 13.5, tvOS 13.4.5, watchOS 6.2.5</div>
+        </div>
+        <div class="cve-card">
+          <strong>Exposed Employee Credentials</strong>
+          <div style="margin-top: 0.5rem;"><em>Impact:</em> Two Apple contractor credentials were publicly exposed online, potentially granting access to confidential information.</div>
+          <div style="margin-top: auto;"><em>Fixed in:</em> September 2024 – Apple Bug Bounty Received</div>
+        </div>
+        <div class="cve-card">
+          <strong>Improper Access</strong>
+          <div style="margin-top: 0.5rem;"><em>Impact:</em> Visiting the affected site temporarily exposed confidential dashboard content before redirecting to the authentication page.</div>
+          <div style="margin-top: auto;"><em>Fixed in:</em> December 2024</div>
+        </div>
       </div>
     </div>
 
