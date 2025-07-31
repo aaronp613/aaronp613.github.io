@@ -491,8 +491,65 @@
       min-width: 280px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.05);
       border: 1px solid #e5e5e5;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, max-height 0.3s ease;
       cursor: default;
+    }
+
+    .cve-content.collapsed {
+      max-height: 100px;
+      overflow: hidden;
+      position: relative;
+      transition: max-height 0.3s ease;
+    }
+    .cve-content.collapsed::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: linear-gradient(to bottom, transparent, white);
+    }
+    body.dark .cve-content.collapsed::after {
+      background: linear-gradient(to bottom, transparent, #1e1e1e);
+    }
+    .expand-toggle {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #0077cc;
+      font-weight: 500;
+      padding: 0;
+    }
+    body.dark .expand-toggle {
+      color: #66b3ff;
+    }
+
+    /* CVE carousel styles */
+    #cves .cve-entry {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+    }
+    #cves > div {
+      scroll-snap-type: x mandatory;
+    }
+    #cves > div::-webkit-scrollbar {
+      height: 6px;
+    }
+    #cves > div::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+    }
+    #cves > div::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    body.dark #cves > div::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
     }
 
     .cve-entry a {
@@ -925,7 +982,7 @@
 
     <div class="articles" id="cves">
       <h2>CVEs and Acknowledgements</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+      <div style="display: flex; overflow-x: auto; overflow-y: visible; gap: 1rem; padding-bottom: 1rem;">
         <div class="cve-entry">
           <strong>CVE-2020-9829</strong>
           <p><em>Impact:</em> Processing a maliciously crafted text message may lead to application denial of service.</p>
@@ -934,6 +991,14 @@
             <a href="https://support.apple.com/en-us/102845" target="_blank" rel="noopener noreferrer">tvOS 13.4.5</a>, 
             <a href="https://support.apple.com/en-us/103030" target="_blank" rel="noopener noreferrer">watchOS 6.2.5</a>
           </p>
+        </div>
+        <div class="cve-entry">
+          <strong>Exposed Employee Credentials & Confidential Documents</strong>
+          <div class="cve-content collapsed">
+            <p><em>Impact:</em> Multiple Apple contractor credentials were publicly exposed online, potentially granting unauthorized access to confidential information. Furthermore, confidential documents were discovered stored with inadequate security measures.</p>
+            <p><em>Fixed in:</em> July 2025 – Apple Bug Bounty Received</p>
+          </div>
+          <button class="expand-toggle" onclick="toggleCVEExpand(this)">▼ Show more</button>
         </div>
         <div class="cve-entry">
           <strong>Exposed Employee Credentials</strong>
@@ -1011,6 +1076,19 @@
             document.getElementById('hamburger-icon').classList.remove('open');
         }
     });
+    function toggleCVEExpand(button) {
+      const entry = button.closest('.cve-entry');
+      const content = entry.querySelector('.cve-content');
+      if (!content) return;
+      if (content.classList.contains('collapsed')) {
+        content.classList.remove('collapsed');
+        button.textContent = '▲ Show less';
+      } else {
+        content.classList.add('collapsed');
+        button.textContent = '▼ Show more';
+      }
+    }
+
 </script>
   <!-- Cloudflare Web Analytics -->
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6d0715dfba6f4465b96a9917d88d4c35"}'></script>
