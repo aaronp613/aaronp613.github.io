@@ -517,6 +517,8 @@
       text-align: center;
       align-self: flex-start;
       transform-origin: center center;
+      position: relative;
+      overflow: visible;
     }
 
     /* --- Carousel Wrapper and Arrow Styles --- */
@@ -563,6 +565,9 @@
 
     .cve-card.expanded {
       height: auto;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      overflow: hidden;
     }
 
     .cve-card a {
@@ -600,19 +605,22 @@
     }
 
     .cve-details {
-      border-top: 1px solid rgba(0,0,0,0.08);
-      margin-top: 1rem;
-      width: 100%;
-      display: none;
-      padding-top: 0.5rem;
+      border-top: none;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding-top 0.3s ease, border-top 0.3s ease;
+      padding: 0 0.75rem;
       text-align: center;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
     }
 
     .cve-card.expanded .cve-details {
-      display: block;
+      max-height: 500px;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+
+    body.dark .cve-card.expanded .cve-details {
+      border-top: 1px solid rgba(255,255,255,0.15);
     }
 
     body.dark .cve-card {
