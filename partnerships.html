@@ -480,6 +480,16 @@
     
     <h2>Featured Campaigns</h2>
     <div class="carousel" id="partnership-carousel">
+      <div class="partner-card" onclick="openModal('appletv-pluribus')">
+        <strong>Apple TV</strong>
+        <span>Pluribus / Rhea Seehorn AMA</span>
+        <img src="down.svg" alt="Expand" style="margin-top: 0.75rem; width: 25px; height: 25px; filter: invert(0.4);" class="down-icon" />
+      </div>
+      <div class="partner-card" onclick="openModal('appletv-slowhorses')">
+        <strong>Apple TV</strong>
+        <span>Slow Horses / Christopher Chung AMA</span>
+        <img src="down.svg" alt="Expand" style="margin-top: 0.75rem; width: 25px; height: 25px; filter: invert(0.4);" class="down-icon" />
+      </div>
       <div class="partner-card" onclick="openModal('benq')">
         <strong>BenQ</strong>
         <span>ScreenBar Halo</span>
@@ -509,6 +519,7 @@
       </div>
     </div>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script async src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script>
     <p style="max-width: 500px; margin: 2rem auto 1rem auto; font-size: 1rem; text-align: center;">
       I'm always open to new collaboration opportunities, don't hesitate to get in touch!
     </p>
@@ -530,6 +541,32 @@
       const tweetTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
       let content = '';
       switch (id) {
+        case 'appletv-pluribus':
+          content = `<div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem;">
+  <strong style="font-size: 1.1rem;">Apple TV</strong>
+  <span style="font-size: 0.95rem; color: gray;">Pluribus / Rhea Seehorn AMA</span>
+</div>
+<p style="margin-bottom: 1rem; text-align: left;">
+  After the success of the Slow Horses Reddit AMA, Apple TV and I collaborated again for another Reddit AMA. This time, we had Rhea Seehorn answer questions as Carol Sturka, her character from the hit Apple TV show <em>Pluribus</em>. The post garnered more than 100,000 views and had hundreds of questions asked from fans.
+</p>
+<blockquote class="reddit-embed-bq" style="height:316px" data-embed-height="316">
+  <a href="https://www.reddit.com/r/tvPlus/comments/1p1lnf4/im_carol_sturka_author_of_bloodsong_of_wycaro_ask/">I’m Carol Sturka, author of Bloodsong of Wycaro. Ask Me Anything.</a><br>
+  by <a href="https://www.reddit.com/user/ImCarolSturka/">u/ImCarolSturka</a> in <a href="https://www.reddit.com/r/tvPlus/">tvPlus</a>
+</blockquote>`;
+          break;
+        case 'appletv-slowhorses':
+          content = `<div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem;">
+  <strong style="font-size: 1.1rem;">Apple TV</strong>
+  <span style="font-size: 0.95rem; color: gray;">Slow Horses / Christopher Chung AMA</span>
+</div>
+<p style="margin-bottom: 1rem; text-align: left;">
+  As the owner of r/tvPlus, I worked with Apple TV on a campaign for <em>Slow Horses</em> season 5. The two‑day campaign consisted of three in‑universe posts. It began with "leaked documents" from Roddy Ho (Christopher Chung), followed by a "day in the life" post, ultimately leading to an in‑universe AMA where Christopher answered questions as Roddy Ho himself.
+</p>
+<blockquote class="reddit-embed-bq" style="height:500px" data-embed-height="558">
+  <a href="https://www.reddit.com/r/tvPlus/comments/1no1sjp/its_roddy_the_one_and_only_i_may_have_leaked_some/">It's Roddy, the one and only. I may have leaked some documents. Here to apologize (kinda) and answer your questions. AMA Tuesday, September 23 - 11am LA / 2 pm NY / 7pm UK</a><br>
+  by <a href="https://www.reddit.com/user/CtrlAltHo/">u/CtrlAltHo</a> in <a href="https://www.reddit.com/r/tvPlus/">tvPlus</a>
+</blockquote>`;
+          break;
         case 'benq':
           content = `<div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem;">
   <strong style="font-size: 1.1rem;">BenQ</strong>
@@ -596,6 +633,16 @@
           break;
       }
       modalBody.innerHTML = content;
+      const old = document.getElementById('reddit-embed-script');
+      if (old) old.remove();
+      const s = document.createElement('script');
+      s.src = "https://embed.reddit.com/widgets.js";
+      s.id = "reddit-embed-script";
+      s.async = true;
+      modalBody.appendChild(s);
+      if (window.__redditEmbed && typeof window.__redditEmbed.init === 'function') {
+        window.__redditEmbed.init();
+      }
       modal.style.display = 'flex';
       if (window.twttr?.widgets?.load) twttr.widgets.load(modalBody);
     }
