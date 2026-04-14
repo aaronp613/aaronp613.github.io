@@ -697,10 +697,19 @@
       overflow: visible;
     }
 
-    .carousel,
-    .cve-grid {
+    .carousel {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      overflow: visible;
+      padding: 8px 0 0;
+    }
+
+    .cve-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: flex-start;
       gap: 16px;
       overflow: visible;
       padding: 8px 0 0;
@@ -793,6 +802,9 @@
       text-align: center;
       cursor: pointer;
       overflow: hidden;
+      flex: 0 1 calc((100% - 32px) / 3);
+      max-width: calc((100% - 32px) / 3);
+      align-self: flex-start;
     }
 
     .cve-card-header {
@@ -938,8 +950,7 @@
       }
 
       .work-history-container,
-      .carousel,
-      .cve-grid {
+      .carousel {
         grid-template-columns: 1fr;
       }
 
@@ -951,6 +962,15 @@
       .carousel a,
       .cve-card {
         width: 86vw;
+      }
+
+      .cve-grid {
+        display: flex;
+      }
+
+      .cve-card {
+        flex: 0 1 100%;
+        max-width: 100%;
       }
     }
   </style>
