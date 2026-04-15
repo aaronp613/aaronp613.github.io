@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#eef1f6" id="theme-color-meta" />
   <title>Aaron Perris</title>
   <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
@@ -26,6 +27,11 @@
     :root {
       color-scheme: light;
       --bg: #f5f5f7;
+      --page-background-color: #eef1f6;
+      --page-background:
+        radial-gradient(circle at top left, rgba(120, 170, 255, 0.25), transparent 28%),
+        radial-gradient(circle at 85% 8%, rgba(255, 197, 113, 0.2), transparent 24%),
+        linear-gradient(180deg, #fbfbfd 0%, #eef1f6 48%, #e9edf3 100%);
       --bg-elevated: rgba(255, 255, 255, 0.72);
       --bg-strong: rgba(255, 255, 255, 0.94);
       --surface: rgba(255, 255, 255, 0.82);
@@ -51,6 +57,9 @@
     html {
       scroll-behavior: smooth;
       overflow-x: hidden;
+      overscroll-behavior-y: none;
+      background-color: var(--page-background-color);
+      background-image: var(--page-background);
     }
 
     body {
@@ -58,16 +67,19 @@
       margin: 0;
       min-height: 100vh;
       color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(120, 170, 255, 0.25), transparent 28%),
-        radial-gradient(circle at 85% 8%, rgba(255, 197, 113, 0.2), transparent 24%),
-        linear-gradient(180deg, #fbfbfd 0%, #eef1f6 48%, #e9edf3 100%);
+      background-color: var(--page-background-color);
+      background-image: var(--page-background);
       overflow-x: hidden;
     }
 
     body.dark {
       color-scheme: dark;
       --bg: #08090c;
+      --page-background-color: #0d1016;
+      --page-background:
+        radial-gradient(circle at top left, rgba(84, 128, 255, 0.18), transparent 28%),
+        radial-gradient(circle at 85% 8%, rgba(94, 176, 255, 0.12), transparent 24%),
+        linear-gradient(180deg, #090b10 0%, #0d1016 48%, #11151d 100%);
       --bg-elevated: rgba(18, 20, 25, 0.72);
       --bg-strong: rgba(16, 18, 23, 0.92);
       --surface: rgba(22, 25, 31, 0.78);
@@ -79,10 +91,8 @@
       --accent-soft: rgba(90, 178, 255, 0.16);
       --shadow: 0 40px 90px rgba(0, 0, 0, 0.45);
       --shadow-soft: 0 18px 48px rgba(0, 0, 0, 0.28);
-      background:
-        radial-gradient(circle at top left, rgba(84, 128, 255, 0.18), transparent 28%),
-        radial-gradient(circle at 85% 8%, rgba(94, 176, 255, 0.12), transparent 24%),
-        linear-gradient(180deg, #090b10 0%, #0d1016 48%, #11151d 100%);
+      background-color: var(--page-background-color);
+      background-image: var(--page-background);
     }
 
     body::before,
@@ -1535,6 +1545,10 @@
             document.body.classList.add('dark');
         } else {
             document.body.classList.remove('dark');
+        }
+        const themeColorMeta = document.getElementById('theme-color-meta');
+        if (themeColorMeta) {
+          themeColorMeta.setAttribute('content', theme === 'dark' ? '#0d1016' : '#eef1f6');
         }
         localStorage.setItem('theme', theme);
     };
