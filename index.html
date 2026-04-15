@@ -358,9 +358,9 @@
       margin: 0;
       max-width: 12ch;
       font-size: clamp(2.7rem, 7vw, 4.8rem);
-      line-height: 0.92;
-      letter-spacing: -0.03em;
-      word-spacing: 0.16em;
+      line-height: 0.9;
+      letter-spacing: -0.035em;
+      word-spacing: 0.12em;
     }
 
     .hero-copy {
@@ -904,8 +904,7 @@
       }
 
       .profile-wrap {
-        flex-direction: column;
-        align-items: flex-start;
+        display: none;
       }
 
       .hero-metrics {
@@ -922,10 +921,6 @@
         padding: 10px 12px;
       }
 
-      .brand-text span {
-        display: none;
-      }
-
       .hero-card {
         padding: 24px 22px;
       }
@@ -939,6 +934,9 @@
       .hero h1 {
         max-width: none;
         font-size: clamp(2.7rem, 14vw, 4.1rem);
+        line-height: 0.88;
+        letter-spacing: -0.05em;
+        word-spacing: 0.04em;
       }
 
       .hero-copy {
@@ -952,6 +950,22 @@
       .work-history-container,
       .carousel {
         grid-template-columns: 1fr;
+      }
+
+      .work-card {
+        align-items: center;
+        justify-content: center;
+      }
+
+      .work-card-header {
+        align-items: center;
+        justify-content: center;
+        min-height: 100%;
+        text-align: center;
+      }
+
+      .work-card-header span {
+        text-align: center;
       }
 
       .links a {
