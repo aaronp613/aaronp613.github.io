@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#eef1f6" id="theme-color-meta">
+  <title>MCU Viewing Order</title>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
+  <script>(function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark');})()</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+
+    <header class="topbar">
+      <a class="brand" href="../">
+        <img src="../ap.png" class="brand-mark" onerror="this.onerror=null;this.src='https://placehold.co/80x80/EFEFEF/333333?text=AP';">
+        <span class="brand-text">
+          <strong>MCU Viewing Order</strong>
+          <span>@aaronp613</span>
+        </span>
+      </a>
+      <nav class="topbar-nav" aria-label="Primary">
+        <a href="index.html" aria-current="page">Viewing Order</a>
+        <a href="upcoming.html">Upcoming</a>
+        <a href="shows.html">Show Status</a>
+        <a href="https://paypal.me/aaronp613" target="_blank" rel="noopener noreferrer">Buy Me a Coffee</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+      <div class="topbar-actions">
+        <div class="menu-toggle">
+          <button id="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="dropdown">
+            <svg id="hamburger-icon" class="hamburger-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+              <line x1="2" y1="4.5" x2="14" y2="4.5"/>
+              <line x1="2" y1="8" x2="14" y2="8"/>
+              <line x1="2" y1="11.5" x2="14" y2="11.5"/>
+            </svg>
+          </button>
+          <div id="dropdown" class="dropdown hidden">
+            <a href="index.html" aria-current="page">
+              <img src="../menubar/home.svg" class="dropdown-icon" alt="">
+              <span>Viewing Order</span>
+            </a>
+            <a href="upcoming.html">
+              <img src="../menubar/articles.svg" class="dropdown-icon" alt="">
+              <span>Upcoming</span>
+            </a>
+            <a href="shows.html">
+              <img src="../menubar/products.svg" class="dropdown-icon" alt="">
+              <span>Show Status</span>
+            </a>
+            <a href="faq.html">
+              <img src="../menubar/faq.svg" class="dropdown-icon" alt="">
+              <span>FAQ</span>
+            </a>
+            <button id="printBtn" type="button">
+              <svg class="dropdown-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9V2h12v7"/>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                <path d="M6 14h12v8H6z"/>
+              </svg>
+              <span>Print Watch Order</span>
+            </button>
+            <hr class="dropdown-separator">
+            <a href="https://discord.com/invite/YCh8qet" target="_blank" rel="noopener noreferrer">
+              <img src="../socials/discord.svg" class="dropdown-icon" alt="">
+              <span>Marvel Studios Discord</span>
+            </a>
+            <a href="https://x.com/aaronp613" target="_blank" rel="noopener noreferrer">
+              <img src="../socials/x.svg" class="dropdown-icon" alt="">
+              <span>X - @aaronp613</span>
+            </a>
+            <a href="https://paypal.me/aaronp613" target="_blank" rel="noopener noreferrer">
+              <img src="../socials/coffee.svg" class="dropdown-icon" alt="">
+              <span>Buy Me a Coffee</span>
+            </a>
+            <hr class="dropdown-separator">
+            <a id="floating-theme-toggle" href="#" title="Toggle Theme">
+              <img src="../menubar/toggletheme.svg" class="dropdown-icon" alt="">
+              <span>Toggle Theme</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mcu-intro surface-card">
+      <h1>MCU Viewing Order</h1>
+      <div class="intro-metrics">
+        <div class="intro-metric intro-metric-complete">
+          <span class="intro-metric-value" id="stat-percent">—</span>
+          <span class="intro-metric-label">Complete</span>
+        </div>
+        <div class="intro-metric intro-metric-spent">
+          <span class="intro-metric-value" id="stat-time">—</span>
+          <span class="intro-metric-label">Time Spent Watching</span>
+        </div>
+        <div class="intro-metric intro-metric-remaining">
+          <span class="intro-metric-value" id="stat-time-remaining">—</span>
+          <span class="intro-metric-label">Time Remaining</span>
+        </div>
+      </div>
+      <div id="progressBarContainer">
+        <div id="progressBar"></div>
+      </div>
+    </div>
+
+    <div class="search-panel">
+      <div class="search-wrap">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="search" placeholder="Search titles…" autocomplete="off" spellcheck="false">
+        <button id="searchClear" class="search-clear" aria-label="Clear search" hidden>
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="1" y1="1" x2="9" y2="9"/><line x1="9" y1="1" x2="1" y2="9"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="sticky-controls">
+      <div class="controls-center">
+        <div class="filter-dropdown">
+          <button class="filter-pill" id="typeFilterBtn">
+            <span class="btn-label">Studio</span>
+            <span class="filter-count" hidden></span>
+            <svg class="chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,3 5,7 8,3"/></svg>
+          </button>
+          <div class="filter-dropdown-panel hidden" id="typeFilter">
+            <div class="filter-panel-actions">
+              <button class="filter-panel-action" type="button" onclick="selectFilterPanel('#typeFilter')">Select all</button>
+              <button class="filter-panel-action clear-filter" type="button" onclick="clearFilterPanel('#typeFilter')">Clear all</button>
+            </div>
+            <div class="type-checkboxes"></div>
+          </div>
+        </div>
+
+        <div class="filter-dropdown">
+          <button class="filter-pill" id="canonFilterBtn">
+            <span class="btn-label">Canon</span>
+            <span class="filter-count" hidden></span>
+            <svg class="chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,3 5,7 8,3"/></svg>
+          </button>
+          <div class="filter-dropdown-panel hidden" id="canonFilter">
+            <div class="filter-panel-actions">
+              <button class="filter-panel-action" type="button" onclick="selectFilterPanel('#canonFilter')">Select all</button>
+              <button class="filter-panel-action clear-filter" type="button" onclick="clearFilterPanel('#canonFilter')">Clear all</button>
+            </div>
+            <label class="filter-chip"><input type="checkbox" value="true"><span>Canon</span></label>
+            <label class="filter-chip"><input type="checkbox" value="false"><span>Non-Canon</span></label>
+          </div>
+        </div>
+
+        <div class="filter-dropdown">
+          <button class="filter-pill" id="mvFilterBtn">
+            <span class="btn-label">Universe</span>
+            <span class="filter-count" hidden></span>
+            <svg class="chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,3 5,7 8,3"/></svg>
+          </button>
+          <div class="filter-dropdown-panel hidden" id="multiverseFilter">
+            <div class="filter-panel-actions">
+              <button class="filter-panel-action" type="button" onclick="selectFilterPanel('#multiverseFilter')">Select all</button>
+              <button class="filter-panel-action clear-filter" type="button" onclick="clearFilterPanel('#multiverseFilter')">Clear all</button>
+            </div>
+            <div class="multiverse-checkboxes"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls-right">
+        <label class="pill-toggle">
+          <input type="checkbox" id="hideWatched">
+          <span>Hide watched</span>
+        </label>
+        <button id="sortToggle" class="control-pill" type="button" aria-label="Sort: Release">
+          <span class="sort-prefix" aria-hidden="true">Sort: </span>
+          <span class="sort-label-full" aria-hidden="true">Release</span>
+          <span class="sort-label-short" aria-hidden="true">Release</span>
+        </button>
+        <div class="view-toggle" role="group" aria-label="View density">
+          <button class="view-toggle-option" type="button" data-view-mode="comfortable" aria-pressed="true">Comfortable</button>
+          <button class="view-toggle-option" type="button" data-view-mode="compact" aria-pressed="false">Compact</button>
+        </div>
+<button id="clearAllBtn" class="clear-all-btn" hidden>
+          <span class="clear-label-full">Clear filters</span>
+          <span class="clear-label-short">Clear</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="list"></div>
+    <section id="printView" class="print-view" aria-hidden="true"></section>
+
+    <footer class="legal-footer">
+      <p>Marvel, the Marvel logo, and all Marvel characters, titles, and related content are trademarks and &copy; of Marvel Entertainment, LLC. All rights reserved. This site is an unofficial fan resource and is not affiliated with, endorsed by, or connected to Marvel Entertainment, LLC, The Walt Disney Company, or any of their subsidiaries. All film, television, and streaming content referenced belongs to their respective owners.</p>
+    </footer>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
