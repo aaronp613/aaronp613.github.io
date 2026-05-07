@@ -146,6 +146,7 @@ body::after {
   text-decoration: none;
   color: var(--text);
   min-width: 0;
+  display: flex;
 }
 
 .brand-mark {
