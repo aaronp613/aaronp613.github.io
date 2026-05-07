@@ -120,8 +120,8 @@ body::after {
 
 /* ─── Topbar — identical to main site ─── */
 .topbar {
-  position: sticky;
-  top: max(18px, env(safe-area-inset-top));
+  position: relative;
+  top: auto;
   z-index: 20;
   display: flex;
   align-items: center;
@@ -471,8 +471,8 @@ body.dark #progressBarContainer {
 
 /* ─── Search and controls ─── */
 .search-panel {
-  position: sticky;
-  top: max(88px, calc(env(safe-area-inset-top) + 70px));
+  position: relative;
+  top: auto;
   z-index: 16;
   padding: 10px;
   border: 1px solid var(--border);
@@ -483,8 +483,8 @@ body.dark #progressBarContainer {
 }
 
 .sticky-controls {
-  position: sticky;
-  top: max(150px, calc(env(safe-area-inset-top) + 132px));
+  position: relative;
+  top: auto;
   z-index: 21;
   display: flex;
   align-items: center;
