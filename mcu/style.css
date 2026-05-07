@@ -139,6 +139,10 @@ body::after {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
+}
+
+.brand-text-link {
   text-decoration: none;
   color: var(--text);
   min-width: 0;
