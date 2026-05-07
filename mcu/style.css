@@ -1814,12 +1814,6 @@ body.dark .group-watched-badge.is-complete { color: #4ade80; }
   .sticky-controls { top: 140px; border-radius: 18px; gap: 7px; padding: 9px; }
   .card-grid { grid-template-columns: 1fr; }
   .view-toggle {
-    flex: 1 1 100%;
-  }
-  .view-toggle-option {
-    flex: 1 1 0;
-  }
-  .view-toggle-option[data-view-mode="compact"] {
     display: none;
   }
   .filter-dropdown-panel {
