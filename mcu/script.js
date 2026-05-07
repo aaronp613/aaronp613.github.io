@@ -501,6 +501,7 @@ function populateFilters() {
     whatIfMenu.appendChild(options);
     mvChips.appendChild(whatIfMenu);
   }
+
 }
 
 function isEpisode(item) {
@@ -1136,8 +1137,10 @@ function closeAllDropdowns() {
 const applyTheme = (theme) => {
   document.documentElement.classList.toggle("dark", theme === "dark");
   document.body.classList.toggle("dark", theme === "dark");
-  const meta = document.getElementById("theme-color-meta");
-  if (meta) meta.setAttribute("content", theme === "dark" ? "#0d1016" : "#eef1f6");
+  const light = document.getElementById("theme-color-light");
+  const dark  = document.getElementById("theme-color-dark");
+  if (light) { light.media = theme === "dark" ? "not all" : "all"; light.content = "#eef1f6"; }
+  if (dark)  { dark.media  = theme === "dark" ? "all" : "not all"; dark.content  = "#090b10"; }
   localStorage.setItem("theme", theme);
 };
 
@@ -1186,6 +1189,95 @@ document.querySelectorAll("[data-coming-soon]").forEach(link => {
   link.addEventListener("click", event => {
     event.preventDefault();
   });
+});
+
+// ─── Progress export / import ───
+function encodeProgress() {
+  const bytes = new Uint8Array(Math.ceil(fullData.length / 8));
+  fullData.forEach((item, i) => {
+    if (localStorage.getItem(`watched_${item.id}`) === "true") {
+      bytes[Math.floor(i / 8)] |= 1 << (i % 8);
+    }
+  });
+  return btoa(String.fromCharCode(...bytes));
+}
+
+function decodeProgress(code) {
+  let bytes;
+  try {
+    bytes = Uint8Array.from(atob(code.trim()), c => c.charCodeAt(0));
+  } catch {
+    return false;
+  }
+  fullData.forEach((item, i) => {
+    const watched = (bytes[Math.floor(i / 8)] >> (i % 8)) & 1;
+    if (watched) {
+      localStorage.setItem(`watched_${item.id}`, "true");
+    } else {
+      localStorage.removeItem(`watched_${item.id}`);
+    }
+  });
+  return true;
+}
+
+function openProgressModal(mode) {
+  const modal = document.getElementById("progressModal");
+  const title = document.getElementById("progressModalTitle");
+  const exportContent = document.getElementById("exportContent");
+  const importContent = document.getElementById("importContent");
+
+  title.textContent = mode === "export" ? "Export Progress" : "Import Progress";
+  exportContent.classList.toggle("hidden", mode !== "export");
+  importContent.classList.toggle("hidden", mode !== "import");
+
+  if (mode === "export") {
+    document.getElementById("progressCode").value = encodeProgress();
+  } else {
+    document.getElementById("importCode").value = "";
+  }
+
+  modal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+}
+
+function closeProgressModal() {
+  document.getElementById("progressModal").classList.add("hidden");
+  document.body.style.overflow = "";
+}
+
+document.getElementById("exportProgressBtn")?.addEventListener("click", () => {
+  closeAllDropdowns();
+  openProgressModal("export");
+});
+
+document.getElementById("importProgressBtn")?.addEventListener("click", () => {
+  closeAllDropdowns();
+  openProgressModal("import");
+});
+
+document.querySelector(".progress-modal-close")?.addEventListener("click", closeProgressModal);
+
+document.getElementById("progressModal")?.querySelector(".progress-modal-backdrop")?.addEventListener("click", closeProgressModal);
+
+document.getElementById("copyCodeBtn")?.addEventListener("click", () => {
+  const textarea = document.getElementById("progressCode");
+  navigator.clipboard.writeText(textarea.value).then(() => {
+    const btn = document.getElementById("copyCodeBtn");
+    btn.textContent = "Copied!";
+    setTimeout(() => { btn.textContent = "Copy Code"; }, 2000);
+  });
+});
+
+document.getElementById("applyCodeBtn")?.addEventListener("click", () => {
+  const code = document.getElementById("importCode").value;
+  if (!decodeProgress(code)) {
+    document.getElementById("importCode").setCustomValidity("Invalid code");
+    document.getElementById("importCode").reportValidity();
+    return;
+  }
+  closeProgressModal();
+  renderList(filteredData());
+  updateStats();
 });
 
 window.addEventListener("beforeprint", preparePrintView);

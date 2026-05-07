@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#eef1f6" id="theme-color-meta">
+  <meta name="theme-color" content="#eef1f6" media="(prefers-color-scheme: light)" id="theme-color-light">
+  <meta name="theme-color" content="#090b10" media="(prefers-color-scheme: dark)" id="theme-color-dark">
   <title>MCU Viewing Order</title>
   <meta property="og:title" content="MCU Viewing Order">
   <meta property="og:description" content="A comprehensive MCU viewing order, including movies, shows, and more.">
@@ -14,7 +15,7 @@
   <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
   <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-title" content="MCU Order">
-  <script>(function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark');})()</script>
+  <script>(function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(t==='dark'){document.documentElement.classList.add('dark');}var s=localStorage.getItem('theme');if(s){var l=document.getElementById('theme-color-light'),d=document.getElementById('theme-color-dark');if(l)l.media=s==='dark'?'not all':'all';if(d)d.media=s==='dark'?'all':'not all';}})()</script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -68,6 +69,18 @@
                 <path d="M6 14h12v8H6z"/>
               </svg>
               <span>Print Watch Order</span>
+            </button>
+            <button id="exportProgressBtn" type="button">
+              <svg class="dropdown-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+              <span>Export Progress</span>
+            </button>
+            <button id="importProgressBtn" type="button">
+              <img src="../menubar/import.svg" class="dropdown-icon" alt="">
+              <span>Import Progress</span>
             </button>
             <hr class="dropdown-separator">
             <a href="https://discord.com/invite/YCh8qet" target="_blank" rel="noopener noreferrer">
@@ -203,6 +216,31 @@
     </footer>
 
   </div>
+
+  <div id="progressModal" class="progress-modal hidden" role="dialog" aria-modal="true" aria-labelledby="progressModalTitle">
+    <div class="progress-modal-backdrop"></div>
+    <div class="progress-modal-box">
+      <div class="progress-modal-header">
+        <h2 id="progressModalTitle"></h2>
+        <button class="progress-modal-close" aria-label="Close">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/>
+          </svg>
+        </button>
+      </div>
+      <div id="exportContent" class="progress-modal-content hidden">
+        <p class="progress-modal-desc">Save this code somewhere safe. Paste it back here anytime to restore your progress.</p>
+        <textarea id="progressCode" class="progress-modal-textarea" readonly></textarea>
+        <button id="copyCodeBtn" class="progress-modal-btn">Copy Code</button>
+      </div>
+      <div id="importContent" class="progress-modal-content hidden">
+        <p class="progress-modal-desc">Paste your progress code below to restore your watch history.</p>
+        <textarea id="importCode" class="progress-modal-textarea" placeholder="Paste code here…" spellcheck="false"></textarea>
+        <button id="applyCodeBtn" class="progress-modal-btn">Apply</button>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
