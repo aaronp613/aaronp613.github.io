@@ -149,6 +149,7 @@ function normalizeSortMode(value) {
 }
 
 function normalizeViewMode(value) {
+  if (window.matchMedia("(max-width: 560px)").matches) return "comfortable";
   return VIEW_MODES.has(value) ? value : "comfortable";
 }
 
