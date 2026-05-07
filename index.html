@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-  <meta name="theme-color" content="#eef1f6" id="theme-color-meta" />
+  <meta name="theme-color" content="#eef1f6" media="(prefers-color-scheme: light)" id="theme-color-light" />
+  <meta name="theme-color" content="#090b10" media="(prefers-color-scheme: dark)" id="theme-color-dark" />
   <title>Aaron Perris</title>
   <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
@@ -57,7 +58,7 @@
 
     html {
       scroll-behavior: smooth;
-      overflow-x: hidden;
+      overflow-x: clip;
       background-color: var(--page-background-color);
       background-image: var(--page-background);
     }
@@ -67,10 +68,20 @@
       margin: 0;
       min-height: 100vh;
       min-height: 100dvh;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
       color: var(--text);
       background-color: var(--page-background-color);
       background-image: var(--page-background);
-      overflow-x: hidden;
+      overflow-x: clip;
+    }
+
+    html.dark {
+      background-color: #090b10;
+      background-image:
+        radial-gradient(circle at top left, rgba(84, 128, 255, 0.18), transparent 28%),
+        radial-gradient(circle at 85% 8%, rgba(94, 176, 255, 0.12), transparent 24%),
+        linear-gradient(180deg, #090b10 0%, #0d1016 48%, #11151d 100%);
     }
 
     body.dark {
@@ -141,8 +152,7 @@
     }
 
     .topbar {
-      position: sticky;
-      top: 18px;
+      position: relative;
       z-index: 20;
       display: flex;
       align-items: center;
@@ -1573,10 +1583,10 @@
         } else {
             document.body.classList.remove('dark');
         }
-        const themeColorMeta = document.getElementById('theme-color-meta');
-        if (themeColorMeta) {
-          themeColorMeta.setAttribute('content', theme === 'dark' ? '#0d1016' : '#eef1f6');
-        }
+        const light = document.getElementById('theme-color-light');
+        const dark  = document.getElementById('theme-color-dark');
+        if (light) light.media = theme === 'dark' ? 'not all' : 'all';
+        if (dark)  dark.media  = theme === 'dark' ? 'all' : 'not all';
         localStorage.setItem('theme', theme);
     };
     const storedTheme = localStorage.getItem('theme');
