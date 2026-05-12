@@ -42,12 +42,52 @@
     "release_label": "Fall 2026"
   },
   {
-    "id": "vision_quest_s1",
+    "id": "vision_quest_s1_e1",
     "type": "Disney+",
-    "show": "Vision Quest",
+    "show": "VisionQuest",
     "season": 1,
-    "episode_count": 6,
-    "release_label": "2026"
+    "episode": 1,
+    "release_date": "2026-10-14"
+  },
+  {
+    "id": "vision_quest_s1_e2",
+    "type": "Disney+",
+    "show": "VisionQuest",
+    "season": 1,
+    "episode": 2,
+    "release_date": "2026-10-21"
+  },
+  {
+    "id": "vision_quest_s1_e3",
+    "type": "Disney+",
+    "show": "VisionQuest",
+    "season": 1,
+    "episode": 3,
+    "release_date": "2026-10-28"
+  },
+  {
+    "id": "vision_quest_s1_e4",
+    "type": "Disney+",
+    "show": "VisionQuest",
+    "season": 1,
+    "episode": 4,
+    "release_date": "2026-11-04"
+  },
+  {
+    "id": "vision_quest_s1_e5",
+    "type": "Disney+",
+    "show": "VisionQuest",
+    "season": 1,
+    "episode": 5,
+    "release_date": "2026-11-11"
+  },
+  {
+    "id": "vision_quest_s1_e6",
+    "type": "Disney+",
+    "show": "VisionQuest",
+    "season": 1,
+    "episode": 6,
+    "release_date": "2026-11-18"
   },
   {
     "id": "avengers_secret_wars",
