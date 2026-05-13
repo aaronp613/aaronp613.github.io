@@ -1,9 +1,10 @@
 let fullData = [];
 let sortMode = "release";
+let sortDirection = "asc";
 let viewMode = "comfortable";
 const expandedGroups = new Set();
-const VIEW_MODES = new Set(["comfortable", "compact"]);
-const FILTER_URL_KEYS = ["q", "sort", "type", "canon", "universe", "hide", "view"];
+const VIEW_MODES = new Set(["comfortable", "compact", "list"]);
+const FILTER_URL_KEYS = ["q", "sort", "direction", "type", "canon", "universe", "hide", "view"];
 
 const MULTIVERSE_LABELS = {
   "0":  "Earth-616 (MCU)",
@@ -148,8 +149,11 @@ function normalizeSortMode(value) {
   return value === "chronological" ? "chronological" : "release";
 }
 
+function normalizeSortDirection(value) {
+  return value === "desc" ? "desc" : "asc";
+}
+
 function normalizeViewMode(value) {
-  if (window.matchMedia("(max-width: 560px)").matches) return "comfortable";
   return VIEW_MODES.has(value) ? value : "comfortable";
 }
 
@@ -186,6 +190,7 @@ function getFilterState() {
     canonVals: Array.from(document.querySelectorAll("#canonFilter input:checked")).map(c => c.value),
     mvVals: Array.from(multiverseFilterInputs(":checked")).map(c => c.value),
     sortMode,
+    sortDirection,
     viewMode,
     hideWatched: document.getElementById("hideWatched")?.checked === true
   };
@@ -197,6 +202,7 @@ function updateUrlFromState(state = getFilterState()) {
 
   if (state.search) params.set("q", state.search);
   if (state.sortMode !== "release") params.set("sort", state.sortMode);
+  if (state.sortDirection !== "asc") params.set("direction", state.sortDirection);
   state.typeVals.forEach(value => params.append("type", value));
   state.canonVals.forEach(value => params.append("canon", value));
   state.mvVals.forEach(value => params.append("universe", value));
@@ -214,9 +220,11 @@ function updateUrlFromState(state = getFilterState()) {
 
 function updateViewControls() {
   document.body.classList.toggle("view-compact", viewMode === "compact");
+  document.body.classList.toggle("view-list",    viewMode === "list");
   document.querySelectorAll("[data-view-mode]").forEach(button => {
     button.setAttribute("aria-pressed", String(button.dataset.viewMode === viewMode));
   });
+  updateSortControls();
 }
 
 function setViewMode(mode, { save = false } = {}) {
@@ -235,25 +243,33 @@ function saveFilterState({ updateUrl = true } = {}) {
   localStorage.setItem("filter_canon",      JSON.stringify(state.canonVals));
   localStorage.setItem("filter_multiverse", JSON.stringify(state.mvVals));
   localStorage.setItem("filter_sort",       state.sortMode);
+  localStorage.setItem("filter_sortDirection", state.sortDirection);
   localStorage.setItem("filter_hideWatched", state.hideWatched);
   localStorage.setItem("filter_viewMode",   state.viewMode);
   if (updateUrl) updateUrlFromState(state);
 }
 
-function updateSortButton() {
-  const btn = document.getElementById("sortToggle");
+function updateSortControls() {
+  const btn = document.getElementById("sortFilterBtn");
   if (!btn) return;
 
-  const isRelease = sortMode === "release";
-  const fullLabel = isRelease ? "Release" : "Chronological";
-  const shortLabel = isRelease ? "Sort: Release" : "Sort: Chronological";
+  const isAscending = sortDirection === "asc";
+  const directionLabel = isAscending ? "Old → New" : "New → Old";
+  const ariaDirectionLabel = isAscending ? "Old to New" : "New to Old";
+  const summary = btn.querySelector(".sort-summary");
+  const hideWatched = document.getElementById("hideWatched")?.checked === true;
+  const hasActiveOption = sortDirection !== "asc" || hideWatched || viewMode !== "comfortable";
 
-  btn.setAttribute("aria-label", `Sort: ${fullLabel}`);
-  btn.innerHTML = `
-    <span class="sort-prefix" aria-hidden="true">Sort: </span>
-    <span class="sort-label-full" aria-hidden="true">${fullLabel}</span>
-    <span class="sort-label-short" aria-hidden="true">${shortLabel}</span>
-  `;
+  btn.setAttribute("aria-label", `View: ${ariaDirectionLabel}`);
+  btn.classList.toggle("has-active", hasActiveOption);
+  if (summary) summary.textContent = directionLabel;
+
+  document.querySelectorAll("[data-sort-mode]").forEach(button => {
+    button.setAttribute("aria-pressed", String(button.dataset.sortMode === sortMode));
+  });
+  document.querySelectorAll("[data-sort-direction]").forEach(button => {
+    button.setAttribute("aria-pressed", String(button.dataset.sortDirection === sortDirection));
+  });
 }
 
 function restoreFilterState() {
@@ -273,6 +289,7 @@ function restoreFilterState() {
   if (savedSort) {
     sortMode = normalizeSortMode(savedSort);
   }
+  sortDirection = normalizeSortDirection(localStorage.getItem("filter_sortDirection") || "asc");
 
   const savedHide = localStorage.getItem("filter_hideWatched");
   if (savedHide !== null) {
@@ -284,6 +301,7 @@ function restoreFilterState() {
   if (hasUrlFilterState(params)) {
     setSearchValue(params.get("q") || "");
     sortMode = normalizeSortMode(params.get("sort") || "release");
+    sortDirection = normalizeSortDirection(params.get("direction") || "asc");
     document.getElementById("hideWatched").checked =
       params.get("hide") === "1" || params.get("hide") === "true";
     setPanelValues("#typeFilter", getUrlValues(params, "type"));
@@ -293,7 +311,7 @@ function restoreFilterState() {
     saveFilterState({ updateUrl: false });
   }
 
-  updateSortButton();
+  updateSortControls();
   updateViewControls();
 
   document.querySelectorAll(".filter-submenu").forEach(menu => {
@@ -327,11 +345,22 @@ async function loadData() {
   restoreFilterState();
   renderList(filteredData());
 
-  document.getElementById("sortToggle").addEventListener("click", () => {
-    sortMode = sortMode === "release" ? "chronological" : "release";
-    updateSortButton();
-    saveFilterState();
-    renderList(filteredData());
+  document.querySelectorAll("[data-sort-mode]").forEach(button => {
+    button.addEventListener("click", () => {
+      sortMode = normalizeSortMode(button.dataset.sortMode);
+      updateSortControls();
+      saveFilterState();
+      renderList(filteredData());
+    });
+  });
+
+  document.querySelectorAll("[data-sort-direction]").forEach(button => {
+    button.addEventListener("click", () => {
+      sortDirection = normalizeSortDirection(button.dataset.sortDirection);
+      updateSortControls();
+      saveFilterState();
+      renderList(filteredData());
+    });
   });
 
   document.getElementById("printBtn")?.addEventListener("click", () => {
@@ -371,6 +400,7 @@ async function loadData() {
   });
 
   document.getElementById("hideWatched").addEventListener("change", () => {
+    updateSortControls();
     saveFilterState();
     renderList(filteredData());
   });
@@ -808,7 +838,7 @@ function renderList(data) {
   const list = document.getElementById("list");
   list.innerHTML = "";
 
-  const groups = mobileQuery.matches
+  const groups = (mobileQuery.matches && viewMode !== "list")
     ? buildRenderGroups(data)
     : data.map(item => ({ type: "single", item }));
   let singles = [];
@@ -924,10 +954,13 @@ function filteredData() {
       && (!hideWatched || !isWatched)
       && typeMatch && canonMatch && mvMatch;
   }).sort((a, b) => {
+    let result;
     if (sortMode === "chronological") {
-      return (a.chronology ?? Infinity) - (b.chronology ?? Infinity);
+      result = (a.chronology ?? Infinity) - (b.chronology ?? Infinity);
+    } else {
+      result = new Date(a.release_date) - new Date(b.release_date);
     }
-    return new Date(a.release_date) - new Date(b.release_date);
+    return sortDirection === "desc" ? -result : result;
   });
 }
 
@@ -955,7 +988,7 @@ function summarizePrintValues(label, values) {
 
 function getPrintFilterSummary(dataCount) {
   const details = [
-    `Order: ${sortMode === "release" ? "Release" : "Chronological"}`,
+    `Order: ${sortMode === "release" ? "Release" : "Chronological"} (${sortDirection === "asc" ? "Old → New" : "New → Old"})`,
     `Showing: ${dataCount} of ${fullData.length}`
   ];
 
@@ -972,7 +1005,7 @@ function getPrintFilterSummary(dataCount) {
 
   [summarizePrintValues("Studio", typeVals),
    summarizePrintValues("Canon", canonVals),
-   summarizePrintValues("Universe", mvVals)]
+   summarizePrintValues("Multiverse", mvVals)]
     .filter(Boolean)
     .forEach(detail => details.push(detail));
 
@@ -1082,24 +1115,20 @@ function preparePrintView() {
 function updateFilterButtons() {
   syncFilterSubmenus();
 
-  [
-    { filterId: "typeFilter",       btnId: "typeFilterBtn" },
-    { filterId: "canonFilter",      btnId: "canonFilterBtn" },
-    { filterId: "multiverseFilter", btnId: "mvFilterBtn" }
-  ].forEach(({ filterId, btnId }) => {
-    const count = filterId === "multiverseFilter"
-      ? multiverseFilterInputs(":checked").length
-      : document.querySelectorAll(`#${filterId} input:checked`).length;
-    const btn   = document.getElementById(btnId);
-    if (!btn) return;
-    const badge = btn.querySelector(".filter-count");
-    if (badge) { badge.textContent = count; badge.hidden = count === 0; }
-    btn.classList.toggle("has-active", count > 0);
-  });
-
-  const anyActive = document.querySelectorAll(
+  const filterCount = document.querySelectorAll(
     "#typeFilter input:checked, #canonFilter input:checked"
-  ).length > 0 || multiverseFilterInputs(":checked").length > 0;
+  ).length + multiverseFilterInputs(":checked").length;
+  const filtersBtn = document.getElementById("filtersBtn");
+  if (filtersBtn) {
+    const badge = filtersBtn.querySelector(".filter-count");
+    if (badge) {
+      badge.textContent = filterCount;
+      badge.hidden = filterCount === 0;
+    }
+    filtersBtn.classList.toggle("has-active", filterCount > 0);
+  }
+
+  const anyActive = filterCount > 0;
   const clearAll = document.getElementById("clearAllBtn");
   if (clearAll) clearAll.hidden = !anyActive;
 }
@@ -1115,6 +1144,7 @@ function initFilterDropdowns() {
       if (!isOpen) {
         panel.classList.remove("hidden");
         btn.classList.add("open");
+        if (panel.id === "filtersPanel") setTimeout(matchMultiverseHeight, 0);
       }
     });
   });
@@ -1131,6 +1161,14 @@ function initFilterDropdowns() {
 function closeAllDropdowns() {
   document.querySelectorAll(".filter-dropdown-panel").forEach(p => p.classList.add("hidden"));
   document.querySelectorAll(".filter-pill").forEach(b => b.classList.remove("open"));
+}
+
+function matchMultiverseHeight() {
+  if (mobileQuery.matches) return;
+  const studio = document.getElementById("typeFilter");
+  const mv     = document.getElementById("multiverseFilter");
+  if (!studio || !mv) return;
+  mv.style.height = studio.offsetHeight + "px";
 }
 
 // ─── Theme — mirrors main site logic exactly ───
