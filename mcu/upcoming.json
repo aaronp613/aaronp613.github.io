@@ -84,6 +84,22 @@
     "release_date": "2026-11-18"
   },
   {
+    "id": "vision_quest_s1_e7",
+    "type": "Disney+",
+    "show": "VisionQuest",
+    "season": 1,
+    "episode": 7,
+    "release_date": "2026-11-25"
+  },
+  {
+    "id": "vision_quest_s1_e8",
+    "type": "Disney+",
+    "show": "VisionQuest",
+    "season": 1,
+    "episode": 8,
+    "release_date": "2026-12-02"
+  },
+  {
     "id": "avengers_secret_wars",
     "type": "Marvel Studios",
     "title": "Avengers: Secret Wars",
