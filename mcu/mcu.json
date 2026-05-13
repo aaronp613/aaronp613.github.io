@@ -9162,5 +9162,15 @@
     "season": 2,
     "episode": 8,
     "chronology": 741
+  },
+  {
+    "title": "The Punisher: One Last Kill",
+    "release_date": "2026-05-12",
+    "runtime": 51,
+    "type": "Disney+",
+    "id": "punisher_one_last_kill",
+    "canon": true,
+    "multiverse": 0,
+    "chronology": 733.5
   }
 ]
