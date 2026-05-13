@@ -1425,16 +1425,6 @@
     "chronology": 144
   },
   {
-    "title": "The Punisher: One Last Kill",
-    "release_date": "2026-05-12",
-    "runtime": 51,
-    "type": "Disney+",
-    "id": "the_punisher_one_last_kill",
-    "canon": true,
-    "multiverse": 0,
-    "chronology": 145
-  },
-  {
     "title": "Laws Of Nature",
     "release_date": "2015-09-29",
     "runtime": 43,
@@ -1910,7 +1900,7 @@
     "show": "Daredevil",
     "season": 2,
     "episode": 1,
-    "chronology": 146
+    "chronology": 145
   },
   {
     "title": "Dogs To A Gunfight",
@@ -1923,7 +1913,7 @@
     "show": "Daredevil",
     "season": 2,
     "episode": 2,
-    "chronology": 147
+    "chronology": 146
   },
   {
     "title": "New York's Finest",
@@ -1936,7 +1926,7 @@
     "show": "Daredevil",
     "season": 2,
     "episode": 3,
-    "chronology": 148
+    "chronology": 147
   },
   {
     "title": "Penny and Dime",
@@ -1949,7 +1939,7 @@
     "show": "Daredevil",
     "season": 2,
     "episode": 4,
-    "chronology": 149
+    "chronology": 148
   },
   {
     "title": "Kinbaku",
@@ -1962,7 +1952,7 @@
     "show": "Daredevil",
     "season": 2,
     "episode": 5,
-    "chronology": 150
+    "chronology": 149
   },
   {
     "title": "Regrets Only",
@@ -1975,7 +1965,7 @@
     "show": "Daredevil",
     "season": 2,
     "episode": 6,
-    "chronology": 151
+    "chronology": 150
   },
   {
     "title": "Semper Fidelis",
@@ -1988,7 +1978,7 @@
     "show": "Daredevil",
     "season": 2,
     "episode": 7,
-    "chronology": 152
+    "chronology": 151
   },
   {
     "title": "Guilty as Sin",
@@ -2001,7 +1991,7 @@
     "show": "Daredevil",
     "season": 2,
     "episode": 8,
-    "chronology": 154
+    "chronology": 153
   },
   {
     "title": "Seven Minutes in Heaven",
@@ -2014,7 +2004,7 @@
     "show": "Daredevil",
     "season": 2,
     "episode": 9,
-    "chronology": 156
+    "chronology": 155
   },
   {
     "title": "The Man in The Box",
@@ -2027,7 +2017,7 @@
     "show": "Daredevil",
     "season": 2,
     "episode": 10,
-    "chronology": 159
+    "chronology": 158
   },
   {
     "title": ".380",
@@ -2040,7 +2030,7 @@
     "show": "Daredevil",
     "season": 2,
     "episode": 11,
-    "chronology": 160
+    "chronology": 159
   },
   {
     "title": "The Dark at the End of the Tunnel",
@@ -2053,7 +2043,7 @@
     "show": "Daredevil",
     "season": 2,
     "episode": 12,
-    "chronology": 162
+    "chronology": 161
   },
   {
     "title": "A Cold Day in Hell's Kitchen",
@@ -2066,7 +2056,7 @@
     "show": "Daredevil",
     "season": 2,
     "episode": 13,
-    "chronology": 163
+    "chronology": 162
   },
   {
     "title": "Parting Shot",
