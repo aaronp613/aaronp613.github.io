@@ -106,6 +106,21 @@
       </div>
     </header>
 
+    <!-- ─── Announcement Banner ─── -->
+    <!-- Set SHOW_ANNOUNCEMENT to true to display the banner, false to hide it -->
+    <script>var SHOW_ANNOUNCEMENT = true;</script>
+    <div id="announcement-banner" class="announcement-banner" style="display:none">
+      <span class="announcement-badge">New</span>
+      <span class="announcement-text">Added: X-Men: The Animated Series</span>
+      <button class="announcement-close" aria-label="Dismiss announcement" onclick="this.closest('.announcement-banner').style.display='none'">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="1" y1="1" x2="11" y2="11"/><line x1="11" y1="1" x2="1" y2="11"/>
+        </svg>
+      </button>
+    </div>
+    <script>if(SHOW_ANNOUNCEMENT){document.getElementById('announcement-banner').style.display='';}</script>
+    <!-- ─── End Announcement Banner ─── -->
+
     <div class="mcu-intro surface-card">
       <h1>MCU Viewing Order</h1>
       <div class="intro-metrics">

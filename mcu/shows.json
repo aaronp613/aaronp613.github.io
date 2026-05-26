@@ -7,6 +7,7 @@
   { "source": "Disney+",      "show": "Wonder Man",                               "category": "active",       "detail": "Season 2: TBA" },
   { "source": "Disney+",      "show": "Marvel Zombies",                           "category": "active",       "detail": "Season 2: TBA" },
 
+  { "source": "Fox",          "show": "X-Men: The Animated Series",              "category": "ended" },
   { "source": "ABC",          "show": "Agents of S.H.I.E.L.D.",                  "category": "ended" },
   { "source": "Disney+",      "show": "Agatha All Along",                         "category": "ended" },
   { "source": "Disney+",      "show": "Echo",                                     "category": "ended" },

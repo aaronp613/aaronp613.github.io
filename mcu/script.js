@@ -281,7 +281,12 @@ function restoreFilterState() {
     });
   };
   restore("filter_type",       "#typeFilter");
-  restore("filter_canon",      "#canonFilter");
+  // Default: both canon and non-canon checked if no saved preference exists
+  if (!localStorage.getItem("filter_canon")) {
+    document.querySelectorAll("#canonFilter input").forEach(cb => cb.checked = true);
+  } else {
+    restore("filter_canon", "#canonFilter");
+  }
   restore("filter_multiverse", "#multiverseFilter");
   setSearchValue(localStorage.getItem("filter_search") || "");
 
@@ -641,8 +646,8 @@ function createSingleCard(item) {
   const earthMatch  = mvLabelFull.match(/(Earth-[^\s(]+)/);
   const mvLabel     = earthMatch ? earthMatch[1] : mvLabelFull;
 
-  const nonCanonTag = item.canon === false
-    ? `<span class="non-canon-tag">Non-Canon</span>`
+  const nonCanonBadge = item.canon === false
+    ? `<span class="non-canon-badge">Non-Canon</span>`
     : "";
 
   const isShow = isEpisode(item);
@@ -652,13 +657,16 @@ function createSingleCard(item) {
     : "";
 
   const titleBlock = isShow
-    ? `<div class="card-show">${item.show}</div><div class="card-ep-title">${item.title}${nonCanonTag}</div>`
-    : `<div class="card-title">${item.title}${nonCanonTag}</div>`;
+    ? `<div class="card-show">${item.show}</div><div class="card-ep-title">${item.title}</div>`
+    : `<div class="card-title">${item.title}</div>`;
   const sourceLink = createSourceLinkHtml(item.url, `Open ${getDisplayTitle(item)}`);
 
   card.innerHTML = `
     <div class="card-top">
-      <span class="card-type">${item.type}</span>
+      <div class="card-top-left">
+        <span class="card-type">${item.type}</span>
+        ${nonCanonBadge}
+      </div>
       ${epBadge}
     </div>
     ${titleBlock}
@@ -735,10 +743,16 @@ function createGroupCard(group) {
     badge.innerHTML = `${wc}<span class="group-watched-sep">/</span>${items.length}`;
   };
 
+  const allNonCanon = items.every(it => it.canon === false);
+  const groupNonCanonBadge = allNonCanon ? `<span class="non-canon-badge">Non-Canon</span>` : "";
+
   const wc0 = watchedCount();
   card.innerHTML = `
     <div class="card-top">
-      <span class="card-type">${type}</span>
+      <div class="card-top-left">
+        <span class="card-type">${type}</span>
+        ${groupNonCanonBadge}
+      </div>
       <span class="group-ep-count">${items.length} episodes</span>
     </div>
     <div class="card-show">${group.show}</div>
@@ -776,13 +790,6 @@ function createGroupCard(group) {
     const titleSpan = document.createElement("span");
     titleSpan.className = "ep-title";
     titleSpan.textContent = it.title;
-    if (it.canon === false) {
-      const nc = document.createElement("span");
-      nc.className = "non-canon-tag";
-      nc.textContent = "NC";
-      nc.style.marginLeft = "5px";
-      titleSpan.appendChild(nc);
-    }
 
     const runtime = document.createElement("span");
     runtime.className = "ep-runtime";
@@ -807,7 +814,7 @@ function createGroupCard(group) {
       row.classList.toggle("is-watched", !nowWatched);
       toggle.checked = !nowWatched;
       renderBadge();
-      updateStats();
+      updateStats(filteredData());
     });
 
     epList.appendChild(row);
@@ -862,7 +869,7 @@ function renderList(data) {
   });
   flushSingles();
 
-  updateStats();
+  updateStats(data);
   updateFilterButtons();
 }
 
@@ -898,17 +905,18 @@ function getDisplayTitle(item) {
   return item.title;
 }
 
-function updateStats() {
-  const watchedItems    = fullData.filter(item => localStorage.getItem(`watched_${item.id}`) === "true");
-  const totalRuntime    = fullData.reduce((s, item) => s + item.runtime, 0);
-  const watchedRuntime  = watchedItems.reduce((s, item) => s + item.runtime, 0);
-  const percent         = totalRuntime ? Math.round((watchedRuntime / totalRuntime) * 100) : 0;
+function updateStats(data) {
+  const items          = data || filteredData();
+  const watchedItems   = items.filter(item => localStorage.getItem(`watched_${item.id}`) === "true");
+  const totalRuntime   = items.reduce((s, item) => s + item.runtime, 0);
+  const watchedRuntime = watchedItems.reduce((s, item) => s + item.runtime, 0);
+  const percent        = totalRuntime ? Math.round((watchedRuntime / totalRuntime) * 100) : 0;
 
   const el = id => document.getElementById(id);
-  el("stat-percent").textContent       = `${percent}%`;
-  el("stat-time").textContent          = formatRuntimeShort(watchedRuntime);
+  el("stat-percent").textContent        = `${percent}%`;
+  el("stat-time").textContent           = formatRuntimeShort(watchedRuntime);
   el("stat-time-remaining").textContent = formatRuntimeShort(totalRuntime - watchedRuntime);
-  el("progressBar").style.width        = `${percent}%`;
+  el("progressBar").style.width         = `${percent}%`;
 }
 
 function formatRuntimeShort(minutes) {
@@ -1315,7 +1323,6 @@ document.getElementById("applyCodeBtn")?.addEventListener("click", () => {
   }
   closeProgressModal();
   renderList(filteredData());
-  updateStats();
 });
 
 window.addEventListener("beforeprint", preparePrintView);
