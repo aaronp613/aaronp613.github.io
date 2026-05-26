@@ -1025,7 +1025,7 @@
     "id": "spider_man",
     "canon": true,
     "multiverse": 4,
-    "chronology": 643
+    "chronology": 672
   },
   {
     "title": "Daredevil",
@@ -1055,7 +1055,7 @@
     "id": "spider_man_2",
     "canon": true,
     "multiverse": 4,
-    "chronology": 644
+    "chronology": 673
   },
   {
     "title": "Blade: Trinity",
@@ -1105,7 +1105,7 @@
     "id": "spider_man_3",
     "canon": true,
     "multiverse": 4,
-    "chronology": 645
+    "chronology": 674
   },
   {
     "title": "Fantastic Four: Rise of the Silver Surfer",
@@ -1324,7 +1324,7 @@
     "id": "the_amazing_spider_man",
     "canon": true,
     "multiverse": 5,
-    "chronology": 646
+    "chronology": 675
   },
   {
     "title": "Item 47",
@@ -1697,7 +1697,7 @@
     "id": "the_amazing_spider_man_2",
     "canon": true,
     "multiverse": 5,
-    "chronology": 647
+    "chronology": 676
   },
   {
     "title": "Ragtag",
@@ -1733,7 +1733,7 @@
     "id": "x_men_days_of_future_past",
     "canon": true,
     "multiverse": 13,
-    "chronology": 614
+    "chronology": 643
   },
   {
     "title": "Guardians Of The Galaxy",
@@ -2784,7 +2784,7 @@
     "id": "deadpool",
     "canon": true,
     "multiverse": 13,
-    "chronology": 617
+    "chronology": 646
   },
   {
     "title": "Life of the Party",
@@ -3249,7 +3249,7 @@
     "id": "x_men_apocalypse",
     "canon": true,
     "multiverse": 13,
-    "chronology": 615
+    "chronology": 644
   },
   {
     "title": "While You Were Fighting - A Thor Mockumentary (Team Thor)",
@@ -3750,7 +3750,7 @@
     "id": "logan",
     "canon": true,
     "multiverse": 13,
-    "chronology": 618
+    "chronology": 647
   },
   {
     "title": "Snow Gives Way",
@@ -4218,6 +4218,19 @@
     "chronology": 229
   },
   {
+    "title": "eXposed",
+    "release_date": "2017-10-02",
+    "runtime": 46,
+    "type": "Fox",
+    "id": "gifted_s1_e1",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 1,
+    "episode": 1,
+    "chronology": 614
+  },
+  {
     "title": "Divide - And Conquer",
     "release_date": "2017-10-06",
     "runtime": 42,
@@ -4231,6 +4244,19 @@
     "chronology": 230
   },
   {
+    "title": "rX",
+    "release_date": "2017-10-09",
+    "runtime": 45,
+    "type": "Fox",
+    "id": "gifted_s1_e2",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 1,
+    "episode": 2,
+    "chronology": 615
+  },
+  {
     "title": "Make Way For... Medusa",
     "release_date": "2017-10-13",
     "runtime": 42,
@@ -4242,6 +4268,19 @@
     "season": 1,
     "episode": 4,
     "chronology": 231
+  },
+  {
+    "title": "eXodus",
+    "release_date": "2017-10-16",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s1_e3",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 1,
+    "episode": 3,
+    "chronology": 616
   },
   {
     "title": "Midtown School of Science and Technology News",
@@ -4279,6 +4318,19 @@
     "chronology": 232
   },
   {
+    "title": "eXit strategy",
+    "release_date": "2017-10-23",
+    "runtime": 43,
+    "type": "Fox",
+    "id": "gifted_s1_e4",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 1,
+    "episode": 4,
+    "chronology": 617
+  },
+  {
     "title": "The Gentleman's Name Is Gorgon",
     "release_date": "2017-10-27",
     "runtime": 42,
@@ -4290,6 +4342,19 @@
     "season": 1,
     "episode": 6,
     "chronology": 233
+  },
+  {
+    "title": "boXed in",
+    "release_date": "2017-10-30",
+    "runtime": 43,
+    "type": "Fox",
+    "id": "gifted_s1_e5",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 1,
+    "episode": 5,
+    "chronology": 618
   },
   {
     "title": "Thor: Ragnarok",
@@ -4315,6 +4380,19 @@
     "chronology": 234
   },
   {
+    "title": "got your siX",
+    "release_date": "2017-11-06",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s1_e6",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 1,
+    "episode": 6,
+    "chronology": 619
+  },
+  {
     "title": "...And Finally: Black Bolt",
     "release_date": "2017-11-10",
     "runtime": 43,
@@ -4326,6 +4404,19 @@
     "season": 1,
     "episode": 8,
     "chronology": 235
+  },
+  {
+    "title": "eXtreme measures",
+    "release_date": "2017-11-13",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s1_e7",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 1,
+    "episode": 7,
+    "chronology": 620
   },
   {
     "title": "3 AM",
@@ -4497,6 +4588,19 @@
     "chronology": 253
   },
   {
+    "title": "threat of eXtinction",
+    "release_date": "2017-11-20",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s1_e8",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 1,
+    "episode": 8,
+    "chronology": 621
+  },
+  {
     "title": "Reunion",
     "release_date": "2017-11-21",
     "runtime": 53,
@@ -4575,6 +4679,19 @@
     "chronology": 382
   },
   {
+    "title": "outfoX",
+    "release_date": "2017-12-04",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s1_e9",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 1,
+    "episode": 9,
+    "chronology": 622
+  },
+  {
     "title": "Kingdom",
     "release_date": "2017-12-05",
     "runtime": 47,
@@ -4599,6 +4716,19 @@
     "season": 5,
     "episode": 3,
     "chronology": 383
+  },
+  {
+    "title": "eXploited",
+    "release_date": "2017-12-11",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s1_e10",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 1,
+    "episode": 10,
+    "chronology": 623
   },
   {
     "title": "Metamorphosis",
@@ -4666,6 +4796,19 @@
     "chronology": 336
   },
   {
+    "title": "3 X 1",
+    "release_date": "2018-01-01",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s1_e11",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 1,
+    "episode": 11,
+    "chronology": 624
+  },
+  {
     "title": "Doomsday",
     "release_date": "2018-01-02",
     "runtime": 45,
@@ -4692,6 +4835,19 @@
     "chronology": 386
   },
   {
+    "title": "eXtraction",
+    "release_date": "2018-01-08",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s1_e12",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 1,
+    "episode": 12,
+    "chronology": 625
+  },
+  {
     "title": "Hostile",
     "release_date": "2018-01-09",
     "runtime": 48,
@@ -4716,6 +4872,19 @@
     "season": 5,
     "episode": 7,
     "chronology": 387
+  },
+  {
+    "title": "X-roads",
+    "release_date": "2018-01-15",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s1_e13",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 1,
+    "episode": 13,
+    "chronology": 626
   },
   {
     "title": "The Last Day",
@@ -5114,7 +5283,7 @@
     "id": "deadpool_2",
     "canon": true,
     "multiverse": 13,
-    "chronology": 619
+    "chronology": 648
   },
   {
     "title": "The One Who Will Save Us All",
@@ -5505,7 +5674,7 @@
     "id": "deadpool_2_super_duper_cut",
     "canon": true,
     "multiverse": 13,
-    "chronology": 620
+    "chronology": 649
   },
   {
     "title": "Darryl Survived",
@@ -5660,6 +5829,32 @@
     "chronology": 404
   },
   {
+    "title": "eMergence",
+    "release_date": "2018-09-25",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s2_e1",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 1,
+    "chronology": 627
+  },
+  {
+    "title": "unMoored",
+    "release_date": "2018-10-02",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s2_e2",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 2,
+    "chronology": 628
+  },
+  {
     "title": "Venom",
     "release_date": "2018-10-05",
     "runtime": 140,
@@ -5667,7 +5862,33 @@
     "id": "venom",
     "canon": true,
     "multiverse": 1,
-    "chronology": 648
+    "chronology": 677
+  },
+  {
+    "title": "coMplications",
+    "release_date": "2018-10-09",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s2_e3",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 3,
+    "chronology": 629
+  },
+  {
+    "title": "outMatched",
+    "release_date": "2018-10-16",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s2_e4",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 4,
+    "chronology": 630
   },
   {
     "title": "Resurrection",
@@ -5839,6 +6060,84 @@
     "chronology": 362
   },
   {
+    "title": "afterMath",
+    "release_date": "2018-10-30",
+    "runtime": 43,
+    "type": "Fox",
+    "id": "gifted_s2_e5",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 5,
+    "chronology": 631
+  },
+  {
+    "title": "iMprint",
+    "release_date": "2018-11-06",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s2_e6",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 6,
+    "chronology": 632
+  },
+  {
+    "title": "no Mercy",
+    "release_date": "2018-11-13",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s2_e7",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 7,
+    "chronology": 633
+  },
+  {
+    "title": "the dreaM",
+    "release_date": "2018-11-20",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s2_e8",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 8,
+    "chronology": 634
+  },
+  {
+    "title": "gaMe changer",
+    "release_date": "2018-12-04",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s2_e9",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 9,
+    "chronology": 635
+  },
+  {
+    "title": "eneMy of My eneMy",
+    "release_date": "2018-12-11",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s2_e10",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 10,
+    "chronology": 636
+  },
+  {
     "title": "Spider-Man: Into the Spider-Verse",
     "release_date": "2018-12-14",
     "runtime": 116,
@@ -5846,7 +6145,7 @@
     "id": "spider_man_into_the_spider_verse",
     "canon": true,
     "multiverse": 10,
-    "chronology": 632
+    "chronology": 661
   },
   {
     "title": "Gimmie Shelter",
@@ -6018,6 +6317,45 @@
     "chronology": 377
   },
   {
+    "title": "meMento",
+    "release_date": "2019-01-01",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s2_e11",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 11,
+    "chronology": 637
+  },
+  {
+    "title": "hoMe",
+    "release_date": "2019-01-08",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s2_e12",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 12,
+    "chronology": 638
+  },
+  {
+    "title": "teMpted",
+    "release_date": "2019-01-15",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s2_e13",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 13,
+    "chronology": 639
+  },
+  {
     "title": "Roadhouse Blues",
     "release_date": "2019-01-18",
     "runtime": 53,
@@ -6185,6 +6523,45 @@
     "season": 2,
     "episode": 13,
     "chronology": 420
+  },
+  {
+    "title": "calaMity",
+    "release_date": "2019-01-22",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s2_e14",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 14,
+    "chronology": 640
+  },
+  {
+    "title": "Monsters",
+    "release_date": "2019-02-12",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s2_e15",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 15,
+    "chronology": 641
+  },
+  {
+    "title": "oMens",
+    "release_date": "2019-02-19",
+    "runtime": 44,
+    "type": "Fox",
+    "id": "gifted_s2_e16",
+    "canon": false,
+    "multiverse": 39,
+    "show": "The Gifted",
+    "season": 2,
+    "episode": 16,
+    "chronology": 642
   },
   {
     "title": "Captain Marvel",
@@ -6440,7 +6817,7 @@
     "id": "dark_phoenix",
     "canon": true,
     "multiverse": 13,
-    "chronology": 616
+    "chronology": 645
   },
   {
     "title": "AKA The Perfect Burger",
@@ -6633,7 +7010,7 @@
     "url": "https://www.youtube.com/watch?v=4-jGd8vPvjE",
     "canon": true,
     "multiverse": 0,
-    "chronology": 650
+    "chronology": 679
   },
   {
     "title": "Inescapable",
@@ -6679,7 +7056,7 @@
     "id": "spider_man_far_from_home",
     "canon": true,
     "multiverse": 0,
-    "chronology": 651
+    "chronology": 680
   },
   {
     "title": "Collision Course Part 1",
@@ -6767,7 +7144,7 @@
     "id": "spider_man_far_from_home_re_release",
     "canon": true,
     "multiverse": 0,
-    "chronology": 652
+    "chronology": 681
   },
   {
     "title": "Spider-Man: Far From Home Deleted Scenes",
@@ -6778,7 +7155,7 @@
     "url": "https://reddit.com/r/marvelstudios/comments/d7pvlj/6_deleted_scenes_spiderman_far_from_home/",
     "canon": true,
     "multiverse": 0,
-    "chronology": 653
+    "chronology": 682
   },
   {
     "title": "TheDailyBugle.net EXCLUSIVE! Spider-Man is a Menace!",
@@ -6789,7 +7166,7 @@
     "url": "https://www.youtube.com/watch?v=6LS860xepoY",
     "canon": true,
     "multiverse": 0,
-    "chronology": 656
+    "chronology": 685
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE Spider-Man Unmasked Full Story Credit The Daily Bugle J. Jonah Jameson",
@@ -6800,7 +7177,7 @@
     "url": "https://www.youtube.com/watch?v=CasTs4mz4Kg",
     "canon": true,
     "multiverse": 0,
-    "chronology": 655
+    "chronology": 684
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE Coney Island re-opened years after devastating crash",
@@ -6811,7 +7188,7 @@
     "url": "https://www.youtube.com/watch?v=upJLMZBzwpE",
     "canon": true,
     "multiverse": 0,
-    "chronology": 657
+    "chronology": 686
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE London Attack - Tower Bridge Bill Blues",
@@ -6822,7 +7199,7 @@
     "url": "https://www.youtube.com/watch?v=arfwz-QAK-s",
     "canon": true,
     "multiverse": 0,
-    "chronology": 658
+    "chronology": 687
   },
   {
     "title": "Smoke and Mirrors",
@@ -6963,7 +7340,7 @@
     "url": "https://www.youtube.com/watch?v=-Gekpv_OCzk",
     "canon": true,
     "multiverse": 0,
-    "chronology": 654
+    "chronology": 683
   },
   {
     "title": "The New Deal",
@@ -7142,7 +7519,7 @@
     "id": "the_new_mutants",
     "canon": true,
     "multiverse": 3,
-    "chronology": 766
+    "chronology": 795
   },
   {
     "title": "Mother's Little Helpers",
@@ -7285,7 +7662,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 1,
-    "chronology": 623
+    "chronology": 652
   },
   {
     "title": "Don't Touch That Dial",
@@ -7298,7 +7675,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 2,
-    "chronology": 624
+    "chronology": 653
   },
   {
     "title": "Now In Color",
@@ -7311,7 +7688,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 3,
-    "chronology": 625
+    "chronology": 654
   },
   {
     "title": "We Interrupt This Program",
@@ -7324,7 +7701,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 4,
-    "chronology": 626
+    "chronology": 655
   },
   {
     "title": "On A Very Special Episode...",
@@ -7337,7 +7714,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 5,
-    "chronology": 627
+    "chronology": 656
   },
   {
     "title": "All-New Halloween Spooktacular!",
@@ -7350,7 +7727,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 6,
-    "chronology": 628
+    "chronology": 657
   },
   {
     "title": "Breaking the Fourth Wall",
@@ -7363,7 +7740,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 7,
-    "chronology": 629
+    "chronology": 658
   },
   {
     "title": "Previously On",
@@ -7376,7 +7753,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 8,
-    "chronology": 630
+    "chronology": 659
   },
   {
     "title": "The Series Finale",
@@ -7389,7 +7766,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 9,
-    "chronology": 631
+    "chronology": 660
   },
   {
     "title": "What Did I Miss?",
@@ -7400,7 +7777,7 @@
     "url": "https://www.youtube.com/watch?v=A1nDdHRBYMM",
     "canon": true,
     "multiverse": 0,
-    "chronology": 634
+    "chronology": 663
   },
   {
     "title": "Super Hero Stuff",
@@ -7411,7 +7788,7 @@
     "url": "https://www.youtube.com/watch?v=db1QEI712S0",
     "canon": true,
     "multiverse": 0,
-    "chronology": 635
+    "chronology": 664
   },
   {
     "title": "New World Order",
@@ -7424,7 +7801,7 @@
     "show": "The Falcon And The Winter Soldier",
     "season": 1,
     "episode": 1,
-    "chronology": 636
+    "chronology": 665
   },
   {
     "title": "The Star-Spangled Man",
@@ -7437,7 +7814,7 @@
     "show": "The Falcon And The Winter Soldier",
     "season": 1,
     "episode": 2,
-    "chronology": 637
+    "chronology": 666
   },
   {
     "title": "Power Broker",
@@ -7450,7 +7827,7 @@
     "show": "The Falcon And The Winter Soldier",
     "season": 1,
     "episode": 3,
-    "chronology": 638
+    "chronology": 667
   },
   {
     "title": "The Whole World Is Watching",
@@ -7463,7 +7840,7 @@
     "show": "The Falcon And The Winter Soldier",
     "season": 1,
     "episode": 4,
-    "chronology": 639
+    "chronology": 668
   },
   {
     "title": "Truth",
@@ -7476,7 +7853,7 @@
     "show": "The Falcon And The Winter Soldier",
     "season": 1,
     "episode": 5,
-    "chronology": 640
+    "chronology": 669
   },
   {
     "title": "One World, One People",
@@ -7489,7 +7866,7 @@
     "show": "The Falcon And The Winter Soldier",
     "season": 1,
     "episode": 6,
-    "chronology": 641
+    "chronology": 670
   },
   {
     "title": "Glorious Purpose",
@@ -7524,7 +7901,7 @@
     "url": "https://www.youtube.com/watch?v=MjocuzfVSzA",
     "canon": true,
     "multiverse": 0,
-    "chronology": 622
+    "chronology": 651
   },
   {
     "title": "Question Everything | The Falcon and The Winter Soldier",
@@ -7535,7 +7912,7 @@
     "url": "https://twitter.com/falconsoldierTV/status/1404834455559184384",
     "canon": true,
     "multiverse": 0,
-    "chronology": 642
+    "chronology": 671
   },
   {
     "title": "The Variant",
@@ -7672,7 +8049,7 @@
     "id": "shang_chi_and_the_legend_of_the_ten_rings",
     "canon": true,
     "multiverse": 0,
-    "chronology": 633
+    "chronology": 662
   },
   {
     "title": "What If... Zombies!?",
@@ -7734,7 +8111,7 @@
     "id": "venom_let_there_be_carnage",
     "canon": true,
     "multiverse": 1,
-    "chronology": 649
+    "chronology": 678
   },
   {
     "title": "What If\u2026 The Watcher Broke His Oath?",
@@ -7757,7 +8134,7 @@
     "id": "eternals",
     "canon": true,
     "multiverse": 0,
-    "chronology": 687
+    "chronology": 716
   },
   {
     "title": "The Daily Bugle Joins TikTok",
@@ -7768,7 +8145,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7034011591255395589",
     "canon": true,
     "multiverse": 0,
-    "chronology": 659
+    "chronology": 688
   },
   {
     "title": "Tell Us You Hate Spider-Man...",
@@ -7779,7 +8156,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7034028545051577605",
     "canon": true,
     "multiverse": 0,
-    "chronology": 660
+    "chronology": 689
   },
   {
     "title": "Never Meet Your Heroes",
@@ -7792,7 +8169,7 @@
     "show": "Hawkeye",
     "season": 1,
     "episode": 1,
-    "chronology": 690
+    "chronology": 719
   },
   {
     "title": "Hide and Seek",
@@ -7805,7 +8182,7 @@
     "show": "Hawkeye",
     "season": 1,
     "episode": 2,
-    "chronology": 691
+    "chronology": 720
   },
   {
     "title": "Join Us As An Intern",
@@ -7816,7 +8193,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7034030231476292870",
     "canon": true,
     "multiverse": 0,
-    "chronology": 661
+    "chronology": 690
   },
   {
     "title": "Echoes",
@@ -7829,7 +8206,7 @@
     "show": "Hawkeye",
     "season": 1,
     "episode": 3,
-    "chronology": 692
+    "chronology": 721
   },
   {
     "title": "Lightning and sand storms in NYC?",
@@ -7840,7 +8217,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7036899377377561861",
     "canon": true,
     "multiverse": 0,
-    "chronology": 674
+    "chronology": 703
   },
   {
     "title": "Do YOU have what it takes",
@@ -7851,7 +8228,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7037190105471159557",
     "canon": true,
     "multiverse": 0,
-    "chronology": 662
+    "chronology": 691
   },
   {
     "title": "Burning Questions With Betty Brant - Guest: Coach Wilson",
@@ -7862,7 +8239,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7038795503785594117",
     "canon": true,
     "multiverse": 0,
-    "chronology": 663
+    "chronology": 692
   },
   {
     "title": "Partners, Am I Right?",
@@ -7875,7 +8252,7 @@
     "show": "Hawkeye",
     "season": 1,
     "episode": 4,
-    "chronology": 693
+    "chronology": 722
   },
   {
     "title": "Burning Questions With Betty Brant - Guest: Flash Thompson",
@@ -7886,7 +8263,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7039900146041343278",
     "canon": true,
     "multiverse": 0,
-    "chronology": 664
+    "chronology": 693
   },
   {
     "title": "Burning Questions With Betty Brant - Guest: Ned Leeds",
@@ -7897,7 +8274,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7040134003688770863",
     "canon": true,
     "multiverse": 0,
-    "chronology": 665
+    "chronology": 694
   },
   {
     "title": "Put A Finger Down: Daily Bugle Edition",
@@ -7908,7 +8285,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7041711871740628271",
     "canon": true,
     "multiverse": 0,
-    "chronology": 666
+    "chronology": 695
   },
   {
     "title": "Ronin",
@@ -7921,7 +8298,7 @@
     "show": "Hawkeye",
     "season": 1,
     "episode": 5,
-    "chronology": 694
+    "chronology": 723
   },
   {
     "title": "Spider-Man: No Way Home",
@@ -7931,7 +8308,7 @@
     "id": "spider_man_no_way_home",
     "canon": true,
     "multiverse": 0,
-    "chronology": 667
+    "chronology": 696
   },
   {
     "title": "Spider-Man has been released!",
@@ -7942,7 +8319,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7042753199484226862",
     "canon": true,
     "multiverse": 0,
-    "chronology": 669
+    "chronology": 698
   },
   {
     "title": "Burning Questions with Betty Brant - Guest: Peter Parker",
@@ -7953,7 +8330,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7043907981393825071?is_from_webapp=1&sender_device=pc&web_id=6972566546209113605",
     "canon": true,
     "multiverse": 0,
-    "chronology": 670
+    "chronology": 699
   },
   {
     "title": "So This Is Christmas?",
@@ -7966,7 +8343,7 @@
     "show": "Hawkeye",
     "season": 1,
     "episode": 6,
-    "chronology": 695
+    "chronology": 724
   },
   {
     "title": "I was definitely hired for my journalist skills and no other reason, right??",
@@ -7977,7 +8354,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7044552965751016751?is_from_webapp=1&sender_device=pc&web_id=6972566546209113605",
     "canon": true,
     "multiverse": 0,
-    "chronology": 671
+    "chronology": 700
   },
   {
     "title": "Get your fix on Daily Bugle Supplements today!",
@@ -7988,7 +8365,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7050157397289127214?is_from_webapp=1&sender_device=pc&web_id=6972566546209113605",
     "canon": true,
     "multiverse": 0,
-    "chronology": 677
+    "chronology": 706
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE - The Spider-Menace Strikes Again!",
@@ -7999,7 +8376,7 @@
     "url": "https://www.youtube.com/watch?v=SeJP4PPWqfM",
     "canon": true,
     "multiverse": 0,
-    "chronology": 676
+    "chronology": 705
   },
   {
     "title": "BREAKING NEWS about Dr. Michael Morbius from our NEW Social Correspondent",
@@ -8010,7 +8387,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7076228701175745834?is_from_webapp=1&sender_device=pc&web_id=6972566546209113605",
     "canon": true,
     "multiverse": 1,
-    "chronology": 681
+    "chronology": 710
   },
   {
     "title": "Dr. Michael Morbius is missing!",
@@ -8021,7 +8398,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7078715628596612398?is_from_webapp=1&sender_device=pc&web_id=6972566546209113605",
     "canon": true,
     "multiverse": 1,
-    "chronology": 682
+    "chronology": 711
   },
   {
     "title": "Developing story: Dr. Michael Morbius has been found looking\u2026 healthier than ever",
@@ -8032,7 +8409,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7080630444546411819?is_from_webapp=1&sender_device=pc&web_id=6972566546209113605",
     "canon": true,
     "multiverse": 1,
-    "chronology": 683
+    "chronology": 712
   },
   {
     "title": "The Goldfish Problem",
@@ -8045,7 +8422,7 @@
     "show": "Moon Knight",
     "season": 1,
     "episode": 1,
-    "chronology": 696
+    "chronology": 725
   },
   {
     "title": "Morbius",
@@ -8055,7 +8432,7 @@
     "id": "morbius",
     "canon": true,
     "multiverse": 1,
-    "chronology": 680
+    "chronology": 709
   },
   {
     "title": "A super creature spotted in New York City!",
@@ -8066,7 +8443,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7081369214744857899",
     "canon": true,
     "multiverse": 1,
-    "chronology": 684
+    "chronology": 713
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE - Web of Lies!",
@@ -8077,7 +8454,7 @@
     "url": "https://www.youtube.com/watch?v=Dgg4tIeBG1w",
     "canon": true,
     "multiverse": 0,
-    "chronology": 672
+    "chronology": 701
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE - Sticky Street Job",
@@ -8088,7 +8465,7 @@
     "url": "https://www.youtube.com/watch?v=ghaKfDDN3h0",
     "canon": true,
     "multiverse": 0,
-    "chronology": 675
+    "chronology": 704
   },
   {
     "title": "Summon the Suit",
@@ -8101,7 +8478,7 @@
     "show": "Moon Knight",
     "season": 1,
     "episode": 2,
-    "chronology": 697
+    "chronology": 726
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE - Spider-Sycophant",
@@ -8112,7 +8489,7 @@
     "url": "https://youtu.be/v6c_RrFHvpE",
     "canon": true,
     "multiverse": 0,
-    "chronology": 673
+    "chronology": 702
   },
   {
     "title": "The Friendly Type",
@@ -8125,7 +8502,7 @@
     "show": "Moon Knight",
     "season": 1,
     "episode": 3,
-    "chronology": 698
+    "chronology": 727
   },
   {
     "title": "Cloak vs. Tuna Melt",
@@ -8136,7 +8513,7 @@
     "url": "https://www.youtube.com/watch?v=9EJ6i7s7aB4",
     "canon": true,
     "multiverse": 0,
-    "chronology": 688
+    "chronology": 717
   },
   {
     "title": "The Tomb",
@@ -8149,7 +8526,7 @@
     "show": "Moon Knight",
     "season": 1,
     "episode": 4,
-    "chronology": 699
+    "chronology": 728
   },
   {
     "title": "Asylum",
@@ -8162,7 +8539,7 @@
     "show": "Moon Knight",
     "season": 1,
     "episode": 5,
-    "chronology": 700
+    "chronology": 729
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE - \"Savies\" A New Menace Emerges",
@@ -8173,7 +8550,7 @@
     "url": "https://www.youtube.com/watch?v=AWNpEb5OGAI",
     "canon": true,
     "multiverse": 0,
-    "chronology": 678
+    "chronology": 707
   },
   {
     "title": "Gods and Monsters",
@@ -8186,7 +8563,7 @@
     "show": "Moon Knight",
     "season": 1,
     "episode": 6,
-    "chronology": 701
+    "chronology": 730
   },
   {
     "title": "Doctor Strange In The Multiverse Of Madness",
@@ -8196,7 +8573,7 @@
     "id": "doctor_strange_in_the_multiverse_of_madness",
     "canon": true,
     "multiverse": 0,
-    "chronology": 689
+    "chronology": 718
   },
   {
     "title": "Generation Why",
@@ -8209,7 +8586,7 @@
     "show": "Ms. Marvel",
     "season": 1,
     "episode": 1,
-    "chronology": 725
+    "chronology": 754
   },
   {
     "title": "Crushed",
@@ -8222,7 +8599,7 @@
     "show": "Ms. Marvel",
     "season": 1,
     "episode": 2,
-    "chronology": 726
+    "chronology": 755
   },
   {
     "title": "The REAL Carol Danvers Story",
@@ -8233,7 +8610,7 @@
     "url": "https://www.youtube.com/watch?v=yqJlzkYqhZQ",
     "canon": true,
     "multiverse": 0,
-    "chronology": 724
+    "chronology": 753
   },
   {
     "title": "Destined",
@@ -8246,7 +8623,7 @@
     "show": "Ms. Marvel",
     "season": 1,
     "episode": 3,
-    "chronology": 727
+    "chronology": 756
   },
   {
     "title": "Old Spice | Backstage",
@@ -8257,7 +8634,7 @@
     "url": "https://www.facebook.com/watch/?v=413489160547639",
     "canon": true,
     "multiverse": 0,
-    "chronology": 731
+    "chronology": 760
   },
   {
     "title": "Seeing Red",
@@ -8270,7 +8647,7 @@
     "show": "Ms. Marvel",
     "season": 1,
     "episode": 4,
-    "chronology": 728
+    "chronology": 757
   },
   {
     "title": "King Valkyrie\u2019s Time Off | Direct Line",
@@ -8281,7 +8658,7 @@
     "url": "https://www.youtube.com/watch?v=xtvrWV4IhCs",
     "canon": true,
     "multiverse": 0,
-    "chronology": 734
+    "chronology": 763
   },
   {
     "title": "Time and Again",
@@ -8294,7 +8671,7 @@
     "show": "Ms. Marvel",
     "season": 1,
     "episode": 5,
-    "chronology": 729
+    "chronology": 758
   },
   {
     "title": "Thor: Love And Thunder",
@@ -8304,7 +8681,7 @@
     "id": "thor_love_and_thunder",
     "canon": true,
     "multiverse": 0,
-    "chronology": 735
+    "chronology": 764
   },
   {
     "title": "Old Spice",
@@ -8314,7 +8691,7 @@
     "id": "old_spice",
     "canon": true,
     "multiverse": 0,
-    "chronology": 732
+    "chronology": 761
   },
   {
     "title": "Old Spice | Extended Cut",
@@ -8325,7 +8702,7 @@
     "url": "https://www.youtube.com/watch?v=PjdrJnvoUGg",
     "canon": true,
     "multiverse": 0,
-    "chronology": 733
+    "chronology": 762
   },
   {
     "title": "No Normal",
@@ -8338,7 +8715,7 @@
     "show": "Ms. Marvel",
     "season": 1,
     "episode": 6,
-    "chronology": 730
+    "chronology": 759
   },
   {
     "title": "Jennifer Walters' Phone Recording",
@@ -8349,7 +8726,7 @@
     "url": "https://www.youtube.com/watch?v=mXFFqycHpic",
     "canon": true,
     "multiverse": 0,
-    "chronology": 710
+    "chronology": 739
   },
   {
     "title": "Groot's First Steps",
@@ -8427,7 +8804,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 1,
-    "chronology": 708
+    "chronology": 737
   },
   {
     "title": "Superhuman Law",
@@ -8440,7 +8817,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 2,
-    "chronology": 709
+    "chronology": 738
   },
   {
     "title": "The People vs. Emil Blonsky",
@@ -8453,7 +8830,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 3,
-    "chronology": 711
+    "chronology": 740
   },
   {
     "title": "Spider-Man: No Way Home | Re-Release",
@@ -8463,7 +8840,7 @@
     "id": "spider_man_no_way_home_re_release",
     "canon": true,
     "multiverse": 0,
-    "chronology": 668
+    "chronology": 697
   },
   {
     "title": "Is this Not Real Magic?",
@@ -8476,7 +8853,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 4,
-    "chronology": 712
+    "chronology": 741
   },
   {
     "title": "Mean, Green, and Straight Poured Into These Jeans",
@@ -8489,7 +8866,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 5,
-    "chronology": 713
+    "chronology": 742
   },
   {
     "title": "Just Jen",
@@ -8502,7 +8879,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 6,
-    "chronology": 720
+    "chronology": 749
   },
   {
     "title": "The Retreat",
@@ -8515,7 +8892,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 7,
-    "chronology": 721
+    "chronology": 750
   },
   {
     "title": "Ribbit and Rip It",
@@ -8528,7 +8905,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 8,
-    "chronology": 722
+    "chronology": 751
   },
   {
     "title": "Werewolf By Night",
@@ -8538,7 +8915,7 @@
     "id": "werewolf_by_night",
     "canon": true,
     "multiverse": 0,
-    "chronology": 740
+    "chronology": 769
   },
   {
     "title": "Whose Show is This",
@@ -8551,7 +8928,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 9,
-    "chronology": 723
+    "chronology": 752
   },
   {
     "title": "Black Panther: Wakanda Forever",
@@ -8561,7 +8938,7 @@
     "id": "black_panther_wakanda_forever",
     "canon": true,
     "multiverse": 0,
-    "chronology": 702
+    "chronology": 731
   },
   {
     "title": "The Guardians of the Galaxy Holiday Special",
@@ -8571,7 +8948,7 @@
     "id": "the_guardians_of_the_galaxy_holiday_special",
     "canon": true,
     "multiverse": 0,
-    "chronology": 741
+    "chronology": 770
   },
   {
     "title": "Shrinking and Drinking, Now You Can!",
@@ -8582,7 +8959,7 @@
     "url": "https://www.youtube.com/watch?v=AO0aIHyetAw",
     "canon": true,
     "multiverse": 0,
-    "chronology": 754
+    "chronology": 783
   },
   {
     "title": "Now You Can, Before Saving the Day!",
@@ -8593,7 +8970,7 @@
     "url": "https://www.youtube.com/watch?v=miA1puOViJg",
     "canon": true,
     "multiverse": 0,
-    "chronology": 755
+    "chronology": 784
   },
   {
     "title": "Ant-Man and the Wasp: Quantumania",
@@ -8603,7 +8980,7 @@
     "id": "ant_man_and_the_wasp_quantumania",
     "canon": true,
     "multiverse": 0,
-    "chronology": 756
+    "chronology": 785
   },
   {
     "title": "Guardians of the Galaxy Vol. 3",
@@ -8613,7 +8990,7 @@
     "id": "guardians_of_the_galaxy_vol_3",
     "canon": true,
     "multiverse": 0,
-    "chronology": 757
+    "chronology": 786
   },
   {
     "title": "Spider-Man: Across The Spider-Verse",
@@ -8623,7 +9000,7 @@
     "id": "spider_man_across_the_spider_verse",
     "canon": true,
     "multiverse": 10,
-    "chronology": 686
+    "chronology": 715
   },
   {
     "title": "Resurrection",
@@ -8636,7 +9013,7 @@
     "show": "Secret Invasion",
     "season": 1,
     "episode": 1,
-    "chronology": 759
+    "chronology": 788
   },
   {
     "title": "Promises",
@@ -8649,7 +9026,7 @@
     "show": "Secret Invasion",
     "season": 1,
     "episode": 2,
-    "chronology": 760
+    "chronology": 789
   },
   {
     "title": "Betrayed",
@@ -8662,7 +9039,7 @@
     "show": "Secret Invasion",
     "season": 1,
     "episode": 3,
-    "chronology": 761
+    "chronology": 790
   },
   {
     "title": "Beloved",
@@ -8675,7 +9052,7 @@
     "show": "Secret Invasion",
     "season": 1,
     "episode": 4,
-    "chronology": 762
+    "chronology": 791
   },
   {
     "title": "Harvest",
@@ -8688,7 +9065,7 @@
     "show": "Secret Invasion",
     "season": 1,
     "episode": 5,
-    "chronology": 763
+    "chronology": 792
   },
   {
     "title": "Home",
@@ -8701,7 +9078,7 @@
     "show": "Secret Invasion",
     "season": 1,
     "episode": 6,
-    "chronology": 764
+    "chronology": 793
   },
   {
     "title": "Are You My Groot?",
@@ -8779,7 +9156,7 @@
     "show": "Loki",
     "season": 2,
     "episode": 1,
-    "chronology": 767
+    "chronology": 796
   },
   {
     "title": "Breaking Brad",
@@ -8792,7 +9169,7 @@
     "show": "Loki",
     "season": 2,
     "episode": 2,
-    "chronology": 768
+    "chronology": 797
   },
   {
     "title": "1893",
@@ -8805,7 +9182,7 @@
     "show": "Loki",
     "season": 2,
     "episode": 3,
-    "chronology": 769
+    "chronology": 798
   },
   {
     "title": "Heart of the TVA",
@@ -8818,7 +9195,7 @@
     "show": "Loki",
     "season": 2,
     "episode": 4,
-    "chronology": 770
+    "chronology": 799
   },
   {
     "title": "Science/Fiction",
@@ -8831,7 +9208,7 @@
     "show": "Loki",
     "season": 2,
     "episode": 5,
-    "chronology": 771
+    "chronology": 800
   },
   {
     "title": "Glorious Purpose",
@@ -8844,7 +9221,7 @@
     "show": "Loki",
     "season": 2,
     "episode": 6,
-    "chronology": 772
+    "chronology": 801
   },
   {
     "title": "The Marvels",
@@ -8854,7 +9231,7 @@
     "id": "the_marvels",
     "canon": true,
     "multiverse": 0,
-    "chronology": 765
+    "chronology": 794
   },
   {
     "title": "What If... Nebula Joined the Nova Corps?",
@@ -8867,7 +9244,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 1,
-    "chronology": 773
+    "chronology": 802
   },
   {
     "title": "What If... Peter Quill Attacked Earth's Mightiest Heroes?",
@@ -8880,7 +9257,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 2,
-    "chronology": 774
+    "chronology": 803
   },
   {
     "title": "What If... Happy Hogan Saved Christmas?",
@@ -8893,7 +9270,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 3,
-    "chronology": 775
+    "chronology": 804
   },
   {
     "title": "What If... Iron Man Crashed into the Grandmaster?",
@@ -8906,7 +9283,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 4,
-    "chronology": 776
+    "chronology": 805
   },
   {
     "title": "What If... Captain Carter Fought the Hydra Stomper?",
@@ -8919,7 +9296,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 5,
-    "chronology": 777
+    "chronology": 806
   },
   {
     "title": "What If... Kahhori Reshaped the World?",
@@ -8932,7 +9309,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 6,
-    "chronology": 778
+    "chronology": 807
   },
   {
     "title": "What If... Hela Found the Ten Rings?",
@@ -8945,7 +9322,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 7,
-    "chronology": 779
+    "chronology": 808
   },
   {
     "title": "What If... The Avengers Assembled in 1602?",
@@ -8958,7 +9335,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 8,
-    "chronology": 780
+    "chronology": 809
   },
   {
     "title": "What If... Strange Supreme Intervened?",
@@ -8971,7 +9348,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 9,
-    "chronology": 781
+    "chronology": 810
   },
   {
     "title": "Chafa",
@@ -8984,7 +9361,7 @@
     "show": "Echo",
     "season": 1,
     "episode": 1,
-    "chronology": 703
+    "chronology": 732
   },
   {
     "title": "Lowak",
@@ -8997,7 +9374,7 @@
     "show": "Echo",
     "season": 1,
     "episode": 2,
-    "chronology": 704
+    "chronology": 733
   },
   {
     "title": "Tuklo",
@@ -9010,7 +9387,7 @@
     "show": "Echo",
     "season": 1,
     "episode": 3,
-    "chronology": 705
+    "chronology": 734
   },
   {
     "title": "Taloa",
@@ -9023,7 +9400,7 @@
     "show": "Echo",
     "season": 1,
     "episode": 4,
-    "chronology": 706
+    "chronology": 735
   },
   {
     "title": "Maya",
@@ -9036,7 +9413,7 @@
     "show": "Echo",
     "season": 1,
     "episode": 5,
-    "chronology": 707
+    "chronology": 736
   },
   {
     "title": "Madame Web",
@@ -9187,7 +9564,7 @@
     "url": "https://apps.apple.com/us/app/what-if-an-immersive-story/id6479251303",
     "canon": true,
     "multiverse": 9,
-    "chronology": 621
+    "chronology": 650
   },
   {
     "title": "Deadpool & Wolverine",
@@ -9197,7 +9574,7 @@
     "id": "deadpool_wolverine",
     "canon": true,
     "multiverse": 0,
-    "chronology": 782
+    "chronology": 811
   },
   {
     "title": "Seekest Thou the Road",
@@ -9210,7 +9587,7 @@
     "show": "Agatha All Along",
     "season": 1,
     "episode": 1,
-    "chronology": 783
+    "chronology": 812
   },
   {
     "title": "Circle Sewn With Fate / Unlock Thy Hidden Gate",
@@ -9223,7 +9600,7 @@
     "show": "Agatha All Along",
     "season": 1,
     "episode": 2,
-    "chronology": 784
+    "chronology": 813
   },
   {
     "title": "Through Many Miles / Of Tricks and Trials",
@@ -9236,7 +9613,7 @@
     "show": "Agatha All Along",
     "season": 1,
     "episode": 3,
-    "chronology": 785
+    "chronology": 814
   },
   {
     "title": "If I Can't Reach You / Let My Song Teach You",
@@ -9249,7 +9626,7 @@
     "show": "Agatha All Along",
     "season": 1,
     "episode": 4,
-    "chronology": 786
+    "chronology": 815
   },
   {
     "title": "Darkest Hour / Wake Thy Power",
@@ -9262,7 +9639,7 @@
     "show": "Agatha All Along",
     "season": 1,
     "episode": 5,
-    "chronology": 787
+    "chronology": 816
   },
   {
     "title": "Familiar by Thy Side",
@@ -9275,7 +9652,7 @@
     "show": "Agatha All Along",
     "season": 1,
     "episode": 6,
-    "chronology": 788
+    "chronology": 817
   },
   {
     "title": "Death's Hand in Mine",
@@ -9288,7 +9665,7 @@
     "show": "Agatha All Along",
     "season": 1,
     "episode": 7,
-    "chronology": 789
+    "chronology": 818
   },
   {
     "title": "Venom: The Last Dance",
@@ -9298,7 +9675,7 @@
     "id": "venom_the_last_dance",
     "canon": true,
     "multiverse": 1,
-    "chronology": 679
+    "chronology": 708
   },
   {
     "title": "Follow Me My Friend / To Glory at the End",
@@ -9311,7 +9688,7 @@
     "show": "Agatha",
     "season": 1,
     "episode": 8,
-    "chronology": 790
+    "chronology": 819
   },
   {
     "title": "Maiden Mother Crone",
@@ -9324,7 +9701,7 @@
     "show": "Agatha",
     "season": 1,
     "episode": 9,
-    "chronology": 791
+    "chronology": 820
   },
   {
     "title": "Kraven The Hunter",
@@ -9334,7 +9711,7 @@
     "id": "kraven_the_hunter",
     "canon": true,
     "multiverse": 1,
-    "chronology": 685
+    "chronology": 714
   },
   {
     "title": "The Hulk Fought the Mech Avengers?",
@@ -9347,7 +9724,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 1,
-    "chronology": 792
+    "chronology": 821
   },
   {
     "title": "Agatha Went to Hollywood?",
@@ -9360,7 +9737,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 2,
-    "chronology": 793
+    "chronology": 822
   },
   {
     "title": "The Red Guardian Stopped the Winter Soldier?",
@@ -9373,7 +9750,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 3,
-    "chronology": 794
+    "chronology": 823
   },
   {
     "title": "Howard the Duck Got Hitched?",
@@ -9386,7 +9763,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 4,
-    "chronology": 795
+    "chronology": 824
   },
   {
     "title": "The Emergence Destroyed the Earth?",
@@ -9399,7 +9776,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 5,
-    "chronology": 796
+    "chronology": 825
   },
   {
     "title": "1872?",
@@ -9412,7 +9789,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 6,
-    "chronology": 797
+    "chronology": 826
   },
   {
     "title": "The Watcher Disappeared?",
@@ -9425,7 +9802,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 7,
-    "chronology": 798
+    "chronology": 827
   },
   {
     "title": "What If?",
@@ -9438,7 +9815,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 8,
-    "chronology": 799
+    "chronology": 828
   },
   {
     "title": "Amazing Fantasy",
@@ -9552,7 +9929,7 @@
     "id": "captain_america_brave_new_world",
     "canon": true,
     "multiverse": 0,
-    "chronology": 808
+    "chronology": 837
   },
   {
     "title": "Hero or Menace",
@@ -9591,7 +9968,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 1,
-    "chronology": 758
+    "chronology": 787
   },
   {
     "title": "Optics",
@@ -9604,7 +9981,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 2,
-    "chronology": 800
+    "chronology": 829
   },
   {
     "title": "The Hollow of His Hand",
@@ -9617,7 +9994,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 3,
-    "chronology": 801
+    "chronology": 830
   },
   {
     "title": "Sic Semper Systema",
@@ -9630,7 +10007,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 4,
-    "chronology": 802
+    "chronology": 831
   },
   {
     "title": "With Interest",
@@ -9643,7 +10020,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 5,
-    "chronology": 803
+    "chronology": 832
   },
   {
     "title": "Excessive Force",
@@ -9656,7 +10033,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 6,
-    "chronology": 804
+    "chronology": 833
   },
   {
     "title": "Art for Art's Sake",
@@ -9669,7 +10046,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 7,
-    "chronology": 805
+    "chronology": 834
   },
   {
     "title": "Isle of Joy",
@@ -9682,7 +10059,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 8,
-    "chronology": 806
+    "chronology": 835
   },
   {
     "title": "Straight to Hell",
@@ -9695,7 +10072,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 9,
-    "chronology": 807
+    "chronology": 836
   },
   {
     "title": "Thunderbolts*",
@@ -9705,7 +10082,7 @@
     "id": "thunderbolts",
     "canon": true,
     "multiverse": 0,
-    "chronology": 809
+    "chronology": 838
   },
   {
     "title": "Take Me Home",
@@ -9718,7 +10095,7 @@
     "show": "Ironheart",
     "season": 1,
     "episode": 1,
-    "chronology": 714
+    "chronology": 743
   },
   {
     "title": "Will the Real Natalie Please Stand Up",
@@ -9731,7 +10108,7 @@
     "show": "Ironheart",
     "season": 1,
     "episode": 2,
-    "chronology": 715
+    "chronology": 744
   },
   {
     "title": "We in Danger, Girl",
@@ -9744,7 +10121,7 @@
     "show": "Ironheart",
     "season": 1,
     "episode": 3,
-    "chronology": 716
+    "chronology": 745
   },
   {
     "title": "Bad Magic",
@@ -9757,7 +10134,7 @@
     "show": "Ironheart",
     "season": 1,
     "episode": 4,
-    "chronology": 717
+    "chronology": 746
   },
   {
     "title": "Karma's a Glitch",
@@ -9770,7 +10147,7 @@
     "show": "Ironheart",
     "season": 1,
     "episode": 5,
-    "chronology": 718
+    "chronology": 747
   },
   {
     "title": "The Past is the Past",
@@ -9783,7 +10160,7 @@
     "show": "Ironheart",
     "season": 1,
     "episode": 6,
-    "chronology": 719
+    "chronology": 748
   },
   {
     "title": "The Fantastic Four: First Steps",
@@ -9793,7 +10170,7 @@
     "id": "the_fantastic_four_first_steps",
     "canon": true,
     "multiverse": 12,
-    "chronology": 817
+    "chronology": 846
   },
   {
     "title": "Into the Lion's Den",
@@ -9858,7 +10235,7 @@
     "show": "Marvel Zombies",
     "season": 1,
     "episode": 1,
-    "chronology": 736
+    "chronology": 765
   },
   {
     "title": "Episode 2",
@@ -9871,7 +10248,7 @@
     "show": "Marvel Zombies",
     "season": 1,
     "episode": 2,
-    "chronology": 737
+    "chronology": 766
   },
   {
     "title": "Episode 3",
@@ -9884,7 +10261,7 @@
     "show": "Marvel Zombies",
     "season": 1,
     "episode": 3,
-    "chronology": 738
+    "chronology": 767
   },
   {
     "title": "Episode 4",
@@ -9897,7 +10274,7 @@
     "show": "Marvel Zombies",
     "season": 1,
     "episode": 4,
-    "chronology": 739
+    "chronology": 768
   },
   {
     "title": "The Slattery Method by Trevor Slattery",
@@ -9908,7 +10285,7 @@
     "multiverse": 0,
     "id": "the_slattery_method_by_trevor_slattery",
     "url": "https://youtu.be/CfJyAKSI7Zo",
-    "chronology": 742
+    "chronology": 771
   },
   {
     "title": "Wonder Man's Trevor Slattery Loses it During Ben Mankiewicz Interview",
@@ -9919,7 +10296,7 @@
     "multiverse": 0,
     "id": "wonder_mans_trevor_slattery_loses_it_during_ben_mankiewicz_interview",
     "url": "https://www.youtube.com/watch?v=AznfzIGBfw4",
-    "chronology": 749
+    "chronology": 778
   },
   {
     "title": "Wonder Man's Simon Williams and Trevor Slattery | Actors Unscripted",
@@ -9930,7 +10307,7 @@
     "multiverse": 0,
     "id": "wonder_mans_simon_williams_and_trevor_slattery_actors_unscripted",
     "url": "https://www.youtube.com/watch?v=H6tNcdplJPI",
-    "chronology": 750
+    "chronology": 779
   },
   {
     "title": "An Inside Look at Wonder Man",
@@ -9941,7 +10318,7 @@
     "multiverse": 0,
     "id": "an_inside_look_at_wonder_man",
     "url": "https://www.youtube.com/watch?v=6mDuSU1DqCA",
-    "chronology": 751
+    "chronology": 780
   },
   {
     "title": "Matinee",
@@ -9954,7 +10331,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 1,
-    "chronology": 743
+    "chronology": 772
   },
   {
     "title": "Self-Tape",
@@ -9967,7 +10344,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 2,
-    "chronology": 744
+    "chronology": 773
   },
   {
     "title": "Pacoima",
@@ -9980,7 +10357,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 3,
-    "chronology": 745
+    "chronology": 774
   },
   {
     "title": "Doorman",
@@ -9993,7 +10370,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 4,
-    "chronology": 746
+    "chronology": 775
   },
   {
     "title": "Found Footage",
@@ -10006,7 +10383,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 5,
-    "chronology": 747
+    "chronology": 776
   },
   {
     "title": "Call Back",
@@ -10019,7 +10396,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 6,
-    "chronology": 748
+    "chronology": 777
   },
   {
     "title": "Kathy Friedman",
@@ -10032,7 +10409,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 7,
-    "chronology": 752
+    "chronology": 781
   },
   {
     "title": "Yucca Valley",
@@ -10045,7 +10422,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 8,
-    "chronology": 753
+    "chronology": 782
   },
   {
     "title": "The Northern Star",
@@ -10058,7 +10435,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 1,
-    "chronology": 810
+    "chronology": 839
   },
   {
     "title": "Shoot The Moon",
@@ -10071,7 +10448,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 2,
-    "chronology": 811
+    "chronology": 840
   },
   {
     "title": "The Scales & the Sword",
@@ -10084,7 +10461,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 3,
-    "chronology": 812
+    "chronology": 841
   },
   {
     "title": "Gloves off",
@@ -10097,7 +10474,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 4,
-    "chronology": 813
+    "chronology": 842
   },
   {
     "title": "The Grand Design",
@@ -10110,7 +10487,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 5,
-    "chronology": 814
+    "chronology": 843
   },
   {
     "title": "Requiem",
@@ -10123,7 +10500,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 6,
-    "chronology": 815
+    "chronology": 844
   },
   {
     "title": "The Hateful Darkness",
@@ -10136,7 +10513,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 7,
-    "chronology": 816
+    "chronology": 845
   },
   {
     "title": "The Southern Cross",
@@ -10149,7 +10526,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 8,
-    "chronology": 817
+    "chronology": 846
   },
   {
     "title": "The Punisher: One Last Kill",
@@ -10159,6 +10536,6 @@
     "id": "punisher_one_last_kill",
     "canon": true,
     "multiverse": 0,
-    "chronology": 809.5
+    "chronology": 838.5
   }
 ]

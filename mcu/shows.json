@@ -25,6 +25,7 @@
   { "source": "Disney+",      "show": "WandaVision",                              "category": "ended" },
   { "source": "Disney+",      "show": "What If...?",                              "category": "ended" },
 
+  { "source": "Fox",          "show": "The Gifted",                               "category": "canceled" },
   { "source": "ABC",          "show": "Agent Carter",                             "category": "canceled" },
   { "source": "Freeform",     "show": "Cloak and Dagger",                         "category": "canceled" },
   { "source": "Netflix",      "show": "Daredevil",                                "category": "canceled" },
