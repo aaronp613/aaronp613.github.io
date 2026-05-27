@@ -1,13 +1,5 @@
 [
   {
-    "id": "spider_noir_s1",
-    "type": "Prime Video",
-    "show": "Spider-Noir",
-    "season": 1,
-    "episode_count": 8,
-    "release_date": "2026-05-25"
-  },
-  {
     "id": "spider_man_bnd",
     "type": "Marvel Studios",
     "title": "Spider-Man: Brand New Day",
@@ -25,7 +17,7 @@
     "show": "X-Men '97",
     "season": 2,
     "episode_count": 10,
-    "release_label": "Summer 2026"
+    "release_date": "2026-07-01"
   },
   {
     "id": "yfnspiderman_s2",

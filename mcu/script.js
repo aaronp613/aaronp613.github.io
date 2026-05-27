@@ -46,7 +46,8 @@ const MULTIVERSE_LABELS = {
   "36": "Reflective Infinity Ultron Universe",
   "37": "Earth-86445 (Your Friendly Neighborhood Spider-Man)",
   "38": "Earth-92131 (X-Men '97)",
-  "39": "Earth-17372 (The Gifted)"
+  "39": "Earth-17372 (The Gifted)",
+  "40": "Earth-90214 (Spider-Noir)"
 };
 
 function multiverseName(val) {
@@ -143,7 +144,8 @@ const MV_TINTS = {
   "35": "#8d6e63",
   "36": "#607d8b",
   "37": "#1565c0",
-  "38": "#ffb300"
+  "38": "#ffb300",
+  "40": "#c084fc"
 };
 
 function normalizeSortMode(value) {
