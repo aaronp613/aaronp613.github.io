@@ -12,12 +12,76 @@
     "release_date": "2026-12-18"
   },
   {
-    "id": "xmen97_s2",
+    "id": "xmen97_s2_e1",
     "type": "Disney+",
     "show": "X-Men '97",
     "season": 2,
-    "episode_count": 10,
+    "episode": 1,
     "release_date": "2026-07-01"
+  },
+  {
+    "id": "xmen97_s2_e2",
+    "type": "Disney+",
+    "show": "X-Men '97",
+    "season": 2,
+    "episode": 2,
+    "release_date": "2026-07-08"
+  },
+  {
+    "id": "xmen97_s2_e3",
+    "type": "Disney+",
+    "show": "X-Men '97",
+    "season": 2,
+    "episode": 3,
+    "release_date": "2026-07-15"
+  },
+  {
+    "id": "xmen97_s2_e4",
+    "type": "Disney+",
+    "show": "X-Men '97",
+    "season": 2,
+    "episode": 4,
+    "release_date": "2026-07-22"
+  },
+  {
+    "id": "xmen97_s2_e5",
+    "type": "Disney+",
+    "show": "X-Men '97",
+    "season": 2,
+    "episode": 5,
+    "release_date": "2026-07-29"
+  },
+  {
+    "id": "xmen97_s2_e6",
+    "type": "Disney+",
+    "show": "X-Men '97",
+    "season": 2,
+    "episode": 6,
+    "release_date": "2026-08-05"
+  },
+  {
+    "id": "xmen97_s2_e7",
+    "type": "Disney+",
+    "show": "X-Men '97",
+    "season": 2,
+    "episode": 7,
+    "release_date": "2026-08-12"
+  },
+  {
+    "id": "xmen97_s2_e8",
+    "type": "Disney+",
+    "show": "X-Men '97",
+    "season": 2,
+    "episode": 8,
+    "release_date": "2026-08-19"
+  },
+  {
+    "id": "xmen97_s2_e9",
+    "type": "Disney+",
+    "show": "X-Men '97",
+    "season": 2,
+    "episode": 9,
+    "release_date": "2026-08-26"
   },
   {
     "id": "yfnspiderman_s2",
