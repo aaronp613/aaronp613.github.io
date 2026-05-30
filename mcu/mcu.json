@@ -439,7 +439,7 @@
     "show": "X-Men: The Animated Series",
     "season": 3,
     "episode": 8,
-    "chronology": 541
+    "chronology": 537
   },
   {
     "title": "Savage Land, Savage Heart - Part II",
@@ -452,7 +452,7 @@
     "show": "X-Men: The Animated Series",
     "season": 3,
     "episode": 9,
-    "chronology": 542
+    "chronology": 538
   },
   {
     "title": "Obsession",
@@ -465,7 +465,7 @@
     "show": "X-Men: The Animated Series",
     "season": 3,
     "episode": 10,
-    "chronology": 538
+    "chronology": 539
   },
   {
     "title": "The Dark Phoenix - Part I: Dazzled",
@@ -478,7 +478,7 @@
     "show": "X-Men: The Animated Series",
     "season": 3,
     "episode": 11,
-    "chronology": 543
+    "chronology": 540
   },
   {
     "title": "The Dark Phoenix - Part II: The Inner Circle",
@@ -491,7 +491,7 @@
     "show": "X-Men: The Animated Series",
     "season": 3,
     "episode": 12,
-    "chronology": 544
+    "chronology": 541
   },
   {
     "title": "The Dark Phoenix - Part III: The Dark Phoenix",
@@ -504,7 +504,7 @@
     "show": "X-Men: The Animated Series",
     "season": 3,
     "episode": 13,
-    "chronology": 545
+    "chronology": 542
   },
   {
     "title": "The Dark Phoenix - Part IV: The Fate of the Phoenix",
@@ -517,7 +517,7 @@
     "show": "X-Men: The Animated Series",
     "season": 3,
     "episode": 14,
-    "chronology": 546
+    "chronology": 543
   },
   {
     "title": "Cold Comfort",
@@ -530,7 +530,7 @@
     "show": "X-Men: The Animated Series",
     "season": 3,
     "episode": 15,
-    "chronology": 540
+    "chronology": 544
   },
   {
     "title": "Orphan's End",
@@ -543,7 +543,7 @@
     "show": "X-Men: The Animated Series",
     "season": 3,
     "episode": 16,
-    "chronology": 547
+    "chronology": 545
   },
   {
     "title": "The Juggernaut Returns",
@@ -556,7 +556,7 @@
     "show": "X-Men: The Animated Series",
     "season": 3,
     "episode": 17,
-    "chronology": 549
+    "chronology": 546
   },
   {
     "title": "Nightcrawler",
@@ -569,7 +569,7 @@
     "show": "X-Men: The Animated Series",
     "season": 3,
     "episode": 18,
-    "chronology": 556
+    "chronology": 547
   },
   {
     "title": "Weapon X, Lies, and Video Tape",
@@ -582,7 +582,176 @@
     "show": "X-Men: The Animated Series",
     "season": 3,
     "episode": 19,
-    "chronology": 564
+    "chronology": 548
+  },
+  {
+    "title": "Night of the Lizard",
+    "release_date": "1994-11-19",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s1_e1",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 1,
+    "episode": 1,
+    "chronology": 549
+  },
+  {
+    "title": "The Spider Slayer",
+    "release_date": "1995-02-04",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s1_e2",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 1,
+    "episode": 2,
+    "chronology": 550
+  },
+  {
+    "title": "Return of the Spider Slayers",
+    "release_date": "1995-02-11",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s1_e3",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 1,
+    "episode": 3,
+    "chronology": 551
+  },
+  {
+    "title": "Doctor Octopus: Armed and Dangerous",
+    "release_date": "1995-02-18",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s1_e4",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 1,
+    "episode": 4,
+    "chronology": 552
+  },
+  {
+    "title": "The Menace of Mysterio",
+    "release_date": "1995-02-25",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s1_e5",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 1,
+    "episode": 5,
+    "chronology": 553
+  },
+  {
+    "title": "The Sting of the Scorpion",
+    "release_date": "1995-03-11",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s1_e6",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 1,
+    "episode": 6,
+    "chronology": 554
+  },
+  {
+    "title": "Kraven the Hunter",
+    "release_date": "1995-04-01",
+    "runtime": 20,
+    "type": "Fox",
+    "id": "spider_man_tas_s1_e7",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 1,
+    "episode": 7,
+    "chronology": 555
+  },
+  {
+    "title": "The Alien Costume, Part One",
+    "release_date": "1995-04-29",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s1_e8",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 1,
+    "episode": 8,
+    "chronology": 556
+  },
+  {
+    "title": "The Alien Costume, Part Two",
+    "release_date": "1995-05-06",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s1_e9",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 1,
+    "episode": 9,
+    "chronology": 557
+  },
+  {
+    "title": "The Alien Costume, Part Three",
+    "release_date": "1995-05-13",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s1_e10",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 1,
+    "episode": 10,
+    "chronology": 558
+  },
+  {
+    "title": "The Hobgoblin, Part One",
+    "release_date": "1995-05-20",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s1_e11",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 1,
+    "episode": 11,
+    "chronology": 559
+  },
+  {
+    "title": "The Hobgoblin, Part Two",
+    "release_date": "1995-05-27",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s1_e12",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 1,
+    "episode": 12,
+    "chronology": 560
+  },
+  {
+    "title": "Day of the Chameleon",
+    "release_date": "1995-06-11",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s1_e13",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 1,
+    "episode": 13,
+    "chronology": 561
   },
   {
     "title": "One Man's Worth - Part I",
@@ -595,7 +764,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 1,
-    "chronology": 557
+    "chronology": 562
   },
   {
     "title": "One Man's Worth - Part II",
@@ -608,7 +777,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 2,
-    "chronology": 558
+    "chronology": 563
   },
   {
     "title": "Courage",
@@ -621,7 +790,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 3,
-    "chronology": 554
+    "chronology": 564
   },
   {
     "title": "Proteus - Part I",
@@ -634,7 +803,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 4,
-    "chronology": 559
+    "chronology": 565
   },
   {
     "title": "Proteus - Part II",
@@ -647,7 +816,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 5,
-    "chronology": 560
+    "chronology": 566
   },
   {
     "title": "Sanctuary - Part I",
@@ -660,7 +829,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 6,
-    "chronology": 551
+    "chronology": 567
   },
   {
     "title": "Sanctuary - Part II",
@@ -673,7 +842,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 7,
-    "chronology": 552
+    "chronology": 568
   },
   {
     "title": "Beyond Good and Evil - Part I: The End of Time",
@@ -686,7 +855,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 8,
-    "chronology": 566
+    "chronology": 569
   },
   {
     "title": "Beyond Good and Evil - Part II: Promise of Apocalypse",
@@ -699,7 +868,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 9,
-    "chronology": 567
+    "chronology": 570
   },
   {
     "title": "Beyond Good and Evil - Part III: The Lazarus Chamber",
@@ -712,7 +881,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 10,
-    "chronology": 568
+    "chronology": 571
   },
   {
     "title": "Beyond Good and Evil - Part IV: End and Beginning",
@@ -725,7 +894,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 11,
-    "chronology": 569
+    "chronology": 572
   },
   {
     "title": "Have Yourself a Morlock Little X-Mas",
@@ -738,7 +907,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 12,
-    "chronology": 565
+    "chronology": 573
   },
   {
     "title": "The Lotus and the Steel",
@@ -751,7 +920,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 13,
-    "chronology": 563
+    "chronology": 574
   },
   {
     "title": "Love In Vain",
@@ -764,7 +933,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 14,
-    "chronology": 548
+    "chronology": 575
   },
   {
     "title": "Secrets, Not Long Buried",
@@ -777,7 +946,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 15,
-    "chronology": 555
+    "chronology": 576
   },
   {
     "title": "Xavier Remembers",
@@ -790,7 +959,7 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 16,
-    "chronology": 553
+    "chronology": 577
   },
   {
     "title": "Family Ties",
@@ -803,7 +972,371 @@
     "show": "X-Men: The Animated Series",
     "season": 4,
     "episode": 17,
-    "chronology": 561
+    "chronology": 578
+  },
+  {
+    "title": "The Insidious Six",
+    "release_date": "1995-09-09",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s2_e1",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 2,
+    "episode": 1,
+    "chronology": 579
+  },
+  {
+    "title": "Battle of the Insidious Six",
+    "release_date": "1995-09-16",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s2_e2",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 2,
+    "episode": 2,
+    "chronology": 580
+  },
+  {
+    "title": "Hydro-Man",
+    "release_date": "1995-09-23",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s2_e3",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 2,
+    "episode": 3,
+    "chronology": 581
+  },
+  {
+    "title": "The Mutant Agenda",
+    "release_date": "1995-09-30",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s2_e4",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 2,
+    "episode": 4,
+    "chronology": 582
+  },
+  {
+    "title": "Mutants' Revenge",
+    "release_date": "1995-10-07",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s2_e5",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 2,
+    "episode": 5,
+    "chronology": 583
+  },
+  {
+    "title": "Morbius",
+    "release_date": "1995-10-14",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s2_e6",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 2,
+    "episode": 6,
+    "chronology": 584
+  },
+  {
+    "title": "Enter the Punisher",
+    "release_date": "1995-10-21",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s2_e7",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 2,
+    "episode": 7,
+    "chronology": 585
+  },
+  {
+    "title": "Duel of the Hunters",
+    "release_date": "1995-11-04",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s2_e8",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 2,
+    "episode": 8,
+    "chronology": 586
+  },
+  {
+    "title": "Blade, the Vampire Hunter",
+    "release_date": "1995-11-11",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s2_e9",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 2,
+    "episode": 9,
+    "chronology": 587
+  },
+  {
+    "title": "The Immortal Vampire",
+    "release_date": "1995-11-18",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s2_e10",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 2,
+    "episode": 10,
+    "chronology": 588
+  },
+  {
+    "title": "Tablet of Time",
+    "release_date": "1996-02-03",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s2_e11",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 2,
+    "episode": 11,
+    "chronology": 589
+  },
+  {
+    "title": "Ravages of Time",
+    "release_date": "1996-02-10",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s2_e12",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 2,
+    "episode": 12,
+    "chronology": 590
+  },
+  {
+    "title": "Shriek of the Vulture",
+    "release_date": "1996-02-17",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s2_e13",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 2,
+    "episode": 13,
+    "chronology": 591
+  },
+  {
+    "title": "The Final Nightmare",
+    "release_date": "1996-02-24",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s2_e14",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 2,
+    "episode": 14,
+    "chronology": 592
+  },
+  {
+    "title": "Doctor Strange",
+    "release_date": "1996-04-27",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s3_e1",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 3,
+    "episode": 1,
+    "chronology": 593
+  },
+  {
+    "title": "Make a Wish",
+    "release_date": "1996-05-04",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s3_e2",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 3,
+    "episode": 2,
+    "chronology": 594
+  },
+  {
+    "title": "Attack of the Octobot",
+    "release_date": "1996-05-11",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s3_e3",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 3,
+    "episode": 3,
+    "chronology": 595
+  },
+  {
+    "title": "Enter the Green Goblin",
+    "release_date": "1996-05-18",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s3_e4",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 3,
+    "episode": 4,
+    "chronology": 596
+  },
+  {
+    "title": "Rocket Racer",
+    "release_date": "1996-09-07",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s3_e5",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 3,
+    "episode": 5,
+    "chronology": 597
+  },
+  {
+    "title": "Framed",
+    "release_date": "1996-09-14",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s3_e6",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 3,
+    "episode": 6,
+    "chronology": 598
+  },
+  {
+    "title": "The Man Without Fear",
+    "release_date": "1996-09-21",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s3_e7",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 3,
+    "episode": 7,
+    "chronology": 599
+  },
+  {
+    "title": "The Ultimate Slayer",
+    "release_date": "1996-09-28",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s3_e8",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 3,
+    "episode": 8,
+    "chronology": 600
+  },
+  {
+    "title": "Tombstone",
+    "release_date": "1996-10-05",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s3_e9",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 3,
+    "episode": 9,
+    "chronology": 601
+  },
+  {
+    "title": "The Spot",
+    "release_date": "1996-10-12",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s3_e10",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 3,
+    "episode": 10,
+    "chronology": 602
+  },
+  {
+    "title": "Venom Returns",
+    "release_date": "1996-11-02",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s3_e11",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 3,
+    "episode": 11,
+    "chronology": 603
+  },
+  {
+    "title": "Carnage",
+    "release_date": "1996-11-09",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s3_e12",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 3,
+    "episode": 12,
+    "chronology": 604
+  },
+  {
+    "title": "Goblin War!",
+    "release_date": "1996-11-16",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s3_e13",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 3,
+    "episode": 13,
+    "chronology": 605
+  },
+  {
+    "title": "The Turning Point",
+    "release_date": "1996-11-23",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s3_e14",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 3,
+    "episode": 14,
+    "chronology": 606
   },
   {
     "title": "Phalanx Covenant - Part I",
@@ -816,7 +1349,7 @@
     "show": "X-Men: The Animated Series",
     "season": 5,
     "episode": 1,
-    "chronology": 570
+    "chronology": 631
   },
   {
     "title": "The Phalanx Covenant - Part II",
@@ -829,7 +1362,7 @@
     "show": "X-Men: The Animated Series",
     "season": 5,
     "episode": 2,
-    "chronology": 571
+    "chronology": 632
   },
   {
     "title": "A Deal with the Devil",
@@ -842,7 +1375,7 @@
     "show": "X-Men: The Animated Series",
     "season": 5,
     "episode": 3,
-    "chronology": 550
+    "chronology": 633
   },
   {
     "title": "No Mutant Is an Island",
@@ -855,7 +1388,7 @@
     "show": "X-Men: The Animated Series",
     "season": 5,
     "episode": 4,
-    "chronology": 537
+    "chronology": 634
   },
   {
     "title": "Longshot",
@@ -868,7 +1401,7 @@
     "show": "X-Men: The Animated Series",
     "season": 5,
     "episode": 5,
-    "chronology": 539
+    "chronology": 635
   },
   {
     "title": "Bloodlines",
@@ -881,7 +1414,7 @@
     "show": "X-Men: The Animated Series",
     "season": 5,
     "episode": 6,
-    "chronology": 562
+    "chronology": 636
   },
   {
     "title": "Storm Front - Part I",
@@ -894,7 +1427,7 @@
     "show": "X-Men: The Animated Series",
     "season": 5,
     "episode": 7,
-    "chronology": 572
+    "chronology": 637
   },
   {
     "title": "Storm Front - Part II",
@@ -907,7 +1440,7 @@
     "show": "X-Men: The Animated Series",
     "season": 5,
     "episode": 8,
-    "chronology": 573
+    "chronology": 638
   },
   {
     "title": "The Fifth Horseman",
@@ -920,7 +1453,7 @@
     "show": "X-Men: The Animated Series",
     "season": 5,
     "episode": 9,
-    "chronology": 574
+    "chronology": 639
   },
   {
     "title": "Jubilee's Fairytale Theater",
@@ -933,7 +1466,7 @@
     "show": "X-Men: The Animated Series",
     "season": 5,
     "episode": 10,
-    "chronology": 575
+    "chronology": 640
   },
   {
     "title": "Old Soldiers",
@@ -946,7 +1479,7 @@
     "show": "X-Men: The Animated Series",
     "season": 5,
     "episode": 11,
-    "chronology": 576
+    "chronology": 641
   },
   {
     "title": "Hidden Agendas",
@@ -959,7 +1492,7 @@
     "show": "X-Men: The Animated Series",
     "season": 5,
     "episode": 12,
-    "chronology": 577
+    "chronology": 642
   },
   {
     "title": "Descent",
@@ -972,7 +1505,7 @@
     "show": "X-Men: The Animated Series",
     "season": 5,
     "episode": 13,
-    "chronology": 578
+    "chronology": 643
   },
   {
     "title": "Graduation Day",
@@ -985,7 +1518,449 @@
     "show": "X-Men: The Animated Series",
     "season": 5,
     "episode": 14,
-    "chronology": 579
+    "chronology": 644
+  },
+  {
+    "title": "Guilty",
+    "release_date": "1997-02-01",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s4_e1",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 4,
+    "episode": 1,
+    "chronology": 607
+  },
+  {
+    "title": "The Cat",
+    "release_date": "1997-02-08",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s4_e2",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 4,
+    "episode": 2,
+    "chronology": 608
+  },
+  {
+    "title": "The Black Cat",
+    "release_date": "1997-02-15",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s4_e3",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 4,
+    "episode": 3,
+    "chronology": 609
+  },
+  {
+    "title": "The Return of Kraven",
+    "release_date": "1997-02-22",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s4_e4",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 4,
+    "episode": 4,
+    "chronology": 610
+  },
+  {
+    "title": "Partners",
+    "release_date": "1997-04-19",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s4_e5",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 4,
+    "episode": 5,
+    "chronology": 611
+  },
+  {
+    "title": "The Awakening",
+    "release_date": "1997-04-26",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s4_e6",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 4,
+    "episode": 6,
+    "chronology": 612
+  },
+  {
+    "title": "The Vampire Queen",
+    "release_date": "1997-05-03",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s4_e7",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 4,
+    "episode": 7,
+    "chronology": 613
+  },
+  {
+    "title": "The Return of the Green Goblin",
+    "release_date": "1997-05-10",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s4_e8",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 4,
+    "episode": 8,
+    "chronology": 614
+  },
+  {
+    "title": "The Haunting of Mary Jane Watson",
+    "release_date": "1997-05-17",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s4_e9",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 4,
+    "episode": 9,
+    "chronology": 615
+  },
+  {
+    "title": "The Lizard King",
+    "release_date": "1997-07-12",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s4_e10",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 4,
+    "episode": 10,
+    "chronology": 616
+  },
+  {
+    "title": "The Prowler",
+    "release_date": "1997-08-02",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s4_e11",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 4,
+    "episode": 11,
+    "chronology": 617
+  },
+  {
+    "title": "The Wedding",
+    "release_date": "1997-09-12",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s5_e1",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 5,
+    "episode": 1,
+    "chronology": 618
+  },
+  {
+    "title": "Six Forgotten Warriors Chapter 1",
+    "release_date": "1997-09-19",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s5_e2",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 5,
+    "episode": 2,
+    "chronology": 619
+  },
+  {
+    "title": "Six Forgotten Warriors Chapter 2: Unclaimed Legacy",
+    "release_date": "1997-09-26",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s5_e3",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 5,
+    "episode": 3,
+    "chronology": 620
+  },
+  {
+    "title": "Six Forgotten Warriors Chapter 3: Secrets of the Six",
+    "release_date": "1997-10-03",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s5_e4",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 5,
+    "episode": 4,
+    "chronology": 621
+  },
+  {
+    "title": "Six Forgotten Warriors Chapter 4: The Six Fight Again",
+    "release_date": "1997-10-10",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s5_e5",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 5,
+    "episode": 5,
+    "chronology": 622
+  },
+  {
+    "title": "Six Forgotten Warriors Chapter 5: The Price of Heroism",
+    "release_date": "1997-10-17",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s5_e6",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 5,
+    "episode": 6,
+    "chronology": 623
+  },
+  {
+    "title": "The Return of Hydro-Man, Part 1",
+    "release_date": "1997-10-24",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s5_e7",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 5,
+    "episode": 7,
+    "chronology": 624
+  },
+  {
+    "title": "The Return of Hydro-Man, Part 2",
+    "release_date": "1997-10-31",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s5_e8",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 5,
+    "episode": 8,
+    "chronology": 625
+  },
+  {
+    "title": "Secret Wars, Chapter 1: Arrival",
+    "release_date": "1997-11-07",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s5_e9",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 5,
+    "episode": 9,
+    "chronology": 626
+  },
+  {
+    "title": "Secret Wars, Chapter 2: The Gauntlet of the Red Skull",
+    "release_date": "1997-11-14",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s5_e10",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 5,
+    "episode": 10,
+    "chronology": 627
+  },
+  {
+    "title": "Secret Wars, Chapter 3: Doom",
+    "release_date": "1997-11-21",
+    "runtime": 21,
+    "type": "Fox",
+    "id": "spider_man_tas_s5_e11",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 5,
+    "episode": 11,
+    "chronology": 628
+  },
+  {
+    "title": "Spider Wars, Chapter 1: I Really, Really Hate Clones",
+    "release_date": "1998-01-31",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s5_e12",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 5,
+    "episode": 12,
+    "chronology": 629
+  },
+  {
+    "title": "Spider Wars, Chapter 2: Farewell, Spider-Man",
+    "release_date": "1998-01-31",
+    "runtime": 22,
+    "type": "Fox",
+    "id": "spider_man_tas_s5_e13",
+    "canon": false,
+    "multiverse": 38,
+    "show": "Spider-Man",
+    "season": 5,
+    "episode": 13,
+    "chronology": 630
+  },
+  {
+    "title": "To Me, My X-Men",
+    "release_date": "2024-03-20",
+    "runtime": 33,
+    "type": "Disney+",
+    "id": "x_men_97_s1_e1",
+    "canon": false,
+    "multiverse": 38,
+    "show": "X-Men '97",
+    "season": 1,
+    "episode": 1,
+    "chronology": 645
+  },
+  {
+    "title": "Mutant Liberation Begins",
+    "release_date": "2024-03-20",
+    "runtime": 33,
+    "type": "Disney+",
+    "id": "x_men_97_s1_e2",
+    "canon": false,
+    "multiverse": 38,
+    "show": "X-Men '97",
+    "season": 1,
+    "episode": 2,
+    "chronology": 646
+  },
+  {
+    "title": "Fire Made Flesh",
+    "release_date": "2024-03-27",
+    "runtime": 33,
+    "type": "Disney+",
+    "id": "x_men_97_s1_e3",
+    "canon": false,
+    "multiverse": 38,
+    "show": "X-Men '97",
+    "season": 1,
+    "episode": 3,
+    "chronology": 647
+  },
+  {
+    "title": "Motendo/Lifedeath - Part 1",
+    "release_date": "2024-04-03",
+    "runtime": 30,
+    "type": "Disney+",
+    "id": "x_men_97_s1_e4",
+    "canon": false,
+    "multiverse": 38,
+    "show": "X-Men '97",
+    "season": 1,
+    "episode": 4,
+    "chronology": 648
+  },
+  {
+    "title": "Remember It",
+    "release_date": "2024-04-10",
+    "runtime": 37,
+    "type": "Disney+",
+    "id": "x_men_97_s1_e5",
+    "canon": false,
+    "multiverse": 38,
+    "show": "X-Men '97",
+    "season": 1,
+    "episode": 5,
+    "chronology": 649
+  },
+  {
+    "title": "Lifedeath - Part 2",
+    "release_date": "2024-04-17",
+    "runtime": 34,
+    "type": "Disney+",
+    "id": "x_men_97_s1_e6",
+    "canon": false,
+    "multiverse": 38,
+    "show": "X-Men '97",
+    "season": 1,
+    "episode": 6,
+    "chronology": 650
+  },
+  {
+    "title": "Bright Eyes",
+    "release_date": "2024-04-24",
+    "runtime": 35,
+    "type": "Disney+",
+    "id": "x_men_97_s1_e7",
+    "canon": false,
+    "multiverse": 38,
+    "show": "X-Men '97",
+    "season": 1,
+    "episode": 7,
+    "chronology": 651
+  },
+  {
+    "title": "Tolerance Is Extinction - Part 1",
+    "release_date": "2024-05-01",
+    "runtime": 34,
+    "type": "Disney+",
+    "id": "x_men_97_s1_e8",
+    "canon": false,
+    "multiverse": 38,
+    "show": "X-Men '97",
+    "season": 1,
+    "episode": 8,
+    "chronology": 652
+  },
+  {
+    "title": "Tolerance Is Extinction - Part 2",
+    "release_date": "2024-05-08",
+    "runtime": 32,
+    "type": "Disney+",
+    "id": "x_men_97_s1_e9",
+    "canon": false,
+    "multiverse": 38,
+    "show": "X-Men '97",
+    "season": 1,
+    "episode": 9,
+    "chronology": 653
+  },
+  {
+    "title": "Tolerance Is Extinction - Part 3",
+    "release_date": "2024-05-15",
+    "runtime": 43,
+    "type": "Disney+",
+    "id": "x_men_97_s1_e10",
+    "canon": false,
+    "multiverse": 38,
+    "show": "X-Men '97",
+    "season": 1,
+    "episode": 10,
+    "chronology": 654
   },
   {
     "title": "Blade",
@@ -995,7 +1970,7 @@
     "id": "blade",
     "canon": true,
     "multiverse": 2,
-    "chronology": 602
+    "chronology": 667
   },
   {
     "title": "X-Men",
@@ -1005,7 +1980,7 @@
     "id": "x_men",
     "canon": true,
     "multiverse": 3,
-    "chronology": 603
+    "chronology": 668
   },
   {
     "title": "Blade II",
@@ -1015,7 +1990,7 @@
     "id": "blade_ii",
     "canon": true,
     "multiverse": 2,
-    "chronology": 604
+    "chronology": 669
   },
   {
     "title": "Spider-Man",
@@ -1025,7 +2000,7 @@
     "id": "spider_man",
     "canon": true,
     "multiverse": 4,
-    "chronology": 672
+    "chronology": 737
   },
   {
     "title": "Daredevil",
@@ -1035,7 +2010,7 @@
     "id": "daredevil",
     "canon": true,
     "multiverse": 6,
-    "chronology": 605
+    "chronology": 670
   },
   {
     "title": "X2",
@@ -1045,7 +2020,7 @@
     "id": "x2",
     "canon": true,
     "multiverse": 3,
-    "chronology": 606
+    "chronology": 671
   },
   {
     "title": "Spider-Man 2",
@@ -1055,7 +2030,7 @@
     "id": "spider_man_2",
     "canon": true,
     "multiverse": 4,
-    "chronology": 673
+    "chronology": 738
   },
   {
     "title": "Blade: Trinity",
@@ -1065,7 +2040,7 @@
     "id": "blade_trinity",
     "canon": true,
     "multiverse": 2,
-    "chronology": 608
+    "chronology": 673
   },
   {
     "title": "Elektra",
@@ -1075,7 +2050,7 @@
     "id": "elektra",
     "canon": true,
     "multiverse": 6,
-    "chronology": 609
+    "chronology": 674
   },
   {
     "title": "Fantastic Four",
@@ -1085,7 +2060,7 @@
     "id": "fantastic_four",
     "canon": true,
     "multiverse": 7,
-    "chronology": 610
+    "chronology": 675
   },
   {
     "title": "X-Men: The Last Stand",
@@ -1095,7 +2070,7 @@
     "id": "x_men_the_last_stand",
     "canon": true,
     "multiverse": 3,
-    "chronology": 611
+    "chronology": 676
   },
   {
     "title": "Spider-Man 3",
@@ -1105,7 +2080,7 @@
     "id": "spider_man_3",
     "canon": true,
     "multiverse": 4,
-    "chronology": 674
+    "chronology": 739
   },
   {
     "title": "Fantastic Four: Rise of the Silver Surfer",
@@ -1115,7 +2090,7 @@
     "id": "fantastic_four_rise_of_the_silver_surfer",
     "canon": true,
     "multiverse": 7,
-    "chronology": 612
+    "chronology": 677
   },
   {
     "title": "Iron Man",
@@ -1156,7 +2131,7 @@
     "id": "x_men_origins_wolverine",
     "canon": true,
     "multiverse": 3,
-    "chronology": 601
+    "chronology": 666
   },
   {
     "title": "Stark Expo 1974",
@@ -1263,7 +2238,7 @@
     "id": "x_men_first_class",
     "canon": true,
     "multiverse": 13,
-    "chronology": 600
+    "chronology": 665
   },
   {
     "title": "Captain America: The First Avenger",
@@ -1286,7 +2261,7 @@
     "chronology": 42
   },
   {
-    "title": "A Funny Thing Happened On The Way To Thor\u2019s Hammer",
+    "title": "A Funny Thing Happened On The Way To Thor’s Hammer",
     "release_date": "2011-10-25",
     "runtime": 4,
     "type": "One Shot",
@@ -1324,7 +2299,7 @@
     "id": "the_amazing_spider_man",
     "canon": true,
     "multiverse": 5,
-    "chronology": 675
+    "chronology": 740
   },
   {
     "title": "Item 47",
@@ -1365,7 +2340,7 @@
     "id": "the_wolverine",
     "canon": true,
     "multiverse": 3,
-    "chronology": 613
+    "chronology": 678
   },
   {
     "title": "Agent Carter",
@@ -1697,7 +2672,7 @@
     "id": "the_amazing_spider_man_2",
     "canon": true,
     "multiverse": 5,
-    "chronology": 676
+    "chronology": 741
   },
   {
     "title": "Ragtag",
@@ -1733,7 +2708,7 @@
     "id": "x_men_days_of_future_past",
     "canon": true,
     "multiverse": 13,
-    "chronology": 643
+    "chronology": 708
   },
   {
     "title": "Guardians Of The Galaxy",
@@ -1746,7 +2721,7 @@
     "chronology": 78
   },
   {
-    "title": "Peggy Carter\u2019s 1953 Smithsonian Interview",
+    "title": "Peggy Carter’s 1953 Smithsonian Interview",
     "release_date": "2014-09-09",
     "runtime": 3,
     "type": "Other",
@@ -2784,7 +3759,7 @@
     "id": "deadpool",
     "canon": true,
     "multiverse": 13,
-    "chronology": 646
+    "chronology": 711
   },
   {
     "title": "Life of the Party",
@@ -3249,7 +4224,7 @@
     "id": "x_men_apocalypse",
     "canon": true,
     "multiverse": 13,
-    "chronology": 644
+    "chronology": 709
   },
   {
     "title": "While You Were Fighting - A Thor Mockumentary (Team Thor)",
@@ -3750,7 +4725,7 @@
     "id": "logan",
     "canon": true,
     "multiverse": 13,
-    "chronology": 647
+    "chronology": 712
   },
   {
     "title": "Snow Gives Way",
@@ -3994,7 +4969,7 @@
     "chronology": 294
   },
   {
-    "title": "All The Madame\u2019s Men",
+    "title": "All The Madame’s Men",
     "release_date": "2017-04-25",
     "runtime": 43,
     "type": "ABC",
@@ -4043,7 +5018,7 @@
     "chronology": 297
   },
   {
-    "title": "World\u2019s End",
+    "title": "World’s End",
     "release_date": "2017-05-16",
     "runtime": 43,
     "type": "ABC",
@@ -4067,7 +5042,7 @@
     "chronology": 237
   },
   {
-    "title": "Audi \u201cDriver\u2019s Test\u201d",
+    "title": "Audi “Driver’s Test”",
     "release_date": "2017-06-19",
     "runtime": 2,
     "type": "Other",
@@ -4228,7 +5203,7 @@
     "show": "The Gifted",
     "season": 1,
     "episode": 1,
-    "chronology": 614
+    "chronology": 679
   },
   {
     "title": "Divide - And Conquer",
@@ -4254,7 +5229,7 @@
     "show": "The Gifted",
     "season": 1,
     "episode": 2,
-    "chronology": 615
+    "chronology": 680
   },
   {
     "title": "Make Way For... Medusa",
@@ -4280,7 +5255,7 @@
     "show": "The Gifted",
     "season": 1,
     "episode": 3,
-    "chronology": 616
+    "chronology": 681
   },
   {
     "title": "Midtown School of Science and Technology News",
@@ -4328,7 +5303,7 @@
     "show": "The Gifted",
     "season": 1,
     "episode": 4,
-    "chronology": 617
+    "chronology": 682
   },
   {
     "title": "The Gentleman's Name Is Gorgon",
@@ -4354,7 +5329,7 @@
     "show": "The Gifted",
     "season": 1,
     "episode": 5,
-    "chronology": 618
+    "chronology": 683
   },
   {
     "title": "Thor: Ragnarok",
@@ -4390,7 +5365,7 @@
     "show": "The Gifted",
     "season": 1,
     "episode": 6,
-    "chronology": 619
+    "chronology": 684
   },
   {
     "title": "...And Finally: Black Bolt",
@@ -4416,7 +5391,7 @@
     "show": "The Gifted",
     "season": 1,
     "episode": 7,
-    "chronology": 620
+    "chronology": 685
   },
   {
     "title": "3 AM",
@@ -4598,7 +5573,7 @@
     "show": "The Gifted",
     "season": 1,
     "episode": 8,
-    "chronology": 621
+    "chronology": 686
   },
   {
     "title": "Reunion",
@@ -4689,7 +5664,7 @@
     "show": "The Gifted",
     "season": 1,
     "episode": 9,
-    "chronology": 622
+    "chronology": 687
   },
   {
     "title": "Kingdom",
@@ -4728,7 +5703,7 @@
     "show": "The Gifted",
     "season": 1,
     "episode": 10,
-    "chronology": 623
+    "chronology": 688
   },
   {
     "title": "Metamorphosis",
@@ -4806,7 +5781,7 @@
     "show": "The Gifted",
     "season": 1,
     "episode": 11,
-    "chronology": 624
+    "chronology": 689
   },
   {
     "title": "Doomsday",
@@ -4845,7 +5820,7 @@
     "show": "The Gifted",
     "season": 1,
     "episode": 12,
-    "chronology": 625
+    "chronology": 690
   },
   {
     "title": "Hostile",
@@ -4884,7 +5859,7 @@
     "show": "The Gifted",
     "season": 1,
     "episode": 13,
-    "chronology": 626
+    "chronology": 691
   },
   {
     "title": "The Last Day",
@@ -5203,7 +6178,7 @@
     "chronology": 423
   },
   {
-    "title": "The Mortgage Process Doesn\u2019t Have to Be a Battle",
+    "title": "The Mortgage Process Doesn’t Have to Be a Battle",
     "release_date": "2018-04-02",
     "runtime": 1,
     "type": "Other",
@@ -5283,7 +6258,7 @@
     "id": "deadpool_2",
     "canon": true,
     "multiverse": 13,
-    "chronology": 648
+    "chronology": 713
   },
   {
     "title": "The One Who Will Save Us All",
@@ -5674,7 +6649,7 @@
     "id": "deadpool_2_super_duper_cut",
     "canon": true,
     "multiverse": 13,
-    "chronology": 649
+    "chronology": 714
   },
   {
     "title": "Darryl Survived",
@@ -5839,7 +6814,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 1,
-    "chronology": 627
+    "chronology": 692
   },
   {
     "title": "unMoored",
@@ -5852,7 +6827,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 2,
-    "chronology": 628
+    "chronology": 693
   },
   {
     "title": "Venom",
@@ -5862,7 +6837,7 @@
     "id": "venom",
     "canon": true,
     "multiverse": 1,
-    "chronology": 677
+    "chronology": 742
   },
   {
     "title": "coMplications",
@@ -5875,7 +6850,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 3,
-    "chronology": 629
+    "chronology": 694
   },
   {
     "title": "outMatched",
@@ -5888,7 +6863,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 4,
-    "chronology": 630
+    "chronology": 695
   },
   {
     "title": "Resurrection",
@@ -6070,7 +7045,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 5,
-    "chronology": 631
+    "chronology": 696
   },
   {
     "title": "iMprint",
@@ -6083,7 +7058,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 6,
-    "chronology": 632
+    "chronology": 697
   },
   {
     "title": "no Mercy",
@@ -6096,7 +7071,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 7,
-    "chronology": 633
+    "chronology": 698
   },
   {
     "title": "the dreaM",
@@ -6109,7 +7084,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 8,
-    "chronology": 634
+    "chronology": 699
   },
   {
     "title": "gaMe changer",
@@ -6122,7 +7097,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 9,
-    "chronology": 635
+    "chronology": 700
   },
   {
     "title": "eneMy of My eneMy",
@@ -6135,7 +7110,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 10,
-    "chronology": 636
+    "chronology": 701
   },
   {
     "title": "Spider-Man: Into the Spider-Verse",
@@ -6145,7 +7120,7 @@
     "id": "spider_man_into_the_spider_verse",
     "canon": true,
     "multiverse": 10,
-    "chronology": 661
+    "chronology": 726
   },
   {
     "title": "Gimmie Shelter",
@@ -6327,7 +7302,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 11,
-    "chronology": 637
+    "chronology": 702
   },
   {
     "title": "hoMe",
@@ -6340,7 +7315,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 12,
-    "chronology": 638
+    "chronology": 703
   },
   {
     "title": "teMpted",
@@ -6353,7 +7328,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 13,
-    "chronology": 639
+    "chronology": 704
   },
   {
     "title": "Roadhouse Blues",
@@ -6535,7 +7510,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 14,
-    "chronology": 640
+    "chronology": 705
   },
   {
     "title": "Monsters",
@@ -6548,7 +7523,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 15,
-    "chronology": 641
+    "chronology": 706
   },
   {
     "title": "oMens",
@@ -6561,7 +7536,7 @@
     "show": "The Gifted",
     "season": 2,
     "episode": 16,
-    "chronology": 642
+    "chronology": 707
   },
   {
     "title": "Captain Marvel",
@@ -6600,7 +7575,7 @@
     "chronology": 352
   },
   {
-    "title": "Hertz + Marvel Studios\u2019 Avengers: Endgame - No Drama",
+    "title": "Hertz + Marvel Studios’ Avengers: Endgame - No Drama",
     "release_date": "2019-04-08",
     "runtime": 1,
     "type": "Other",
@@ -6624,7 +7599,7 @@
     "chronology": 353
   },
   {
-    "title": "Audi \u201cThe Debriefing\u201d - Marvel Studios\u2019 Avengers: Endgame",
+    "title": "Audi “The Debriefing” - Marvel Studios’ Avengers: Endgame",
     "release_date": "2019-04-18",
     "runtime": 2,
     "type": "Other",
@@ -6817,7 +7792,7 @@
     "id": "dark_phoenix",
     "canon": true,
     "multiverse": 13,
-    "chronology": 645
+    "chronology": 710
   },
   {
     "title": "AKA The Perfect Burger",
@@ -7010,7 +7985,7 @@
     "url": "https://www.youtube.com/watch?v=4-jGd8vPvjE",
     "canon": true,
     "multiverse": 0,
-    "chronology": 679
+    "chronology": 744
   },
   {
     "title": "Inescapable",
@@ -7056,7 +8031,7 @@
     "id": "spider_man_far_from_home",
     "canon": true,
     "multiverse": 0,
-    "chronology": 680
+    "chronology": 745
   },
   {
     "title": "Collision Course Part 1",
@@ -7144,7 +8119,7 @@
     "id": "spider_man_far_from_home_re_release",
     "canon": true,
     "multiverse": 0,
-    "chronology": 681
+    "chronology": 746
   },
   {
     "title": "Spider-Man: Far From Home Deleted Scenes",
@@ -7155,7 +8130,7 @@
     "url": "https://reddit.com/r/marvelstudios/comments/d7pvlj/6_deleted_scenes_spiderman_far_from_home/",
     "canon": true,
     "multiverse": 0,
-    "chronology": 682
+    "chronology": 747
   },
   {
     "title": "TheDailyBugle.net EXCLUSIVE! Spider-Man is a Menace!",
@@ -7166,7 +8141,7 @@
     "url": "https://www.youtube.com/watch?v=6LS860xepoY",
     "canon": true,
     "multiverse": 0,
-    "chronology": 685
+    "chronology": 750
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE Spider-Man Unmasked Full Story Credit The Daily Bugle J. Jonah Jameson",
@@ -7177,7 +8152,7 @@
     "url": "https://www.youtube.com/watch?v=CasTs4mz4Kg",
     "canon": true,
     "multiverse": 0,
-    "chronology": 684
+    "chronology": 749
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE Coney Island re-opened years after devastating crash",
@@ -7188,7 +8163,7 @@
     "url": "https://www.youtube.com/watch?v=upJLMZBzwpE",
     "canon": true,
     "multiverse": 0,
-    "chronology": 686
+    "chronology": 751
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE London Attack - Tower Bridge Bill Blues",
@@ -7199,7 +8174,7 @@
     "url": "https://www.youtube.com/watch?v=arfwz-QAK-s",
     "canon": true,
     "multiverse": 0,
-    "chronology": 687
+    "chronology": 752
   },
   {
     "title": "Smoke and Mirrors",
@@ -7340,7 +8315,7 @@
     "url": "https://www.youtube.com/watch?v=-Gekpv_OCzk",
     "canon": true,
     "multiverse": 0,
-    "chronology": 683
+    "chronology": 748
   },
   {
     "title": "The New Deal",
@@ -7499,7 +8474,7 @@
     "chronology": 466
   },
   {
-    "title": "What We\u2019re Fighting For",
+    "title": "What We’re Fighting For",
     "release_date": "2020-08-12",
     "runtime": 43,
     "type": "ABC",
@@ -7519,7 +8494,7 @@
     "id": "the_new_mutants",
     "canon": true,
     "multiverse": 3,
-    "chronology": 795
+    "chronology": 860
   },
   {
     "title": "Mother's Little Helpers",
@@ -7662,7 +8637,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 1,
-    "chronology": 652
+    "chronology": 717
   },
   {
     "title": "Don't Touch That Dial",
@@ -7675,7 +8650,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 2,
-    "chronology": 653
+    "chronology": 718
   },
   {
     "title": "Now In Color",
@@ -7688,7 +8663,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 3,
-    "chronology": 654
+    "chronology": 719
   },
   {
     "title": "We Interrupt This Program",
@@ -7701,7 +8676,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 4,
-    "chronology": 655
+    "chronology": 720
   },
   {
     "title": "On A Very Special Episode...",
@@ -7714,7 +8689,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 5,
-    "chronology": 656
+    "chronology": 721
   },
   {
     "title": "All-New Halloween Spooktacular!",
@@ -7727,7 +8702,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 6,
-    "chronology": 657
+    "chronology": 722
   },
   {
     "title": "Breaking the Fourth Wall",
@@ -7740,7 +8715,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 7,
-    "chronology": 658
+    "chronology": 723
   },
   {
     "title": "Previously On",
@@ -7753,7 +8728,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 8,
-    "chronology": 659
+    "chronology": 724
   },
   {
     "title": "The Series Finale",
@@ -7766,7 +8741,7 @@
     "show": "WandaVision",
     "season": 1,
     "episode": 9,
-    "chronology": 660
+    "chronology": 725
   },
   {
     "title": "What Did I Miss?",
@@ -7777,7 +8752,7 @@
     "url": "https://www.youtube.com/watch?v=A1nDdHRBYMM",
     "canon": true,
     "multiverse": 0,
-    "chronology": 663
+    "chronology": 728
   },
   {
     "title": "Super Hero Stuff",
@@ -7788,7 +8763,7 @@
     "url": "https://www.youtube.com/watch?v=db1QEI712S0",
     "canon": true,
     "multiverse": 0,
-    "chronology": 664
+    "chronology": 729
   },
   {
     "title": "New World Order",
@@ -7801,7 +8776,7 @@
     "show": "The Falcon And The Winter Soldier",
     "season": 1,
     "episode": 1,
-    "chronology": 665
+    "chronology": 730
   },
   {
     "title": "The Star-Spangled Man",
@@ -7814,7 +8789,7 @@
     "show": "The Falcon And The Winter Soldier",
     "season": 1,
     "episode": 2,
-    "chronology": 666
+    "chronology": 731
   },
   {
     "title": "Power Broker",
@@ -7827,7 +8802,7 @@
     "show": "The Falcon And The Winter Soldier",
     "season": 1,
     "episode": 3,
-    "chronology": 667
+    "chronology": 732
   },
   {
     "title": "The Whole World Is Watching",
@@ -7840,7 +8815,7 @@
     "show": "The Falcon And The Winter Soldier",
     "season": 1,
     "episode": 4,
-    "chronology": 668
+    "chronology": 733
   },
   {
     "title": "Truth",
@@ -7853,7 +8828,7 @@
     "show": "The Falcon And The Winter Soldier",
     "season": 1,
     "episode": 5,
-    "chronology": 669
+    "chronology": 734
   },
   {
     "title": "One World, One People",
@@ -7866,7 +8841,7 @@
     "show": "The Falcon And The Winter Soldier",
     "season": 1,
     "episode": 6,
-    "chronology": 670
+    "chronology": 735
   },
   {
     "title": "Glorious Purpose",
@@ -7901,7 +8876,7 @@
     "url": "https://www.youtube.com/watch?v=MjocuzfVSzA",
     "canon": true,
     "multiverse": 0,
-    "chronology": 651
+    "chronology": 716
   },
   {
     "title": "Question Everything | The Falcon and The Winter Soldier",
@@ -7912,7 +8887,7 @@
     "url": "https://twitter.com/falconsoldierTV/status/1404834455559184384",
     "canon": true,
     "multiverse": 0,
-    "chronology": 671
+    "chronology": 736
   },
   {
     "title": "The Variant",
@@ -8153,7 +9128,7 @@
     "id": "shang_chi_and_the_legend_of_the_ten_rings",
     "canon": true,
     "multiverse": 0,
-    "chronology": 662
+    "chronology": 727
   },
   {
     "title": "What If... Zombies!?",
@@ -8215,10 +9190,10 @@
     "id": "venom_let_there_be_carnage",
     "canon": true,
     "multiverse": 1,
-    "chronology": 678
+    "chronology": 743
   },
   {
-    "title": "What If\u2026 The Watcher Broke His Oath?",
+    "title": "What If… The Watcher Broke His Oath?",
     "release_date": "2021-10-06",
     "runtime": 36,
     "type": "Disney+",
@@ -8238,7 +9213,7 @@
     "id": "eternals",
     "canon": true,
     "multiverse": 0,
-    "chronology": 716
+    "chronology": 781
   },
   {
     "title": "The Daily Bugle Joins TikTok",
@@ -8249,7 +9224,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7034011591255395589",
     "canon": true,
     "multiverse": 0,
-    "chronology": 688
+    "chronology": 753
   },
   {
     "title": "Tell Us You Hate Spider-Man...",
@@ -8260,7 +9235,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7034028545051577605",
     "canon": true,
     "multiverse": 0,
-    "chronology": 689
+    "chronology": 754
   },
   {
     "title": "Never Meet Your Heroes",
@@ -8273,7 +9248,7 @@
     "show": "Hawkeye",
     "season": 1,
     "episode": 1,
-    "chronology": 719
+    "chronology": 784
   },
   {
     "title": "Hide and Seek",
@@ -8286,7 +9261,7 @@
     "show": "Hawkeye",
     "season": 1,
     "episode": 2,
-    "chronology": 720
+    "chronology": 785
   },
   {
     "title": "Join Us As An Intern",
@@ -8297,7 +9272,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7034030231476292870",
     "canon": true,
     "multiverse": 0,
-    "chronology": 690
+    "chronology": 755
   },
   {
     "title": "Echoes",
@@ -8310,7 +9285,7 @@
     "show": "Hawkeye",
     "season": 1,
     "episode": 3,
-    "chronology": 721
+    "chronology": 786
   },
   {
     "title": "Lightning and sand storms in NYC?",
@@ -8321,7 +9296,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7036899377377561861",
     "canon": true,
     "multiverse": 0,
-    "chronology": 703
+    "chronology": 768
   },
   {
     "title": "Do YOU have what it takes",
@@ -8332,7 +9307,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7037190105471159557",
     "canon": true,
     "multiverse": 0,
-    "chronology": 691
+    "chronology": 756
   },
   {
     "title": "Burning Questions With Betty Brant - Guest: Coach Wilson",
@@ -8343,7 +9318,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7038795503785594117",
     "canon": true,
     "multiverse": 0,
-    "chronology": 692
+    "chronology": 757
   },
   {
     "title": "Partners, Am I Right?",
@@ -8356,7 +9331,7 @@
     "show": "Hawkeye",
     "season": 1,
     "episode": 4,
-    "chronology": 722
+    "chronology": 787
   },
   {
     "title": "Burning Questions With Betty Brant - Guest: Flash Thompson",
@@ -8367,7 +9342,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7039900146041343278",
     "canon": true,
     "multiverse": 0,
-    "chronology": 693
+    "chronology": 758
   },
   {
     "title": "Burning Questions With Betty Brant - Guest: Ned Leeds",
@@ -8378,7 +9353,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7040134003688770863",
     "canon": true,
     "multiverse": 0,
-    "chronology": 694
+    "chronology": 759
   },
   {
     "title": "Put A Finger Down: Daily Bugle Edition",
@@ -8389,7 +9364,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7041711871740628271",
     "canon": true,
     "multiverse": 0,
-    "chronology": 695
+    "chronology": 760
   },
   {
     "title": "Ronin",
@@ -8402,7 +9377,7 @@
     "show": "Hawkeye",
     "season": 1,
     "episode": 5,
-    "chronology": 723
+    "chronology": 788
   },
   {
     "title": "Spider-Man: No Way Home",
@@ -8412,7 +9387,7 @@
     "id": "spider_man_no_way_home",
     "canon": true,
     "multiverse": 0,
-    "chronology": 696
+    "chronology": 761
   },
   {
     "title": "Spider-Man has been released!",
@@ -8423,7 +9398,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7042753199484226862",
     "canon": true,
     "multiverse": 0,
-    "chronology": 698
+    "chronology": 763
   },
   {
     "title": "Burning Questions with Betty Brant - Guest: Peter Parker",
@@ -8434,7 +9409,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7043907981393825071?is_from_webapp=1&sender_device=pc&web_id=6972566546209113605",
     "canon": true,
     "multiverse": 0,
-    "chronology": 699
+    "chronology": 764
   },
   {
     "title": "So This Is Christmas?",
@@ -8447,7 +9422,7 @@
     "show": "Hawkeye",
     "season": 1,
     "episode": 6,
-    "chronology": 724
+    "chronology": 789
   },
   {
     "title": "I was definitely hired for my journalist skills and no other reason, right??",
@@ -8458,7 +9433,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7044552965751016751?is_from_webapp=1&sender_device=pc&web_id=6972566546209113605",
     "canon": true,
     "multiverse": 0,
-    "chronology": 700
+    "chronology": 765
   },
   {
     "title": "Get your fix on Daily Bugle Supplements today!",
@@ -8469,7 +9444,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7050157397289127214?is_from_webapp=1&sender_device=pc&web_id=6972566546209113605",
     "canon": true,
     "multiverse": 0,
-    "chronology": 706
+    "chronology": 771
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE - The Spider-Menace Strikes Again!",
@@ -8480,7 +9455,7 @@
     "url": "https://www.youtube.com/watch?v=SeJP4PPWqfM",
     "canon": true,
     "multiverse": 0,
-    "chronology": 705
+    "chronology": 770
   },
   {
     "title": "BREAKING NEWS about Dr. Michael Morbius from our NEW Social Correspondent",
@@ -8491,7 +9466,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7076228701175745834?is_from_webapp=1&sender_device=pc&web_id=6972566546209113605",
     "canon": true,
     "multiverse": 1,
-    "chronology": 710
+    "chronology": 775
   },
   {
     "title": "Dr. Michael Morbius is missing!",
@@ -8502,10 +9477,10 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7078715628596612398?is_from_webapp=1&sender_device=pc&web_id=6972566546209113605",
     "canon": true,
     "multiverse": 1,
-    "chronology": 711
+    "chronology": 776
   },
   {
-    "title": "Developing story: Dr. Michael Morbius has been found looking\u2026 healthier than ever",
+    "title": "Developing story: Dr. Michael Morbius has been found looking… healthier than ever",
     "release_date": "2022-03-29",
     "runtime": 1,
     "type": "Daily Bugle",
@@ -8513,7 +9488,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7080630444546411819?is_from_webapp=1&sender_device=pc&web_id=6972566546209113605",
     "canon": true,
     "multiverse": 1,
-    "chronology": 712
+    "chronology": 777
   },
   {
     "title": "The Goldfish Problem",
@@ -8526,7 +9501,7 @@
     "show": "Moon Knight",
     "season": 1,
     "episode": 1,
-    "chronology": 725
+    "chronology": 790
   },
   {
     "title": "Morbius",
@@ -8536,7 +9511,7 @@
     "id": "morbius",
     "canon": true,
     "multiverse": 1,
-    "chronology": 709
+    "chronology": 774
   },
   {
     "title": "A super creature spotted in New York City!",
@@ -8547,7 +9522,7 @@
     "url": "https://www.tiktok.com/@thedailybugleofficial/video/7081369214744857899",
     "canon": true,
     "multiverse": 1,
-    "chronology": 713
+    "chronology": 778
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE - Web of Lies!",
@@ -8558,7 +9533,7 @@
     "url": "https://www.youtube.com/watch?v=Dgg4tIeBG1w",
     "canon": true,
     "multiverse": 0,
-    "chronology": 701
+    "chronology": 766
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE - Sticky Street Job",
@@ -8569,7 +9544,7 @@
     "url": "https://www.youtube.com/watch?v=ghaKfDDN3h0",
     "canon": true,
     "multiverse": 0,
-    "chronology": 704
+    "chronology": 769
   },
   {
     "title": "Summon the Suit",
@@ -8582,7 +9557,7 @@
     "show": "Moon Knight",
     "season": 1,
     "episode": 2,
-    "chronology": 726
+    "chronology": 791
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE - Spider-Sycophant",
@@ -8593,7 +9568,7 @@
     "url": "https://youtu.be/v6c_RrFHvpE",
     "canon": true,
     "multiverse": 0,
-    "chronology": 702
+    "chronology": 767
   },
   {
     "title": "The Friendly Type",
@@ -8606,7 +9581,7 @@
     "show": "Moon Knight",
     "season": 1,
     "episode": 3,
-    "chronology": 727
+    "chronology": 792
   },
   {
     "title": "Cloak vs. Tuna Melt",
@@ -8617,7 +9592,7 @@
     "url": "https://www.youtube.com/watch?v=9EJ6i7s7aB4",
     "canon": true,
     "multiverse": 0,
-    "chronology": 717
+    "chronology": 782
   },
   {
     "title": "The Tomb",
@@ -8630,7 +9605,7 @@
     "show": "Moon Knight",
     "season": 1,
     "episode": 4,
-    "chronology": 728
+    "chronology": 793
   },
   {
     "title": "Asylum",
@@ -8643,7 +9618,7 @@
     "show": "Moon Knight",
     "season": 1,
     "episode": 5,
-    "chronology": 729
+    "chronology": 794
   },
   {
     "title": "TheDailyBugle.net: EXCLUSIVE - \"Savies\" A New Menace Emerges",
@@ -8654,7 +9629,7 @@
     "url": "https://www.youtube.com/watch?v=AWNpEb5OGAI",
     "canon": true,
     "multiverse": 0,
-    "chronology": 707
+    "chronology": 772
   },
   {
     "title": "Gods and Monsters",
@@ -8667,7 +9642,7 @@
     "show": "Moon Knight",
     "season": 1,
     "episode": 6,
-    "chronology": 730
+    "chronology": 795
   },
   {
     "title": "Doctor Strange In The Multiverse Of Madness",
@@ -8677,7 +9652,7 @@
     "id": "doctor_strange_in_the_multiverse_of_madness",
     "canon": true,
     "multiverse": 0,
-    "chronology": 718
+    "chronology": 783
   },
   {
     "title": "Generation Why",
@@ -8690,7 +9665,7 @@
     "show": "Ms. Marvel",
     "season": 1,
     "episode": 1,
-    "chronology": 754
+    "chronology": 819
   },
   {
     "title": "Crushed",
@@ -8703,7 +9678,7 @@
     "show": "Ms. Marvel",
     "season": 1,
     "episode": 2,
-    "chronology": 755
+    "chronology": 820
   },
   {
     "title": "The REAL Carol Danvers Story",
@@ -8714,7 +9689,7 @@
     "url": "https://www.youtube.com/watch?v=yqJlzkYqhZQ",
     "canon": true,
     "multiverse": 0,
-    "chronology": 753
+    "chronology": 818
   },
   {
     "title": "Destined",
@@ -8727,7 +9702,7 @@
     "show": "Ms. Marvel",
     "season": 1,
     "episode": 3,
-    "chronology": 756
+    "chronology": 821
   },
   {
     "title": "Old Spice | Backstage",
@@ -8738,7 +9713,7 @@
     "url": "https://www.facebook.com/watch/?v=413489160547639",
     "canon": true,
     "multiverse": 0,
-    "chronology": 760
+    "chronology": 825
   },
   {
     "title": "Seeing Red",
@@ -8751,10 +9726,10 @@
     "show": "Ms. Marvel",
     "season": 1,
     "episode": 4,
-    "chronology": 757
+    "chronology": 822
   },
   {
-    "title": "King Valkyrie\u2019s Time Off | Direct Line",
+    "title": "King Valkyrie’s Time Off | Direct Line",
     "release_date": "2022-07-01",
     "runtime": 1,
     "type": "Other",
@@ -8762,7 +9737,7 @@
     "url": "https://www.youtube.com/watch?v=xtvrWV4IhCs",
     "canon": true,
     "multiverse": 0,
-    "chronology": 763
+    "chronology": 828
   },
   {
     "title": "Time and Again",
@@ -8775,7 +9750,7 @@
     "show": "Ms. Marvel",
     "season": 1,
     "episode": 5,
-    "chronology": 758
+    "chronology": 823
   },
   {
     "title": "Thor: Love And Thunder",
@@ -8785,7 +9760,7 @@
     "id": "thor_love_and_thunder",
     "canon": true,
     "multiverse": 0,
-    "chronology": 764
+    "chronology": 829
   },
   {
     "title": "Old Spice",
@@ -8795,7 +9770,7 @@
     "id": "old_spice",
     "canon": true,
     "multiverse": 0,
-    "chronology": 761
+    "chronology": 826
   },
   {
     "title": "Old Spice | Extended Cut",
@@ -8806,7 +9781,7 @@
     "url": "https://www.youtube.com/watch?v=PjdrJnvoUGg",
     "canon": true,
     "multiverse": 0,
-    "chronology": 762
+    "chronology": 827
   },
   {
     "title": "No Normal",
@@ -8819,7 +9794,7 @@
     "show": "Ms. Marvel",
     "season": 1,
     "episode": 6,
-    "chronology": 759
+    "chronology": 824
   },
   {
     "title": "Jennifer Walters' Phone Recording",
@@ -8830,7 +9805,7 @@
     "url": "https://www.youtube.com/watch?v=mXFFqycHpic",
     "canon": true,
     "multiverse": 0,
-    "chronology": 739
+    "chronology": 804
   },
   {
     "title": "Groot's First Steps",
@@ -8908,7 +9883,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 1,
-    "chronology": 737
+    "chronology": 802
   },
   {
     "title": "Superhuman Law",
@@ -8921,7 +9896,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 2,
-    "chronology": 738
+    "chronology": 803
   },
   {
     "title": "The People vs. Emil Blonsky",
@@ -8934,7 +9909,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 3,
-    "chronology": 740
+    "chronology": 805
   },
   {
     "title": "Spider-Man: No Way Home | Re-Release",
@@ -8944,7 +9919,7 @@
     "id": "spider_man_no_way_home_re_release",
     "canon": true,
     "multiverse": 0,
-    "chronology": 697
+    "chronology": 762
   },
   {
     "title": "Is this Not Real Magic?",
@@ -8957,7 +9932,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 4,
-    "chronology": 741
+    "chronology": 806
   },
   {
     "title": "Mean, Green, and Straight Poured Into These Jeans",
@@ -8970,7 +9945,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 5,
-    "chronology": 742
+    "chronology": 807
   },
   {
     "title": "Just Jen",
@@ -8983,7 +9958,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 6,
-    "chronology": 749
+    "chronology": 814
   },
   {
     "title": "The Retreat",
@@ -8996,7 +9971,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 7,
-    "chronology": 750
+    "chronology": 815
   },
   {
     "title": "Ribbit and Rip It",
@@ -9009,7 +9984,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 8,
-    "chronology": 751
+    "chronology": 816
   },
   {
     "title": "Werewolf By Night",
@@ -9019,7 +9994,7 @@
     "id": "werewolf_by_night",
     "canon": true,
     "multiverse": 0,
-    "chronology": 769
+    "chronology": 834
   },
   {
     "title": "Whose Show is This",
@@ -9032,7 +10007,7 @@
     "show": "She-Hulk: Attorney at Law",
     "season": 1,
     "episode": 9,
-    "chronology": 752
+    "chronology": 817
   },
   {
     "title": "Black Panther: Wakanda Forever",
@@ -9042,7 +10017,7 @@
     "id": "black_panther_wakanda_forever",
     "canon": true,
     "multiverse": 0,
-    "chronology": 731
+    "chronology": 796
   },
   {
     "title": "The Guardians of the Galaxy Holiday Special",
@@ -9052,7 +10027,7 @@
     "id": "the_guardians_of_the_galaxy_holiday_special",
     "canon": true,
     "multiverse": 0,
-    "chronology": 770
+    "chronology": 835
   },
   {
     "title": "Shrinking and Drinking, Now You Can!",
@@ -9063,7 +10038,7 @@
     "url": "https://www.youtube.com/watch?v=AO0aIHyetAw",
     "canon": true,
     "multiverse": 0,
-    "chronology": 783
+    "chronology": 848
   },
   {
     "title": "Now You Can, Before Saving the Day!",
@@ -9074,7 +10049,7 @@
     "url": "https://www.youtube.com/watch?v=miA1puOViJg",
     "canon": true,
     "multiverse": 0,
-    "chronology": 784
+    "chronology": 849
   },
   {
     "title": "Ant-Man and the Wasp: Quantumania",
@@ -9084,7 +10059,7 @@
     "id": "ant_man_and_the_wasp_quantumania",
     "canon": true,
     "multiverse": 0,
-    "chronology": 785
+    "chronology": 850
   },
   {
     "title": "Guardians of the Galaxy Vol. 3",
@@ -9094,7 +10069,7 @@
     "id": "guardians_of_the_galaxy_vol_3",
     "canon": true,
     "multiverse": 0,
-    "chronology": 786
+    "chronology": 851
   },
   {
     "title": "Spider-Man: Across The Spider-Verse",
@@ -9104,7 +10079,7 @@
     "id": "spider_man_across_the_spider_verse",
     "canon": true,
     "multiverse": 10,
-    "chronology": 715
+    "chronology": 780
   },
   {
     "title": "Resurrection",
@@ -9117,7 +10092,7 @@
     "show": "Secret Invasion",
     "season": 1,
     "episode": 1,
-    "chronology": 788
+    "chronology": 853
   },
   {
     "title": "Promises",
@@ -9130,7 +10105,7 @@
     "show": "Secret Invasion",
     "season": 1,
     "episode": 2,
-    "chronology": 789
+    "chronology": 854
   },
   {
     "title": "Betrayed",
@@ -9143,7 +10118,7 @@
     "show": "Secret Invasion",
     "season": 1,
     "episode": 3,
-    "chronology": 790
+    "chronology": 855
   },
   {
     "title": "Beloved",
@@ -9156,7 +10131,7 @@
     "show": "Secret Invasion",
     "season": 1,
     "episode": 4,
-    "chronology": 791
+    "chronology": 856
   },
   {
     "title": "Harvest",
@@ -9169,7 +10144,7 @@
     "show": "Secret Invasion",
     "season": 1,
     "episode": 5,
-    "chronology": 792
+    "chronology": 857
   },
   {
     "title": "Home",
@@ -9182,7 +10157,7 @@
     "show": "Secret Invasion",
     "season": 1,
     "episode": 6,
-    "chronology": 793
+    "chronology": 858
   },
   {
     "title": "Are You My Groot?",
@@ -9260,7 +10235,7 @@
     "show": "Loki",
     "season": 2,
     "episode": 1,
-    "chronology": 796
+    "chronology": 861
   },
   {
     "title": "Breaking Brad",
@@ -9273,7 +10248,7 @@
     "show": "Loki",
     "season": 2,
     "episode": 2,
-    "chronology": 797
+    "chronology": 862
   },
   {
     "title": "1893",
@@ -9286,7 +10261,7 @@
     "show": "Loki",
     "season": 2,
     "episode": 3,
-    "chronology": 798
+    "chronology": 863
   },
   {
     "title": "Heart of the TVA",
@@ -9299,7 +10274,7 @@
     "show": "Loki",
     "season": 2,
     "episode": 4,
-    "chronology": 799
+    "chronology": 864
   },
   {
     "title": "Science/Fiction",
@@ -9312,7 +10287,7 @@
     "show": "Loki",
     "season": 2,
     "episode": 5,
-    "chronology": 800
+    "chronology": 865
   },
   {
     "title": "Glorious Purpose",
@@ -9325,7 +10300,7 @@
     "show": "Loki",
     "season": 2,
     "episode": 6,
-    "chronology": 801
+    "chronology": 866
   },
   {
     "title": "The Marvels",
@@ -9335,7 +10310,7 @@
     "id": "the_marvels",
     "canon": true,
     "multiverse": 0,
-    "chronology": 794
+    "chronology": 859
   },
   {
     "title": "What If... Nebula Joined the Nova Corps?",
@@ -9348,7 +10323,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 1,
-    "chronology": 802
+    "chronology": 867
   },
   {
     "title": "What If... Peter Quill Attacked Earth's Mightiest Heroes?",
@@ -9361,7 +10336,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 2,
-    "chronology": 803
+    "chronology": 868
   },
   {
     "title": "What If... Happy Hogan Saved Christmas?",
@@ -9374,7 +10349,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 3,
-    "chronology": 804
+    "chronology": 869
   },
   {
     "title": "What If... Iron Man Crashed into the Grandmaster?",
@@ -9387,7 +10362,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 4,
-    "chronology": 805
+    "chronology": 870
   },
   {
     "title": "What If... Captain Carter Fought the Hydra Stomper?",
@@ -9400,7 +10375,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 5,
-    "chronology": 806
+    "chronology": 871
   },
   {
     "title": "What If... Kahhori Reshaped the World?",
@@ -9413,7 +10388,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 6,
-    "chronology": 807
+    "chronology": 872
   },
   {
     "title": "What If... Hela Found the Ten Rings?",
@@ -9426,7 +10401,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 7,
-    "chronology": 808
+    "chronology": 873
   },
   {
     "title": "What If... The Avengers Assembled in 1602?",
@@ -9439,7 +10414,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 8,
-    "chronology": 809
+    "chronology": 874
   },
   {
     "title": "What If... Strange Supreme Intervened?",
@@ -9452,7 +10427,7 @@
     "show": "What If...?",
     "season": 2,
     "episode": 9,
-    "chronology": 810
+    "chronology": 875
   },
   {
     "title": "Chafa",
@@ -9465,7 +10440,7 @@
     "show": "Echo",
     "season": 1,
     "episode": 1,
-    "chronology": 732
+    "chronology": 797
   },
   {
     "title": "Lowak",
@@ -9478,7 +10453,7 @@
     "show": "Echo",
     "season": 1,
     "episode": 2,
-    "chronology": 733
+    "chronology": 798
   },
   {
     "title": "Tuklo",
@@ -9491,7 +10466,7 @@
     "show": "Echo",
     "season": 1,
     "episode": 3,
-    "chronology": 734
+    "chronology": 799
   },
   {
     "title": "Taloa",
@@ -9504,7 +10479,7 @@
     "show": "Echo",
     "season": 1,
     "episode": 4,
-    "chronology": 735
+    "chronology": 800
   },
   {
     "title": "Maya",
@@ -9517,7 +10492,7 @@
     "show": "Echo",
     "season": 1,
     "episode": 5,
-    "chronology": 736
+    "chronology": 801
   },
   {
     "title": "Madame Web",
@@ -9527,137 +10502,7 @@
     "id": "madame_web",
     "canon": true,
     "multiverse": 1,
-    "chronology": 607
-  },
-  {
-    "title": "To Me, My X-Men",
-    "release_date": "2024-03-20",
-    "runtime": 33,
-    "type": "Disney+",
-    "id": "x_men_97_s1_e1",
-    "canon": false,
-    "multiverse": 38,
-    "show": "X-Men '97",
-    "season": 1,
-    "episode": 1,
-    "chronology": 580
-  },
-  {
-    "title": "Mutant Liberation Begins",
-    "release_date": "2024-03-20",
-    "runtime": 33,
-    "type": "Disney+",
-    "id": "x_men_97_s1_e2",
-    "canon": false,
-    "multiverse": 38,
-    "show": "X-Men '97",
-    "season": 1,
-    "episode": 2,
-    "chronology": 581
-  },
-  {
-    "title": "Fire Made Flesh",
-    "release_date": "2024-03-27",
-    "runtime": 33,
-    "type": "Disney+",
-    "id": "x_men_97_s1_e3",
-    "canon": false,
-    "multiverse": 38,
-    "show": "X-Men '97",
-    "season": 1,
-    "episode": 3,
-    "chronology": 582
-  },
-  {
-    "title": "Motendo/Lifedeath - Part 1",
-    "release_date": "2024-04-03",
-    "runtime": 30,
-    "type": "Disney+",
-    "id": "x_men_97_s1_e4",
-    "canon": false,
-    "multiverse": 38,
-    "show": "X-Men '97",
-    "season": 1,
-    "episode": 4,
-    "chronology": 583
-  },
-  {
-    "title": "Remember It",
-    "release_date": "2024-04-10",
-    "runtime": 37,
-    "type": "Disney+",
-    "id": "x_men_97_s1_e5",
-    "canon": false,
-    "multiverse": 38,
-    "show": "X-Men '97",
-    "season": 1,
-    "episode": 5,
-    "chronology": 584
-  },
-  {
-    "title": "Lifedeath - Part 2",
-    "release_date": "2024-04-17",
-    "runtime": 34,
-    "type": "Disney+",
-    "id": "x_men_97_s1_e6",
-    "canon": false,
-    "multiverse": 38,
-    "show": "X-Men '97",
-    "season": 1,
-    "episode": 6,
-    "chronology": 585
-  },
-  {
-    "title": "Bright Eyes",
-    "release_date": "2024-04-24",
-    "runtime": 35,
-    "type": "Disney+",
-    "id": "x_men_97_s1_e7",
-    "canon": false,
-    "multiverse": 38,
-    "show": "X-Men '97",
-    "season": 1,
-    "episode": 7,
-    "chronology": 586
-  },
-  {
-    "title": "Tolerance Is Extinction - Part 1",
-    "release_date": "2024-05-01",
-    "runtime": 34,
-    "type": "Disney+",
-    "id": "x_men_97_s1_e8",
-    "canon": false,
-    "multiverse": 38,
-    "show": "X-Men '97",
-    "season": 1,
-    "episode": 8,
-    "chronology": 587
-  },
-  {
-    "title": "Tolerance Is Extinction - Part 2",
-    "release_date": "2024-05-08",
-    "runtime": 32,
-    "type": "Disney+",
-    "id": "x_men_97_s1_e9",
-    "canon": false,
-    "multiverse": 38,
-    "show": "X-Men '97",
-    "season": 1,
-    "episode": 9,
-    "chronology": 588
-  },
-  {
-    "title": "Tolerance Is Extinction - Part 3",
-    "release_date": "2024-05-15",
-    "runtime": 43,
-    "type": "Disney+",
-    "id": "x_men_97_s1_e10",
-    "canon": false,
-    "multiverse": 38,
-    "show": "X-Men '97",
-    "season": 1,
-    "episode": 10,
-    "chronology": 589
+    "chronology": 672
   },
   {
     "title": "What If...? An Immersive Story",
@@ -9668,7 +10513,7 @@
     "url": "https://apps.apple.com/us/app/what-if-an-immersive-story/id6479251303",
     "canon": true,
     "multiverse": 9,
-    "chronology": 650
+    "chronology": 715
   },
   {
     "title": "Deadpool & Wolverine",
@@ -9678,7 +10523,7 @@
     "id": "deadpool_wolverine",
     "canon": true,
     "multiverse": 0,
-    "chronology": 811
+    "chronology": 876
   },
   {
     "title": "Seekest Thou the Road",
@@ -9691,7 +10536,7 @@
     "show": "Agatha All Along",
     "season": 1,
     "episode": 1,
-    "chronology": 812
+    "chronology": 877
   },
   {
     "title": "Circle Sewn With Fate / Unlock Thy Hidden Gate",
@@ -9704,7 +10549,7 @@
     "show": "Agatha All Along",
     "season": 1,
     "episode": 2,
-    "chronology": 813
+    "chronology": 878
   },
   {
     "title": "Through Many Miles / Of Tricks and Trials",
@@ -9717,7 +10562,7 @@
     "show": "Agatha All Along",
     "season": 1,
     "episode": 3,
-    "chronology": 814
+    "chronology": 879
   },
   {
     "title": "If I Can't Reach You / Let My Song Teach You",
@@ -9730,7 +10575,7 @@
     "show": "Agatha All Along",
     "season": 1,
     "episode": 4,
-    "chronology": 815
+    "chronology": 880
   },
   {
     "title": "Darkest Hour / Wake Thy Power",
@@ -9743,7 +10588,7 @@
     "show": "Agatha All Along",
     "season": 1,
     "episode": 5,
-    "chronology": 816
+    "chronology": 881
   },
   {
     "title": "Familiar by Thy Side",
@@ -9756,7 +10601,7 @@
     "show": "Agatha All Along",
     "season": 1,
     "episode": 6,
-    "chronology": 817
+    "chronology": 882
   },
   {
     "title": "Death's Hand in Mine",
@@ -9769,7 +10614,7 @@
     "show": "Agatha All Along",
     "season": 1,
     "episode": 7,
-    "chronology": 818
+    "chronology": 883
   },
   {
     "title": "Venom: The Last Dance",
@@ -9779,7 +10624,7 @@
     "id": "venom_the_last_dance",
     "canon": true,
     "multiverse": 1,
-    "chronology": 708
+    "chronology": 773
   },
   {
     "title": "Follow Me My Friend / To Glory at the End",
@@ -9792,7 +10637,7 @@
     "show": "Agatha",
     "season": 1,
     "episode": 8,
-    "chronology": 819
+    "chronology": 884
   },
   {
     "title": "Maiden Mother Crone",
@@ -9805,7 +10650,7 @@
     "show": "Agatha",
     "season": 1,
     "episode": 9,
-    "chronology": 820
+    "chronology": 885
   },
   {
     "title": "Kraven The Hunter",
@@ -9815,7 +10660,7 @@
     "id": "kraven_the_hunter",
     "canon": true,
     "multiverse": 1,
-    "chronology": 714
+    "chronology": 779
   },
   {
     "title": "The Hulk Fought the Mech Avengers?",
@@ -9828,7 +10673,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 1,
-    "chronology": 821
+    "chronology": 886
   },
   {
     "title": "Agatha Went to Hollywood?",
@@ -9841,7 +10686,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 2,
-    "chronology": 822
+    "chronology": 887
   },
   {
     "title": "The Red Guardian Stopped the Winter Soldier?",
@@ -9854,7 +10699,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 3,
-    "chronology": 823
+    "chronology": 888
   },
   {
     "title": "Howard the Duck Got Hitched?",
@@ -9867,7 +10712,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 4,
-    "chronology": 824
+    "chronology": 889
   },
   {
     "title": "The Emergence Destroyed the Earth?",
@@ -9880,7 +10725,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 5,
-    "chronology": 825
+    "chronology": 890
   },
   {
     "title": "1872?",
@@ -9893,7 +10738,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 6,
-    "chronology": 826
+    "chronology": 891
   },
   {
     "title": "The Watcher Disappeared?",
@@ -9906,7 +10751,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 7,
-    "chronology": 827
+    "chronology": 892
   },
   {
     "title": "What If?",
@@ -9919,7 +10764,7 @@
     "show": "What If...?",
     "season": 3,
     "episode": 8,
-    "chronology": 828
+    "chronology": 893
   },
   {
     "title": "Amazing Fantasy",
@@ -9932,7 +10777,7 @@
     "show": "Your Friendly Neighborhood Spider-Man",
     "season": 1,
     "episode": 1,
-    "chronology": 590
+    "chronology": 655
   },
   {
     "title": "The Parker Luck",
@@ -9945,7 +10790,7 @@
     "show": "Your Friendly Neighborhood Spider-Man",
     "season": 1,
     "episode": 2,
-    "chronology": 591
+    "chronology": 656
   },
   {
     "title": "Secret Identity Crisis",
@@ -9958,7 +10803,7 @@
     "show": "Your Friendly Neighborhood Spider-Man",
     "season": 1,
     "episode": 3,
-    "chronology": 592
+    "chronology": 657
   },
   {
     "title": "Hitting the Big Time",
@@ -9971,7 +10816,7 @@
     "show": "Your Friendly Neighborhood Spider-Man",
     "season": 1,
     "episode": 4,
-    "chronology": 593
+    "chronology": 658
   },
   {
     "title": "The Unicorn Unleashed!",
@@ -9984,7 +10829,7 @@
     "show": "Your Friendly Neighborhood Spider-Man",
     "season": 1,
     "episode": 5,
-    "chronology": 594
+    "chronology": 659
   },
   {
     "title": "Duel With the Devil",
@@ -9997,7 +10842,7 @@
     "show": "Your Friendly Neighborhood Spider-Man",
     "season": 1,
     "episode": 6,
-    "chronology": 595
+    "chronology": 660
   },
   {
     "title": "Scorpion Rising",
@@ -10010,7 +10855,7 @@
     "show": "Your Friendly Neighborhood Spider-Man",
     "season": 1,
     "episode": 7,
-    "chronology": 596
+    "chronology": 661
   },
   {
     "title": "Tangled Web",
@@ -10023,7 +10868,7 @@
     "show": "Your Friendly Neighborhood Spider-Man",
     "season": 1,
     "episode": 8,
-    "chronology": 597
+    "chronology": 662
   },
   {
     "title": "Captain America: Brave New World",
@@ -10033,7 +10878,7 @@
     "id": "captain_america_brave_new_world",
     "canon": true,
     "multiverse": 0,
-    "chronology": 837
+    "chronology": 902
   },
   {
     "title": "Hero or Menace",
@@ -10046,7 +10891,7 @@
     "show": "Your Friendly Neighborhood Spider-Man",
     "season": 1,
     "episode": 9,
-    "chronology": 598
+    "chronology": 663
   },
   {
     "title": "If This Be My Destiny...",
@@ -10059,7 +10904,7 @@
     "show": "Your Friendly Neighborhood Spider-Man",
     "season": 1,
     "episode": 10,
-    "chronology": 599
+    "chronology": 664
   },
   {
     "title": "Heaven's Half Hour",
@@ -10072,7 +10917,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 1,
-    "chronology": 787
+    "chronology": 852
   },
   {
     "title": "Optics",
@@ -10085,7 +10930,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 2,
-    "chronology": 829
+    "chronology": 894
   },
   {
     "title": "The Hollow of His Hand",
@@ -10098,7 +10943,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 3,
-    "chronology": 830
+    "chronology": 895
   },
   {
     "title": "Sic Semper Systema",
@@ -10111,7 +10956,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 4,
-    "chronology": 831
+    "chronology": 896
   },
   {
     "title": "With Interest",
@@ -10124,7 +10969,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 5,
-    "chronology": 832
+    "chronology": 897
   },
   {
     "title": "Excessive Force",
@@ -10137,7 +10982,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 6,
-    "chronology": 833
+    "chronology": 898
   },
   {
     "title": "Art for Art's Sake",
@@ -10150,7 +10995,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 7,
-    "chronology": 834
+    "chronology": 899
   },
   {
     "title": "Isle of Joy",
@@ -10163,7 +11008,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 8,
-    "chronology": 835
+    "chronology": 900
   },
   {
     "title": "Straight to Hell",
@@ -10176,7 +11021,7 @@
     "show": "Daredevil: Born Again",
     "season": 1,
     "episode": 9,
-    "chronology": 836
+    "chronology": 901
   },
   {
     "title": "Thunderbolts*",
@@ -10186,7 +11031,7 @@
     "id": "thunderbolts",
     "canon": true,
     "multiverse": 0,
-    "chronology": 838
+    "chronology": 903
   },
   {
     "title": "Take Me Home",
@@ -10199,7 +11044,7 @@
     "show": "Ironheart",
     "season": 1,
     "episode": 1,
-    "chronology": 743
+    "chronology": 808
   },
   {
     "title": "Will the Real Natalie Please Stand Up",
@@ -10212,7 +11057,7 @@
     "show": "Ironheart",
     "season": 1,
     "episode": 2,
-    "chronology": 744
+    "chronology": 809
   },
   {
     "title": "We in Danger, Girl",
@@ -10225,7 +11070,7 @@
     "show": "Ironheart",
     "season": 1,
     "episode": 3,
-    "chronology": 745
+    "chronology": 810
   },
   {
     "title": "Bad Magic",
@@ -10238,7 +11083,7 @@
     "show": "Ironheart",
     "season": 1,
     "episode": 4,
-    "chronology": 746
+    "chronology": 811
   },
   {
     "title": "Karma's a Glitch",
@@ -10251,7 +11096,7 @@
     "show": "Ironheart",
     "season": 1,
     "episode": 5,
-    "chronology": 747
+    "chronology": 812
   },
   {
     "title": "The Past is the Past",
@@ -10264,7 +11109,7 @@
     "show": "Ironheart",
     "season": 1,
     "episode": 6,
-    "chronology": 748
+    "chronology": 813
   },
   {
     "title": "The Fantastic Four: First Steps",
@@ -10274,7 +11119,7 @@
     "id": "the_fantastic_four_first_steps",
     "canon": true,
     "multiverse": 12,
-    "chronology": 846
+    "chronology": 911
   },
   {
     "title": "Into the Lion's Den",
@@ -10339,7 +11184,7 @@
     "show": "Marvel Zombies",
     "season": 1,
     "episode": 1,
-    "chronology": 765
+    "chronology": 830
   },
   {
     "title": "Episode 2",
@@ -10352,7 +11197,7 @@
     "show": "Marvel Zombies",
     "season": 1,
     "episode": 2,
-    "chronology": 766
+    "chronology": 831
   },
   {
     "title": "Episode 3",
@@ -10365,7 +11210,7 @@
     "show": "Marvel Zombies",
     "season": 1,
     "episode": 3,
-    "chronology": 767
+    "chronology": 832
   },
   {
     "title": "Episode 4",
@@ -10378,7 +11223,7 @@
     "show": "Marvel Zombies",
     "season": 1,
     "episode": 4,
-    "chronology": 768
+    "chronology": 833
   },
   {
     "title": "The Slattery Method by Trevor Slattery",
@@ -10389,7 +11234,7 @@
     "multiverse": 0,
     "id": "the_slattery_method_by_trevor_slattery",
     "url": "https://youtu.be/CfJyAKSI7Zo",
-    "chronology": 771
+    "chronology": 836
   },
   {
     "title": "Wonder Man's Trevor Slattery Loses it During Ben Mankiewicz Interview",
@@ -10400,7 +11245,7 @@
     "multiverse": 0,
     "id": "wonder_mans_trevor_slattery_loses_it_during_ben_mankiewicz_interview",
     "url": "https://www.youtube.com/watch?v=AznfzIGBfw4",
-    "chronology": 778
+    "chronology": 843
   },
   {
     "title": "Wonder Man's Simon Williams and Trevor Slattery | Actors Unscripted",
@@ -10411,7 +11256,7 @@
     "multiverse": 0,
     "id": "wonder_mans_simon_williams_and_trevor_slattery_actors_unscripted",
     "url": "https://www.youtube.com/watch?v=H6tNcdplJPI",
-    "chronology": 779
+    "chronology": 844
   },
   {
     "title": "An Inside Look at Wonder Man",
@@ -10422,7 +11267,7 @@
     "multiverse": 0,
     "id": "an_inside_look_at_wonder_man",
     "url": "https://www.youtube.com/watch?v=6mDuSU1DqCA",
-    "chronology": 780
+    "chronology": 845
   },
   {
     "title": "Matinee",
@@ -10435,7 +11280,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 1,
-    "chronology": 772
+    "chronology": 837
   },
   {
     "title": "Self-Tape",
@@ -10448,7 +11293,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 2,
-    "chronology": 773
+    "chronology": 838
   },
   {
     "title": "Pacoima",
@@ -10461,7 +11306,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 3,
-    "chronology": 774
+    "chronology": 839
   },
   {
     "title": "Doorman",
@@ -10474,7 +11319,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 4,
-    "chronology": 775
+    "chronology": 840
   },
   {
     "title": "Found Footage",
@@ -10487,7 +11332,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 5,
-    "chronology": 776
+    "chronology": 841
   },
   {
     "title": "Call Back",
@@ -10500,7 +11345,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 6,
-    "chronology": 777
+    "chronology": 842
   },
   {
     "title": "Kathy Friedman",
@@ -10513,7 +11358,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 7,
-    "chronology": 781
+    "chronology": 846
   },
   {
     "title": "Yucca Valley",
@@ -10526,7 +11371,7 @@
     "show": "Wonder Man",
     "season": 1,
     "episode": 8,
-    "chronology": 782
+    "chronology": 847
   },
   {
     "title": "The Northern Star",
@@ -10539,7 +11384,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 1,
-    "chronology": 839
+    "chronology": 904
   },
   {
     "title": "Shoot The Moon",
@@ -10552,7 +11397,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 2,
-    "chronology": 840
+    "chronology": 905
   },
   {
     "title": "The Scales & the Sword",
@@ -10565,7 +11410,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 3,
-    "chronology": 841
+    "chronology": 906
   },
   {
     "title": "Gloves off",
@@ -10578,7 +11423,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 4,
-    "chronology": 842
+    "chronology": 907
   },
   {
     "title": "The Grand Design",
@@ -10591,7 +11436,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 5,
-    "chronology": 843
+    "chronology": 908
   },
   {
     "title": "Requiem",
@@ -10604,7 +11449,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 6,
-    "chronology": 844
+    "chronology": 909
   },
   {
     "title": "The Hateful Darkness",
@@ -10617,7 +11462,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 7,
-    "chronology": 845
+    "chronology": 910
   },
   {
     "title": "The Southern Cross",
@@ -10630,7 +11475,7 @@
     "show": "Daredevil: Born Again",
     "season": 2,
     "episode": 8,
-    "chronology": 846
+    "chronology": 911
   },
   {
     "title": "The Punisher: One Last Kill",
@@ -10640,6 +11485,6 @@
     "id": "punisher_one_last_kill",
     "canon": true,
     "multiverse": 0,
-    "chronology": 838.5
+    "chronology": 903.5
   }
 ]

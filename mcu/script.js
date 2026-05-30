@@ -45,7 +45,7 @@ const MULTIVERSE_LABELS = {
   "35": "Wild West Heroes Universe",
   "36": "Reflective Infinity Ultron Universe",
   "37": "Earth-86445 (Your Friendly Neighborhood Spider-Man)",
-  "38": "Earth-92131 (X-Men '97)",
+  "38": "Earth-92131 (X-Men TAS / Spider-Man / X-Men '97)",
   "39": "Earth-17372 (The Gifted)",
   "40": "Earth-90214 (Spider-Noir)"
 };
@@ -1071,7 +1071,7 @@ function preparePrintView() {
   document.body.classList.add("print-mode");
 
   const data = filteredData();
-  const stats = getProgressStats(fullData);
+  const stats = getProgressStats(data);
   const printedAt = new Date().toLocaleString(undefined, {
     year: "numeric",
     month: "short",
