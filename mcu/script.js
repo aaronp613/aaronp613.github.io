@@ -817,7 +817,7 @@ function createGroupCard(group) {
       row.classList.toggle("is-watched", !nowWatched);
       toggle.checked = !nowWatched;
       renderBadge();
-      updateStats(filteredData({ ignoreHideWatched: true }));
+      updateStats(filteredData({ ignoreSearch: true, ignoreHideWatched: true }));
     });
 
     epList.appendChild(row);
@@ -872,7 +872,7 @@ function renderList(data) {
   });
   flushSingles();
 
-  updateStats(filteredData({ ignoreHideWatched: true }));
+  updateStats(filteredData({ ignoreSearch: true, ignoreHideWatched: true }));
   updateFilterButtons();
 }
 
@@ -949,8 +949,8 @@ function getProgressStats(items = fullData) {
   };
 }
 
-function filteredData({ ignoreHideWatched = false } = {}) {
-  const query       = document.getElementById("search").value.toLowerCase();
+function filteredData({ ignoreSearch = false, ignoreHideWatched = false } = {}) {
+  const query       = ignoreSearch ? "" : document.getElementById("search").value.toLowerCase();
   const hideWatched = !ignoreHideWatched && document.getElementById("hideWatched")?.checked;
   const typeVals    = Array.from(document.querySelectorAll("#typeFilter input:checked")).map(c => c.value);
   const canonVals   = Array.from(document.querySelectorAll("#canonFilter input:checked")).map(c => c.value);
@@ -1071,7 +1071,7 @@ function preparePrintView() {
   document.body.classList.add("print-mode");
 
   const data = filteredData();
-  const stats = getProgressStats(filteredData({ ignoreHideWatched: true }));
+  const stats = getProgressStats(filteredData({ ignoreSearch: true, ignoreHideWatched: true }));
   const printedAt = new Date().toLocaleString(undefined, {
     year: "numeric",
     month: "short",
