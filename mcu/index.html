@@ -111,7 +111,7 @@
     <script>var SHOW_ANNOUNCEMENT = true;</script>
     <div id="announcement-banner" class="announcement-banner" style="display:none">
       <span class="announcement-badge">New</span>
-      <span class="announcement-text">Added: Spider-Man: The Animated Series</span>
+      <span class="announcement-text">Added: New Multiversal Timeline Options</span>
       <button class="announcement-close" aria-label="Dismiss announcement" onclick="this.closest('.announcement-banner').style.display='none'">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="1" y1="1" x2="11" y2="11"/><line x1="11" y1="1" x2="1" y2="11"/>
@@ -155,9 +155,27 @@
     </div>
 
     <div class="sticky-controls">
-      <div class="order-toggle" role="group" aria-label="Viewing order">
-        <button class="order-toggle-option" type="button" data-sort-mode="release" aria-pressed="true">Release</button>
-        <button class="order-toggle-option" type="button" data-sort-mode="chronological" aria-pressed="false">Chronological</button>
+      <div class="order-stack">
+        <div class="order-toggle" role="group" aria-label="Viewing order">
+          <button class="order-toggle-option" type="button" data-sort-mode="release" aria-pressed="false">Release</button>
+          <button class="order-toggle-option" type="button" data-sort-mode="sacred" aria-pressed="true">Sacred Timeline</button>
+          <button class="order-toggle-option" type="button" data-sort-mode="timeline" aria-pressed="false">Timeline</button>
+        </div>
+        <div class="timeline-info">
+          <button
+            class="timeline-info-button"
+            type="button"
+            aria-label="Explain viewing order modes"
+          >
+            i
+          </button>
+          <div class="timeline-info-tooltip" role="tooltip">
+            <div class="timeline-info-tooltip-item"><strong>Release:</strong> Sorted by release dates</div>
+            <div class="timeline-info-tooltip-item"><strong>Sacred Timeline:</strong> Chronological order but branched-reality stories start after <em>Loki</em>.</div>
+            <div class="timeline-info-tooltip-item"><strong>Timeline:</strong> Chronological order but branched-reality stories are placed where they happen in-universe.</div>
+            <a href="faq.html" class="timeline-info-tooltip-faq">Learn more in the FAQ →</a>
+          </div>
+        </div>
       </div>
 
       <div class="control-actions">
