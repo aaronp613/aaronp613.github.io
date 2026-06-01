@@ -1,10 +1,15 @@
 let fullData = [];
-let sortMode = "release";
+let sortMode = "sacred";
 let sortDirection = "asc";
 let viewMode = "comfortable";
 const expandedGroups = new Set();
 const VIEW_MODES = new Set(["comfortable", "compact", "list"]);
 const FILTER_URL_KEYS = ["q", "sort", "direction", "type", "canon", "universe", "hide", "view"];
+const SORT_MODE_LABELS = {
+  release: "Release",
+  sacred: "Sacred Timeline",
+  "timeline": "Timeline"
+};
 
 const MULTIVERSE_LABELS = {
   "0":  "Earth-616 (MCU)",
@@ -149,7 +154,7 @@ const MV_TINTS = {
 };
 
 function normalizeSortMode(value) {
-  return value === "chronological" ? "chronological" : "release";
+  return ["release", "sacred", "timeline"].includes(value) ? value : "release";
 }
 
 function normalizeSortDirection(value) {
@@ -204,7 +209,7 @@ function updateUrlFromState(state = getFilterState()) {
   FILTER_URL_KEYS.forEach(key => params.delete(key));
 
   if (state.search) params.set("q", state.search);
-  if (state.sortMode !== "release") params.set("sort", state.sortMode);
+  if (state.sortMode !== "sacred") params.set("sort", state.sortMode);
   if (state.sortDirection !== "asc") params.set("direction", state.sortDirection);
   state.typeVals.forEach(value => params.append("type", value));
   state.canonVals.forEach(value => params.append("canon", value));
@@ -252,6 +257,10 @@ function saveFilterState({ updateUrl = true } = {}) {
   if (updateUrl) updateUrlFromState(state);
 }
 
+function getSortModeLabel() {
+  return SORT_MODE_LABELS[sortMode] || SORT_MODE_LABELS.release;
+}
+
 function updateSortControls() {
   const btn = document.getElementById("sortFilterBtn");
   if (!btn) return;
@@ -261,11 +270,22 @@ function updateSortControls() {
   const ariaDirectionLabel = isAscending ? "Old to New" : "New to Old";
   const summary = btn.querySelector(".sort-summary");
   const hideWatched = document.getElementById("hideWatched")?.checked === true;
-  const hasActiveOption = sortDirection !== "asc" || hideWatched || viewMode !== "comfortable";
+  const hasActiveOption =
+    sortDirection !== "asc"
+    || hideWatched
+    || viewMode !== "comfortable";
+  const sortSummaryText = sortMode === "release"
+    ? directionLabel
+    : `${directionLabel} · ${getSortModeLabel()}`;
 
-  btn.setAttribute("aria-label", `View: ${ariaDirectionLabel}`);
+  btn.setAttribute(
+    "aria-label",
+    sortMode === "release"
+      ? `View: ${ariaDirectionLabel}`
+      : `View: ${ariaDirectionLabel}, ${getSortModeLabel()}`
+  );
   btn.classList.toggle("has-active", hasActiveOption);
-  if (summary) summary.textContent = directionLabel;
+  if (summary) summary.textContent = sortSummaryText;
 
   document.querySelectorAll("[data-sort-mode]").forEach(button => {
     button.setAttribute("aria-pressed", String(button.dataset.sortMode === sortMode));
@@ -347,8 +367,7 @@ function clearFilterPanel(panelSelector) {
 
 
 async function loadData() {
-  const res = await fetch("mcu.json");
-  fullData = await res.json();
+  fullData = await fetch("mcu.json").then(r => r.json());
   populateFilters();
   restoreFilterState();
   renderList(filteredData());
@@ -966,13 +985,20 @@ function filteredData({ ignoreSearch = false, ignoreHideWatched = false } = {}) 
       && typeMatch && canonMatch && mvMatch;
   }).sort((a, b) => {
     let result;
-    if (sortMode === "chronological") {
-      result = (a.chronology ?? Infinity) - (b.chronology ?? Infinity);
+    if (sortMode !== "release") {
+      result = getChronologyValue(a) - getChronologyValue(b);
     } else {
       result = new Date(a.release_date) - new Date(b.release_date);
     }
     return sortDirection === "desc" ? -result : result;
   });
+}
+
+function getChronologyValue(item) {
+  if (sortMode === "timeline") {
+    return item.timeline_order ?? item.sacred_timeline ?? Infinity;
+  }
+  return item.sacred_timeline ?? Infinity;
 }
 
 function appendPrintText(parent, tag, className, text) {
@@ -999,7 +1025,7 @@ function summarizePrintValues(label, values) {
 
 function getPrintFilterSummary(dataCount) {
   const details = [
-    `Order: ${sortMode === "release" ? "Release" : "Chronological"} (${sortDirection === "asc" ? "Old → New" : "New → Old"})`,
+    `Order: ${getSortModeLabel()} (${sortDirection === "asc" ? "Old → New" : "New → Old"})`,
     `Showing: ${dataCount} of ${fullData.length}`
   ];
 
