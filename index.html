@@ -319,6 +319,12 @@
       margin: 6px 4px;
     }
 
+    @media (min-width: 821px) {
+      .nav-only-mobile {
+        display: none !important;
+      }
+    }
+
     .dropdown-icon {
       width: 18px;
       height: 18px;
@@ -343,10 +349,10 @@
     .hero-side,
     .work-history,
     .articles {
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(15, 23, 42, 0.18);
       background: var(--surface);
       backdrop-filter: blur(28px) saturate(170%);
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 4px 24px rgba(15, 23, 42, 0.12), 0 1px 4px rgba(15, 23, 42, 0.08);
     }
 
     body.dark .hero-card,
@@ -354,6 +360,7 @@
     body.dark .work-history,
     body.dark .articles {
       border-color: rgba(255, 255, 255, 0.06);
+      box-shadow: var(--shadow-soft);
     }
 
     .hero-card {
@@ -423,7 +430,13 @@
     .hero-button.secondary {
       background: var(--bg-strong);
       color: var(--text);
-      border-color: var(--border);
+      border-color: rgba(15, 23, 42, 0.18);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    body.dark .hero-button.secondary {
+      border-color: rgba(255, 255, 255, 0.14);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
 
     .hero-button:hover {
@@ -528,7 +541,13 @@
       padding: 18px;
       border-radius: 22px;
       background: var(--bg-strong);
-      border: 1px solid var(--border);
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.1), 0 1px 3px rgba(15, 23, 42, 0.07);
+    }
+
+    body.dark .metric {
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: none;
     }
 
     .metric-value {
@@ -609,12 +628,20 @@
     .work-card,
     .carousel a,
     .cve-card {
-      border: 1px solid var(--border);
+      border: 1px solid rgba(15, 23, 42, 0.14);
       background: var(--bg-strong);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.1), 0 1px 3px rgba(15, 23, 42, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    body.dark .work-card,
+    body.dark .carousel a,
+    body.dark .cve-card {
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
 
     .work-card {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -661,7 +688,8 @@
 
     .work-card:nth-child(3) .company-icon,
     .work-card:nth-child(4) .company-icon,
-    .work-card:nth-child(5) .company-icon {
+    .work-card:nth-child(5) .company-icon,
+    .work-card .company-icon.transparent {
       border: none;
       box-shadow: none;
       background: transparent;
@@ -730,7 +758,7 @@
       display: flex;
       flex-wrap: wrap;
       align-items: flex-start;
-      justify-content: flex-start;
+      justify-content: center;
       gap: 16px;
       overflow: visible;
       padding: 8px 0 0;
@@ -819,7 +847,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
       text-align: center;
       cursor: pointer;
       overflow: hidden;
@@ -833,14 +861,14 @@
       flex-direction: column;
       gap: 10px;
       width: 100%;
-      min-height: 184px;
       justify-content: center;
       align-items: center;
       text-align: center;
     }
 
     .cve-card.expanded .cve-card-header {
-      min-height: 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
     }
 
     .cve-card-header strong {
@@ -860,24 +888,22 @@
       text-underline-offset: 3px;
     }
 
-    .cve-details {
-      max-height: 0;
-      overflow: hidden;
+    .cve-details-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.32s ease;
       width: 100%;
-      padding: 0;
-      opacity: 0;
-      transition: max-height 0.35s ease, padding-top 0.35s ease, margin-top 0.35s ease, opacity 0.22s ease;
     }
 
-    .cve-card.expanded .cve-details,
-    .cve-card.closing .cve-details {
+    .cve-card.expanded .cve-details-wrap {
+      grid-template-rows: 1fr;
+    }
+
+    .cve-details {
+      overflow: hidden;
+      min-height: 0;
+      width: 100%;
       padding-top: 14px;
-      margin-top: 14px;
-      border-top: 1px solid var(--border);
-    }
-
-    .cve-card.expanded .cve-details {
-      opacity: 1;
     }
 
     .cve-details p {
@@ -887,14 +913,11 @@
       text-align: center;
     }
 
-    .cve-card.closing .cve-details {
-      opacity: 0;
-    }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-6px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
 
     @media (max-width: 1024px) {
       .hero {
@@ -1044,6 +1067,7 @@
       </a>
       <nav class="topbar-nav" aria-label="Primary">
         <a href="#work-history">Experience</a>
+        <a href="#projects">Projects</a>
         <a href="#articles">Articles</a>
         <a href="#leaks">Leaks</a>
         <a href="#cves">CVEs</a>
@@ -1055,21 +1079,30 @@
             <span class="hamburger-icon" id="hamburger-icon">☰</span>
           </button>
           <div id="dropdown" class="dropdown hidden">
-            <a href="#work-history">
+            <a class="nav-only-mobile" href="#work-history">
               <img src="menubar/jobs.svg" class="dropdown-icon" alt="Jobs" />
-              Where I've Been
+              Experience
             </a>
-            <a href="#articles">
+            <a class="nav-only-mobile" href="#projects">
+              <img src="menubar/projects.svg" class="dropdown-icon" alt="Projects" />
+              Projects
+            </a>
+            <a class="nav-only-mobile" href="#articles">
               <img src="menubar/articles.svg" class="dropdown-icon" alt="Articles" />
               My Articles
             </a>
-            <a href="#leaks">
+            <a class="nav-only-mobile" href="#leaks">
               <img src="menubar/products.svg" class="dropdown-icon" alt="Products" />
               Products I've Leaked
             </a>
-            <a href="#cves">
+            <a class="nav-only-mobile" href="#cves">
               <img src="menubar/bug.svg" class="dropdown-icon" alt="CVEs" />
               CVEs
+            </a>
+            <hr class="dropdown-separator nav-only-mobile" />
+            <a href="/mcu/" target="_blank">
+              <img src="menubar/film.svg" class="dropdown-icon" alt="MCU" />
+              MCU Order
             </a>
             <a href="https://paypal.me/aaronp613" target="_blank">
               <img src="menubar/pay.svg" class="dropdown-icon" alt="Tip" />
@@ -1128,7 +1161,7 @@
             <span class="metric-label">CVEs and security acknowledgments from Apple</span>
           </div>
           <div class="metric metric-impressions">
-            <span class="metric-value">162 Million</span>
+            <span class="metric-value">163 Million</span>
             <span class="metric-label">Impressions on X in the last year</span>
           </div>
           <div class="metric metric-leaks">
@@ -1153,6 +1186,9 @@
       </div>
       <div class="work-history-container">
         <div class="work-card" onclick="toggleDetails(this, event)">
+          <a class="share-button-icon" href="https://www.bhphotovideo.com" target="_blank" onclick="event.stopPropagation()">
+            <img src="external-link.svg" alt="Visit" />
+          </a>
           <div class="work-card-header">
             <img src="work/bh.svg" class="company-icon" alt="B&amp;H Photo logo" />
             <span>B&amp;H Photo</span>
@@ -1185,6 +1221,9 @@
           </div>
         </div>
         <div class="work-card" onclick="toggleDetails(this, event)">
+          <a class="share-button-icon" href="https://www.macrumors.com" target="_blank" onclick="event.stopPropagation()">
+            <img src="external-link.svg" alt="Visit" />
+          </a>
           <div class="work-card-header">
             <img src="work/macrumors.svg" class="company-icon" alt="MacRumors logo" />
             <span>MacRumors</span>
@@ -1197,6 +1236,9 @@
           </div>
         </div>
         <div class="work-card" onclick="toggleDetails(this, event)">
+          <a class="share-button-icon" href="https://havoc.app" target="_blank" onclick="event.stopPropagation()">
+            <img src="external-link.svg" alt="Visit" />
+          </a>
           <div class="work-card-header">
             <img src="work/havoc.svg" class="company-icon" alt="Havoc logo" />
             <span>Havoc</span>
@@ -1213,6 +1255,9 @@
           </div>
         </div>
         <div class="work-card" onclick="toggleDetails(this, event)">
+          <a class="share-button-icon" href="https://repo.packix.com" target="_blank" onclick="event.stopPropagation()">
+            <img src="external-link.svg" alt="Visit" />
+          </a>
           <div class="work-card-header">
             <img src="work/packix.svg" class="company-icon" alt="Packix logo" />
             <span>Packix</span>
@@ -1228,15 +1273,43 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="work-history" id="projects">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">Projects</span>
+          <h2>What I'm Working On</h2>
+        </div>
+      </div>
+      <div class="work-history-container">
         <div class="work-card" onclick="toggleDetails(this, event)">
+          <a class="share-button-icon" href="https://appledb.dev" target="_blank" onclick="event.stopPropagation()">
+            <img src="external-link.svg" alt="Visit" />
+          </a>
           <div class="work-card-header">
-            <img src="work/appledb.svg" class="company-icon" alt="AppleDB logo" />
+            <img src="work/appledb.svg" class="company-icon transparent" alt="AppleDB logo" />
             <span>AppleDB</span>
           </div>
           <div class="work-details">
             <div class="role">
               <strong>Contributor</strong>
               <div class="date">2021 – Present</div>
+            </div>
+          </div>
+        </div>
+        <div class="work-card" onclick="toggleDetails(this, event)">
+          <a class="share-button-icon" href="/mcu/" target="_blank" onclick="event.stopPropagation()">
+            <img src="external-link.svg" alt="Visit" />
+          </a>
+          <div class="work-card-header">
+            <img src="mcu/icon.svg" class="company-icon transparent" alt="MCU Watch Order" />
+            <span>MCU Viewing Order</span>
+          </div>
+          <div class="work-details">
+            <div class="role">
+              <strong>Maintainer</strong>
+              <div class="date">Nov 2015 – Present</div>
             </div>
           </div>
         </div>
@@ -1320,6 +1393,20 @@
       </div>
       <div class="carousel-wrapper">
         <div class="carousel">
+<a href="https://www.macrumors.com/2026/03/03/apple-accidentally-leaks-macbook-neo/" target="_blank">
+  <img src="https://images.macrumors.com/t/hZIeerr6ybjJG9pCKiD7zzls50U=/800x0/article-new/2026/03/MacBook-Neo-Feature-Pastel-1.jpg?lossy" alt="MacBook Neo" />
+  <span>MacBook Neo</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2026/03/03/apple-accidentally-leaks-macbook-neo/')">
+    <img src="share.svg" alt="Share" />
+  </button>
+</a>
+<a href="https://www.macrumors.com/2025/10/27/apple-may-release-pixelmator-pro-for-ipad/" target="_blank">
+  <img src="https://images.macrumors.com/t/D_5GcVL5WdJWLSIUB70bpAuyLpI=/800x0/article-new/2026/01/Apple-Creator-Studio.jpg?lossy" alt="Creator Studios" />
+  <span>Apple Creator Studios</span>
+  <button class="share-button-icon" onclick="event.preventDefault(); shareArticle('https://www.macrumors.com/2025/10/27/apple-may-release-pixelmator-pro-for-ipad/')">
+    <img src="share.svg" alt="Share" />
+  </button>
+</a>
 <a href="https://www.macrumors.com/2025/08/13/apple-code-confirms-vision-pro-with-m5-chip/" target="_blank">
   <img src="https://images.macrumors.com/t/EoPFToaHPlLjW06jCuhFZcH-9R4=/800x0/article-new/2024/03/Apple-Vision-Pro-2-Feature-1.jpg?lossy" alt="Vision Pro (2nd generation)" />
   <span>Vision Pro (2nd generation)</span>
@@ -1475,8 +1562,10 @@
               <a href="https://support.apple.com/en-us/103030" target="_blank" rel="noopener noreferrer">watchOS 6.2.5</a>
             </p>
           </div>
-          <div class="cve-details">
-            <p><em>Impact:</em> Processing a maliciously crafted text message may lead to application denial of service.</p>
+          <div class="cve-details-wrap">
+            <div class="cve-details">
+              <p><em>Impact:</em> Processing a maliciously crafted text message may lead to application denial of service.</p>
+            </div>
           </div>
         </div>
         <div class="cve-card" onclick="toggleCveDetails(this, event)">
@@ -1487,8 +1576,10 @@
                  target="_blank" rel="noopener noreferrer">November 2025</a>
             </p>
           </div>
-          <div class="cve-details">
-            <p><em>Impact:</em> Internal Apple files were published online which exposed confidential information.</p>
+          <div class="cve-details-wrap">
+            <div class="cve-details">
+              <p><em>Impact:</em> Internal Apple files were published online which exposed confidential information.</p>
+            </div>
           </div>
         </div>
         <div class="cve-card" onclick="toggleCveDetails(this, event)">
@@ -1499,8 +1590,10 @@
                  target="_blank" rel="noopener noreferrer">August 2025</a>
             </p>
           </div>
-          <div class="cve-details">
-            <p><em>Impact:</em> Apple's privacy policy linked to a PDF which contained information regarding an internal staging enviorment.</p>
+          <div class="cve-details-wrap">
+            <div class="cve-details">
+              <p><em>Impact:</em> Apple's privacy policy linked to a PDF which contained information regarding an internal staging enviorment.</p>
+            </div>
           </div>
         </div>
         <div class="cve-card" onclick="toggleCveDetails(this, event)">
@@ -1511,8 +1604,10 @@
                  target="_blank" rel="noopener noreferrer">July 2025</a><br />Apple Bug Bounty Received
             </p>
           </div>
-          <div class="cve-details">
-            <p><em>Impact:</em> Multiple Apple contractor credentials were publicly exposed online, potentially granting unauthorized access to confidential information. Furthermore, confidential documents were discovered stored with inadequate security measures.</p>
+          <div class="cve-details-wrap">
+            <div class="cve-details">
+              <p><em>Impact:</em> Multiple Apple contractor credentials were publicly exposed online, potentially granting unauthorized access to confidential information. Furthermore, confidential documents were discovered stored with inadequate security measures.</p>
+            </div>
           </div>
         </div>
         <div class="cve-card" onclick="toggleCveDetails(this, event)">
@@ -1523,8 +1618,10 @@
                  target="_blank" rel="noopener noreferrer">December 2024</a>
             </p>
           </div>
-          <div class="cve-details">
-            <p><em>Impact:</em> Visiting the affected site temporarily exposed confidential dashboard content before redirecting to the authentication page.</p>
+          <div class="cve-details-wrap">
+            <div class="cve-details">
+              <p><em>Impact:</em> Visiting the affected site temporarily exposed confidential dashboard content before redirecting to the authentication page.</p>
+            </div>
           </div>
         </div>
         <div class="cve-card" onclick="toggleCveDetails(this, event)">
@@ -1535,8 +1632,10 @@
                  target="_blank" rel="noopener noreferrer">September 2024</a><br />Apple Bug Bounty Received
             </p>
           </div>
-          <div class="cve-details">
-            <p><em>Impact:</em> Two Apple contractor credentials were publicly exposed online, potentially granting access to confidential information.</p>
+          <div class="cve-details-wrap">
+            <div class="cve-details">
+              <p><em>Impact:</em> Two Apple contractor credentials were publicly exposed online, potentially granting access to confidential information.</p>
+            </div>
           </div>
         </div>
         </div>
@@ -1612,56 +1711,11 @@
             document.getElementById('hamburger-icon').classList.remove('open');
         }
     });
-    function setCveExpanded(card, expanded) {
-      const details = card.querySelector('.cve-details');
-      if (!details) return;
-
-      if (expanded) {
-        card.classList.remove('closing');
-        card.classList.add('expanded');
-        details.style.maxHeight = details.scrollHeight + 'px';
-      } else {
-        if (!card.classList.contains('expanded')) {
-          return;
-        }
-        details.style.maxHeight = details.scrollHeight + 'px';
-        card.classList.add('closing');
-        requestAnimationFrame(() => {
-          details.style.maxHeight = '0px';
-        });
-      }
-    }
-
     function toggleCveDetails(clickedCard, event) {
-      const allCards = document.querySelectorAll('.cve-card');
-      const isAlreadyExpanded = clickedCard.classList.contains('expanded');
-
-      allCards.forEach(card => {
-        if (card !== clickedCard) {
-          setCveExpanded(card, false);
-        }
-      });
-
-      setCveExpanded(clickedCard, !isAlreadyExpanded);
+      const isExpanded = clickedCard.classList.contains('expanded');
+      document.querySelectorAll('.cve-card').forEach(card => card.classList.remove('expanded'));
+      if (!isExpanded) clickedCard.classList.add('expanded');
     }
-
-document.querySelectorAll('.cve-card').forEach(card => {
-  const details = card.querySelector('.cve-details');
-  if (details) {
-    details.addEventListener('transitionend', (event) => {
-      if (event.propertyName !== 'max-height') return;
-
-      if (card.classList.contains('expanded') && !card.classList.contains('closing')) {
-        details.style.maxHeight = details.scrollHeight + 'px';
-      } else if (card.classList.contains('closing')) {
-        card.classList.remove('expanded', 'closing');
-        details.style.maxHeight = '0px';
-      } else {
-        details.style.maxHeight = '0px';
-      }
-    });
-  }
-});
 
 document.querySelectorAll('.topbar-nav a, .dropdown a[href^="#"], .brand[href^="#"], .hero-button[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (event) => {

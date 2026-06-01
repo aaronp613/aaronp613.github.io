@@ -300,6 +300,12 @@
       margin: 6px 4px;
     }
 
+    @media (min-width: 821px) {
+      .nav-only-mobile {
+        display: none !important;
+      }
+    }
+
     .dropdown-icon {
       width: 18px;
       height: 18px;
@@ -873,7 +879,7 @@
   <div class="page-shell">
     <header class="topbar">
       <a class="brand" href="https://aaronperris.com/">
-        <img src="ap.png" alt="Aaron Perris" class="brand-mark" onerror="this.onerror=null;this.src='https://placehold.co/80x80/EFEFEF/333333?text=AP';"/>
+        <img src="/ap.png" alt="Aaron Perris" class="brand-mark" onerror="this.onerror=null;this.src='https://placehold.co/80x80/EFEFEF/333333?text=AP';"/>
         <span class="brand-text">
           <strong>Aaron Perris</strong>
           <span>@aaronp613</span>
@@ -890,25 +896,26 @@
             <span class="hamburger-icon" id="hamburger-icon">☰</span>
           </button>
           <div id="dropdown" class="dropdown hidden">
-            <a href="https://aaronperris.com/">
-              <img src="menubar/home.svg" class="dropdown-icon" alt="Home" />
+            <a class="nav-only-mobile" href="https://aaronperris.com/">
+              <img src="/menubar/home.svg" class="dropdown-icon" alt="Home" />
               Home
             </a>
-            <a href="#campaigns">
-              <img src="menubar/articles.svg" class="dropdown-icon" alt="Campaigns" />
+            <a class="nav-only-mobile" href="#campaigns">
+              <img src="/menubar/articles.svg" class="dropdown-icon" alt="Campaigns" />
               Featured Campaigns
             </a>
-            <a href="#contact">
-              <img src="menubar/partner.svg" class="dropdown-icon" alt="Contact" />
+            <a class="nav-only-mobile" href="#contact">
+              <img src="/menubar/partner.svg" class="dropdown-icon" alt="Contact" />
               Work With Me
             </a>
+            <hr class="dropdown-separator nav-only-mobile" />
             <a href="https://paypal.me/aaronp613" target="_blank">
-              <img src="menubar/pay.svg" class="dropdown-icon" alt="Tip" />
+              <img src="/menubar/pay.svg" class="dropdown-icon" alt="Tip" />
               Buy Me a Coffee
             </a>
             <hr class="dropdown-separator" />
             <a id="floating-theme-toggle" href="#" title="Toggle Theme">
-              <img src="menubar/toggletheme.svg" class="dropdown-icon" alt="Toggle Theme" />
+              <img src="/menubar/toggletheme.svg" class="dropdown-icon" alt="Toggle Theme" />
               Toggle Theme
             </a>
           </div>
@@ -955,17 +962,25 @@
         <div class="section-heading">
           <div>
             <span class="section-kicker">Featured Work</span>
-            <h2>Campaign Examples</h2>
+            <h2>Campaign History</h2>
           </div>
         </div>
 
         <div class="campaign-grid">
+          <div class="partner-card" onclick="openModal('setapp-developers')">
+            <div class="partner-top">
+              <strong class="partner-brand">Setapp</strong>
+              <span class="campaign-subtitle">Developer platform launch campaign</span>
+            </div>
+            <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
+          </div>
+
           <div class="partner-card" onclick="openModal('belkin')">
             <div class="partner-top">
               <strong class="partner-brand">Belkin</strong>
               <span class="campaign-subtitle">UltraCharge Modular Charging Dock review</span>
             </div>
-            <span class="card-footer">See Details <img src="down.svg" alt="Expand" class="down-icon" /></span>
+            <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
 
           <div class="partner-card" onclick="openModal('setapp-onetime')">
@@ -973,7 +988,7 @@
               <strong class="partner-brand">Setapp</strong>
               <span class="campaign-subtitle">Standalone App Purchasing campaign</span>
             </div>
-            <span class="card-footer">See Details <img src="down.svg" alt="Expand" class="down-icon" /></span>
+            <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
           
           <div class="partner-card" onclick="openModal('appletv-pluribus')">
@@ -981,7 +996,7 @@
               <strong class="partner-brand">Apple TV</strong>
               <span class="campaign-subtitle">Pluribus / Rhea Seehorn AMA</span>
             </div>
-            <span class="card-footer">See Details <img src="down.svg" alt="Expand" class="down-icon" /></span>
+            <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
 
           <div class="partner-card" onclick="openModal('appletv-slowhorses')">
@@ -989,7 +1004,7 @@
               <strong class="partner-brand">Apple TV</strong>
               <span class="campaign-subtitle">Slow Horses / Christopher Chung AMA</span>
             </div>
-            <span class="card-footer">See Details <img src="down.svg" alt="Expand" class="down-icon" /></span>
+            <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
 
           <div class="partner-card" onclick="openModal('benq')">
@@ -997,7 +1012,7 @@
               <strong class="partner-brand">BenQ</strong>
               <span class="campaign-subtitle">ScreenBar Halo workspace campaign</span>
             </div>
-            <span class="card-footer">See Details <img src="down.svg" alt="Expand" class="down-icon" /></span>
+            <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
 
           <div class="partner-card" onclick="openModal('macpaw')">
@@ -1005,7 +1020,7 @@
               <strong class="partner-brand">MacPaw</strong>
               <span class="campaign-subtitle">Eney launch and feature showcase</span>
             </div>
-            <span class="card-footer">See Details <img src="down.svg" alt="Expand" class="down-icon" /></span>
+            <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
 
           <div class="partner-card" onclick="openModal('setapp-showcase')">
@@ -1013,7 +1028,7 @@
               <strong class="partner-brand">Setapp</strong>
               <span class="campaign-subtitle">Mac apps showcase across multiple posts</span>
             </div>
-            <span class="card-footer">See Details <img src="down.svg" alt="Expand" class="down-icon" /></span>
+            <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
 
           <div class="partner-card" onclick="openModal('setapp-survey')">
@@ -1021,7 +1036,23 @@
               <strong class="partner-brand">Setapp</strong>
               <span class="campaign-subtitle">Mac Developer Survey highlights</span>
             </div>
-            <span class="card-footer">See Details <img src="down.svg" alt="Expand" class="down-icon" /></span>
+            <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
+          </div>
+
+          <div class="partner-card" onclick="openModal('discord-stages')">
+            <div class="partner-top">
+              <strong class="partner-brand">Discord</strong>
+              <span class="campaign-subtitle">Paid Stage Hosting series</span>
+            </div>
+            <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
+          </div>
+
+          <div class="partner-card" onclick="openModal('discord-revshare')">
+            <div class="partner-top">
+              <strong class="partner-brand">Discord</strong>
+              <span class="campaign-subtitle">Partner Revenue Share experiment</span>
+            </div>
+            <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
         </div>
       </section>
@@ -1056,7 +1087,7 @@
         case 'setapp-onetime':
           content = `<div class="modal-heading"><strong>Setapp</strong><span>Standalone App Purchasing campaign</span></div>
 <p class="modal-copy">I worked with Setapp on a campaign highlighting its standalone app purchasing option, with messaging focused on flexibility for Mac users who want access to individual apps without committing to a full subscription. The content was framed to clearly explain the value proposition while keeping the post approachable and useful to my audience.</p>
-<a class="link-preview" href="https://x.com/aaronp613/status/2034409605682385190" target="_blank" rel="noopener noreferrer">
+<a class="link-preview" href="https://x.com/aaronp613/status/2029244236034654721" target="_blank" rel="noopener noreferrer">
   <strong>Setapp standalone purchasing campaign</strong>
   <span>Campaign post focused on Setapp's option for buying individual apps outside the subscription model. Opens on X.</span>
 </a>`;
@@ -1109,6 +1140,22 @@
   <strong>Setapp Mac Developer Survey highlights</strong>
   <span>Sponsored post summarizing standout findings from Setapp’s Mac Developer Survey and linking to the full report. Opens on X.</span>
 </a>`;
+          break;
+        case 'setapp-developers':
+          content = `<div class="modal-heading"><strong>Setapp</strong><span>Developer Platform Launch</span></div>
+<p class="modal-copy">I partnered with Setapp to promote their new developer platform, highlighting the flexibility it offers Mac app developers - including individual app sales, subscription distribution, up to 90% revenue share, and 24-hour app review. The post framed Setapp as a compelling alternative discovery and monetization platform for developers already targeting Mac users.</p>
+<a class="link-preview" href="https://x.com/aaronp613/status/2057495012615557612" target="_blank" rel="noopener noreferrer">
+  <strong>Setapp developer platform campaign</strong>
+  <span>Sponsored post covering Setapp's new developer tools, revenue share, and built-in Mac user discovery. Opens on X.</span>
+</a>`;
+          break;
+        case 'discord-stages':
+          content = `<div class="modal-heading"><strong>Discord</strong><span>Paid Stage Hosting Series</span></div>
+<p class="modal-copy">After hosting a public Discord Stage that drew around 250 listeners, Discord reached out impressed with the turnout and engagement. They offered to pay us to host three 60-minute stages between June and August 2021, activating the community through live audio events on the platform.</p>`;
+          break;
+        case 'discord-revshare':
+          content = `<div class="modal-heading"><strong>Discord</strong><span>Partner Revenue Share Experiment</span></div>
+<p class="modal-copy">As a Discord Partner, I was invited to participate in Discord’s Revenue Share experiment - an early exploration of how Discord could give back to its Partner community. The program awarded Partners a revenue split based on server boosts.</p>`;
           break;
       }
 
