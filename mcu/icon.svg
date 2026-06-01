@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff8cc8"/>
+      <stop offset="100%" stop-color="#e0007a"/>
+    </linearGradient>
+  </defs>
+  <rect width="56" height="56" fill="url(#bg)"/>
+  <!-- Film strip side bars -->
+  <rect x="7" y="10" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
+  <rect x="7" y="19" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
+  <rect x="7" y="28" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
+  <rect x="7" y="37" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
+  <rect x="43" y="10" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
+  <rect x="43" y="19" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
+  <rect x="43" y="28" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
+  <rect x="43" y="37" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
+  <!-- Play triangle -->
+  <polygon points="22,18 22,38 40,28" fill="white" opacity="0.95"/>
+</svg>
