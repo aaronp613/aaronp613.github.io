@@ -283,6 +283,10 @@ body.dark .dropdown {
   display: none;
 }
 
+.dropdown .nav-only-mobile {
+  display: none;
+}
+
 .dropdown a,
 .dropdown button,
 #floating-theme-toggle {
@@ -2404,6 +2408,7 @@ body.dark .group-watched-badge.is-complete { color: #4ade80; }
 @media (max-width: 820px) {
   .page-shell { width: min(calc(100% - 24px), var(--max-width)); padding-top: 16px; }
   .topbar-nav { display: none; }
+  .dropdown .nav-only-mobile { display: flex; }
   .surface-card { padding: 24px; border-radius: 26px; }
   .card-grid,
   body.view-compact .card-grid { grid-template-columns: 1fr; }
