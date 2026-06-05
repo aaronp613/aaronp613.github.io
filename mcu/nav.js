@@ -164,8 +164,11 @@
     navLinks.forEach(a => a.style.display = "");
 
     // Measure in one pass before making any changes
-    const navRight    = nav.getBoundingClientRect().right;
-    const overflowing = navLinks.map(a => a.getBoundingClientRect().right > navRight + 1);
+    const navRect     = nav.getBoundingClientRect();
+    const overflowing = navLinks.map(a => {
+      const r = a.getBoundingClientRect();
+      return r.left < navRect.left - 1 || r.right > navRect.right + 1;
+    });
 
     let anyPageOverflow = false;
     overflowing.forEach((over, i) => {

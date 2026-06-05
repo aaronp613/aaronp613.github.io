@@ -170,7 +170,7 @@ body::after {
 .topbar-nav {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 8px;
   flex-wrap: nowrap;
   overflow: hidden;
