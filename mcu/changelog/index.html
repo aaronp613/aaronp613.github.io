@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#eef1f6" id="theme-color-meta">
+  <title>Change Log — MCU Viewing Order</title>
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
+  <script>(function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark');})()</script>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .changelog-header {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .changelog-header h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+    }
+
+    .changelog-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .changelog-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .changelog-entry {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--bg-strong);
+      overflow: hidden;
+    }
+
+    body.dark .changelog-entry {
+      background: rgba(28, 31, 40, 0.92);
+    }
+
+    .changelog-entry-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 22px;
+    }
+
+    .changelog-entry-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+      flex: 1 1 0;
+    }
+
+    .changelog-date {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .changelog-title {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .changelog-tag {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      align-self: flex-start;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .changelog-tag.tag-update {
+      background: rgba(0, 113, 227, 0.12);
+      color: var(--accent);
+    }
+
+    .changelog-tag.tag-new {
+      background: rgba(22, 163, 74, 0.12);
+      color: #16a34a;
+    }
+
+    body.dark .changelog-tag.tag-new {
+      background: rgba(74, 222, 128, 0.12);
+      color: #4ade80;
+    }
+
+    .changelog-tag.tag-fix {
+      background: rgba(234, 88, 12, 0.12);
+      color: #ea580c;
+    }
+
+    body.dark .changelog-tag.tag-fix {
+      background: rgba(251, 146, 60, 0.12);
+      color: #fb923c;
+    }
+
+    .changelog-tag.tag-removed {
+      background: rgba(220, 38, 38, 0.10);
+      color: #dc2626;
+    }
+
+    body.dark .changelog-tag.tag-removed {
+      background: rgba(248, 113, 113, 0.12);
+      color: #f87171;
+    }
+
+    .changelog-body {
+      padding: 0 22px 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .changelog-body ul {
+      margin: 14px 0 0;
+      padding: 0 0 0 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .changelog-body li {
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .changelog-body li strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .changelog-body a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .changelog-body a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+
+    <script src="/mcu/nav.js"></script>
+
+    <div class="surface-card changelog-header">
+      <h1>Change Log</h1>
+      <p>A record of updates to the MCU Viewing Order - new additions, order adjustments, and site improvements.</p>
+    </div>
+
+    <div class="changelog-list">
+
+      <!-- Most recent entries first -->
+
+      <div class="changelog-entry">
+        <div class="changelog-entry-header">
+          <div class="changelog-entry-left">
+            <span class="changelog-date">June 5, 2026</span>
+            <span class="changelog-title">Reclassified Team Thor shorts</span>
+          </div>
+          <span class="changelog-tag tag-update">Update</span>
+        </div>
+        <div class="changelog-body">
+          <ul>
+            <li><strong>Team Thor</strong>, <strong>Team Thor: Part 2</strong>, and <strong>Team Darryl</strong> have been reclassified as One Shots to match Disney+'s current designation.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="changelog-entry">
+        <div class="changelog-entry-header">
+          <div class="changelog-entry-left">
+            <span class="changelog-date">June 1, 2026</span>
+            <span class="changelog-title">Added Sacred Timeline order</span>
+          </div>
+          <span class="changelog-tag tag-update">Update</span>
+        </div>
+        <div class="changelog-body">
+          <ul>
+            <li>The <strong>Sacred Timeline</strong> sort order has been added as a viewing option.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="changelog-entry">
+        <div class="changelog-entry-header">
+          <div class="changelog-entry-left">
+            <span class="changelog-date">May 30, 2026</span>
+            <span class="changelog-title">Added Spider-Man (1994)</span>
+          </div>
+          <span class="changelog-tag tag-new">New</span>
+        </div>
+        <div class="changelog-body">
+          <ul>
+            <li><strong>Spider-Man (1994)</strong> has been added to the viewing order.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="changelog-entry">
+        <div class="changelog-entry-header">
+          <div class="changelog-entry-left">
+            <span class="changelog-date">May 27, 2026</span>
+            <span class="changelog-title">Added Spider-Noir</span>
+          </div>
+          <span class="changelog-tag tag-new">New</span>
+        </div>
+        <div class="changelog-body">
+          <ul>
+            <li><strong>Spider-Noir</strong> has been added to the viewing order.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="legal-footer">
+      <p>Marvel, the Marvel logo, and all Marvel characters, titles, and related content are trademarks and &copy; of Marvel Entertainment, LLC. All rights reserved. This site is an unofficial fan resource and is not affiliated with, endorsed by, or connected to Marvel Entertainment, LLC, The Walt Disney Company, or any of their subsidiaries. All film, television, and streaming content referenced belongs to their respective owners.</p>
+    </footer>
+
+  </div>
+</body>
+</html>

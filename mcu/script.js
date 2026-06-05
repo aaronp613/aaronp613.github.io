@@ -246,7 +246,6 @@ function setViewMode(mode, { save = false } = {}) {
 
 function saveFilterState({ updateUrl = true } = {}) {
   const state = getFilterState();
-  localStorage.setItem("filter_search",     state.search);
   localStorage.setItem("filter_type",       JSON.stringify(state.typeVals));
   localStorage.setItem("filter_canon",      JSON.stringify(state.canonVals));
   localStorage.setItem("filter_multiverse", JSON.stringify(state.mvVals));
@@ -311,7 +310,7 @@ function restoreFilterState() {
     restore("filter_canon", "#canonFilter");
   }
   restore("filter_multiverse", "#multiverseFilter");
-  setSearchValue(localStorage.getItem("filter_search") || "");
+  setSearchValue("");
 
   const savedSort = localStorage.getItem("filter_sort");
   if (savedSort) {
@@ -1207,64 +1206,6 @@ function matchMultiverseHeight() {
   if (!studio || !mv) return;
   mv.style.height = studio.offsetHeight + "px";
 }
-
-// ─── Theme — mirrors main site logic exactly ───
-const applyTheme = (theme) => {
-  document.documentElement.classList.toggle("dark", theme === "dark");
-  document.body.classList.toggle("dark", theme === "dark");
-  const light = document.getElementById("theme-color-light");
-  const dark  = document.getElementById("theme-color-dark");
-  if (light) { light.media = theme === "dark" ? "not all" : "all"; light.content = "#eef1f6"; }
-  if (dark)  { dark.media  = theme === "dark" ? "all" : "not all"; dark.content  = "#090b10"; }
-  localStorage.setItem("theme", theme);
-};
-
-const storedTheme = localStorage.getItem("theme");
-const preferredScheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-applyTheme(storedTheme || preferredScheme);
-
-function toggleTheme() {
-  const current = document.body.classList.contains("dark") ? "dark" : "light";
-  applyTheme(current === "dark" ? "light" : "dark");
-}
-
-document.getElementById("floating-theme-toggle")?.addEventListener("click", event => {
-  event.preventDefault();
-  toggleTheme();
-});
-
-document.getElementById("hamburger")?.addEventListener("click", event => {
-  event.stopPropagation();
-
-  const dropdown = document.getElementById("dropdown");
-  const hamburger = document.getElementById("hamburger");
-  const hamburgerIcon = document.getElementById("hamburger-icon");
-  const isOpen = !dropdown.classList.toggle("hidden");
-
-  hamburger.setAttribute("aria-expanded", String(isOpen));
-  hamburgerIcon.classList.toggle("open", isOpen);
-});
-
-document.getElementById("dropdown")?.addEventListener("click", event => {
-  event.stopPropagation();
-});
-
-document.addEventListener("click", () => {
-  const dropdown = document.getElementById("dropdown");
-  const hamburger = document.getElementById("hamburger");
-  const hamburgerIcon = document.getElementById("hamburger-icon");
-  if (!dropdown || !hamburger || !hamburgerIcon) return;
-
-  dropdown.classList.add("hidden");
-  hamburger.setAttribute("aria-expanded", "false");
-  hamburgerIcon.classList.remove("open");
-});
-
-document.querySelectorAll("[data-coming-soon]").forEach(link => {
-  link.addEventListener("click", event => {
-    event.preventDefault();
-  });
-});
 
 // ─── Progress export / import ───
 function encodeProgress() {

@@ -7,7 +7,7 @@
   <title>FAQ — MCU Viewing Order</title>
   <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
   <script>(function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark');})()</script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
   <style>
     .faq-header {
       display: flex;
@@ -117,69 +117,7 @@
 <body>
   <div class="page-shell">
 
-    <header class="topbar">
-      <div class="brand">
-        <a href="../"><img src="../ap.png" class="brand-mark" onerror="this.onerror=null;this.src='https://placehold.co/80x80/EFEFEF/333333?text=AP';"></a>
-        <a href="/mcu" class="brand-text-link"><span class="brand-text">
-          <strong>MCU Viewing Order</strong>
-          <span>@aaronp613</span>
-        </span></a>
-      </div>
-      <nav class="topbar-nav" aria-label="Primary">
-        <a href="/mcu">Viewing Order</a>
-        <a href="upcoming.html">Upcoming</a>
-        <a href="shows.html">Show Status</a>
-        <a href="faq.html" aria-current="page">FAQ</a>
-        <a href="https://paypal.me/aaronp613" target="_blank" rel="noopener noreferrer">Donate</a>
-      </nav>
-      <div class="topbar-actions">
-        <div class="menu-toggle">
-          <button id="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="dropdown">
-            <svg id="hamburger-icon" class="hamburger-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
-              <line x1="2" y1="4.5" x2="14" y2="4.5"/>
-              <line x1="2" y1="8" x2="14" y2="8"/>
-              <line x1="2" y1="11.5" x2="14" y2="11.5"/>
-            </svg>
-          </button>
-          <div id="dropdown" class="dropdown hidden">
-            <a href="/mcu">
-              <img src="../menubar/home.svg" class="dropdown-icon" alt="">
-              <span>Viewing Order</span>
-            </a>
-            <a href="upcoming.html">
-              <img src="../menubar/articles.svg" class="dropdown-icon" alt="">
-              <span>Upcoming</span>
-            </a>
-            <a href="shows.html">
-              <img src="../menubar/products.svg" class="dropdown-icon" alt="">
-              <span>Show Status</span>
-            </a>
-            <a href="faq.html" aria-current="page">
-              <img src="../menubar/faq.svg" class="dropdown-icon" alt="">
-              <span>FAQ</span>
-            </a>
-            <hr class="dropdown-separator">
-            <a href="https://discord.com/invite/YCh8qet" target="_blank" rel="noopener noreferrer">
-              <img src="../menubar/discord.svg" class="dropdown-icon" alt="">
-              <span>Marvel Studios Discord</span>
-            </a>
-            <a href="https://x.com/aaronp613" target="_blank" rel="noopener noreferrer">
-              <img src="../menubar/x.svg" class="dropdown-icon" alt="">
-              <span>@aaronp613</span>
-            </a>
-            <a class="nav-only-mobile" href="https://paypal.me/aaronp613" target="_blank" rel="noopener noreferrer">
-              <img src="../menubar/pay.svg" class="dropdown-icon" alt="">
-              <span>Donate</span>
-            </a>
-            <hr class="dropdown-separator">
-            <a id="floating-theme-toggle" href="#" title="Toggle Theme">
-              <img src="../menubar/toggletheme.svg" class="dropdown-icon" alt="">
-              <span>Toggle Theme</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </header>
+    <script src="/mcu/nav.js"></script>
 
     <div class="surface-card faq-header">
       <h1>Frequently Asked Questions</h1>
@@ -299,43 +237,5 @@
     </footer>
 
   </div>
-  <script>
-    const applyTheme = (theme) => {
-      document.documentElement.classList.toggle("dark", theme === "dark");
-      document.body.classList.toggle("dark", theme === "dark");
-      const meta = document.getElementById("theme-color-meta");
-      if (meta) meta.setAttribute("content", theme === "dark" ? "#0d1016" : "#eef1f6");
-      localStorage.setItem("theme", theme);
-    };
-    applyTheme(localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
-
-    document.getElementById("floating-theme-toggle")?.addEventListener("click", e => {
-      e.preventDefault();
-      applyTheme(document.body.classList.contains("dark") ? "light" : "dark");
-    });
-
-    const hamburger = document.getElementById("hamburger");
-    const hamburgerIcon = document.getElementById("hamburger-icon");
-    const dropdown = document.getElementById("dropdown");
-
-    hamburger?.addEventListener("click", e => {
-      e.stopPropagation();
-      const isOpen = !dropdown.classList.toggle("hidden");
-      hamburger.setAttribute("aria-expanded", String(isOpen));
-      hamburgerIcon.classList.toggle("open", isOpen);
-    });
-
-    dropdown?.addEventListener("click", e => e.stopPropagation());
-
-    document.addEventListener("click", () => {
-      dropdown?.classList.add("hidden");
-      hamburger?.setAttribute("aria-expanded", "false");
-      hamburgerIcon?.classList.remove("open");
-    });
-
-    document.querySelectorAll("[data-coming-soon]").forEach(link => {
-      link.addEventListener("click", e => e.preventDefault());
-    });
-  </script>
 </body>
 </html>
