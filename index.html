@@ -1157,8 +1157,8 @@
         </div>
         <div class="hero-metrics">
           <div class="metric metric-cves">
-            <span class="metric-value">6</span>
-            <span class="metric-label">CVEs and security acknowledgments from Apple</span>
+            <span class="metric-value">8</span>
+            <span class="metric-label">CVEs and security acknowledgments</span>
           </div>
           <div class="metric metric-impressions">
             <span class="metric-value">163 Million</span>
@@ -1635,6 +1635,30 @@
           <div class="cve-details-wrap">
             <div class="cve-details">
               <p><em>Impact:</em> Two Apple contractor credentials were publicly exposed online, potentially granting access to confidential information.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cve-card" onclick="toggleCveDetails(this, event)">
+          <div class="cve-card-header">
+            <strong>iCloud Credential Dump</strong>
+            <p class="fixed"><em>Fixed in:</em> July 2020</p>
+          </div>
+          <div class="cve-details-wrap">
+            <div class="cve-details">
+              <p><em>Impact:</em> A leaked database of roughly one million iCloud account credentials was discovered and reported to Apple Product Security, who confirmed they were taking appropriate action.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cve-card" onclick="toggleCveDetails(this, event)">
+          <div class="cve-card-header">
+            <strong>Gmail Credential Dump</strong>
+            <p class="fixed"><em>Fixed in:</em> July 2020<br />
+              <a href="https://bughunters.google.com/profile/96a1ab05-8dcd-42c0-9aa2-462acb5f1d40/awards" target="_blank" rel="noopener noreferrer">Google Bug Hunters Hall of Fame</a>
+            </p>
+          </div>
+          <div class="cve-details-wrap">
+            <div class="cve-details">
+              <p><em>Impact:</em> A leaked database of roughly 92 million Gmail account credentials was discovered and reported to Google; affected users whose current password matched the leaked credentials were forced to reset it.</p>
             </div>
           </div>
         </div>
