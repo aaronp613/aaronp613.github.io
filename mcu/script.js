@@ -16,7 +16,7 @@ const MULTIVERSE_LABELS = {
   "1":  "Earth-688 (SSU)",
   "2":  "Earth-26320 (Blade)",
   "3":  "Earth-10005 (X-Men)",
-  "4":  "Earth-96283 (Spider-Man)",
+  "4":  "Earth-96283 (Spider-Man: The Animated Series)",
   "5":  "Earth-120703 (The Amazing Spider-Man)",
   "6":  "Earth-701306 (Daredevil - Fox)",
   "7":  "Earth-121698 (Fantastic Four 2005)",
@@ -52,7 +52,8 @@ const MULTIVERSE_LABELS = {
   "37": "Earth-86445 (Your Friendly Neighborhood Spider-Man)",
   "38": "Earth-92131 (X-Men TAS / Spider-Man / X-Men '97)",
   "39": "Earth-17372 (The Gifted)",
-  "40": "Earth-90214 (Spider-Noir)"
+  "40": "Earth-90214 (Spider-Noir)",
+  "41": "Earth-534834 (Iron Man TAS / The Incredible Hulk / Fantastic Four TAS)"
 };
 
 function multiverseName(val) {
