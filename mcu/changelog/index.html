@@ -60,6 +60,12 @@
       flex: 1 1 0;
     }
 
+    .changelog-tag-group {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
     .changelog-date {
       font-size: 0.82rem;
       font-weight: 600;
@@ -175,10 +181,30 @@
       <div class="changelog-entry">
         <div class="changelog-entry-header">
           <div class="changelog-entry-left">
+            <span class="changelog-date">June 21, 2026</span>
+            <span class="changelog-title">Added new shows & fixed airdates</span>
+          </div>
+          <div class="changelog-tag-group">
+            <span class="changelog-tag tag-new">New</span>
+            <span class="changelog-tag tag-fix">Fix</span>
+          </div>
+        </div>
+        <div class="changelog-body">
+          <ul>
+            <li><strong>Iron Man: The Animated Series</strong>, <strong>Fantastic Four: The Animated Series</strong>, and <strong>The Incredible Hulk (1996)</strong> have been added to the viewing order.</li>
+            <li>Corrected several episode airdates for <strong>X-Men: The Animated Series</strong> and <strong>Spider-Man: The Animated Series</strong> that didn't match their actual broadcast dates.</li>
+            <li><strong>Spider-Man (1994)</strong> has been renamed to <strong>Spider-Man: The Animated Series</strong> for consistency.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="changelog-entry">
+        <div class="changelog-entry-header">
+          <div class="changelog-entry-left">
             <span class="changelog-date">June 5, 2026</span>
             <span class="changelog-title">Reclassified Team Thor shorts</span>
           </div>
-          <span class="changelog-tag tag-update">Update</span>
+          <span class="changelog-tag tag-fix">Fix</span>
         </div>
         <div class="changelog-body">
           <ul>
