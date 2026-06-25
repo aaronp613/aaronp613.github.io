@@ -17,6 +17,7 @@
     "show": "X-Men '97",
     "season": 2,
     "episode": 1,
+    "ep_title": "Days of Past Future",
     "release_date": "2026-07-01"
   },
   {
@@ -25,7 +26,8 @@
     "show": "X-Men '97",
     "season": 2,
     "episode": 2,
-    "release_date": "2026-07-08"
+    "ep_title": "A Force to Be Reckoned With",
+    "release_date": "2026-07-01"
   },
   {
     "id": "xmen97_s2_e3",
@@ -33,7 +35,8 @@
     "show": "X-Men '97",
     "season": 2,
     "episode": 3,
-    "release_date": "2026-07-15"
+    "ep_title": "Rise of Apocalypse – Part I",
+    "release_date": "2026-07-01"
   },
   {
     "id": "xmen97_s2_e4",
@@ -41,7 +44,8 @@
     "show": "X-Men '97",
     "season": 2,
     "episode": 4,
-    "release_date": "2026-07-22"
+    "ep_title": "Rise of Apocalypse – Part II",
+    "release_date": "2026-07-08"
   },
   {
     "id": "xmen97_s2_e5",
@@ -49,7 +53,8 @@
     "show": "X-Men '97",
     "season": 2,
     "episode": 5,
-    "release_date": "2026-07-29"
+    "ep_title": "Weapon X, Lies, and DVDs",
+    "release_date": "2026-07-15"
   },
   {
     "id": "xmen97_s2_e6",
@@ -57,7 +62,8 @@
     "show": "X-Men '97",
     "season": 2,
     "episode": 6,
-    "release_date": "2026-08-05"
+    "ep_title": "Danger.exe",
+    "release_date": "2026-07-22"
   },
   {
     "id": "xmen97_s2_e7",
@@ -65,7 +71,8 @@
     "show": "X-Men '97",
     "season": 2,
     "episode": 7,
-    "release_date": "2026-08-12"
+    "ep_title": "Strange Land, Savage Heart",
+    "release_date": "2026-07-29"
   },
   {
     "id": "xmen97_s2_e8",
@@ -73,7 +80,8 @@
     "show": "X-Men '97",
     "season": 2,
     "episode": 8,
-    "release_date": "2026-08-19"
+    "ep_title": "The Dead Man's Hand",
+    "release_date": "2026-08-05"
   },
   {
     "id": "xmen97_s2_e9",
@@ -81,7 +89,8 @@
     "show": "X-Men '97",
     "season": 2,
     "episode": 9,
-    "release_date": "2026-08-26"
+    "ep_title": "Survival of the Fittest",
+    "release_date": "2026-08-12"
   },
   {
     "id": "yfnspiderman_s2",
