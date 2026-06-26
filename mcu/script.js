@@ -105,6 +105,7 @@ const STUDIO_TINTS = {
   "Sony":             "#5b9cf6",
   "Fox":              "#f4a100",
   "New Line Cinema":  "#00b4d8",
+  "Spike":            "#c026d3",
   "YouTube":          "#ff2d7e",
   "WHIH":             "#607d8b",
   "Daily Bugle":      "#eab308",
@@ -453,7 +454,7 @@ initFilterDropdowns();
 function populateFilters() {
   const preferredOrder = [
     "Marvel Studios", "Disney+", "ABC", "Netflix", "Hulu", "Freeform",
-    "One Shot", "Sony", "Fox", "New Line Cinema", "YouTube", "WHIH",
+    "One Shot", "Sony", "Fox", "New Line Cinema", "Spike", "YouTube", "WHIH",
     "Daily Bugle", "Other"
   ];
 

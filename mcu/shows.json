@@ -27,6 +27,7 @@
   { "source": "Fox",        "show": "X-Men: The Animated Series",                     "category": "ended" },
 
   { "source": "ABC",        "show": "Agent Carter",                                   "category": "canceled" },
+  { "source": "Spike",      "show": "Blade: The Series",                              "category": "canceled" },
   { "source": "Freeform",   "show": "Cloak and Dagger",                               "category": "canceled" },
   { "source": "Netflix",    "show": "Daredevil",                                      "category": "canceled" },
   { "source": "Hulu",       "show": "Helstrom",                                       "category": "canceled" },
