@@ -53,8 +53,16 @@
           <span class="intro-metric-label">Time Remaining</span>
         </div>
       </div>
-      <div id="progressBarContainer">
-        <div id="progressBar"></div>
+      <div class="progress-bar-row">
+        <div id="progressBarContainer">
+          <div id="progressBar"></div>
+        </div>
+        <button id="resetProgressBtn" class="reset-progress-btn" type="button" aria-label="Reset viewing progress">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 9 8 9"/>
+          </svg>
+          <span>Reset</span>
+        </button>
       </div>
     </div>
 
@@ -204,6 +212,13 @@
         <p class="progress-modal-desc">Paste your progress code below to restore your watch history.</p>
         <textarea id="importCode" class="progress-modal-textarea" placeholder="Paste code here…" spellcheck="false"></textarea>
         <button id="applyCodeBtn" class="progress-modal-btn">Apply</button>
+      </div>
+      <div id="resetContent" class="progress-modal-content hidden">
+        <p class="progress-modal-desc">This will mark everything as unwatched. This <strong>cannot be undone</strong> unless you've already exported a progress code to restore later.</p>
+        <div class="progress-modal-actions">
+          <button id="cancelResetBtn" class="progress-modal-btn progress-modal-btn-secondary">Cancel</button>
+          <button id="confirmResetBtn" class="progress-modal-btn progress-modal-btn-danger">Reset Progress</button>
+        </div>
       </div>
     </div>
   </div>

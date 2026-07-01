@@ -1238,19 +1238,25 @@ function decodeProgress(code) {
   return true;
 }
 
+function resetProgress() {
+  fullData.forEach(item => localStorage.removeItem(`watched_${item.id}`));
+}
+
 function openProgressModal(mode) {
   const modal = document.getElementById("progressModal");
   const title = document.getElementById("progressModalTitle");
   const exportContent = document.getElementById("exportContent");
   const importContent = document.getElementById("importContent");
+  const resetContent = document.getElementById("resetContent");
 
-  title.textContent = mode === "export" ? "Export Progress" : "Import Progress";
+  title.textContent = mode === "export" ? "Export Progress" : mode === "import" ? "Import Progress" : "Reset Progress";
   exportContent.classList.toggle("hidden", mode !== "export");
   importContent.classList.toggle("hidden", mode !== "import");
+  resetContent.classList.toggle("hidden", mode !== "reset");
 
   if (mode === "export") {
     document.getElementById("progressCode").value = encodeProgress();
-  } else {
+  } else if (mode === "import") {
     document.getElementById("importCode").value = "";
   }
 
@@ -1271,6 +1277,19 @@ document.getElementById("exportProgressBtn")?.addEventListener("click", () => {
 document.getElementById("importProgressBtn")?.addEventListener("click", () => {
   closeAllDropdowns();
   openProgressModal("import");
+});
+
+document.getElementById("resetProgressBtn")?.addEventListener("click", () => {
+  closeAllDropdowns();
+  openProgressModal("reset");
+});
+
+document.getElementById("cancelResetBtn")?.addEventListener("click", closeProgressModal);
+
+document.getElementById("confirmResetBtn")?.addEventListener("click", () => {
+  resetProgress();
+  closeProgressModal();
+  renderList(filteredData());
 });
 
 document.querySelector(".progress-modal-close")?.addEventListener("click", closeProgressModal);
