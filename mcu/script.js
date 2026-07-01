@@ -2,6 +2,9 @@ let fullData = [];
 let sortMode = "sacred";
 let sortDirection = "asc";
 let viewMode = "comfortable";
+let sharedView = null; // { code, ids: Set<string> } when viewing someone else's shared progress
+let pendingSharedCode = null;
+let pendingSharedIds = null;
 const expandedGroups = new Set();
 const VIEW_MODES = new Set(["comfortable", "compact", "list"]);
 const FILTER_URL_KEYS = ["q", "sort", "direction", "type", "canon", "universe", "hide", "view"];
@@ -367,11 +370,17 @@ function clearFilterPanel(panelSelector) {
 }
 
 
+function isMarkedWatched(id) {
+  if (sharedView) return sharedView.ids.has(id);
+  return localStorage.getItem(`watched_${id}`) === "true";
+}
+
 async function loadData() {
   fullData = await fetch("mcu.json").then(r => r.json());
   populateFilters();
   restoreFilterState();
   renderList(filteredData());
+  handleSharedProgressParam();
 
   document.querySelectorAll("[data-sort-mode]").forEach(button => {
     button.addEventListener("click", () => {
@@ -650,7 +659,7 @@ function createSingleCard(item) {
   const card = document.createElement("div");
   card.classList.add("mcu-card");
 
-  const checked = localStorage.getItem(`watched_${item.id}`) === "true";
+  const checked = isMarkedWatched(item.id);
   if (checked) card.classList.add("is-watched");
 
   const color = MV_TINTS[String(item.multiverse)];
@@ -700,7 +709,7 @@ function createSingleCard(item) {
       </div>
       <div class="card-actions">
         ${sourceLink}
-        <input type="checkbox" class="watched-toggle" ${checked ? "checked" : ""} data-id="${item.id}" aria-label="Mark as watched">
+        <input type="checkbox" class="watched-toggle" ${checked ? "checked" : ""} ${sharedView ? "disabled" : ""} data-id="${item.id}" aria-label="Mark as watched">
       </div>
     </div>
   `;
@@ -710,6 +719,7 @@ function createSingleCard(item) {
   });
 
   card.addEventListener("click", () => {
+    if (sharedView) return;
     const isWatched = localStorage.getItem(`watched_${item.id}`) === "true";
     localStorage.setItem(`watched_${item.id}`, !isWatched);
     renderList(filteredData());
@@ -751,7 +761,7 @@ function createGroupCard(group) {
   }
 
   const watchedCount = () =>
-    items.filter(it => localStorage.getItem(`watched_${it.id}`) === "true").length;
+    items.filter(it => isMarkedWatched(it.id)).length;
 
   const card = document.createElement("div");
   card.className = `mcu-card group-card${expanded ? " is-expanded" : ""}`;
@@ -802,7 +812,7 @@ function createGroupCard(group) {
   if (!expanded) epList.hidden = true;
 
   items.forEach(it => {
-    const isWatched = localStorage.getItem(`watched_${it.id}`) === "true";
+    const isWatched = isMarkedWatched(it.id);
     const row = document.createElement("div");
     row.className = `episode-row${isWatched ? " is-watched" : ""}`;
 
@@ -824,6 +834,7 @@ function createGroupCard(group) {
     toggle.type = "checkbox";
     toggle.className = "watched-toggle ep-toggle";
     toggle.checked = isWatched;
+    toggle.disabled = !!sharedView;
     toggle.setAttribute("aria-label", "Mark as watched");
 
     row.append(badge, titleSpan, runtime);
@@ -832,6 +843,7 @@ function createGroupCard(group) {
 
     row.addEventListener("click", e => {
       e.stopPropagation();
+      if (sharedView) return;
       const nowWatched = localStorage.getItem(`watched_${it.id}`) === "true";
       localStorage.setItem(`watched_${it.id}`, !nowWatched);
       row.classList.toggle("is-watched", !nowWatched);
@@ -930,7 +942,7 @@ function getDisplayTitle(item) {
 
 function updateStats(data) {
   const items          = data || filteredData();
-  const watchedItems   = items.filter(item => localStorage.getItem(`watched_${item.id}`) === "true");
+  const watchedItems   = items.filter(item => isMarkedWatched(item.id));
   const totalRuntime   = items.reduce((s, item) => s + item.runtime, 0);
   const watchedRuntime = watchedItems.reduce((s, item) => s + item.runtime, 0);
   const percent        = totalRuntime ? Math.round((watchedRuntime / totalRuntime) * 100) : 0;
@@ -955,7 +967,7 @@ function formatRuntimeShort(minutes) {
 }
 
 function getProgressStats(items = fullData) {
-  const watchedItems = items.filter(item => localStorage.getItem(`watched_${item.id}`) === "true");
+  const watchedItems = items.filter(item => isMarkedWatched(item.id));
   const totalRuntime = items.reduce((s, item) => s + (Number(item.runtime) || 0), 0);
   const watchedRuntime = watchedItems.reduce((s, item) => s + (Number(item.runtime) || 0), 0);
 
@@ -977,7 +989,7 @@ function filteredData({ ignoreSearch = false, ignoreHideWatched = false } = {}) 
   const mvVals      = Array.from(multiverseFilterInputs(":checked")).map(c => c.value);
 
   return fullData.filter(item => {
-    const isWatched  = localStorage.getItem(`watched_${item.id}`) === "true";
+    const isWatched  = isMarkedWatched(item.id);
     const typeMatch  = typeVals.length  === 0 || typeVals.includes(item.type);
     const canonMatch = canonVals.length === 0 || canonVals.includes(String(item.canon));
     const mvMatch    = mvVals.length    === 0 || mvVals.includes(String(item.multiverse));
@@ -1059,7 +1071,7 @@ function createPrintSummaryCard(label, value) {
 }
 
 function createPrintRow(item, index) {
-  const watched = localStorage.getItem(`watched_${item.id}`) === "true";
+  const watched = isMarkedWatched(item.id);
   const row = document.createElement("div");
   row.className = `print-row${watched ? " is-watched" : ""}`;
   row.style.setProperty(
@@ -1209,7 +1221,7 @@ function matchMultiverseHeight() {
   mv.style.height = studio.offsetHeight + "px";
 }
 
-// ─── Progress export / import ───
+// ─── Progress export / import / share ───
 function encodeProgress() {
   const bytes = new Uint8Array(Math.ceil(fullData.length / 8));
   fullData.forEach((item, i) => {
@@ -1220,16 +1232,26 @@ function encodeProgress() {
   return btoa(String.fromCharCode(...bytes));
 }
 
-function decodeProgress(code) {
+function parseProgressCode(code) {
   let bytes;
   try {
     bytes = Uint8Array.from(atob(code.trim()), c => c.charCodeAt(0));
   } catch {
-    return false;
+    return null;
   }
+  const ids = new Set();
   fullData.forEach((item, i) => {
     const watched = (bytes[Math.floor(i / 8)] >> (i % 8)) & 1;
-    if (watched) {
+    if (watched) ids.add(item.id);
+  });
+  return ids;
+}
+
+function decodeProgress(code) {
+  const ids = parseProgressCode(code);
+  if (!ids) return false;
+  fullData.forEach(item => {
+    if (ids.has(item.id)) {
       localStorage.setItem(`watched_${item.id}`, "true");
     } else {
       localStorage.removeItem(`watched_${item.id}`);
@@ -1242,17 +1264,141 @@ function resetProgress() {
   fullData.forEach(item => localStorage.removeItem(`watched_${item.id}`));
 }
 
+function statsForIds(ids) {
+  const totalRuntime   = fullData.reduce((s, item) => s + (Number(item.runtime) || 0), 0);
+  const watchedItems   = fullData.filter(item => ids.has(item.id));
+  const watchedRuntime = watchedItems.reduce((s, item) => s + (Number(item.runtime) || 0), 0);
+  return {
+    watchedCount: watchedItems.length,
+    totalCount: fullData.length,
+    percent: totalRuntime ? Math.round((watchedRuntime / totalRuntime) * 100) : 0
+  };
+}
+
+function buildShareLink(code) {
+  const url = new URL(window.location.origin + window.location.pathname);
+  url.searchParams.set("progress", code);
+  return url.toString();
+}
+
+let shareTooltipTimeout;
+function showShareTooltip(message) {
+  const tooltip = document.getElementById("shareTooltip");
+  if (!tooltip) return;
+  tooltip.textContent = message;
+  tooltip.classList.add("visible");
+  clearTimeout(shareTooltipTimeout);
+  shareTooltipTimeout = setTimeout(() => tooltip.classList.remove("visible"), 1800);
+}
+
+function copyToClipboard(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(text);
+  }
+  // Fallback for browsers (mostly mobile) without Clipboard API access
+  return new Promise((resolve, reject) => {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    try {
+      document.execCommand("copy") ? resolve() : reject(new Error("copy command failed"));
+    } catch (err) {
+      reject(err);
+    } finally {
+      document.body.removeChild(textarea);
+    }
+  });
+}
+
+function stripProgressParam() {
+  const params = new URLSearchParams(window.location.search);
+  params.delete("progress");
+  const query = params.toString();
+  const nextUrl = `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`;
+  try {
+    window.history.replaceState(null, "", nextUrl);
+  } catch {
+    // Some local file previews may block replaceState.
+  }
+}
+
+function updateSharedBanner() {
+  const banner = document.getElementById("sharedProgressBanner");
+  if (!banner) return;
+  banner.classList.toggle("hidden", !sharedView);
+  if (sharedView) {
+    const stats = statsForIds(sharedView.ids);
+    document.getElementById("sharedProgressMeta").textContent = `${stats.percent}% complete, ${stats.watchedCount} of ${stats.totalCount} titles`;
+  }
+}
+
+function exitSharedView({ stripParam = true } = {}) {
+  if (!sharedView) return;
+  sessionStorage.removeItem(`progress_view_${sharedView.code}`);
+  sharedView = null;
+  if (stripParam) stripProgressParam();
+  updateSharedBanner();
+}
+
+function enterSharedView(code, ids) {
+  sharedView = { code, ids };
+  sessionStorage.setItem(`progress_view_${code}`, "1");
+  updateSharedBanner();
+  renderList(filteredData());
+}
+
+function importSharedProgress(code) {
+  decodeProgress(code);
+  exitSharedView({ stripParam: true });
+  renderList(filteredData());
+}
+
+function openSharedProgressModal(code, ids) {
+  pendingSharedCode = code;
+  pendingSharedIds = ids;
+  const stats = statsForIds(ids);
+  document.getElementById("sharedProgressDesc").textContent =
+    `This link contains someone's watch progress — ${stats.percent}% complete (${stats.watchedCount} of ${stats.totalCount} titles watched). You can view it without touching your own progress, or import it to overwrite what you have now.`;
+  openProgressModal("shared");
+}
+
+function handleSharedProgressParam() {
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("progress");
+  if (!code) return;
+
+  const ids = parseProgressCode(code);
+  if (!ids) {
+    stripProgressParam();
+    return;
+  }
+
+  if (sessionStorage.getItem(`progress_view_${code}`) === "1") {
+    enterSharedView(code, ids);
+    return;
+  }
+
+  openSharedProgressModal(code, ids);
+}
+
 function openProgressModal(mode) {
   const modal = document.getElementById("progressModal");
   const title = document.getElementById("progressModalTitle");
   const exportContent = document.getElementById("exportContent");
   const importContent = document.getElementById("importContent");
   const resetContent = document.getElementById("resetContent");
+  const sharedContent = document.getElementById("sharedContent");
 
-  title.textContent = mode === "export" ? "Export Progress" : mode === "import" ? "Import Progress" : "Reset Progress";
+  const titles = { export: "Export Progress", import: "Import Progress", reset: "Reset Progress", shared: "Shared Progress" };
+  title.textContent = titles[mode] || titles.export;
   exportContent.classList.toggle("hidden", mode !== "export");
   importContent.classList.toggle("hidden", mode !== "import");
   resetContent.classList.toggle("hidden", mode !== "reset");
+  sharedContent.classList.toggle("hidden", mode !== "shared");
 
   if (mode === "export") {
     document.getElementById("progressCode").value = encodeProgress();
@@ -1267,6 +1413,11 @@ function openProgressModal(mode) {
 function closeProgressModal() {
   document.getElementById("progressModal").classList.add("hidden");
   document.body.style.overflow = "";
+  if (pendingSharedCode && !sharedView) {
+    stripProgressParam();
+  }
+  pendingSharedCode = null;
+  pendingSharedIds = null;
 }
 
 document.getElementById("exportProgressBtn")?.addEventListener("click", () => {
@@ -1284,12 +1435,30 @@ document.getElementById("resetProgressBtn")?.addEventListener("click", () => {
   openProgressModal("reset");
 });
 
+document.getElementById("shareProgressBtn")?.addEventListener("click", () => {
+  closeAllDropdowns();
+  copyToClipboard(buildShareLink(encodeProgress()))
+    .then(() => showShareTooltip("Link copied!"))
+    .catch(() => showShareTooltip("Couldn't copy link"));
+});
+
 document.getElementById("cancelResetBtn")?.addEventListener("click", closeProgressModal);
 
 document.getElementById("confirmResetBtn")?.addEventListener("click", () => {
   resetProgress();
+  exitSharedView();
   closeProgressModal();
   renderList(filteredData());
+});
+
+document.getElementById("viewSharedBtn")?.addEventListener("click", () => {
+  if (pendingSharedCode) enterSharedView(pendingSharedCode, pendingSharedIds);
+  closeProgressModal();
+});
+
+document.getElementById("importSharedBtn")?.addEventListener("click", () => {
+  if (pendingSharedCode) importSharedProgress(pendingSharedCode);
+  closeProgressModal();
 });
 
 document.querySelector(".progress-modal-close")?.addEventListener("click", closeProgressModal);
@@ -1298,10 +1467,19 @@ document.getElementById("progressModal")?.querySelector(".progress-modal-backdro
 
 document.getElementById("copyCodeBtn")?.addEventListener("click", () => {
   const textarea = document.getElementById("progressCode");
-  navigator.clipboard.writeText(textarea.value).then(() => {
+  copyToClipboard(textarea.value).then(() => {
     const btn = document.getElementById("copyCodeBtn");
     btn.textContent = "Copied!";
     setTimeout(() => { btn.textContent = "Copy Code"; }, 2000);
+  });
+});
+
+document.getElementById("copyLinkBtn")?.addEventListener("click", () => {
+  const link = buildShareLink(encodeProgress());
+  copyToClipboard(link).then(() => {
+    const btn = document.getElementById("copyLinkBtn");
+    btn.textContent = "Copied!";
+    setTimeout(() => { btn.textContent = "Copy Link"; }, 2000);
   });
 });
 
@@ -1312,7 +1490,17 @@ document.getElementById("applyCodeBtn")?.addEventListener("click", () => {
     document.getElementById("importCode").reportValidity();
     return;
   }
+  exitSharedView();
   closeProgressModal();
+  renderList(filteredData());
+});
+
+document.getElementById("sharedProgressImportBtn")?.addEventListener("click", () => {
+  if (sharedView) importSharedProgress(sharedView.code);
+});
+
+document.getElementById("sharedProgressExitBtn")?.addEventListener("click", () => {
+  exitSharedView();
   renderList(filteredData());
 });
 

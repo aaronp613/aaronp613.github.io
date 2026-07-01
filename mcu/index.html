@@ -37,6 +37,17 @@
     <script>if(SHOW_ANNOUNCEMENT){document.getElementById('announcement-banner').style.display='';}</script>
     <!-- ─── End Announcement Banner ─── -->
 
+    <div id="sharedProgressBanner" class="shared-progress-banner hidden">
+      <div class="shared-progress-info">
+        <span class="shared-progress-title">Viewing shared progress</span>
+        <span class="shared-progress-meta" id="sharedProgressMeta"></span>
+      </div>
+      <div class="shared-progress-actions">
+        <button id="sharedProgressImportBtn" class="shared-progress-btn shared-progress-btn-primary" type="button">Import This</button>
+        <button id="sharedProgressExitBtn" class="shared-progress-btn" type="button">Exit</button>
+      </div>
+    </div>
+
     <div class="mcu-intro surface-card">
       <h1>MCU Viewing Order</h1>
       <div class="intro-metrics">
@@ -57,7 +68,16 @@
         <div id="progressBarContainer">
           <div id="progressBar"></div>
         </div>
-        <button id="resetProgressBtn" class="reset-progress-btn" type="button" aria-label="Reset viewing progress">
+        <div class="progress-bar-action-wrap">
+          <button id="shareProgressBtn" class="progress-bar-action progress-bar-action-primary" type="button" aria-label="Share viewing progress">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="10.5" x2="15.4" y2="6.5"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/>
+            </svg>
+            <span>Share</span>
+          </button>
+          <span id="shareTooltip" class="share-tooltip" role="status" aria-live="polite"></span>
+        </div>
+        <button id="resetProgressBtn" class="progress-bar-action progress-bar-action-danger" type="button" aria-label="Reset viewing progress">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 9 8 9"/>
           </svg>
@@ -204,9 +224,12 @@
         </button>
       </div>
       <div id="exportContent" class="progress-modal-content hidden">
-        <p class="progress-modal-desc">Save this code somewhere safe. Paste it back here anytime to restore your progress.</p>
+        <p class="progress-modal-desc">Save this code somewhere safe to restore your progress later, or share the link so someone else can view or import it.</p>
         <textarea id="progressCode" class="progress-modal-textarea" readonly></textarea>
-        <button id="copyCodeBtn" class="progress-modal-btn">Copy Code</button>
+        <div class="progress-modal-actions">
+          <button id="copyLinkBtn" class="progress-modal-btn progress-modal-btn-secondary">Copy Link</button>
+          <button id="copyCodeBtn" class="progress-modal-btn">Copy Code</button>
+        </div>
       </div>
       <div id="importContent" class="progress-modal-content hidden">
         <p class="progress-modal-desc">Paste your progress code below to restore your watch history.</p>
@@ -218,6 +241,13 @@
         <div class="progress-modal-actions">
           <button id="cancelResetBtn" class="progress-modal-btn progress-modal-btn-secondary">Cancel</button>
           <button id="confirmResetBtn" class="progress-modal-btn progress-modal-btn-danger">Reset Progress</button>
+        </div>
+      </div>
+      <div id="sharedContent" class="progress-modal-content hidden">
+        <p class="progress-modal-desc" id="sharedProgressDesc"></p>
+        <div class="progress-modal-actions">
+          <button id="viewSharedBtn" class="progress-modal-btn progress-modal-btn-secondary">View Only</button>
+          <button id="importSharedBtn" class="progress-modal-btn">Import &amp; Overwrite</button>
         </div>
       </div>
     </div>

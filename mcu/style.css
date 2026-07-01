@@ -479,6 +479,110 @@ body.dark .announcement-banner {
   background: rgba(255, 255, 255, 0.32);
 }
 
+/* ─── Share tooltip ─── */
+.progress-bar-action-wrap {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.share-tooltip {
+  position: absolute;
+  bottom: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--text);
+  color: var(--bg-strong);
+  font-size: 0.76rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  box-shadow: var(--shadow);
+  z-index: 20;
+}
+
+.share-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--text);
+}
+
+.share-tooltip.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ─── Shared progress banner ─── */
+.shared-progress-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  background: rgba(234, 179, 8, 0.12);
+  border: 1px solid rgba(234, 179, 8, 0.35);
+  color: var(--text);
+  font-size: 0.875rem;
+}
+
+.shared-progress-banner.hidden {
+  display: none;
+}
+
+.shared-progress-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.shared-progress-title {
+  font-weight: 700;
+}
+
+.shared-progress-meta {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.shared-progress-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.shared-progress-btn {
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-hover);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.shared-progress-btn:hover {
+  opacity: 0.85;
+}
+
+.shared-progress-btn-primary {
+  background: var(--accent);
+  border-color: transparent;
+  color: #fff;
+}
+
 /* ─── MCU intro card ─── */
 .mcu-intro {
   display: flex;
@@ -552,24 +656,75 @@ body.dark #progressBarContainer {
   transition: width 0.5s ease;
 }
 
-.reset-progress-btn {
-  display: flex;
+.progress-bar-action {
+  display: inline-flex;
   align-items: center;
   gap: 5px;
+  height: 30px;
+  padding: 0 13px;
   flex-shrink: 0;
-  padding: 0;
-  border: 0;
-  background: none;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-strong);
   color: var(--muted);
   font-family: inherit;
   font-size: 0.78rem;
   font-weight: 600;
   cursor: pointer;
-  transition: color 0.15s ease;
+  white-space: nowrap;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.reset-progress-btn:hover {
-  color: #e5484d;
+.progress-bar-action:hover {
+  transform: translateY(-1px);
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: color-mix(in oklab, var(--accent) 40%, transparent);
+}
+
+.progress-bar-action-primary {
+  border-color: transparent;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: none;
+}
+.progress-bar-action-primary:hover {
+  transform: translateY(-1px);
+  background: var(--accent);
+  opacity: 0.88;
+  color: #fff;
+  border-color: transparent;
+}
+body.dark .progress-bar-action-primary {
+  /* var(--accent) is a light, pastel blue in dark mode — too low-contrast
+     against white text, so use a darker blue here instead (matches the
+     announcement banner's dark-mode treatment). */
+  background: linear-gradient(135deg, #1a5fb4 0%, #1d6fd4 100%);
+}
+body.dark .progress-bar-action-primary:hover {
+  background: linear-gradient(135deg, #1a5fb4 0%, #1d6fd4 100%);
+  opacity: 0.88;
+}
+
+.progress-bar-action-danger {
+  border-color: rgba(220, 38, 38, 0.35);
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+}
+body.dark .progress-bar-action-danger {
+  border-color: rgba(248, 113, 113, 0.35);
+  background: rgba(248, 113, 113, 0.12);
+  color: #f87171;
+}
+.progress-bar-action-danger:hover {
+  background: rgba(220, 38, 38, 0.18);
+  color: #dc2626;
+  border-color: rgba(220, 38, 38, 0.35);
+}
+body.dark .progress-bar-action-danger:hover {
+  background: rgba(248, 113, 113, 0.2);
+  color: #f87171;
 }
 
 @media (max-width: 600px) {
@@ -1822,6 +1977,12 @@ body.view-compact .watched-toggle {
   border-color: var(--accent);
   background: var(--accent-soft);
   transform: translateY(-1px);
+}
+.watched-toggle:disabled {
+  opacity: 0.55;
+}
+.watched-toggle:disabled:hover {
+  transform: none;
 }
 
 /* ─── List view ─── */
