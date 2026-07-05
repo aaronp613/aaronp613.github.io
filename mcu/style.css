@@ -738,6 +738,18 @@ body.dark .progress-bar-action-danger:hover {
     justify-self: center;
     text-align: center;
   }
+
+  /* Share/Reset shrink to icon-only pills so the progress bar keeps most
+     of the row's width instead of being squeezed down to a sliver. */
+  .progress-bar-action {
+    width: 30px;
+    padding: 0;
+    justify-content: center;
+    gap: 0;
+  }
+  .progress-bar-action span {
+    display: none;
+  }
 }
 
 /* ─── Search and controls ─── */
@@ -1934,6 +1946,81 @@ body.view-compact .card-source-link .source-link-label {
   display: none;
 }
 
+/* Watched date row — sits below card-bottom so the date label never has to
+   compete with the meta/runtime text for width on narrow cards. The visible
+   text is a decorative label; a real <input type="date"> is layered
+   directly on top of it (invisible) so tapping/clicking it opens the
+   browser's native picker exactly like any other date input — no JS-driven
+   showPicker() call needed, which is what made it unreliable on mobile. */
+.card-watched-date {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+.card-watched-date[hidden] {
+  display: none;
+}
+body.view-compact .card-watched-date {
+  margin-top: 6px;
+}
+
+.ep-date-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  order: 2;
+  flex: 0 0 100%;
+}
+.ep-date-wrap[hidden] {
+  display: none;
+}
+
+.watched-date-label {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  padding: 3px 6px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  pointer-events: none;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+body.view-compact .watched-date-label {
+  font-size: 0.7rem;
+  padding: 2px 5px;
+}
+
+.card-watched-date:has(.watched-date-input:hover) .watched-date-label,
+.card-watched-date:has(.watched-date-input:focus-visible) .watched-date-label,
+.ep-date-wrap:has(.watched-date-input:hover) .watched-date-label,
+.ep-date-wrap:has(.watched-date-input:focus-visible) .watched-date-label {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.card-watched-date:has(.watched-date-input:disabled) .watched-date-label,
+.ep-date-wrap:has(.watched-date-input:disabled) .watched-date-label {
+  opacity: 0.55;
+}
+
+.watched-date-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.watched-date-input:disabled {
+  cursor: default;
+}
+
 /* Watched toggle — visual only, card click handles interaction */
 .watched-toggle {
   pointer-events: none;
@@ -2101,9 +2188,30 @@ body.view-list .card-meta {
   white-space: nowrap;
 }
 
+/* Watched date: right before the toggle */
+body.view-list .card-watched-date {
+  order: 7;
+  margin-top: 0;
+  flex-shrink: 0;
+}
+body.view-list .card-watched-date::before {
+  content: "·";
+  margin-right: 0;
+  font-size: 0.78rem;
+  font-weight: 400;
+  opacity: 0.5;
+  color: var(--muted);
+}
+body.view-list .card-watched-date .watched-date-label {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  font-size: 0.78rem;
+}
+
 /* Watched toggle: at the end */
 body.view-list .watched-toggle {
-  order: 7;
+  order: 8;
   width: 22px;
   height: 22px;
   align-self: auto;
@@ -2175,8 +2283,10 @@ body.dark .group-watched-badge.is-complete { color: #4ade80; }
 
 .episode-row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
+  row-gap: 4px;
   padding: 8px 6px;
   border-radius: 10px;
   cursor: pointer;
@@ -2222,7 +2332,7 @@ body.dark .group-watched-badge.is-complete { color: #4ade80; }
   display: none;
 }
 
-.ep-toggle { pointer-events: none; flex-shrink: 0; }
+.ep-toggle { pointer-events: none; flex-shrink: 0; order: 1; }
 
 /* ─── Legal footer ─── */
 .legal-footer {
@@ -2759,6 +2869,24 @@ body.dark .progress-modal-btn-secondary {
   body.view-list .card-info   { order: 2; flex: 1; align-self: center; }
   body.view-list .card-source-link { order: 3; align-self: center; }
   body.view-list .watched-toggle   { order: 4; align-self: center; }
+
+  /* Once watched, the date gets its own row — no dot needed since nothing
+     precedes it there — and the checkmark moves down to sit next to it
+     instead of staying on line 1. */
+  body.view-list .card-watched-date::before {
+    content: none;
+  }
+  body.view-list .card-watched-date .watched-date-label {
+    padding-left: 6px;
+  }
+  body.view-list .mcu-card:has(.card-watched-date:not([hidden])) .card-watched-date {
+    order: 8;
+    margin-top: 2px;
+    margin-left: auto;
+  }
+  body.view-list .mcu-card:has(.card-watched-date:not([hidden])) .watched-toggle {
+    order: 9;
+  }
 
   /* Line 2 order: show · ep badge · title */
   body.view-list .card-show {

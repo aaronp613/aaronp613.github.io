@@ -375,6 +375,55 @@ function isMarkedWatched(id) {
   return localStorage.getItem(`watched_${id}`) === "true";
 }
 
+function todayDateString() {
+  const d = new Date();
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${d.getFullYear()}-${month}-${day}`;
+}
+
+function getWatchedDate(id) {
+  return localStorage.getItem(`watched_date_${id}`) || "";
+}
+
+function setWatchedDate(id, dateStr) {
+  if (dateStr) {
+    localStorage.setItem(`watched_date_${id}`, dateStr);
+  } else {
+    localStorage.removeItem(`watched_date_${id}`);
+  }
+}
+
+function markWatched(id, watched) {
+  localStorage.setItem(`watched_${id}`, watched);
+  if (watched) {
+    if (!getWatchedDate(id)) setWatchedDate(id, todayDateString());
+  } else {
+    setWatchedDate(id, "");
+  }
+}
+
+function formatWatchedDateShort(dateStr) {
+  if (!dateStr) return "";
+  const [y, m, d] = dateStr.split("-").map(Number);
+  if (!y || !m || !d) return "";
+  return new Date(y, m - 1, d).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+}
+
+// Mobile browsers open the native date picker on any tap of the field, but
+// desktop Safari has no clickable calendar icon of its own and relies on
+// showPicker() (or the keyboard) to open it — call it as a supplementary
+// trigger; harmless if the picker is already opening on its own.
+function tryShowPicker(input) {
+  if (typeof input.showPicker === "function") {
+    try {
+      input.showPicker();
+    } catch {
+      // Already open, or blocked for lack of transient user activation.
+    }
+  }
+}
+
 async function loadData() {
   fullData = await fetch("mcu.json").then(r => r.json());
   populateFilters();
@@ -712,16 +761,32 @@ function createSingleCard(item) {
         <input type="checkbox" class="watched-toggle" ${checked ? "checked" : ""} ${sharedView ? "disabled" : ""} data-id="${item.id}" aria-label="Mark as watched">
       </div>
     </div>
+    <div class="card-watched-date" ${checked ? "" : "hidden"}>
+      <span class="watched-date-label" aria-hidden="true">${escapeAttribute(formatWatchedDateShort(getWatchedDate(item.id)))}</span>
+      <input type="date" class="watched-date-input" data-id="${item.id}" value="${escapeAttribute(getWatchedDate(item.id))}" ${sharedView ? "disabled" : ""} aria-label="Date watched">
+    </div>
   `;
 
   card.querySelectorAll(".source-link").forEach(link => {
     link.addEventListener("click", event => event.stopPropagation());
   });
 
+  const dateLabel = card.querySelector(".watched-date-label");
+  const dateInput = card.querySelector(".watched-date-input");
+  dateInput.addEventListener("click", event => {
+    event.stopPropagation();
+    tryShowPicker(dateInput);
+  });
+  dateInput.addEventListener("change", event => {
+    event.stopPropagation();
+    setWatchedDate(item.id, dateInput.value);
+    dateLabel.textContent = formatWatchedDateShort(dateInput.value);
+  });
+
   card.addEventListener("click", () => {
     if (sharedView) return;
     const isWatched = localStorage.getItem(`watched_${item.id}`) === "true";
-    localStorage.setItem(`watched_${item.id}`, !isWatched);
+    markWatched(item.id, !isWatched);
     renderList(filteredData());
   });
 
@@ -830,6 +895,34 @@ function createGroupCard(group) {
 
     const sourceLink = createSourceLinkElement(it.url, `Open ${getDisplayTitle(it)}`);
 
+    const dateWrap = document.createElement("span");
+    dateWrap.className = "ep-date-wrap";
+    dateWrap.hidden = !isWatched;
+
+    const dateLabel = document.createElement("span");
+    dateLabel.className = "watched-date-label";
+    dateLabel.setAttribute("aria-hidden", "true");
+    dateLabel.textContent = formatWatchedDateShort(getWatchedDate(it.id));
+
+    const dateInput = document.createElement("input");
+    dateInput.type = "date";
+    dateInput.className = "watched-date-input";
+    dateInput.dataset.id = it.id;
+    dateInput.value = getWatchedDate(it.id);
+    dateInput.disabled = !!sharedView;
+    dateInput.setAttribute("aria-label", "Date watched");
+    dateInput.addEventListener("click", e => {
+      e.stopPropagation();
+      tryShowPicker(dateInput);
+    });
+    dateInput.addEventListener("change", e => {
+      e.stopPropagation();
+      setWatchedDate(it.id, dateInput.value);
+      dateLabel.textContent = formatWatchedDateShort(dateInput.value);
+    });
+
+    dateWrap.append(dateLabel, dateInput);
+
     const toggle = document.createElement("input");
     toggle.type = "checkbox";
     toggle.className = "watched-toggle ep-toggle";
@@ -839,15 +932,20 @@ function createGroupCard(group) {
 
     row.append(badge, titleSpan, runtime);
     if (sourceLink) row.appendChild(sourceLink);
+    row.appendChild(dateWrap);
     row.appendChild(toggle);
 
     row.addEventListener("click", e => {
       e.stopPropagation();
       if (sharedView) return;
       const nowWatched = localStorage.getItem(`watched_${it.id}`) === "true";
-      localStorage.setItem(`watched_${it.id}`, !nowWatched);
-      row.classList.toggle("is-watched", !nowWatched);
-      toggle.checked = !nowWatched;
+      const willWatch = !nowWatched;
+      markWatched(it.id, willWatch);
+      row.classList.toggle("is-watched", willWatch);
+      toggle.checked = willWatch;
+      dateInput.value = getWatchedDate(it.id);
+      dateLabel.textContent = formatWatchedDateShort(dateInput.value);
+      dateWrap.hidden = !willWatch;
       renderBadge();
       updateStats(filteredData({ ignoreSearch: true, ignoreHideWatched: true }));
     });
@@ -1255,13 +1353,52 @@ function decodeProgress(code) {
       localStorage.setItem(`watched_${item.id}`, "true");
     } else {
       localStorage.removeItem(`watched_${item.id}`);
+      setWatchedDate(item.id, "");
+    }
+  });
+  return true;
+}
+
+// Personal backup codes (Export/Import) carry watched dates; the compact
+// bitset codes used for Share links intentionally don't.
+function encodeProgressWithDates() {
+  const watched = {};
+  fullData.forEach(item => {
+    if (localStorage.getItem(`watched_${item.id}`) === "true") {
+      watched[item.id] = getWatchedDate(item.id) || null;
+    }
+  });
+  return btoa(JSON.stringify({ v: 2, watched }));
+}
+
+function decodeProgressWithDates(code) {
+  let parsed;
+  try {
+    parsed = JSON.parse(atob(code.trim()));
+  } catch {
+    return false;
+  }
+  if (!parsed || typeof parsed !== "object" || !parsed.watched || typeof parsed.watched !== "object") {
+    return false;
+  }
+  fullData.forEach(item => {
+    if (Object.prototype.hasOwnProperty.call(parsed.watched, item.id)) {
+      localStorage.setItem(`watched_${item.id}`, "true");
+      const date = parsed.watched[item.id];
+      setWatchedDate(item.id, typeof date === "string" ? date : "");
+    } else {
+      localStorage.removeItem(`watched_${item.id}`);
+      setWatchedDate(item.id, "");
     }
   });
   return true;
 }
 
 function resetProgress() {
-  fullData.forEach(item => localStorage.removeItem(`watched_${item.id}`));
+  fullData.forEach(item => {
+    localStorage.removeItem(`watched_${item.id}`);
+    setWatchedDate(item.id, "");
+  });
 }
 
 function statsForIds(ids) {
@@ -1401,7 +1538,7 @@ function openProgressModal(mode) {
   sharedContent.classList.toggle("hidden", mode !== "shared");
 
   if (mode === "export") {
-    document.getElementById("progressCode").value = encodeProgress();
+    document.getElementById("progressCode").value = encodeProgressWithDates();
   } else if (mode === "import") {
     document.getElementById("importCode").value = "";
   }
@@ -1485,7 +1622,9 @@ document.getElementById("copyLinkBtn")?.addEventListener("click", () => {
 
 document.getElementById("applyCodeBtn")?.addEventListener("click", () => {
   const code = document.getElementById("importCode").value;
-  if (!decodeProgress(code)) {
+  // Try the newer dates-aware format first, then fall back to the old
+  // bitset-only format for codes exported before watched dates existed.
+  if (!decodeProgressWithDates(code) && !decodeProgress(code)) {
     document.getElementById("importCode").setCustomValidity("Invalid code");
     document.getElementById("importCode").reportValidity();
     return;
