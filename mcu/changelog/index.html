@@ -27,6 +27,91 @@
       line-height: 1.6;
     }
 
+    .changelog-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .changelog-filter-pill {
+      display: inline-flex;
+      align-items: center;
+      height: 32px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-strong);
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .changelog-filter-pill:hover {
+      transform: translateY(-1px);
+      color: var(--text);
+    }
+
+    .changelog-filter-pill.active[data-filter="all"] {
+      background: rgba(120, 113, 108, 0.14);
+      border-color: rgba(120, 113, 108, 0.35);
+      color: var(--text);
+    }
+
+    body.dark .changelog-filter-pill.active[data-filter="all"] {
+      background: rgba(168, 162, 158, 0.16);
+      color: var(--text);
+    }
+
+    .changelog-filter-pill.active[data-filter="update"] {
+      background: rgba(0, 113, 227, 0.12);
+      border-color: color-mix(in oklab, var(--accent) 40%, transparent);
+      color: var(--accent);
+    }
+
+    .changelog-filter-pill.active[data-filter="new"] {
+      background: rgba(22, 163, 74, 0.12);
+      border-color: rgba(22, 163, 74, 0.3);
+      color: #16a34a;
+    }
+
+    body.dark .changelog-filter-pill.active[data-filter="new"] {
+      background: rgba(74, 222, 128, 0.12);
+      color: #4ade80;
+    }
+
+    .changelog-filter-pill.active[data-filter="fix"] {
+      background: rgba(234, 88, 12, 0.12);
+      border-color: rgba(234, 88, 12, 0.3);
+      color: #ea580c;
+    }
+
+    body.dark .changelog-filter-pill.active[data-filter="fix"] {
+      background: rgba(251, 146, 60, 0.12);
+      color: #fb923c;
+    }
+
+    .changelog-filter-pill.active[data-filter="removed"] {
+      background: rgba(220, 38, 38, 0.10);
+      border-color: rgba(220, 38, 38, 0.3);
+      color: #dc2626;
+    }
+
+    body.dark .changelog-filter-pill.active[data-filter="removed"] {
+      background: rgba(248, 113, 113, 0.12);
+      color: #f87171;
+    }
+
+    .changelog-empty {
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
     .changelog-list {
       display: flex;
       flex-direction: column;
@@ -174,9 +259,29 @@
       <p>A record of updates to the MCU Viewing Order - new additions, order adjustments, and site improvements.</p>
     </div>
 
-    <div class="changelog-list">
+    <div class="changelog-filters" id="changelogFilters" role="group" aria-label="Filter by type"></div>
+
+    <p class="changelog-empty" id="changelogEmpty" hidden>No entries match this filter.</p>
+
+    <div class="changelog-list" id="changelogList">
 
       <!-- Most recent entries first -->
+
+      <div class="changelog-entry">
+        <div class="changelog-entry-header">
+          <div class="changelog-entry-left">
+            <span class="changelog-date">July 8, 2026</span>
+            <span class="changelog-title">Season catch-up prompts in Release order</span>
+          </div>
+          <span class="changelog-tag tag-update">Update</span>
+        </div>
+        <div class="changelog-body">
+          <ul>
+            <li>In <strong>Release</strong> order, marking an episode as watched now offers to mark any earlier unwatched episodes in that season too, so you don't have to go back and check them off one by one.</li>
+            <li>If you mark two episodes from the same season watched within a few seconds of each other, you'll be asked if you want to mark the rest of the season as watched as well.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="changelog-entry">
         <div class="changelog-entry-header">
@@ -316,5 +421,58 @@
     </footer>
 
   </div>
+
+  <script>
+    (function () {
+      var TAG_ORDER = ["new", "update", "fix", "removed"];
+      var TAG_LABELS = { new: "New", update: "Update", fix: "Fix", removed: "Removed" };
+
+      var entries = Array.from(document.querySelectorAll(".changelog-entry"));
+      var filterBar = document.getElementById("changelogFilters");
+      var emptyState = document.getElementById("changelogEmpty");
+      if (!filterBar || entries.length === 0) return;
+
+      var present = new Set();
+      entries.forEach(function (entry) {
+        TAG_ORDER.forEach(function (key) {
+          if (entry.querySelector(".changelog-tag.tag-" + key)) present.add(key);
+        });
+      });
+      if (present.size === 0) return;
+
+      function makePill(key, label) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "changelog-filter-pill";
+        btn.dataset.filter = key;
+        btn.textContent = label;
+        if (key === "all") btn.classList.add("active");
+        return btn;
+      }
+
+      var pills = [makePill("all", "All")];
+      TAG_ORDER.forEach(function (key) {
+        if (present.has(key)) pills.push(makePill(key, TAG_LABELS[key]));
+      });
+      pills.forEach(function (pill) { filterBar.appendChild(pill); });
+
+      filterBar.addEventListener("click", function (event) {
+        var btn = event.target.closest(".changelog-filter-pill");
+        if (!btn) return;
+
+        pills.forEach(function (pill) { pill.classList.remove("active"); });
+        btn.classList.add("active");
+
+        var filter = btn.dataset.filter;
+        var visibleCount = 0;
+        entries.forEach(function (entry) {
+          var matches = filter === "all" || entry.querySelector(".changelog-tag.tag-" + filter);
+          entry.style.display = matches ? "" : "none";
+          if (matches) visibleCount++;
+        });
+        if (emptyState) emptyState.hidden = visibleCount !== 0;
+      });
+    })();
+  </script>
 </body>
 </html>

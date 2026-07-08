@@ -5,6 +5,10 @@ let viewMode = "comfortable";
 let sharedView = null; // { code, ids: Set<string> } when viewing someone else's shared progress
 let pendingSharedCode = null;
 let pendingSharedIds = null;
+let pendingCatchupItem = null;
+let pendingCatchupEpisodes = [];
+let lastEpisodeWatchAction = null; // { id, show, season, time } - used for rapid-click detection
+const RAPID_WATCH_WINDOW_MS = 5000;
 const expandedGroups = new Set();
 const VIEW_MODES = new Set(["comfortable", "compact", "list"]);
 const FILTER_URL_KEYS = ["q", "sort", "direction", "type", "canon", "universe", "hide", "view"];
@@ -412,7 +416,7 @@ function formatWatchedDateShort(dateStr) {
 
 // Mobile browsers open the native date picker on any tap of the field, but
 // desktop Safari has no clickable calendar icon of its own and relies on
-// showPicker() (or the keyboard) to open it — call it as a supplementary
+// showPicker() (or the keyboard) to open it - call it as a supplementary
 // trigger; harmless if the picker is already opening on its own.
 function tryShowPicker(input) {
   if (typeof input.showPicker === "function") {
@@ -626,6 +630,78 @@ function isEpisode(item) {
     && item.episode != null && !Number.isNaN(Number(item.episode));
 }
 
+// Episodes from the same show + season, ordered by release date.
+function getSeasonEpisodes(item) {
+  const season = Math.trunc(Number(item.season));
+  return fullData.filter(it =>
+    isEpisode(it)
+    && it.id !== item.id
+    && it.show === item.show
+    && Math.trunc(Number(it.season)) === season
+  );
+}
+
+// Earlier, unwatched episodes from the same show + season, ordered by release date.
+function getEarlierUnwatchedSeasonEpisodes(item) {
+  const itemDate = new Date(item.release_date);
+  return getSeasonEpisodes(item)
+    .filter(it => new Date(it.release_date) < itemDate && !isMarkedWatched(it.id))
+    .sort((a, b) => new Date(a.release_date) - new Date(b.release_date));
+}
+
+// All other unwatched episodes from the same show + season, regardless of order.
+function getOtherUnwatchedSeasonEpisodes(item) {
+  return getSeasonEpisodes(item)
+    .filter(it => !isMarkedWatched(it.id))
+    .sort((a, b) => new Date(a.release_date) - new Date(b.release_date));
+}
+
+// Tracks the last episode marked watched so back-to-back clicks can be
+// detected as a "binge" and offered a season catch-up prompt instead.
+function recordEpisodeWatchAndCheckRapid(item) {
+  const prev = lastEpisodeWatchAction;
+  const isRapid = !!prev
+    && prev.id !== item.id
+    && prev.show === item.show
+    && Math.trunc(Number(prev.season)) === Math.trunc(Number(item.season))
+    && (Date.now() - prev.time) <= RAPID_WATCH_WINDOW_MS;
+  lastEpisodeWatchAction = { id: item.id, show: item.show, season: item.season, time: Date.now() };
+  return isRapid;
+}
+
+// Only relevant in Release order: offers to backfill earlier unwatched
+// episodes in the same season, or - if two episodes were just marked watched
+// in quick succession - offers to finish the whole season.
+function checkSeasonCatchup(item) {
+  if (sortMode !== "release" || !isEpisode(item)) return;
+  const isRapid = recordEpisodeWatchAndCheckRapid(item);
+
+  if (isRapid) {
+    const rest = getOtherUnwatchedSeasonEpisodes(item);
+    if (rest.length > 0) {
+      openSeasonCatchupModal(item, rest, true);
+      return;
+    }
+  }
+
+  const earlier = getEarlierUnwatchedSeasonEpisodes(item);
+  if (earlier.length === 0) return;
+  openSeasonCatchupModal(item, earlier, false);
+}
+
+function openSeasonCatchupModal(item, episodesToMark, isRapid) {
+  pendingCatchupItem = item;
+  pendingCatchupEpisodes = episodesToMark;
+  const seasonNum = Math.trunc(Number(item.season));
+  const count = episodesToMark.length;
+  const episodeWord = count === 1 ? "episode" : "episodes";
+  const desc = isRapid
+    ? `Looks like you're catching up on ${item.show} - mark the other ${count} unwatched ${episodeWord} in Season ${seasonNum} as watched too?`
+    : `Mark the ${count} unwatched ${episodeWord} before this one in ${item.show} Season ${seasonNum} as watched too?`;
+  document.getElementById("seasonCatchupDesc").textContent = desc;
+  openProgressModal("seasonCatchup");
+}
+
 function buildRenderGroups(data) {
   const result = [];
   let i = 0;
@@ -786,8 +862,10 @@ function createSingleCard(item) {
   card.addEventListener("click", () => {
     if (sharedView) return;
     const isWatched = localStorage.getItem(`watched_${item.id}`) === "true";
-    markWatched(item.id, !isWatched);
+    const willWatch = !isWatched;
+    markWatched(item.id, willWatch);
     renderList(filteredData());
+    if (willWatch) checkSeasonCatchup(item);
   });
 
   return card;
@@ -948,6 +1026,7 @@ function createGroupCard(group) {
       dateWrap.hidden = !willWatch;
       renderBadge();
       updateStats(filteredData({ ignoreSearch: true, ignoreHideWatched: true }));
+      if (willWatch) checkSeasonCatchup(it);
     });
 
     epList.appendChild(row);
@@ -1499,7 +1578,7 @@ function openSharedProgressModal(code, ids) {
   pendingSharedIds = ids;
   const stats = statsForIds(ids);
   document.getElementById("sharedProgressDesc").textContent =
-    `This link contains someone's watch progress — ${stats.percent}% complete (${stats.watchedCount} of ${stats.totalCount} titles watched). You can view it without touching your own progress, or import it to overwrite what you have now.`;
+    `This link contains someone's watch progress - ${stats.percent}% complete (${stats.watchedCount} of ${stats.totalCount} titles watched). You can view it without touching your own progress, or import it to overwrite what you have now.`;
   openProgressModal("shared");
 }
 
@@ -1529,13 +1608,21 @@ function openProgressModal(mode) {
   const importContent = document.getElementById("importContent");
   const resetContent = document.getElementById("resetContent");
   const sharedContent = document.getElementById("sharedContent");
+  const seasonCatchupContent = document.getElementById("seasonCatchupContent");
 
-  const titles = { export: "Export Progress", import: "Import Progress", reset: "Reset Progress", shared: "Shared Progress" };
+  const titles = {
+    export: "Export Progress",
+    import: "Import Progress",
+    reset: "Reset Progress",
+    shared: "Shared Progress",
+    seasonCatchup: "Catch Up Season?"
+  };
   title.textContent = titles[mode] || titles.export;
   exportContent.classList.toggle("hidden", mode !== "export");
   importContent.classList.toggle("hidden", mode !== "import");
   resetContent.classList.toggle("hidden", mode !== "reset");
   sharedContent.classList.toggle("hidden", mode !== "shared");
+  seasonCatchupContent.classList.toggle("hidden", mode !== "seasonCatchup");
 
   if (mode === "export") {
     document.getElementById("progressCode").value = encodeProgressWithDates();
@@ -1555,6 +1642,8 @@ function closeProgressModal() {
   }
   pendingSharedCode = null;
   pendingSharedIds = null;
+  pendingCatchupItem = null;
+  pendingCatchupEpisodes = [];
 }
 
 document.getElementById("exportProgressBtn")?.addEventListener("click", () => {
@@ -1642,6 +1731,14 @@ document.getElementById("sharedProgressExitBtn")?.addEventListener("click", () =
   exitSharedView();
   renderList(filteredData());
 });
+
+document.getElementById("confirmSeasonCatchupBtn")?.addEventListener("click", () => {
+  pendingCatchupEpisodes.forEach(ep => markWatched(ep.id, true));
+  closeProgressModal();
+  renderList(filteredData());
+});
+
+document.getElementById("cancelSeasonCatchupBtn")?.addEventListener("click", closeProgressModal);
 
 window.addEventListener("beforeprint", preparePrintView);
 window.addEventListener("afterprint", () => {
