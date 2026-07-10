@@ -5,16 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#eef1f6" media="(prefers-color-scheme: light)" id="theme-color-light">
   <meta name="theme-color" content="#090b10" media="(prefers-color-scheme: dark)" id="theme-color-dark">
-  <title>MCU Viewing Order</title>
+  <title>MCU Viewing Order - Movies, Shows, Timelines &amp; Progress Tracker</title>
+  <meta name="description" content="Track more than a thousand Marvel movies, shows and episodes in release, Sacred Timeline or chronological order, with filters, watch progress and upcoming releases.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://aaronperris.com/mcu/">
   <meta property="og:title" content="MCU Viewing Order">
   <meta property="og:description" content="A comprehensive MCU viewing order, including movies, shows, and more.">
-  <meta property="og:image" content="https://aaronp613.github.io/mcu/mcu-embed.png">
-  <meta property="og:url" content="https://aaronp613.github.io/mcu/">
+  <meta property="og:image" content="https://aaronperris.com/mcu/mcu-embed.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MCU Viewing Order by Aaron Perris">
+  <meta property="og:url" content="https://aaronperris.com/mcu/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MCU Viewing Order">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MCU Viewing Order">
+  <meta name="twitter:description" content="A comprehensive, filterable Marvel viewing order with local watch-progress tracking.">
+  <meta name="twitter:image" content="https://aaronperris.com/mcu/mcu-embed.png">
+  <meta name="twitter:image:alt" content="MCU Viewing Order by Aaron Perris">
   <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
-  <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="/mcu/icon-192.png">
+  <link rel="manifest" href="/mcu/manifest.webmanifest">
   <meta name="apple-mobile-web-app-title" content="MCU Order">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "MCU Viewing Order",
+    "url": "https://aaronperris.com/mcu/",
+    "description": "A comprehensive Marvel viewing order with release, Sacred Timeline and chronological sorting, filters, local watch progress and upcoming releases.",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript and a modern web browser",
+    "image": "https://aaronperris.com/mcu/mcu-embed.png",
+    "author": {
+      "@type": "Person",
+      "name": "Aaron Perris",
+      "url": "https://aaronperris.com/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Release and chronological viewing orders",
+      "Sacred Timeline viewing order",
+      "Local watch progress tracking",
+      "Search and filtering",
+      "Progress export, import and sharing",
+      "Offline support"
+    ]
+  }
+  </script>
   <script>(function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');if(t==='dark'){document.documentElement.classList.add('dark');}var s=localStorage.getItem('theme');if(s){var l=document.getElementById('theme-color-light'),d=document.getElementById('theme-color-dark');if(l)l.media=s==='dark'?'not all':'all';if(d)d.media=s==='dark'?'all':'not all';}})()</script>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -52,15 +97,15 @@
       <h1>MCU Viewing Order</h1>
       <div class="intro-metrics">
         <div class="intro-metric intro-metric-complete">
-          <span class="intro-metric-value" id="stat-percent">—</span>
+          <span class="intro-metric-value" id="stat-percent">-</span>
           <span class="intro-metric-label">Complete</span>
         </div>
         <div class="intro-metric intro-metric-spent">
-          <span class="intro-metric-value" id="stat-time">—</span>
+          <span class="intro-metric-value" id="stat-time">-</span>
           <span class="intro-metric-label">Time Spent Watching</span>
         </div>
         <div class="intro-metric intro-metric-remaining">
-          <span class="intro-metric-value" id="stat-time-remaining">—</span>
+          <span class="intro-metric-value" id="stat-time-remaining">-</span>
           <span class="intro-metric-label">Time Remaining</span>
         </div>
       </div>
@@ -91,7 +136,8 @@
         <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg>
-        <input type="text" id="search" placeholder="Search titles…" autocomplete="off" spellcheck="false">
+        <label class="visually-hidden" for="search">Search titles</label>
+        <input type="search" id="search" placeholder="Search titles…" autocomplete="off" spellcheck="false">
         <button id="searchClear" class="search-clear" aria-label="Clear search" hidden>
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="1" y1="1" x2="9" y2="9"/><line x1="9" y1="1" x2="1" y2="9"/></svg>
         </button>

@@ -1,0 +1,48 @@
+{
+  "id": "/mcu/",
+  "name": "MCU Viewing Order",
+  "short_name": "MCU Order",
+  "description": "A comprehensive Marvel viewing order with local watch-progress tracking, filters and upcoming releases.",
+  "start_url": "/mcu/",
+  "scope": "/mcu/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#eef1f6",
+  "theme_color": "#e0007a",
+  "categories": ["entertainment", "lifestyle", "utilities"],
+  "icons": [
+    {
+      "src": "/mcu/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/mcu/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/mcu/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Viewing Order",
+      "short_name": "Order",
+      "url": "/mcu/",
+      "icons": [{"src": "/mcu/icon-192.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "Upcoming Releases",
+      "short_name": "Upcoming",
+      "url": "/mcu/upcoming/",
+      "icons": [{"src": "/mcu/icon-192.png", "sizes": "192x192"}]
+    }
+  ]
+}

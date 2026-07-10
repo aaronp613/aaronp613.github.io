@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#090b10">
+  <meta name="robots" content="noindex">
+  <title>Offline - MCU Viewing Order</title>
+  <link rel="icon" href="/mcu/icon.svg" type="image/svg+xml">
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
+      padding: 24px;
+      background: radial-gradient(circle at top left, rgba(255, 70, 170, 0.2), transparent 32%), #090b10;
+      color: #f5f7fb;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+    }
+    main {
+      width: min(100%, 560px);
+      padding: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 28px;
+      background: rgba(22, 25, 31, 0.86);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+      text-align: center;
+    }
+    img { width: 72px; height: 72px; border-radius: 20px; }
+    h1 { margin: 22px 0 12px; font-size: clamp(2rem, 8vw, 3rem); letter-spacing: -0.05em; }
+    p { margin: 0; color: #a3adba; font-size: 1.05rem; line-height: 1.65; }
+    a {
+      display: inline-flex;
+      margin-top: 24px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      background: #e0007a;
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="/mcu/icon.svg" alt="">
+    <h1>You’re offline</h1>
+    <p>The MCU tracker and its data become available offline after one successful online visit. Reconnect once to refresh the local copy.</p>
+    <a href="/mcu/">Try again</a>
+  </main>
+</body>
+</html>

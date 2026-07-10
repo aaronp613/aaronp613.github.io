@@ -4,25 +4,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <meta name="theme-color" content="#eef1f6" id="theme-color-meta" />
-  <title>Brand Partnerships</title>
+  <title>Brand Partnerships with Aaron Perris</title>
   <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
   <link rel="shortcut icon" href="/favicon/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="Aaron Perris" />
   <meta property="og:title" content="Brand Partnerships" />
   <meta property="og:description" content="Partner with Aaron Perris for sponsored posts, product showcases, AMAs, and campaigns built for the Apple audience." />
   <meta property="og:image" content="https://aaronperris.com/embed.png" />
-  <meta property="og:url" content="https://aaronperris.com/partnerships" />
+  <meta property="og:url" content="https://aaronperris.com/partnerships/" />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aaron Perris" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Aaron Perris" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Brand Partnerships – Aaron Perris" />
   <meta name="twitter:description" content="Partner with Aaron Perris for sponsored posts, product showcases, AMAs, and campaigns built for the Apple audience." />
   <meta name="twitter:image" content="https://aaronperris.com/embed.png" />
+  <meta name="twitter:image:alt" content="Aaron Perris" />
   <meta name="description" content="Partner with Aaron Perris for sponsored posts, product reviews, AMAs, and campaigns." />
   <meta name="keywords" content="Aaron Perris, Brand Partnerships, Sponsored, Product Review, Social Media, Collaboration" />
   <meta name="author" content="Aaron Perris" />
-  <link rel="canonical" href="https://aaronperris.com/partnerships" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://aaronperris.com/partnerships/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "name": "Brand Partnerships with Aaron Perris",
+    "url": "https://aaronperris.com/partnerships/",
+    "description": "Partner with Aaron Perris for sponsored posts, product showcases, AMAs and campaigns for an engaged Apple audience.",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Aaron Perris",
+      "url": "https://aaronperris.com/",
+      "image": "https://aaronperris.com/embed.png",
+      "sameAs": [
+        "https://x.com/aaronp613",
+        "https://www.linkedin.com/in/aaronperris/",
+        "https://github.com/aaronp613"
+      ]
+    }
+  }
+  </script>
   <style>
     :root {
       color-scheme: light;
@@ -272,6 +297,7 @@
     }
 
     .dropdown a,
+    .dropdown button,
     #floating-theme-toggle {
       display: flex;
       align-items: center;
@@ -286,6 +312,10 @@
       text-decoration: none;
       cursor: pointer;
       transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .dropdown button {
+      text-align: left;
     }
 
     .dropdown a:hover,
@@ -633,6 +663,18 @@
       gap: 14px;
     }
 
+    .field-group {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field-label {
+      padding-left: 4px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
     .field-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -650,6 +692,12 @@
       border-radius: 18px;
       outline: none;
       transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--muted);
+      opacity: 0.78;
     }
 
     input:focus,
@@ -684,6 +732,12 @@
       transform: translateY(-2px);
     }
 
+    .submit-button:disabled {
+      cursor: wait;
+      opacity: 0.7;
+      transform: none;
+    }
+
     #success-message {
       display: none;
       margin-top: 14px;
@@ -698,6 +752,22 @@
     body.dark #success-message {
       color: #86efac;
       background: rgba(52, 199, 89, 0.16);
+    }
+
+    #error-message {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 59, 48, 0.12);
+      color: #b42318;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    body.dark #error-message {
+      color: #fda4af;
+      background: rgba(255, 59, 48, 0.16);
     }
 
     .modal {
@@ -741,6 +811,7 @@
       line-height: 1;
       font-family: Arial, sans-serif;
       cursor: pointer;
+      border: 0;
     }
 
     .link-preview {
@@ -803,6 +874,20 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-6px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    :where(a, button, input, textarea, [tabindex]):focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
 
     @media (max-width: 1024px) {
@@ -879,7 +964,7 @@
   <div class="page-shell">
     <header class="topbar">
       <a class="brand" href="https://aaronperris.com/">
-        <img src="/ap.png" alt="Aaron Perris" class="brand-mark" onerror="this.onerror=null;this.src='https://placehold.co/80x80/EFEFEF/333333?text=AP';"/>
+        <img src="/favicon/favicon-96x96.png" alt="Aaron Perris" class="brand-mark" width="38" height="38" />
         <span class="brand-text">
           <strong>Aaron Perris</strong>
           <span>@aaronp613</span>
@@ -892,7 +977,7 @@
       </nav>
       <div class="topbar-actions">
         <div class="menu-toggle">
-          <button id="hamburger" aria-label="Menu">
+          <button id="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="dropdown">
             <span class="hamburger-icon" id="hamburger-icon">☰</span>
           </button>
           <div id="dropdown" class="dropdown hidden">
@@ -914,10 +999,10 @@
               Donate
             </a>
             <hr class="dropdown-separator" />
-            <a id="floating-theme-toggle" href="#" title="Toggle Theme">
+            <button id="floating-theme-toggle" type="button" title="Toggle Theme" aria-label="Toggle color theme">
               <img src="/menubar/toggletheme.svg" class="dropdown-icon" alt="Toggle Theme" />
               Toggle Theme
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -943,16 +1028,31 @@
 
         <form action="https://formspree.io/f/xpwlarlz" method="POST">
           <div class="field-row">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
+            <div class="field-group">
+              <label class="field-label" for="inquiry-name">Your name</label>
+              <input id="inquiry-name" type="text" name="name" autocomplete="name" placeholder="Aaron Perris" required>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="inquiry-email">Your email</label>
+              <input id="inquiry-email" type="email" name="email" autocomplete="email" placeholder="you@company.com" required>
+            </div>
           </div>
-          <input type="text" name="company" placeholder="Company Name (optional)">
-          <textarea name="message" placeholder="Tell me about your opportunity..." rows="5" required></textarea>
+          <div class="field-group">
+            <label class="field-label" for="inquiry-company">Company <span>(optional)</span></label>
+            <input id="inquiry-company" type="text" name="company" autocomplete="organization" placeholder="Company name">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="inquiry-message">Opportunity details</label>
+            <textarea id="inquiry-message" name="message" placeholder="Tell me about your campaign, timeline, and goals…" rows="5" required></textarea>
+          </div>
           <button type="submit" class="submit-button">Send Inquiry</button>
         </form>
 
-        <div id="success-message">
+        <div id="success-message" role="status" aria-live="polite" tabindex="-1">
           Thanks for reaching out! I’ll get back to you as soon as I can.
+        </div>
+        <div id="error-message" role="alert">
+          Your inquiry could not be sent. Please try again or email aaron@aaronperris.com.
         </div>
       </aside>
     </section>
@@ -967,7 +1067,15 @@
         </div>
 
         <div class="campaign-grid">
-          <div class="partner-card" onclick="openModal('setapp-developers')">
+          <div class="partner-card" data-campaign="dune">
+            <div class="partner-top">
+              <strong class="partner-brand">Dune</strong>
+              <span class="campaign-subtitle">Context-aware keypad review</span>
+            </div>
+            <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
+          </div>
+
+          <div class="partner-card" data-campaign="setapp-developers">
             <div class="partner-top">
               <strong class="partner-brand">Setapp</strong>
               <span class="campaign-subtitle">Developer platform launch campaign</span>
@@ -975,7 +1083,7 @@
             <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
 
-          <div class="partner-card" onclick="openModal('belkin')">
+          <div class="partner-card" data-campaign="belkin">
             <div class="partner-top">
               <strong class="partner-brand">Belkin</strong>
               <span class="campaign-subtitle">UltraCharge Modular Charging Dock review</span>
@@ -983,7 +1091,7 @@
             <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
 
-          <div class="partner-card" onclick="openModal('setapp-onetime')">
+          <div class="partner-card" data-campaign="setapp-onetime">
             <div class="partner-top">
               <strong class="partner-brand">Setapp</strong>
               <span class="campaign-subtitle">Standalone App Purchasing campaign</span>
@@ -991,7 +1099,7 @@
             <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
           
-          <div class="partner-card" onclick="openModal('appletv-pluribus')">
+          <div class="partner-card" data-campaign="appletv-pluribus">
             <div class="partner-top">
               <strong class="partner-brand">Apple TV</strong>
               <span class="campaign-subtitle">Pluribus / Rhea Seehorn AMA</span>
@@ -999,7 +1107,7 @@
             <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
 
-          <div class="partner-card" onclick="openModal('appletv-slowhorses')">
+          <div class="partner-card" data-campaign="appletv-slowhorses">
             <div class="partner-top">
               <strong class="partner-brand">Apple TV</strong>
               <span class="campaign-subtitle">Slow Horses / Christopher Chung AMA</span>
@@ -1007,7 +1115,7 @@
             <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
 
-          <div class="partner-card" onclick="openModal('benq')">
+          <div class="partner-card" data-campaign="benq">
             <div class="partner-top">
               <strong class="partner-brand">BenQ</strong>
               <span class="campaign-subtitle">ScreenBar Halo workspace campaign</span>
@@ -1015,7 +1123,7 @@
             <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
 
-          <div class="partner-card" onclick="openModal('macpaw')">
+          <div class="partner-card" data-campaign="macpaw">
             <div class="partner-top">
               <strong class="partner-brand">MacPaw</strong>
               <span class="campaign-subtitle">Eney launch and feature showcase</span>
@@ -1023,7 +1131,7 @@
             <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
 
-          <div class="partner-card" onclick="openModal('setapp-showcase')">
+          <div class="partner-card" data-campaign="setapp-showcase">
             <div class="partner-top">
               <strong class="partner-brand">Setapp</strong>
               <span class="campaign-subtitle">Mac apps showcase across multiple posts</span>
@@ -1031,7 +1139,7 @@
             <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
 
-          <div class="partner-card" onclick="openModal('setapp-survey')">
+          <div class="partner-card" data-campaign="setapp-survey">
             <div class="partner-top">
               <strong class="partner-brand">Setapp</strong>
               <span class="campaign-subtitle">Mac Developer Survey highlights</span>
@@ -1039,7 +1147,7 @@
             <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
 
-          <div class="partner-card" onclick="openModal('discord-stages')">
+          <div class="partner-card" data-campaign="discord-stages">
             <div class="partner-top">
               <strong class="partner-brand">Discord</strong>
               <span class="campaign-subtitle">Paid Stage Hosting series</span>
@@ -1047,7 +1155,7 @@
             <span class="card-footer">See Details <img src="/down.svg" alt="Expand" class="down-icon" /></span>
           </div>
 
-          <div class="partner-card" onclick="openModal('discord-revshare')">
+          <div class="partner-card" data-campaign="discord-revshare">
             <div class="partner-top">
               <strong class="partner-brand">Discord</strong>
               <span class="campaign-subtitle">Partner Revenue Share experiment</span>
@@ -1060,9 +1168,9 @@
     </main>
   </div>
 
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-content" tabindex="-1">
+      <button type="button" class="close" aria-label="Close campaign details">&times;</button>
       <div id="modal-body"></div>
     </div>
   </div>
@@ -1070,11 +1178,22 @@
   <script>
     const modal = document.getElementById('modal');
     const modalBody = document.getElementById('modal-body');
+    const closeButton = modal.querySelector('.close');
+    const pageShell = document.querySelector('.page-shell');
+    let lastModalTrigger = null;
 
-    function openModal(id) {
+    function openModal(id, trigger) {
       let content = '';
 
       switch (id) {
+        case 'dune':
+          content = `<div class="modal-heading"><strong>Dune</strong><span>Project Mirage's context-aware keypad</span></div>
+<p class="modal-copy">Project Mirage sent me Dune, their three-button context-aware keypad for macOS, to try out over a few weeks. My post covered the unboxing experience (which included real sand as part of the presentation), the calendar-synced meeting shortcuts and mic/camera toggles, and how the customizable buttons fit into my day-to-day workflow. I also gave the team feedback during testing, and they shipped fixes for everything I flagged within a week.</p>
+<a class="link-preview" href="https://x.com/aaronp613/status/2066241478142177625" target="_blank" rel="noopener noreferrer">
+  <strong>Dune context-aware keypad review</strong>
+  <span>Sponsored post covering the unboxing, meeting shortcuts, and workflow fit of Project Mirage's Dune keypad. Opens on X.</span>
+</a>`;
+          break;
         case 'belkin':
           content = `<div class="modal-heading"><strong>Belkin</strong><span>UltraCharge Modular Charging Dock with Qi2 25W</span></div>
 <p class="modal-copy">Belkin partnered with me on a hands-on product review centered on the UltraCharge Modular Charging Dock with Qi2 25W. The post focused on the dock's design, modular setup, charging experience, and how it fits into a real Apple-focused desk environment.</p>
@@ -1159,21 +1278,65 @@
           break;
       }
 
-      modalBody.innerHTML = content;
-
+      modalBody.innerHTML = content.replace('class="modal-heading"', 'class="modal-heading" id="modal-title"');
+      lastModalTrigger = trigger || document.activeElement;
       modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden', 'false');
+      pageShell.inert = true;
+      document.body.style.overflow = 'hidden';
+      closeButton.focus();
     }
 
     function closeModal() {
       modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
       modalBody.innerHTML = '';
+      pageShell.inert = false;
+      document.body.style.overflow = '';
+      lastModalTrigger?.focus();
     }
 
-    window.onclick = function(event) {
+    window.addEventListener('click', function(event) {
       if (event.target === modal) {
         closeModal();
       }
-    };
+    });
+
+    closeButton.addEventListener('click', closeModal);
+
+    modal.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeModal();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = Array.from(modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'));
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    document.querySelectorAll('.partner-card').forEach(card => {
+      const campaignId = card.dataset.campaign;
+      if (!campaignId) return;
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', `View ${card.querySelector('.partner-brand')?.textContent || 'campaign'} campaign details`);
+      card.addEventListener('click', () => openModal(campaignId, card));
+      card.addEventListener('keydown', event => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        openModal(campaignId, card);
+      });
+    });
 
     const applyTheme = (theme) => {
       if (theme === 'dark') {
@@ -1197,14 +1360,15 @@
       applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
     }
 
-    document.getElementById('floating-theme-toggle').addEventListener('click', (e) => {
-      e.preventDefault();
+    document.getElementById('floating-theme-toggle').addEventListener('click', () => {
       toggleTheme();
     });
 
     document.getElementById('hamburger').addEventListener('click', () => {
-      document.getElementById('dropdown').classList.toggle('hidden');
-      document.getElementById('hamburger-icon').classList.toggle('open');
+      const dropdown = document.getElementById('dropdown');
+      const isOpen = dropdown.classList.toggle('hidden') === false;
+      document.getElementById('hamburger').setAttribute('aria-expanded', String(isOpen));
+      document.getElementById('hamburger-icon').classList.toggle('open', isOpen);
     });
 
     document.addEventListener('click', function(event) {
@@ -1212,6 +1376,7 @@
       const hamburger = document.getElementById('hamburger');
       if (!dropdown.contains(event.target) && !hamburger.contains(event.target)) {
         dropdown.classList.add('hidden');
+        hamburger.setAttribute('aria-expanded', 'false');
         document.getElementById('hamburger-icon').classList.remove('open');
       }
     });
@@ -1220,17 +1385,47 @@
       e.preventDefault();
       const form = e.target;
       const data = new FormData(form);
+      const submitButton = form.querySelector('.submit-button');
+      const successMessage = document.getElementById('success-message');
+      const errorMessage = document.getElementById('error-message');
+      const originalLabel = submitButton.textContent;
 
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending…';
 
-      if (response.ok) {
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (!response.ok) throw new Error('Form submission failed');
         form.reset();
-        document.getElementById('success-message').style.display = 'block';
+        successMessage.style.display = 'block';
+        successMessage.focus?.();
+      } catch (error) {
+        errorMessage.style.display = 'block';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalLabel;
       }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape' || modal.getAttribute('aria-hidden') === 'false') return;
+      const dropdown = document.getElementById('dropdown');
+      if (dropdown.classList.contains('hidden')) return;
+      dropdown.classList.add('hidden');
+      document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+      document.getElementById('hamburger-icon').classList.remove('open');
+      document.getElementById('hamburger').focus();
+    });
+
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+      link.relList.add('noopener', 'noreferrer');
     });
   </script>
 </body>

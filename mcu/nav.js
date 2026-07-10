@@ -42,7 +42,7 @@
 
   const html = `
     <div class="brand">
-      <a href="/"><img src="/ap.png" class="brand-mark" onerror="this.onerror=null;this.src='https://placehold.co/80x80/EFEFEF/333333?text=AP';"></a>
+      <a href="/" aria-label="Aaron Perris home"><img src="/favicon/favicon-96x96.png" class="brand-mark" alt="" width="38" height="38"></a>
       <a href="/mcu" class="brand-text-link"><span class="brand-text">
         <strong>MCU Viewing Order</strong>
         <span>@aaronp613</span>
@@ -86,10 +86,14 @@
             <span>Donate</span>
           </a>
           <hr class="dropdown-separator">
-          <a id="floating-theme-toggle" href="#" title="Toggle Theme">
+          <button id="installAppBtn" type="button" hidden>
+            <img src="/mcu/icon.svg" class="dropdown-icon" alt="">
+            <span>Install MCU App</span>
+          </button>
+          <button id="floating-theme-toggle" type="button" title="Toggle Theme" aria-label="Toggle color theme">
             <img src="/menubar/toggletheme.svg" class="dropdown-icon" alt="">
             <span>Toggle Theme</span>
-          </a>
+          </button>
         </div>
       </div>
     </div>`;
@@ -118,10 +122,42 @@
 
   applyTheme(localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
 
-  document.getElementById("floating-theme-toggle").addEventListener("click", e => {
-    e.preventDefault();
+  document.getElementById("floating-theme-toggle").addEventListener("click", () => {
     applyTheme(document.body.classList.contains("dark") ? "light" : "dark");
   });
+
+  // ── Installable app ──
+  const installButton = document.getElementById("installAppBtn");
+  let installPrompt = null;
+
+  window.addEventListener("beforeinstallprompt", event => {
+    event.preventDefault();
+    installPrompt = event;
+    installButton.hidden = false;
+  });
+
+  installButton.addEventListener("click", async () => {
+    if (!installPrompt) return;
+    installButton.disabled = true;
+    await installPrompt.prompt();
+    await installPrompt.userChoice;
+    installPrompt = null;
+    installButton.hidden = true;
+    installButton.disabled = false;
+  });
+
+  window.addEventListener("appinstalled", () => {
+    installPrompt = null;
+    installButton.hidden = true;
+  });
+
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/mcu/sw.js", { scope: "/mcu/" }).catch(() => {
+        // The tracker continues to work online when service-worker registration fails.
+      });
+    });
+  }
 
   // ── Hamburger ──
   const hamburger     = document.getElementById("hamburger");
@@ -141,6 +177,14 @@
     dropdown.classList.add("hidden");
     hamburger.setAttribute("aria-expanded", "false");
     hamburgerIcon.classList.remove("open");
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key !== "Escape" || dropdown.classList.contains("hidden")) return;
+    dropdown.classList.add("hidden");
+    hamburger.setAttribute("aria-expanded", "false");
+    hamburgerIcon.classList.remove("open");
+    hamburger.focus();
   });
 
   // ── Overflow: move nav items to dropdown when they don't fit ──

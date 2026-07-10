@@ -834,12 +834,12 @@ function createSingleCard(item) {
       </div>
       <div class="card-actions">
         ${sourceLink}
-        <input type="checkbox" class="watched-toggle" ${checked ? "checked" : ""} ${sharedView ? "disabled" : ""} data-id="${item.id}" aria-label="Mark as watched">
+        <input type="checkbox" class="watched-toggle" ${checked ? "checked" : ""} ${sharedView ? "disabled" : ""} data-id="${item.id}" aria-label="${escapeAttribute(`Mark ${getDisplayTitle(item)} as watched`)}">
       </div>
     </div>
     <div class="card-watched-date" ${checked ? "" : "hidden"}>
       <span class="watched-date-label" aria-hidden="true">${escapeAttribute(formatWatchedDateShort(getWatchedDate(item.id)))}</span>
-      <input type="date" class="watched-date-input" data-id="${item.id}" value="${escapeAttribute(getWatchedDate(item.id))}" ${sharedView ? "disabled" : ""} aria-label="Date watched">
+      <input type="date" class="watched-date-input" data-id="${item.id}" value="${escapeAttribute(getWatchedDate(item.id))}" ${sharedView ? "disabled" : ""} aria-label="${escapeAttribute(`Date watched for ${getDisplayTitle(item)}`)}">
     </div>
   `;
 
@@ -988,7 +988,7 @@ function createGroupCard(group) {
     dateInput.dataset.id = it.id;
     dateInput.value = getWatchedDate(it.id);
     dateInput.disabled = !!sharedView;
-    dateInput.setAttribute("aria-label", "Date watched");
+    dateInput.setAttribute("aria-label", `Date watched for ${getDisplayTitle(it)}`);
     dateInput.addEventListener("click", e => {
       e.stopPropagation();
       tryShowPicker(dateInput);
@@ -1006,7 +1006,7 @@ function createGroupCard(group) {
     toggle.className = "watched-toggle ep-toggle";
     toggle.checked = isWatched;
     toggle.disabled = !!sharedView;
-    toggle.setAttribute("aria-label", "Mark as watched");
+    toggle.setAttribute("aria-label", `Mark ${getDisplayTitle(it)} as watched`);
 
     row.append(badge, titleSpan, runtime);
     if (sourceLink) row.appendChild(sourceLink);
