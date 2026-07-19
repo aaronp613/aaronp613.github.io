@@ -19,7 +19,9 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    # Use the macOS pool to avoid the standard Ubuntu runner provisioning stall
+    # that left both the legacy Pages build and this workflow queued indefinitely.
+    runs-on: macos-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
