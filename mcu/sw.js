@@ -1,4 +1,4 @@
-const CACHE_VERSION = "mcu-viewing-order-v1";
+const CACHE_VERSION = "mcu-viewing-order-v8";
 const APP_SHELL = [
   "/mcu/",
   "/mcu/index.html",
@@ -32,7 +32,9 @@ const APP_SHELL = [
   "/menubar/discord.svg",
   "/menubar/x.svg",
   "/menubar/pay.svg",
-  "/menubar/toggletheme.svg"
+  "/menubar/toggletheme.svg",
+  "/menubar/notifications.svg",
+  "/menubar/add-to-home.svg"
 ];
 
 self.addEventListener("install", event => {

@@ -331,6 +331,7 @@ function restoreFilterState() {
   if (savedHide !== null) {
     document.getElementById("hideWatched").checked = savedHide === "true";
   }
+  updateSeasonCatchupMenuVisibility();
   setViewMode(localStorage.getItem("filter_viewMode") || "comfortable");
 
   const params = new URLSearchParams(window.location.search);
@@ -672,8 +673,22 @@ function recordEpisodeWatchAndCheckRapid(item) {
 // Only relevant in Release order: offers to backfill earlier unwatched
 // episodes in the same season, or - if two episodes were just marked watched
 // in quick succession - offers to finish the whole season.
+function isSeasonCatchupEnabled() {
+  return localStorage.getItem("setting_seasonCatchup") !== "false";
+}
+
+function setSeasonCatchupEnabled(enabled) {
+  localStorage.setItem("setting_seasonCatchup", String(enabled));
+  updateSeasonCatchupMenuVisibility();
+}
+
+function updateSeasonCatchupMenuVisibility() {
+  const menuBtn = document.getElementById("seasonCatchupMenuBtn");
+  if (menuBtn) menuBtn.hidden = isSeasonCatchupEnabled();
+}
+
 function checkSeasonCatchup(item) {
-  if (sortMode !== "release" || !isEpisode(item)) return;
+  if (sortMode !== "release" || !isEpisode(item) || !isSeasonCatchupEnabled()) return;
   const isRapid = recordEpisodeWatchAndCheckRapid(item);
 
   if (isRapid) {
@@ -1739,6 +1754,16 @@ document.getElementById("confirmSeasonCatchupBtn")?.addEventListener("click", ()
 });
 
 document.getElementById("cancelSeasonCatchupBtn")?.addEventListener("click", closeProgressModal);
+
+document.getElementById("disableSeasonCatchupBtn")?.addEventListener("click", () => {
+  setSeasonCatchupEnabled(false);
+  closeProgressModal();
+});
+
+document.getElementById("seasonCatchupMenuBtn")?.addEventListener("click", () => {
+  setSeasonCatchupEnabled(true);
+  closeAllDropdowns();
+});
 
 window.addEventListener("beforeprint", preparePrintView);
 window.addEventListener("afterprint", () => {

@@ -305,6 +305,7 @@ body.dark .dropdown {
   background: transparent;
   color: var(--text);
   font: inherit;
+  text-align: left;
   text-decoration: none;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
@@ -371,11 +372,15 @@ body.dark .dropdown-icon {
   opacity: 1;
 }
 
-.dropdown-icon[src*="import.svg"] {
+.dropdown-icon[src*="import.svg"],
+.dropdown-icon[src*="notifications.svg"],
+.dropdown-icon[src*="add-to-home.svg"] {
   filter: invert(1) brightness(0.2);
 }
 
-body.dark .dropdown-icon[src*="import.svg"] {
+body.dark .dropdown-icon[src*="import.svg"],
+body.dark .dropdown-icon[src*="notifications.svg"],
+body.dark .dropdown-icon[src*="add-to-home.svg"] {
   filter: invert(1);
   opacity: 0.85;
 }
@@ -2487,6 +2492,10 @@ body.dark .group-watched-badge.is-complete { color: #4ade80; }
   gap: 10px;
 }
 
+#seasonCatchupContent .progress-modal-actions {
+  justify-content: center;
+}
+
 .progress-modal-btn-secondary {
   background: var(--surface-hover);
   color: var(--text);
@@ -2499,6 +2508,24 @@ body.dark .progress-modal-btn-secondary {
 
 .progress-modal-btn-danger {
   background: #e5484d;
+}
+
+.modal-inline-link {
+  align-self: center;
+  margin: 2px 0 0;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.8rem;
+  color: var(--muted);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.modal-inline-link:hover {
+  color: var(--text);
 }
 
 @media print {

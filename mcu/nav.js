@@ -38,6 +38,10 @@
               <img src="/menubar/import.svg" class="dropdown-icon" alt="">
               <span>Import Progress</span>
             </button>
+            <button id="seasonCatchupMenuBtn" type="button" hidden>
+              <img src="/menubar/notifications.svg" class="dropdown-icon" alt="">
+              <span>Re-enable Catch-up Prompts</span>
+            </button>
             <hr class="dropdown-separator">` : "";
 
   const html = `
@@ -87,8 +91,8 @@
           </a>
           <hr class="dropdown-separator">
           <button id="installAppBtn" type="button" hidden>
-            <img src="/mcu/icon.svg" class="dropdown-icon" alt="">
-            <span>Install MCU App</span>
+            <img src="/menubar/add-to-home.svg" class="dropdown-icon" alt="">
+            <span>Install as Web App</span>
           </button>
           <button id="floating-theme-toggle" type="button" title="Toggle Theme" aria-label="Toggle color theme">
             <img src="/menubar/toggletheme.svg" class="dropdown-icon" alt="">
