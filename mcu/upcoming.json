@@ -159,6 +159,14 @@
     "release_date": "2028-07-28"
   },
   {
+    "id": "xmen97_s4",
+    "type": "Disney+",
+    "show": "X-Men '97",
+    "season": 4,
+    "episode_count": 10,
+    "release_label": "2028"
+  },
+  {
     "id": "untitled_2029a",
     "type": "Marvel Studios",
     "title": "Untitled Film 3",
