@@ -23,7 +23,7 @@ const MULTIVERSE_LABELS = {
   "1":  "Earth-688 (SSU)",
   "2":  "Earth-26320 (Blade)",
   "3":  "Earth-10005 (X-Men)",
-  "4":  "Earth-96283 (Spider-Man: The Animated Series)",
+  "4":  "Earth-96283 (Spider-Man, 2002)",
   "5":  "Earth-120703 (The Amazing Spider-Man)",
   "6":  "Earth-701306 (Daredevil - Fox)",
   "7":  "Earth-121698 (Fantastic Four 2005)",
