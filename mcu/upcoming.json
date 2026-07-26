@@ -159,11 +159,23 @@
     "release_date": "2028-07-28"
   },
   {
+    "id": "black_panther_3",
+    "type": "Marvel Studios",
+    "title": "Black Panther 3",
+    "release_date": "2028-12-15"
+  },
+  {
     "id": "xmen97_s4",
     "type": "Disney+",
     "show": "X-Men '97",
     "season": 4,
     "episode_count": 10,
+    "release_label": "2028"
+  },
+  {
+    "id": "ghost_rider",
+    "type": "Marvel Studios",
+    "title": "Ghost Rider",
     "release_label": "2028"
   },
   {
@@ -204,12 +216,6 @@
     "id": "blade",
     "type": "Marvel Studios",
     "title": "Blade",
-    "release_label": null
-  },
-  {
-    "id": "black_panther_3",
-    "type": "Marvel Studios",
-    "title": "Black Panther 3",
     "release_label": null
   },
   {
