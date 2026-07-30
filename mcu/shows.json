@@ -3,7 +3,6 @@
   { "source": "Disney+",    "show": "Your Friendly Neighborhood Spider-Man",          "category": "active", "detail": "Season 2: Fall 2026", "note": "Renewed for Season 3" },
   { "source": "Disney+",    "show": "VisionQuest",                                    "category": "active", "detail": "Season 1: October 14, 2026" },
   { "source": "Disney+",    "show": "Daredevil: Born Again",                          "category": "active", "detail": "Season 3: 2027" },
-  { "source": "Disney+",    "show": "Wonder Man",                                     "category": "active", "detail": "Season 2: TBA" },
   { "source": "Disney+",    "show": "Marvel Zombies",                                 "category": "active", "detail": "Season 2: TBA" },
   { "source": "Prime Video","show": "Spider-Noir",                                    "category": "active", "detail": "Season 2: Waiting Announcement" },
 
@@ -41,6 +40,7 @@
   { "source": "Fox",        "show": "The Gifted",                                     "category": "canceled" },
   { "source": "Fox",        "show": "The Incredible Hulk",                            "category": "canceled" },
   { "source": "Netflix",    "show": "The Punisher",                                   "category": "canceled" },
+  { "source": "Disney+",    "show": "Wonder Man",                                     "category": "canceled" },
 
   { "source": "ABC",        "show": "Damage Control",                                 "category": "not_picked_up" },
   { "source": "ABC",        "show": "Eternals",                                       "category": "not_picked_up" },
