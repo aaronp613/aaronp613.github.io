@@ -1,11 +1,5 @@
 [
   {
-    "id": "spider_man_bnd",
-    "type": "Marvel Studios",
-    "title": "Spider-Man: Brand New Day",
-    "release_date": "2026-07-31"
-  },
-  {
     "id": "avengers_doomsday",
     "type": "Marvel Studios",
     "title": "Avengers: Doomsday",
@@ -16,15 +10,6 @@
     "type": "Marvel Studios",
     "title": "Avengers: Endgame Encore",
     "release_date": "2026-09-25"
-  },
-  {
-    "id": "xmen97_s2_e7",
-    "type": "Disney+",
-    "show": "X-Men '97",
-    "season": 2,
-    "episode": 7,
-    "ep_title": "Strange Land, Savage Heart",
-    "release_date": "2026-07-29"
   },
   {
     "id": "xmen97_s2_e8",
