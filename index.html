@@ -685,10 +685,19 @@
 
     .work-card:hover,
     .carousel a:hover,
-    .cve-card:hover {
+    .cve-card:hover,
+    .article-card:hover > a {
       transform: translateY(-4px);
       box-shadow: var(--shadow-soft);
       background: var(--surface-hover);
+    }
+
+    .article-card:hover > .share-button-icon {
+      transform: translateY(-4px);
+    }
+
+    .article-card:hover > .share-button-icon:hover {
+      transform: translateY(-4px) scale(1.05);
     }
 
     .work-card-header {
@@ -1404,6 +1413,15 @@
       </div>
       <div class="carousel-wrapper">
         <div class="carousel">
+<article class="article-card">
+  <a href="https://www.macrumors.com/2026/08/07/ios-26-dopamine-jailbreak/" target="_blank" rel="noopener noreferrer">
+  <img src="https://images.macrumors.com/t/mb1s-Q4ePmVyhif8tsgn6ywu2JM=/400x0/article-new/2026/08/dopamine.jpg?lossy" alt="iOS 26 Dopamine jailbreak" loading="lazy" decoding="async" width="800" height="450" />
+  <span>iOS 26 Gets First Jailbreak Thanks to Dopamine</span>
+  </a>
+  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2026/08/07/ios-26-dopamine-jailbreak/')">
+    <img src="share.svg" alt="Share" />
+  </button>
+</article>
 <article class="article-card">
   <a href="https://www.macrumors.com/2024/07/04/leak-confirms-apples-work-on-home-accessory/" target="_blank" rel="noopener noreferrer">
   <img src="https://images.macrumors.com/t/i4Kp3qjnMz55ksLNT9fglAbPKK8=/1600x0/article-new/2021/04/HomePod-G4-Feature.jpg" alt="Apple home accessory concept" loading="lazy" decoding="async" width="800" height="450" />
