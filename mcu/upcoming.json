@@ -129,9 +129,9 @@
     "release_date": "2028-05-05"
   },
   {
-    "id": "untitled_2028b",
+    "id": "ghost_rider",
     "type": "Marvel Studios",
-    "title": "Untitled Film 1",
+    "title": "Ghost Rider",
     "release_date": "2028-07-28"
   },
   {
@@ -149,21 +149,15 @@
     "release_label": "2028"
   },
   {
-    "id": "ghost_rider",
-    "type": "Marvel Studios",
-    "title": "Ghost Rider",
-    "release_label": "2028"
-  },
-  {
     "id": "untitled_2029a",
     "type": "Marvel Studios",
-    "title": "Untitled Film 2",
+    "title": "Untitled Film 1",
     "release_date": "2029-05-04"
   },
   {
     "id": "untitled_2029b",
     "type": "Marvel Studios",
-    "title": "Untitled Film 3",
+    "title": "Untitled Film 2",
     "release_date": "2029-07-13"
   },
   {
