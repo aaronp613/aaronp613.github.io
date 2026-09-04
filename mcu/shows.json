@@ -4,8 +4,6 @@
   { "source": "Disney+",    "show": "VisionQuest",                                    "category": "active", "detail": "Season 1: October 14, 2026" },
   { "source": "Disney+",    "show": "Daredevil: Born Again",                          "category": "active", "detail": "Season 3: 2027" },
   { "source": "Disney+",    "show": "Marvel Zombies",                                 "category": "active", "detail": "Season 2: TBA" },
-  { "source": "Prime Video","show": "Spider-Noir",                                    "category": "active", "detail": "Season 2: Waiting Announcement" },
-
   { "source": "Disney+",    "show": "Agatha All Along",                               "category": "ended" },
   { "source": "ABC",        "show": "Agents of S.H.I.E.L.D.",                         "category": "ended" },
   { "source": "Netflix",    "show": "Defenders",                                      "category": "ended" },
@@ -36,6 +34,7 @@
   { "source": "Netflix",    "show": "Jessica Jones",                                  "category": "canceled" },
   { "source": "Netflix",    "show": "Luke Cage",                                      "category": "canceled" },
   { "source": "Hulu",       "show": "Runaways",                                       "category": "canceled" },
+  { "source": "Prime Video","show": "Spider-Noir",                                    "category": "canceled" },
   { "source": "Fox",        "show": "Spider-Man: The Animated Series",                "category": "canceled" },
   { "source": "Fox",        "show": "The Gifted",                                     "category": "canceled" },
   { "source": "Fox",        "show": "The Incredible Hulk",                            "category": "canceled" },
