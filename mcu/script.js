@@ -336,15 +336,17 @@ function restoreFilterState() {
 
   const params = new URLSearchParams(window.location.search);
   if (hasUrlFilterState(params)) {
-    setSearchValue(params.get("q") || "");
-    sortMode = normalizeSortMode(params.get("sort") || "release");
-    sortDirection = normalizeSortDirection(params.get("direction") || "asc");
-    document.getElementById("hideWatched").checked =
-      params.get("hide") === "1" || params.get("hide") === "true";
-    setPanelValues("#typeFilter", getUrlValues(params, "type"));
-    setPanelValues("#canonFilter", getUrlValues(params, "canon"));
-    setPanelValues("#multiverseFilter", getUrlValues(params, "universe"));
-    setViewMode(params.get("view") || "comfortable");
+    if (params.has("q")) setSearchValue(params.get("q") || "");
+    if (params.has("sort")) sortMode = normalizeSortMode(params.get("sort"));
+    if (params.has("direction")) sortDirection = normalizeSortDirection(params.get("direction"));
+    if (params.has("hide")) {
+      document.getElementById("hideWatched").checked =
+        params.get("hide") === "1" || params.get("hide") === "true";
+    }
+    if (params.has("type")) setPanelValues("#typeFilter", getUrlValues(params, "type"));
+    if (params.has("canon")) setPanelValues("#canonFilter", getUrlValues(params, "canon"));
+    if (params.has("universe")) setPanelValues("#multiverseFilter", getUrlValues(params, "universe"));
+    if (params.has("view")) setViewMode(params.get("view"));
     saveFilterState({ updateUrl: false });
   }
 
