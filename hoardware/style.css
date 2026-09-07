@@ -268,7 +268,7 @@ h1>span {
   height:199px;
   width:100px;
   top:208px;
-  left:61%;
+  left:66%;
   background:#343946;
   border:2px solid #abb0bc;
   border-radius:23px;
@@ -301,7 +301,7 @@ h1>span {
   width:106px;
   height:165px;
   top:227px;
-  left:13%;
+  left:10%;
   border-radius:13px;
   background:linear-gradient(120deg,#fafbfd,#dddfe8);
   border:1px solid #bfc6d0;
@@ -355,7 +355,7 @@ h1>span {
 .floating-icon {
   position:absolute;
   top:176px;
-  left:42%;
+  left:39%;
   border-radius:26px;
   transform:rotate(7deg);
   box-shadow:0 20px 50px #6346b74a
@@ -740,7 +740,7 @@ footer {
   }
   .hero-art {
     width:min(100%,480px);
-    height:430px;
+    height:460px;
     justify-self:center;
     transform:none
   }
@@ -821,7 +821,7 @@ footer {
     height:33px
   }
   .hero-art {
-    height:365px
+    height:400px
   }
   .mac {
     width:225px;
@@ -833,7 +833,7 @@ footer {
   }
   .phone {
     left:66%;
-    top:192px;
+    top:180px;
     width:87px;
     height:171px
   }
@@ -871,7 +871,7 @@ footer {
     font-size:.66rem
   }
   .art-caption {
-    bottom:-12px
+    bottom:0
   }
   .hero {
     padding-bottom:46px
