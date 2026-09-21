@@ -174,6 +174,17 @@
       color: var(--muted);
     }
 
+    .show-note-red {
+      background: rgba(220, 38, 38, 0.12);
+      color: #dc2626;
+      border: 1px solid rgba(220, 38, 38, 0.25);
+    }
+    body.dark .show-note-red {
+      background: rgba(248, 113, 113, 0.1);
+      color: #f87171;
+      border-color: rgba(248, 113, 113, 0.2);
+    }
+
     /* ── Compact 2-col grid for ended/canceled/not picked up ── */
     .show-grid {
       column-count: 2;
@@ -266,7 +277,7 @@
           <span class="show-name">${s.show}</span>
           <div class="show-right">
             ${s.detail ? `<span class="show-detail">${s.detail}</span>` : ""}
-            ${s.note   ? `<span class="show-note">${s.note}</span>` : ""}
+            ${s.note   ? `<span class="show-note${s.noteColor === "red" ? " show-note-red" : ""}">${s.note}</span>` : ""}
           </div>
         </div>
       `).join("");
