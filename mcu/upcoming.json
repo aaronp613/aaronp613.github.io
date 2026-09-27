@@ -6,20 +6,6 @@
     "release_date": "2026-12-18"
   },
   {
-    "id": "avengers_endgame_encore",
-    "type": "Marvel Studios",
-    "title": "Avengers: Endgame Encore",
-    "release_date": "2026-09-25"
-  },
-  {
-    "id": "yfnspiderman_s2",
-    "type": "Disney+",
-    "show": "Your Friendly Neighborhood Spider-Man",
-    "season": 2,
-    "episode_count": 10,
-    "release_label": "Fall 2026"
-  },
-  {
     "id": "vision_quest_s1_e1",
     "type": "Disney+",
     "show": "VisionQuest",
@@ -33,7 +19,7 @@
     "show": "VisionQuest",
     "season": 1,
     "episode": 2,
-    "release_date": "2026-10-21"
+    "release_date": "2026-10-14"
   },
   {
     "id": "vision_quest_s1_e3",
@@ -41,7 +27,7 @@
     "show": "VisionQuest",
     "season": 1,
     "episode": 3,
-    "release_date": "2026-10-28"
+    "release_date": "2026-10-21"
   },
   {
     "id": "vision_quest_s1_e4",
@@ -49,7 +35,7 @@
     "show": "VisionQuest",
     "season": 1,
     "episode": 4,
-    "release_date": "2026-11-04"
+    "release_date": "2026-10-28"
   },
   {
     "id": "vision_quest_s1_e5",
@@ -57,7 +43,7 @@
     "show": "VisionQuest",
     "season": 1,
     "episode": 5,
-    "release_date": "2026-11-11"
+    "release_date": "2026-11-04"
   },
   {
     "id": "vision_quest_s1_e6",
@@ -65,7 +51,7 @@
     "show": "VisionQuest",
     "season": 1,
     "episode": 6,
-    "release_date": "2026-11-18"
+    "release_date": "2026-11-11"
   },
   {
     "id": "vision_quest_s1_e7",
@@ -73,7 +59,7 @@
     "show": "VisionQuest",
     "season": 1,
     "episode": 7,
-    "release_date": "2026-11-25"
+    "release_date": "2026-11-18"
   },
   {
     "id": "vision_quest_s1_e8",
@@ -81,7 +67,15 @@
     "show": "VisionQuest",
     "season": 1,
     "episode": 8,
-    "release_date": "2026-12-02"
+    "release_date": "2026-11-25"
+  },
+  {
+    "id": "yfnspiderman_s2",
+    "type": "Disney+",
+    "show": "Your Friendly Neighborhood Spider-Man",
+    "season": 2,
+    "episode_count": 10,
+    "release_label": "Fall 2026"
   },
   {
     "id": "avengers_secret_wars",

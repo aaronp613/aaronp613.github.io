@@ -8952,6 +8952,17 @@
     "timeline_order": 803
   },
   {
+    "title": "Avengers: Endgame Encore",
+    "release_date": "2026-09-25",
+    "runtime": 4,
+    "type": "Marvel Studios",
+    "id": "avengers_endgame_encore",
+    "canon": true,
+    "multiverse": 0,
+    "sacred_timeline": 482.5,
+    "timeline_order": 803.5
+  },
+  {
     "title": "Toldja",
     "release_date": "2019-06-28",
     "runtime": 42,
