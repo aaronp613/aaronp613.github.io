@@ -44,75 +44,51 @@
 
   <main id="main" class="legal">
     <h1>Privacy Policy</h1>
-    <p class="updated">Hoardware for Mac, iPhone and iPad. Last updated September 6, 2026.</p>
+    <p class="updated">Hoardware for Mac, iPhone and iPad. Last updated September 27, 2026.</p>
 
     <div class="lede">
-      <p><strong>The short version.</strong> Your collection stays on your devices and in your own iCloud. I cannot see it. Hoardware has no accounts, no analytics and no tracking of any kind.</p>
-      <p>The one exception is if you choose to share a collection as a link. That creates a trimmed copy on a server I run, and this page explains exactly what it contains and what it never does.</p>
+      <p>Your main library stays on your devices and, when enabled, in your private iCloud database. I cannot read that private database. Optional collection sharing and software release alerts send limited information to services I operate, as explained below.</p>
+      <p>Hoardware has no advertising, sells no personal data, and does not track you across other companies' apps or websites for advertising. No separate Hoardware account is required.</p>
     </div>
 
-    <h2>Your collection</h2>
-    <p>Everything you add to Hoardware - devices, serial numbers, notes, custom fields, photos of nothing in particular - is stored on your device and, if you have iCloud turned on, in your own private iCloud account.</p>
-    <p>That iCloud data lives in Apple's CloudKit private database. It is tied to your Apple Account, not to me. I have no access to it, no ability to read it, and no copy of it. If you delete the app and turn off iCloud, it is gone.</p>
+    <h2>Your library and iCloud</h2>
+    <p>Device records, serial numbers, notes and custom fields are stored locally and can sync through Apple's CloudKit private database using your Apple Account. Apple provides the iCloud service under its own privacy policy. The developer cannot browse your private CloudKit library.</p>
+    <p>Deleting the app or turning off sync does not automatically delete data already stored in iCloud. Manage iCloud storage separately through your Apple Account settings. Copies in exports, backups and shared links also have their own lifetimes.</p>
 
     <h2>Device information from AppleDB</h2>
-    <p>To identify hardware and know which software versions exist, Hoardware fetches data and product images from <a href="https://appledb.dev">AppleDB</a>, a community-maintained catalog.</p>
-    <p>These are ordinary web requests, so AppleDB and its host can see your IP address and which device or firmware record was requested, in the same way any website you visit can. <strong>Nothing about your collection is sent to them.</strong> The app asks "what is an iPhone11,8", never "here is what I own".</p>
+    <p>Hoardware requests device and firmware catalogs and product images from <a href="https://appledb.dev">AppleDB</a> and its hosting providers, including a GitHub fallback for catalog data. Those providers receive ordinary connection information such as your IP address and the requested resource. A requested model or firmware catalog can indicate which hardware you are looking up. The app does not send them your complete library, serial numbers or notes as part of these lookups.</p>
 
-    <h2>Sharing a collection</h2>
-    <p>Hoardware can create a link to a read-only web page showing your collection. This is entirely optional. If you never use it, nothing about you ever leaves your devices except the AppleDB requests above.</p>
+    <h2>Optional collection sharing</h2>
+    <p>Creating a shared link uploads a selected copy of your collection to <code>hoardware.aaronperris.com</code>, a service I operate using Cloudflare Workers and D1. The copy can include the title, device models, categories, colors, software versions and builds, and the names, collections, groups or custom fields enabled in your sharing options.</p>
+    <p>The sharing feature does not automatically include the built-in serial number or notes fields. However, titles, names and enabled custom fields contain whatever you enter. Review them before sharing: personal information you put in these fields will be shared too. User photos and scanned images are not uploaded by this feature; product images come from AppleDB.</p>
+    <p>A random owner identifier lets your devices list, refresh and revoke your links. It syncs through your private iCloud database, and the sharing service stores a hash of it with your shared records. It is not derived from your name or Apple Account, but it still links your shared records together.</p>
+    <p>Links are unlisted, not private: anyone with the URL can view and forward them. The service asks search engines not to index shared pages, but cannot guarantee what other services do with a copy. Links expire 30 days after creation or refresh. Expired records are removed by scheduled cleanup; revoking a link removes its stored record. Cached previews, screenshots and copies kept by recipients or messaging services may remain after expiration or revocation.</p>
 
-    <h3>What a shared link contains</h3>
-    <p>Only what is needed to draw the page, and only what you chose:</p>
+    <h2>Software release alerts</h2>
+    <p>If release alerts are enabled, Hoardware registers with <code>push.aaronperris.com</code> so it can notify you through Apple's Push Notification service when relevant software is released. The service receives a push token, a random installation identifier (stored as a hash), the app version and platform, alert preferences, and the device model identifiers, record identifiers, software versions, builds and update tracks needed to match releases.</p>
+    <p>The alert subscription does not include your built-in serial numbers, notes, purchase details or custom fields. It is associated with your installation's push token rather than a named Hoardware account. Subscription data and pending delivery records are retained to provide alerts until the subscription is removed. Disabling all release alerts in the app requests removal; the service also removes subscriptions when Apple reports an invalid push token. Notification delivery history used to prevent duplicates is pruned after 120 days.</p>
+    <p>Disabling notifications in system settings stops their presentation but does not by itself guarantee deletion of an existing server subscription. Uninstalling the app also does not immediately send a deletion request to the service.</p>
+
+    <h2>Scans, imports, exports and backups</h2>
+    <p>Camera, barcode and screenshot recognition use on-device Apple frameworks. Hoardware does not upload the source images to its sharing or alert services. Information you save from a scan becomes part of your library and follows the sync and optional sharing rules above.</p>
+    <p>Exports and backups are written or shared to destinations you choose. If you save them to a cloud drive or send them to another app or person, that destination's privacy practices apply.</p>
+
+    <h2>Service providers and diagnostics</h2>
+    <p>Apple provides iCloud and push delivery; Cloudflare provides hosting and network infrastructure for the sharing and alert services. Service requests can expose IP addresses, request paths and other connection metadata to the providers handling them. Operational records, app version and platform information, and delivery errors are used to run, secure and troubleshoot these features. These records may be associated with an installation or request identifier.</p>
+    <p>Hoardware does not include advertising or behavioral analytics SDKs. Data used for app functionality is not sold to advertisers or data brokers or combined with other companies' data for targeted advertising. Operational logs and infrastructure copies follow the relevant service's retention and backup settings; revoking a link does not erase every provider log or backup immediately.</p>
+
+    <h2 id="your-choices">Your choices</h2>
     <ul>
-      <li>The model, category and color of each device</li>
-      <li>The software version and build it is running</li>
-      <li>A title you type yourself</li>
-      <li>Device names, collection names, and specific custom fields - <strong>only if you switch each of these on</strong></li>
+      <li>Use your library without creating shared links. Review the selected fields before publishing a link and revoke links from the app when no longer needed.</li>
+      <li>Disable release alerts in the app, including any per-device alert overrides, to request removal of the current installation's subscription. Allow the app to connect so it can send that request.</li>
+      <li>Manage iCloud availability and stored data through your device's Apple Account and iCloud settings. Disabling sync and deleting stored data are separate actions.</li>
+      <li>Delete exports and backups from the destinations where you saved them. Other people control copies you have sent them.</li>
+      <li>Contact <a href="mailto:hoardware@aaronperris.com">hoardware@aaronperris.com</a> for questions or deletion help. Include a shared link if the request concerns one. Because alert subscriptions have no name or email attached, additional information may be needed to identify the relevant record.</li>
     </ul>
 
-    <h3>What is never included</h3>
-    <p>The shared copy is built from a fixed list of the fields above. Anything not on that list cannot be shared, even by mistake. That means a shared page never contains:</p>
-    <ul>
-      <li><strong>Serial numbers</strong> - never, with no setting to change that</li>
-      <li><strong>Notes</strong> - never, with no setting to change that</li>
-      <li>Model or part numbers, purchase dates or prices</li>
-      <li>Any custom field you did not explicitly turn on</li>
-      <li>Your name, email address, Apple Account, or IP address</li>
-    </ul>
-
-    <h3>How long it lasts</h3>
-    <p>A shared link stops working <strong>30 days</strong> after you create or refresh it, and the stored copy is deleted. You can revoke a link at any time from inside the app, which takes effect immediately.</p>
-    <p>Shared pages are unlisted rather than private: the address is long and random, but anyone who has it can open it, and anyone they forward it to can too. They are marked so search engines do not index them.</p>
-
-    <h3>Where it is stored</h3>
-    <p>Shared collections are held on Cloudflare Workers and D1, a service I operate at <code>hoardware.aaronperris.com</code>. Cloudflare acts as the host; the data and the code are mine. Standard web server logs, including IP addresses, are kept briefly by Cloudflare for security and abuse prevention.</p>
-    <p>So the app can show you your own links and let you revoke them, it generates a random identifier, which is shared between your own devices through your private iCloud so a link made on your iPhone can be managed on your Mac. It is not derived from your hardware, your Apple Account, or anything about you, and the server stores only a hashed version of it. It cannot be traced back to a person or linked to your library.</p>
-
-    <h2>What Hoardware does not do</h2>
-    <ul>
-      <li><strong>No analytics.</strong> No usage statistics, no crash reporting services, no third-party SDKs.</li>
-      <li><strong>No tracking or advertising.</strong> Nothing is shared with data brokers or advertisers, and nothing is linked across apps or websites.</li>
-      <li><strong>No accounts.</strong> There is nothing to sign up for and no password to lose.</li>
-      <li><strong>No selling anything to anyone.</strong> Your collection is not a product.</li>
-    </ul>
-
-    <h2>Notifications</h2>
-    <p>If you allow notifications, Hoardware tells you when new software is available for something you own. These are generated on your own device by comparing what you have against the AppleDB catalog. There is no push server and no message is sent from me to you.</p>
-
-    <h2>Your choices</h2>
-    <ul>
-      <li>Revoke any shared link from within the app, at any time.</li>
-      <li>Ask me to delete a shared collection, using the contact address below. Include the link.</li>
-      <li>Turn off iCloud sync in Settings to keep everything on one device.</li>
-      <li>Delete the app to remove its local data. iCloud data is removed through your Apple Account.</li>
-    </ul>
-
-    <h2>Changes</h2>
-    <p>If this policy changes in a way that affects what is collected or shared, the date at the top will change and the update will be noted in the app's release notes.</p>
-
-    <h2>Contact</h2>
-    <p>Questions, deletion requests, or anything shared that should not have been: <a href="mailto:hoardware@aaronperris.com">hoardware@aaronperris.com</a>.</p>
+    <h2>Contact and policy changes</h2>
+    <p>If you contact support by email, I receive the email address and information you choose to send and use them to respond to your request. Please avoid sending serial numbers or other private information unless needed to resolve your issue.</p>
+    <p>This policy will be updated when practices change, with the revision date shown above. Questions: <a href="mailto:hoardware@aaronperris.com">hoardware@aaronperris.com</a>.</p>
   </main>
 
   <footer><a href="/">Made by Aaron Perris <span aria-hidden="true">↗</span></a><a href="/hoardware/">Hoardware</a><a href="https://appledb.dev">Device data by AppleDB <span aria-hidden="true">↗</span></a></footer>
