@@ -623,7 +623,7 @@ h1>span {
   line-height:1.8;
   padding:0 25px 22px 0
 }
-.beta-section {
+.download-section {
   position:relative;
   text-align:center;
   padding:58px 24px 52px;
@@ -632,15 +632,15 @@ h1>span {
   background:radial-gradient(ellipse at 50% 0,#9187ef1c,transparent 70%),var(--surface);
   box-shadow:var(--shadow)
 }
-.beta-section>img {
+.download-section>img {
   border-radius:19px;
   box-shadow:0 10px 30px #6656ce26;
   margin-bottom:23px
 }
-.beta-section h2 {
+.download-section h2 {
   font-size:clamp(2.1rem,4vw,3.2rem)
 }
-.beta-section>p {
+.download-section>p {
   margin:20px 0 26px;
   font-size:.95rem
 }
@@ -777,10 +777,10 @@ footer {
     gap:24px;
     padding:65px 0
   }
-  .beta-section {
+  .download-section {
     padding:40px 18px
   }
-  .beta-section .eyebrow {
+  .download-section .eyebrow {
     font-size:.65rem
   }
   footer {

@@ -46,11 +46,12 @@ label("Hoardware", 147, 480, 30, .semibold, white)
 label("A home for your", 68, 352, 55, .bold, white)
 label("Apple collection.", 68, 285, 55, .bold, color(139, 163, 255))
 label("Every device. Every detail. Together.", 71, 229, 22, .regular, muted)
-let betaText = "Beta"
-let betaWidth = (betaText as NSString).size(withAttributes: [.font: NSFont.systemFont(ofSize: 17, weight: .medium), .kern: -17 * 0.025]).width
-let betaPadding: CGFloat = 18
-panel(NSRect(x: 71, y: 136, width: betaWidth + betaPadding * 2, height: 39), 19.5, color(86, 132, 230, 0.16), border: color(120, 165, 255, 0.2))
-label(betaText, 71 + betaPadding, 145, 17, .medium, color(141, 188, 255))
+let releaseText = "Available on the App Store"
+let releaseWidth = (releaseText as NSString).size(withAttributes: [.font: NSFont.systemFont(ofSize: 17, weight: .medium), .kern: -17 * 0.025]).width
+let releasePadding: CGFloat = 18
+// Align the badge text with the platform and website labels below it.
+panel(NSRect(x: 71 - releasePadding, y: 136, width: releaseWidth + releasePadding * 2, height: 39), 19.5, color(86, 132, 230, 0.16), border: color(120, 165, 255, 0.2))
+label(releaseText, 71, 145, 17, .medium, color(141, 188, 255))
 label("Mac · iPhone · iPad", 71, 98, 16, .medium, muted)
 label("aaronperris.com/hoardware", 71, 54, 14, .regular, color(125, 141, 169))
 // Same Mac, iPhone, and iPod composition as the page's hero.
