@@ -117,14 +117,25 @@ h2 {
   gap:12px
 }
 .theme-toggle {
+  -webkit-appearance:none;
+  appearance:none;
+  padding:0;
+  flex-shrink:0;
   width:40px;
   height:40px;
   border:1px solid var(--border);
   border-radius:50%;
   background:var(--surface);
   color:var(--text);
-  display:grid;
-  place-items:center
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
+.theme-toggle svg {
+  display:block;
+  flex-shrink:0;
+  width:20px;
+  height:20px
 }
 .button {
   display:inline-flex;
