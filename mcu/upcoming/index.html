@@ -143,7 +143,8 @@
       "Summer 2026": "2026-07-01",
       "Fall 2026":   "2026-11-26",
       "2026":        "2026-12-31",
-      "2027":        "2027-12-31"
+      "2027":        "2027-12-31",
+      "2028":        "2028-12-31"
     };
 
     function daysUntil(dateStr) {
@@ -187,7 +188,9 @@
       if (isEpisode) {
         subtitle = `S${item.season}E${item.episode}${item.ep_title ? ` · ${item.ep_title}` : ""}`;
       } else if (isSeason) {
-        subtitle = `Season ${item.season} · ${item.episode_count} Episodes`;
+        subtitle = item.episode_count === "TBA"
+          ? `Season ${item.season} · Episodes TBA`
+          : `Season ${item.season} · ${item.episode_count} Episodes`;
       }
 
       const dateLabel = item.release_date ? formatDate(item.release_date) : "";

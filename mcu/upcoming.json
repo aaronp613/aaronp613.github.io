@@ -70,12 +70,84 @@
     "release_date": "2026-11-11"
   },
   {
-    "id": "yfnspiderman_s2",
+    "id": "yfnspiderman_s2_e1",
     "type": "Disney+",
     "show": "Your Friendly Neighborhood Spider-Man",
     "season": 2,
-    "episode_count": 10,
-    "release_label": "Fall 2026"
+    "episode": 1,
+    "release_date": "2027-01-13"
+  },
+  {
+    "id": "yfnspiderman_s2_e2",
+    "type": "Disney+",
+    "show": "Your Friendly Neighborhood Spider-Man",
+    "season": 2,
+    "episode": 2,
+    "release_date": "2027-01-20"
+  },
+  {
+    "id": "yfnspiderman_s2_e3",
+    "type": "Disney+",
+    "show": "Your Friendly Neighborhood Spider-Man",
+    "season": 2,
+    "episode": 3,
+    "release_date": "2027-01-27"
+  },
+  {
+    "id": "yfnspiderman_s2_e4",
+    "type": "Disney+",
+    "show": "Your Friendly Neighborhood Spider-Man",
+    "season": 2,
+    "episode": 4,
+    "release_date": "2027-02-03"
+  },
+  {
+    "id": "yfnspiderman_s2_e5",
+    "type": "Disney+",
+    "show": "Your Friendly Neighborhood Spider-Man",
+    "season": 2,
+    "episode": 5,
+    "release_date": "2027-02-10"
+  },
+  {
+    "id": "yfnspiderman_s2_e6",
+    "type": "Disney+",
+    "show": "Your Friendly Neighborhood Spider-Man",
+    "season": 2,
+    "episode": 6,
+    "release_date": "2027-02-17"
+  },
+  {
+    "id": "yfnspiderman_s2_e7",
+    "type": "Disney+",
+    "show": "Your Friendly Neighborhood Spider-Man",
+    "season": 2,
+    "episode": 7,
+    "release_date": "2027-02-24"
+  },
+  {
+    "id": "yfnspiderman_s2_e8",
+    "type": "Disney+",
+    "show": "Your Friendly Neighborhood Spider-Man",
+    "season": 2,
+    "episode": 8,
+    "release_date": "2027-03-03"
+  },
+  {
+    "id": "yfnspiderman_s2_e9",
+    "type": "Disney+",
+    "show": "Your Friendly Neighborhood Spider-Man",
+    "season": 2,
+    "episode": 9,
+    "release_date": "2027-03-10"
+  },
+  {
+    "id": "yfnspiderman_s2_e10",
+    "type": "Disney+",
+    "show": "Your Friendly Neighborhood Spider-Man",
+    "season": 2,
+    "episode": 10,
+    "release_date": "2027-03-17"
   },
   {
     "id": "avengers_secret_wars",
@@ -134,6 +206,14 @@
     "release_label": "2028"
   },
   {
+    "id": "zodiac_s1",
+    "type": "Disney+",
+    "show": "Zodiac",
+    "season": 1,
+    "episode_count": "TBA",
+    "release_label": "2028"
+  },
+  {
     "id": "untitled_2029a",
     "type": "Marvel Studios",
     "title": "Untitled Film 1",
@@ -152,12 +232,22 @@
     "release_date": "2029-11-09"
   },
   {
-    "id": "marvel_zombies_s2",
+    "id": "marvel_zombies_winter_soldier",
     "type": "Disney+",
-    "show": "Marvel Zombies",
-    "season": 2,
-    "episode_count": 4,
-    "release_label": null
+    "title": "Marvel Zombies - The Winter Soldier",
+    "release_date": "2027-10-31"
+  },
+  {
+    "id": "marvel_zombies_fist_of_khonshu",
+    "type": "Disney+",
+    "title": "Marvel Zombies - The Fist of Khonshu",
+    "release_date": "2028-10-31"
+  },
+  {
+    "id": "marvel_zombies_last_guardian",
+    "type": "Disney+",
+    "title": "Marvel Zombies - The Last Guardian",
+    "release_date": "2028-10-31"
   },
   {
     "id": "armor_wars",
