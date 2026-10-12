@@ -11,6 +11,7 @@
     "show": "VisionQuest",
     "season": 1,
     "episode": 1,
+    "ep_title": "No Strings",
     "release_date": "2026-10-14"
   },
   {
@@ -19,6 +20,7 @@
     "show": "VisionQuest",
     "season": 1,
     "episode": 2,
+    "ep_title": "Theseus",
     "release_date": "2026-10-14"
   },
   {
@@ -27,6 +29,7 @@
     "show": "VisionQuest",
     "season": 1,
     "episode": 3,
+    "ep_title": "Reboot",
     "release_date": "2026-10-21"
   },
   {
@@ -35,6 +38,7 @@
     "show": "VisionQuest",
     "season": 1,
     "episode": 4,
+    "ep_title": "Malware",
     "release_date": "2026-10-21"
   },
   {
@@ -43,6 +47,7 @@
     "show": "VisionQuest",
     "season": 1,
     "episode": 5,
+    "ep_title": "Firewall",
     "release_date": "2026-10-28"
   },
   {
@@ -51,6 +56,7 @@
     "show": "VisionQuest",
     "season": 1,
     "episode": 6,
+    "ep_title": "Deadlock",
     "release_date": "2026-10-28"
   },
   {
@@ -59,6 +65,7 @@
     "show": "VisionQuest",
     "season": 1,
     "episode": 7,
+    "ep_title": "Immolation",
     "release_date": "2026-11-04"
   },
   {
@@ -67,6 +74,7 @@
     "show": "VisionQuest",
     "season": 1,
     "episode": 8,
+    "ep_title": "Forever",
     "release_date": "2026-11-11"
   },
   {
