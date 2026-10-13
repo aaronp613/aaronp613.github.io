@@ -60,7 +60,8 @@ const MULTIVERSE_LABELS = {
   "38": "Earth-92131 (X-Men TAS / Spider-Man / X-Men '97)",
   "39": "Earth-17372 (The Gifted)",
   "40": "Earth-90214 (Spider-Noir)",
-  "41": "Earth-534834 (Iron Man TAS / The Incredible Hulk / Fantastic Four TAS)"
+  "41": "Earth-534834 (Iron Man TAS / The Incredible Hulk / Fantastic Four TAS)",
+  "42": "Earth-17040 (Legion)"
 };
 
 function multiverseName(val) {
@@ -111,6 +112,7 @@ const STUDIO_TINTS = {
   "One Shot":         "#14b8a6",
   "Sony":             "#5b9cf6",
   "Fox":              "#f4a100",
+  "FX":               "#0d9488",
   "New Line Cinema":  "#00b4d8",
   "Spike":            "#c026d3",
   "YouTube":          "#ff2d7e",
@@ -159,7 +161,8 @@ const MV_TINTS = {
   "36": "#607d8b",
   "37": "#1565c0",
   "38": "#ffb300",
-  "40": "#c084fc"
+  "40": "#c084fc",
+  "42": "#db2777"
 };
 
 function normalizeSortMode(value) {
@@ -812,7 +815,7 @@ function createSingleCard(item) {
 
   const releaseDate = new Date(item.release_date);
   const formattedDate = releaseDate.toLocaleDateString(undefined, {
-    year: "numeric", month: "short", day: "numeric"
+    year: "numeric", month: "short", day: "numeric", timeZone: "UTC"
   });
   const formattedRuntime = formatRuntimeLong(item.runtime);
 
@@ -905,9 +908,9 @@ function createGroupCard(group) {
   const totalRuntime = items.reduce((s, it) => s + (Number(it.runtime) || 0), 0);
   const firstDate = new Date(items[0].release_date);
   const lastDate  = new Date(items[items.length - 1].release_date);
-  const fmtShort  = d => d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
-  const fmtFull   = d => d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
-  const sameYear  = firstDate.getFullYear() === lastDate.getFullYear();
+  const fmtShort  = d => d.toLocaleDateString(undefined, { month: "short", day: "numeric", timeZone: "UTC" });
+  const fmtFull   = d => d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+  const sameYear  = firstDate.getUTCFullYear() === lastDate.getUTCFullYear();
   const dateRange = `${sameYear ? fmtShort(firstDate) : fmtFull(firstDate)} – ${fmtFull(lastDate)}`;
 
   const universes = [...new Set(items.map(it => String(it.multiverse)))];
@@ -1220,7 +1223,7 @@ function formatPrintDate(dateValue) {
   const date = new Date(dateValue);
   if (Number.isNaN(date.getTime())) return "";
   return date.toLocaleDateString(undefined, {
-    year: "numeric", month: "short", day: "numeric"
+    year: "numeric", month: "short", day: "numeric", timeZone: "UTC"
   });
 }
 
