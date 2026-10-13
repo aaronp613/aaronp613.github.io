@@ -2360,6 +2360,53 @@ body.dark .group-watched-badge.is-complete { color: #4ade80; }
   display: none;
 }
 
+/* ─── Watched status undo ─── */
+.watch-undo-toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 8px 8px 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg-strong);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.watch-undo-toast[hidden] { display: none; }
+
+#watchUndoMessage {
+  min-width: 0;
+  max-width: 420px;
+  overflow-wrap: anywhere;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.watch-undo-toast button {
+  flex-shrink: 0;
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.watch-undo-toast button:hover { background: var(--accent-soft); }
+.watch-undo-toast button:focus-visible { outline: 2px solid var(--accent); }
+.watch-undo-toast .watch-undo-dismiss { color: var(--muted); }
+
 /* ─── Progress export/import modal ─── */
 .progress-modal {
   position: fixed;
@@ -2546,6 +2593,7 @@ body.dark .progress-modal-btn-secondary {
   body.print-mode .mcu-intro,
   body.print-mode .search-panel,
   body.print-mode .sticky-controls,
+  body.print-mode .watch-undo-toast,
   body.print-mode #list,
   body.print-mode .legal-footer {
     display: none !important;

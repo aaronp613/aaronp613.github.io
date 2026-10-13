@@ -8,6 +8,9 @@ let pendingSharedIds = null;
 let pendingCatchupItem = null;
 let pendingCatchupEpisodes = [];
 let lastEpisodeWatchAction = null; // { id, show, season, time } - used for rapid-click detection
+let pendingWatchUndo = null;
+let watchUndoTimer = null;
+const WATCH_UNDO_DURATION_MS = 10000;
 const RAPID_WATCH_WINDOW_MS = 5000;
 const expandedGroups = new Set();
 const VIEW_MODES = new Set(["comfortable", "compact", "list"]);
@@ -411,6 +414,64 @@ function markWatched(id, watched) {
   } else {
     setWatchedDate(id, "");
   }
+}
+
+function pauseWatchUndoTimer() {
+  clearTimeout(watchUndoTimer);
+  watchUndoTimer = null;
+}
+
+function clearWatchUndo() {
+  pauseWatchUndoTimer();
+  pendingWatchUndo = null;
+  document.getElementById("watchUndoToast").hidden = true;
+  document.getElementById("watchUndoMessage").textContent = "";
+}
+
+function startWatchUndoTimer() {
+  pauseWatchUndoTimer();
+  const toast = document.getElementById("watchUndoToast");
+  const modalOpen = !document.getElementById("progressModal").classList.contains("hidden");
+  if (!pendingWatchUndo || document.hidden || modalOpen || toast.contains(document.activeElement)) return;
+  watchUndoTimer = setTimeout(clearWatchUndo, WATCH_UNDO_DURATION_MS);
+}
+
+function markWatchedWithUndo(items, watched) {
+  if (!items.length || sharedView) return;
+  // Preserve the actual stored values, including a missing date, before marking.
+  pendingWatchUndo = items.map(item => ({
+    id: item.id,
+    watched: localStorage.getItem(`watched_${item.id}`),
+    date: localStorage.getItem(`watched_date_${item.id}`)
+  }));
+  items.forEach(item => markWatched(item.id, watched));
+  const title = items.length === 1 ? getDisplayTitle(items[0]) : `${items.length} episodes`;
+  document.getElementById("watchUndoToast").hidden = false;
+  document.getElementById("watchUndoMessage").textContent = `${title} marked ${watched ? "watched" : "unwatched"}.`;
+  startWatchUndoTimer();
+}
+
+function undoWatchChange() {
+  if (!pendingWatchUndo || sharedView) return;
+  const previous = pendingWatchUndo;
+  const restoreFocus = document.getElementById("watchUndoToast").contains(document.activeElement);
+  const scrollX = window.scrollX;
+  const scrollY = window.scrollY;
+  clearWatchUndo();
+  previous.forEach(item => {
+    for (const [key, value] of [[`watched_${item.id}`, item.watched], [`watched_date_${item.id}`, item.date]]) {
+      if (value === null) localStorage.removeItem(key);
+      else localStorage.setItem(key, value);
+    }
+  });
+  lastEpisodeWatchAction = null;
+  renderList(filteredData());
+  if (restoreFocus) {
+    const toggle = Array.from(document.querySelectorAll(".watched-toggle"))
+      .find(input => input.dataset.id === previous[0].id);
+    (toggle || document.getElementById("search")).focus({ preventScroll: true });
+  }
+  window.scrollTo(scrollX, scrollY);
 }
 
 function formatWatchedDateShort(dateStr) {
@@ -883,7 +944,7 @@ function createSingleCard(item) {
     if (sharedView) return;
     const isWatched = localStorage.getItem(`watched_${item.id}`) === "true";
     const willWatch = !isWatched;
-    markWatched(item.id, willWatch);
+    markWatchedWithUndo([item], willWatch);
     renderList(filteredData());
     if (willWatch) checkSeasonCatchup(item);
   });
@@ -1024,6 +1085,7 @@ function createGroupCard(group) {
     const toggle = document.createElement("input");
     toggle.type = "checkbox";
     toggle.className = "watched-toggle ep-toggle";
+    toggle.dataset.id = it.id;
     toggle.checked = isWatched;
     toggle.disabled = !!sharedView;
     toggle.setAttribute("aria-label", `Mark ${getDisplayTitle(it)} as watched`);
@@ -1038,7 +1100,7 @@ function createGroupCard(group) {
       if (sharedView) return;
       const nowWatched = localStorage.getItem(`watched_${it.id}`) === "true";
       const willWatch = !nowWatched;
-      markWatched(it.id, willWatch);
+      markWatchedWithUndo([it], willWatch);
       row.classList.toggle("is-watched", willWatch);
       toggle.checked = willWatch;
       dateInput.value = getWatchedDate(it.id);
@@ -1447,6 +1509,7 @@ function parseProgressCode(code) {
 function decodeProgress(code) {
   const ids = parseProgressCode(code);
   if (!ids) return false;
+  clearWatchUndo();
   fullData.forEach(item => {
     if (ids.has(item.id)) {
       localStorage.setItem(`watched_${item.id}`, "true");
@@ -1480,6 +1543,7 @@ function decodeProgressWithDates(code) {
   if (!parsed || typeof parsed !== "object" || !parsed.watched || typeof parsed.watched !== "object") {
     return false;
   }
+  clearWatchUndo();
   fullData.forEach(item => {
     if (Object.prototype.hasOwnProperty.call(parsed.watched, item.id)) {
       localStorage.setItem(`watched_${item.id}`, "true");
@@ -1494,6 +1558,7 @@ function decodeProgressWithDates(code) {
 }
 
 function resetProgress() {
+  clearWatchUndo();
   fullData.forEach(item => {
     localStorage.removeItem(`watched_${item.id}`);
     setWatchedDate(item.id, "");
@@ -1581,6 +1646,7 @@ function exitSharedView({ stripParam = true } = {}) {
 }
 
 function enterSharedView(code, ids) {
+  clearWatchUndo();
   sharedView = { code, ids };
   sessionStorage.setItem(`progress_view_${code}`, "1");
   updateSharedBanner();
@@ -1622,6 +1688,7 @@ function handleSharedProgressParam() {
 }
 
 function openProgressModal(mode) {
+  pauseWatchUndoTimer();
   const modal = document.getElementById("progressModal");
   const title = document.getElementById("progressModalTitle");
   const exportContent = document.getElementById("exportContent");
@@ -1664,7 +1731,17 @@ function closeProgressModal() {
   pendingSharedIds = null;
   pendingCatchupItem = null;
   pendingCatchupEpisodes = [];
+  startWatchUndoTimer();
 }
+
+const watchUndoToast = document.getElementById("watchUndoToast");
+document.getElementById("undoWatchBtn").addEventListener("click", undoWatchChange);
+document.getElementById("dismissWatchUndoBtn").addEventListener("click", clearWatchUndo);
+watchUndoToast.addEventListener("mouseenter", pauseWatchUndoTimer);
+watchUndoToast.addEventListener("mouseleave", startWatchUndoTimer);
+watchUndoToast.addEventListener("focusin", pauseWatchUndoTimer);
+watchUndoToast.addEventListener("focusout", () => requestAnimationFrame(startWatchUndoTimer));
+document.addEventListener("visibilitychange", startWatchUndoTimer);
 
 document.getElementById("exportProgressBtn")?.addEventListener("click", () => {
   closeAllDropdowns();
@@ -1753,7 +1830,7 @@ document.getElementById("sharedProgressExitBtn")?.addEventListener("click", () =
 });
 
 document.getElementById("confirmSeasonCatchupBtn")?.addEventListener("click", () => {
-  pendingCatchupEpisodes.forEach(ep => markWatched(ep.id, true));
+  markWatchedWithUndo(pendingCatchupEpisodes, true);
   closeProgressModal();
   renderList(filteredData());
 });

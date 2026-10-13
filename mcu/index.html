@@ -258,6 +258,16 @@
 
   </div>
 
+  <div id="watchUndoToast" class="watch-undo-toast" hidden>
+    <span id="watchUndoMessage" role="status" aria-live="polite" aria-atomic="true"></span>
+    <button id="undoWatchBtn" type="button">Undo</button>
+    <button id="dismissWatchUndoBtn" class="watch-undo-dismiss" type="button" aria-label="Dismiss undo message">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M2 2l8 8M10 2l-8 8"/>
+      </svg>
+    </button>
+  </div>
+
   <div id="progressModal" class="progress-modal hidden" role="dialog" aria-modal="true" aria-labelledby="progressModalTitle">
     <div class="progress-modal-backdrop"></div>
     <div class="progress-modal-box">
