@@ -12721,6 +12721,34 @@
     "timeline_order": 1011
   },
   {
+    "title": "No Strings",
+    "release_date": "2026-10-13",
+    "runtime": 56,
+    "type": "Disney+",
+    "id": "vision_quest_s1_e1",
+    "canon": true,
+    "multiverse": 0,
+    "show": "VisionQuest",
+    "season": 1,
+    "episode": 1,
+    "sacred_timeline": 1012.01,
+    "timeline_order": 1011.01
+  },
+  {
+    "title": "Theseus",
+    "release_date": "2026-10-13",
+    "runtime": 48,
+    "type": "Disney+",
+    "id": "vision_quest_s1_e2",
+    "canon": true,
+    "multiverse": 0,
+    "show": "VisionQuest",
+    "season": 1,
+    "episode": 2,
+    "sacred_timeline": 1012.02,
+    "timeline_order": 1011.02
+  },
+  {
     "title": "Spider-Man: Brand New Day",
     "release_date": "2026-07-31",
     "runtime": 145,
