@@ -5408,7 +5408,7 @@
     "canon": true,
     "multiverse": 13,
     "sacred_timeline": 839,
-    "timeline_order": 1043
+    "timeline_order": 1045
   },
   {
     "title": "Snow Gives Way",
@@ -12749,6 +12749,34 @@
     "timeline_order": 1041
   },
   {
+    "title": "Reboot",
+    "release_date": "2026-10-20",
+    "runtime": 54,
+    "type": "Disney+",
+    "id": "vision_quest_s1_e3",
+    "canon": true,
+    "multiverse": 0,
+    "show": "VisionQuest",
+    "season": 1,
+    "episode": 3,
+    "sacred_timeline": 1043,
+    "timeline_order": 1042
+  },
+  {
+    "title": "Malware",
+    "release_date": "2026-10-20",
+    "runtime": 51,
+    "type": "Disney+",
+    "id": "vision_quest_s1_e4",
+    "canon": true,
+    "multiverse": 0,
+    "show": "VisionQuest",
+    "season": 1,
+    "episode": 4,
+    "sacred_timeline": 1044,
+    "timeline_order": 1043
+  },
+  {
     "title": "Spider-Man: Brand New Day",
     "release_date": "2026-07-31",
     "runtime": 145,
@@ -12756,8 +12784,8 @@
     "id": "spider_man_bnd",
     "canon": true,
     "multiverse": 0,
-    "sacred_timeline": 1043,
-    "timeline_order": 1042
+    "sacred_timeline": 1045,
+    "timeline_order": 1044
   },
   {
     "title": "And the Sea Shall Give Up Its Dead",

@@ -1,4 +1,4 @@
-const CACHE_VERSION = "mcu-viewing-order-v11";
+const CACHE_VERSION = "mcu-viewing-order-v12";
 const APP_SHELL = [
   "/mcu/",
   "/mcu/index.html",
