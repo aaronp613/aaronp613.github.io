@@ -5408,7 +5408,7 @@
     "canon": true,
     "multiverse": 13,
     "sacred_timeline": 839,
-    "timeline_order": 1045
+    "timeline_order": 1047
   },
   {
     "title": "Snow Gives Way",
@@ -12777,6 +12777,34 @@
     "timeline_order": 1043
   },
   {
+    "title": "Firewall",
+    "release_date": "2026-10-27",
+    "runtime": 48,
+    "type": "Disney+",
+    "id": "vision_quest_s1_e5",
+    "canon": true,
+    "multiverse": 0,
+    "show": "VisionQuest",
+    "season": 1,
+    "episode": 5,
+    "sacred_timeline": 1045,
+    "timeline_order": 1044
+  },
+  {
+    "title": "Deadlock",
+    "release_date": "2026-10-27",
+    "runtime": 57,
+    "type": "Disney+",
+    "id": "vision_quest_s1_e6",
+    "canon": true,
+    "multiverse": 0,
+    "show": "VisionQuest",
+    "season": 1,
+    "episode": 6,
+    "sacred_timeline": 1046,
+    "timeline_order": 1045
+  },
+  {
     "title": "Spider-Man: Brand New Day",
     "release_date": "2026-07-31",
     "runtime": 145,
@@ -12784,8 +12812,8 @@
     "id": "spider_man_bnd",
     "canon": true,
     "multiverse": 0,
-    "sacred_timeline": 1045,
-    "timeline_order": 1044
+    "sacred_timeline": 1047,
+    "timeline_order": 1046
   },
   {
     "title": "And the Sea Shall Give Up Its Dead",
