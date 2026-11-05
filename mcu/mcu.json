@@ -5408,7 +5408,7 @@
     "canon": true,
     "multiverse": 13,
     "sacred_timeline": 839,
-    "timeline_order": 1047
+    "timeline_order": 1048
   },
   {
     "title": "Snow Gives Way",
@@ -12805,6 +12805,20 @@
     "timeline_order": 1045
   },
   {
+    "title": "Immolation",
+    "release_date": "2026-11-03",
+    "runtime": 65,
+    "type": "Disney+",
+    "id": "vision_quest_s1_e7",
+    "canon": true,
+    "multiverse": 0,
+    "show": "VisionQuest",
+    "season": 1,
+    "episode": 7,
+    "sacred_timeline": 1047,
+    "timeline_order": 1046
+  },
+  {
     "title": "Spider-Man: Brand New Day",
     "release_date": "2026-07-31",
     "runtime": 145,
@@ -12812,8 +12826,8 @@
     "id": "spider_man_bnd",
     "canon": true,
     "multiverse": 0,
-    "sacred_timeline": 1047,
-    "timeline_order": 1046
+    "sacred_timeline": 1048,
+    "timeline_order": 1047
   },
   {
     "title": "And the Sea Shall Give Up Its Dead",
