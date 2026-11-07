@@ -3069,3 +3069,207 @@ body.dark .progress-modal-btn-secondary {
     animation-name: fadeInCenter;
   }
 }
+
+
+/* ─── Select & hide titles ─── */
+.filter-pill[aria-pressed="true"].select-mode-pill {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.hidden-items-pill[hidden] { display: none; }
+
+body.select-mode .mcu-card:not(.group-card),
+body.select-mode .episode-row { cursor: pointer; }
+body.select-mode .mcu-card.is-watched { opacity: 1; }
+body.select-mode .watched-toggle,
+body.select-mode .watched-date-input { pointer-events: none; }
+.mcu-card.is-selected,
+.episode-row.is-selected {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  background: var(--accent-soft);
+}
+body.select-mode #list { padding-bottom: 96px; }
+
+.selection-bar {
+  position: fixed;
+  left: 50%;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 950;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 8px 8px 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--bg-strong);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.selection-bar[hidden] { display: none; }
+.selection-bar span { font-size: 0.875rem; font-weight: 600; }
+.selection-bar button {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.selection-bar button:hover:not(:disabled) { background: var(--accent-soft); }
+.selection-bar button:disabled { opacity: 0.4; cursor: default; }
+.selection-bar button:focus-visible { outline: 2px solid var(--accent); }
+.selection-bar .selection-bar-primary { background: var(--accent); color: #fff; }
+.selection-bar .selection-bar-primary:hover:not(:disabled) { background: var(--accent); filter: brightness(1.1); }
+
+.hidden-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+.hidden-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+.hidden-item-title { min-width: 0; font-size: 0.875rem; overflow-wrap: anywhere; }
+.hidden-item-restore {
+  flex-shrink: 0;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.hidden-item-restore:hover { background: var(--accent-soft); }
+body.print-mode .selection-bar { display: none; }
+
+/* ─── Per-card hide button ─── */
+/* Same footprint as .watched-toggle; eye-off icon in a circle so it reads as "hide", not "unwatch". */
+.hide-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.hide-btn svg { width: 14px; height: 14px; }
+body.view-compact .hide-btn { width: 24px; height: 24px; }
+.hide-btn:hover,
+.hide-btn:focus-visible {
+  color: #e5484d;
+  border-color: #e5484d;
+  background: rgba(229, 72, 77, 0.12);
+}
+.hide-btn:focus-visible { outline: 2px solid #e5484d; outline-offset: 2px; }
+.group-right .hide-btn { margin-right: 8px; }
+.episode-row .hide-btn { margin: 0 4px; }
+body.select-mode .hide-btn { display: none; }
+body.print-mode .hide-btn { display: none; }
+
+/* ─── Next up ─── */
+.next-up {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--accent-soft);
+}
+.next-up[hidden] { display: none; }
+.next-up-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.next-up-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.next-up-title { font-weight: 600; overflow-wrap: anywhere; }
+.next-up-meta { font-size: 0.8rem; color: var(--muted); }
+.next-up-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.next-up-btn {
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-strong);
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.next-up-btn:hover { border-color: var(--accent); }
+.next-up-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.next-up-btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.next-up-btn[hidden] { display: none; }
+@media (max-width: 520px) {
+  .next-up { flex-direction: column; align-items: stretch; }
+  .next-up-actions .next-up-btn { flex: 1; }
+}
+
+.flash-highlight { animation: flash-highlight 2s ease; }
+@keyframes flash-highlight {
+  0%, 60% { box-shadow: 0 0 0 3px var(--accent); }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* ─── Progress by studio ─── */
+.studio-progress { margin-top: 12px; }
+.studio-progress[hidden] { display: none; }
+.studio-progress > summary {
+  cursor: pointer;
+  width: max-content;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  list-style-position: inside;
+}
+.studio-progress-list { display: grid; gap: 10px; margin-top: 10px; }
+.studio-row-head { display: flex; justify-content: space-between; gap: 12px; font-size: 0.8rem; }
+.studio-row-name { font-weight: 600; }
+.studio-row-stat { color: var(--muted); text-align: right; }
+.studio-row-bar {
+  height: 6px;
+  margin-top: 4px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+.studio-row-bar > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--studio-color, var(--accent));
+}
+body.print-mode .next-up,
+body.print-mode .studio-progress { display: none; }

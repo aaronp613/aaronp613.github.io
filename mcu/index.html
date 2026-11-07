@@ -69,10 +69,10 @@
 
     <!-- ─── Announcement Banner ─── -->
     <!-- Set SHOW_ANNOUNCEMENT to true to display the banner, false to hide it -->
-    <script>var SHOW_ANNOUNCEMENT = false;</script>
+    <script>var SHOW_ANNOUNCEMENT = true;</script>
     <div id="announcement-banner" class="announcement-banner" style="display:none">
       <span class="announcement-badge">New</span>
-      <span class="announcement-text">New: <a href="changelog/" style="color:#fff;font-weight:700;text-decoration:underline;">Change Log</a> page is now live</span>
+      <span class="announcement-text">New: hide titles you don't want to track, plus Next up and progress by studio. <a href="changelog/" style="color:#fff;font-weight:700;text-decoration:underline;">See what's new</a></span>
       <button class="announcement-close" aria-label="Dismiss announcement" onclick="this.closest('.announcement-banner').style.display='none'">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="1" y1="1" x2="11" y2="11"/><line x1="11" y1="1" x2="1" y2="11"/>
@@ -129,6 +129,21 @@
           <span>Reset</span>
         </button>
       </div>
+      <div id="nextUp" class="next-up" hidden>
+        <div class="next-up-text">
+          <span class="next-up-label">Next up</span>
+          <span class="next-up-title" id="nextUpTitle"></span>
+          <span class="next-up-meta" id="nextUpMeta"></span>
+        </div>
+        <div class="next-up-actions">
+          <button id="nextUpShowBtn" class="next-up-btn" type="button">Show</button>
+          <button id="nextUpWatchBtn" class="next-up-btn next-up-btn-primary" type="button">Watched</button>
+        </div>
+      </div>
+      <details id="studioProgress" class="studio-progress" hidden>
+        <summary>Progress by studio</summary>
+        <div id="studioProgressList" class="studio-progress-list"></div>
+      </details>
     </div>
 
     <div class="search-panel">
@@ -242,6 +257,13 @@
             </div>
           </div>
         </div>
+        <button class="filter-pill select-mode-pill" id="selectModeBtn" type="button" aria-pressed="false" aria-label="Select titles to hide from the tracker">
+          <span class="btn-label">Select</span>
+        </button>
+        <button class="filter-pill hidden-items-pill" id="hiddenItemsBtn" type="button" aria-label="Manage hidden titles" hidden>
+          <span class="btn-label">Hidden</span>
+          <span class="filter-count">0</span>
+        </button>
         <button id="clearAllBtn" class="clear-all-btn" hidden>
           <span class="clear-label-full">Clear filters</span>
           <span class="clear-label-short">Clear</span>
@@ -256,6 +278,14 @@
       <p>Marvel, the Marvel logo, and all Marvel characters, titles, and related content are trademarks and &copy; of Marvel Entertainment, LLC. All rights reserved. This site is an unofficial fan resource and is not affiliated with, endorsed by, or connected to Marvel Entertainment, LLC, The Walt Disney Company, or any of their subsidiaries. All film, television, and streaming content referenced belongs to their respective owners.</p>
     </footer>
 
+  </div>
+
+  <div id="selectionBar" class="selection-bar" hidden>
+    <span id="selectionCount" role="status" aria-live="polite">0 selected</span>
+    <button id="selectAllBtn" type="button">Select all shown</button>
+    <button id="selectShowBtn" type="button" disabled>Whole show</button>
+    <button id="hideSelectedBtn" class="selection-bar-primary" type="button" disabled>Hide</button>
+    <button id="cancelSelectBtn" type="button">Cancel</button>
   </div>
 
   <div id="watchUndoToast" class="watch-undo-toast" hidden>
@@ -280,7 +310,7 @@
         </button>
       </div>
       <div id="exportContent" class="progress-modal-content hidden">
-        <p class="progress-modal-desc">Save this code somewhere safe to restore your progress later, or share the link so someone else can view or import it.</p>
+        <p class="progress-modal-desc">Save this code somewhere safe to restore your progress and hidden titles later, or share the link so someone else can view or import it.</p>
         <textarea id="progressCode" class="progress-modal-textarea" readonly></textarea>
         <div class="progress-modal-actions">
           <button id="copyLinkBtn" class="progress-modal-btn progress-modal-btn-secondary">Copy Link</button>
@@ -305,6 +335,12 @@
           <button id="viewSharedBtn" class="progress-modal-btn progress-modal-btn-secondary">View Only</button>
           <button id="importSharedBtn" class="progress-modal-btn">Import &amp; Overwrite</button>
         </div>
+      </div>
+      <div id="hiddenContent" class="progress-modal-content hidden">
+        <p class="progress-modal-desc">Hidden titles are removed from the tracker and from your time remaining. Restore them any time.</p>
+        <p id="hiddenItemsEmpty" class="progress-modal-desc" hidden>Nothing is hidden.</p>
+        <div id="hiddenItemsList" class="hidden-items-list"></div>
+        <button id="restoreAllHiddenBtn" class="progress-modal-btn" type="button">Restore All</button>
       </div>
       <div id="seasonCatchupContent" class="progress-modal-content hidden">
         <p class="progress-modal-desc" id="seasonCatchupDesc"></p>

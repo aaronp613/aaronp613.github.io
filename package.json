@@ -1,0 +1,15 @@
+{
+  "name": "aaronp613-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs render",
+    "build:ci": "node scripts/build.mjs all",
+    "test": "playwright test",
+    "test:install": "playwright install chromium"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "esbuild": "^0.28.2"
+  }
+}

@@ -732,7 +732,23 @@
       background: transparent;
     }
 
+    .work-card-header {
+      margin-bottom: 18px;
+    }
+
+    .company-icon-link {
+      display: block;
+      line-height: 0;
+      border-radius: 18px;
+    }
+
+    .company-icon-link:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
     .work-card-header span {
+      line-height: 1.3;
       font-size: 1.15rem;
       font-weight: 600;
       letter-spacing: -0.03em;
@@ -758,8 +774,8 @@
     }
 
     .details-toggle-icon {
-      display: inline-block;
-      transition: transform 0.25s ease;
+      display: inline-flex;
+      transition: transform 0.28s ease;
     }
 
     .details-toggle[aria-expanded="true"] .details-toggle-icon {
@@ -769,13 +785,19 @@
     .work-details {
       width: 100%;
       margin-top: 0;
-      padding-top: 10px;
       border-top: 0;
-      display: none;
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.28s ease;
     }
 
     .work-card.expanded .work-details {
-      display: block;
+      grid-template-rows: 1fr;
+    }
+
+    .work-details-inner {
+      min-height: 0;
+      overflow: hidden;
     }
 
     .work-details .role {
@@ -787,7 +809,7 @@
     .work-details .role:first-child {
       border-top: 0;
       margin-top: 0;
-      padding-top: 0;
+      padding-top: 10px;
     }
 
     .work-details .role strong {
@@ -872,6 +894,117 @@
       letter-spacing: -0.02em;
     }
 
+    /* Cards covering one product with several articles */
+    /* Leaked products: expand in place, like the work-history cards */
+    .carousel .article-card.has-sources {
+      flex-direction: column;
+      align-self: start;
+      padding: 12px;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      border-radius: 24px;
+      background: var(--bg-strong);
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.1), 0 1px 3px rgba(15, 23, 42, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      cursor: pointer;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+    }
+
+    body.dark .carousel .article-card.has-sources {
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .carousel .article-card.has-sources:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+      background: var(--surface-hover);
+    }
+
+    .carousel .article-card.has-sources > a,
+    .carousel .article-card.has-sources > a:hover,
+    .article-card.has-sources:hover > a {
+      min-height: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .carousel .article-card.has-sources > a > span {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .carousel .article-card.has-sources > a > span {
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(2.9em + 8px); /* reserve two lines (plus padding) so every card is the same height */
+      padding: 0 28px 8px;
+      text-align: center;
+    }
+
+    .carousel .article-card.has-sources > a svg.title-chevron {
+      position: absolute;
+      top: 0;
+      bottom: 8px;
+      right: 4px;
+      margin: auto 0;
+      color: var(--accent);
+      transition: transform 0.28s ease;
+    }
+
+    .article-card.has-sources.expanded .title-chevron { transform: rotate(180deg); }
+
+    .article-sources {
+      width: 100%;
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.28s ease;
+      cursor: default;
+    }
+
+    .article-card.has-sources.expanded .article-sources { grid-template-rows: 1fr; }
+
+    .article-sources-inner {
+      min-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .article-sources[hidden] { display: none; }
+
+    .carousel .article-card .article-sources a {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      width: 100%;
+      min-height: 0;
+      padding: 10px 12px;
+      border: 0;
+      border-radius: 12px;
+      background: transparent;
+      box-shadow: none;
+      transform: none;
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .carousel .article-card .article-sources a:hover { background: var(--accent-soft); transform: none; box-shadow: none; }
+    .article-sources small { color: var(--muted); font-size: 0.75rem; }
+
+    #articles .carousel a span {
+      width: 100%;
+      text-align: center;
+    }
+
     .share-button-icon {
       position: absolute;
       top: 22px;
@@ -924,7 +1057,7 @@
       cursor: pointer;
       overflow: hidden;
       width: 100%;
-      min-height: 240px;
+      min-height: 0; /* natural height, so expanding animates from the first frame */
       padding: 22px;
       align-self: start;
     }
@@ -939,8 +1072,8 @@
       text-align: left;
     }
 
-    .cve-card.expanded .cve-card-header {
-      padding-bottom: 14px;
+    .cve-card-header {
+      padding-bottom: 18px; /* constant (matches the work cards), so spacing above "View impact" never changes */
     }
 
     .cve-card-header strong {
@@ -963,7 +1096,7 @@
     .cve-details-wrap {
       display: grid;
       grid-template-rows: 0fr;
-      transition: grid-template-rows 0.32s ease;
+      transition: grid-template-rows 0.28s ease;
       width: 100%;
     }
 
@@ -975,11 +1108,11 @@
       overflow: hidden;
       min-height: 0;
       width: 100%;
-      padding-top: 14px;
     }
 
     .cve-details p {
       margin: 0;
+      padding-top: 14px;
       line-height: 1.65;
       color: var(--muted);
       text-align: left;
@@ -1250,11 +1383,11 @@
             <span class="metric-label">CVEs and security acknowledgments</span>
           </div>
           <div class="metric metric-impressions">
-            <span class="metric-value">163 Million</span>
+            <span class="metric-value">200 Million</span>
             <span class="metric-label">Impressions on X in the last year</span>
           </div>
           <div class="metric metric-leaks">
-            <span class="metric-value">25+</span>
+            <span class="metric-value" data-build="leak-count">30+</span>
             <span class="metric-label">Apple products leaked</span>
           </div>
           <div class="metric metric-engagements">
@@ -1378,7 +1511,7 @@
           </a>
           <div class="work-card-header">
             <img src="hoardware/icon.png" class="company-icon" alt="Hoardware app icon" />
-            <span><a href="/hoardware/">Hoardware</a></span>
+            <span>Hoardware</span>
           </div>
           <div class="work-details">
             <div class="role">
@@ -1428,87 +1561,62 @@
       </div>
       <div class="carousel-wrapper">
         <div class="carousel">
+<!-- build:articles -->
 <article class="article-card">
   <a href="https://www.macrumors.com/2026/08/07/ios-26-dopamine-jailbreak/" target="_blank" rel="noopener noreferrer">
   <img src="https://images.macrumors.com/t/mb1s-Q4ePmVyhif8tsgn6ywu2JM=/400x0/article-new/2026/08/dopamine.jpg?lossy" alt="iOS 26 Dopamine jailbreak" loading="lazy" decoding="async" width="800" height="450" />
   <span>iOS 26 Gets First Jailbreak Thanks to Dopamine</span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2026/08/07/ios-26-dopamine-jailbreak/')">
-    <img src="share.svg" alt="Share" />
-  </button>
 </article>
 <article class="article-card">
   <a href="https://www.macrumors.com/2024/07/04/leak-confirms-apples-work-on-home-accessory/" target="_blank" rel="noopener noreferrer">
   <img src="https://images.macrumors.com/t/i4Kp3qjnMz55ksLNT9fglAbPKK8=/1600x0/article-new/2021/04/HomePod-G4-Feature.jpg" alt="Apple home accessory concept" loading="lazy" decoding="async" width="800" height="450" />
   <span>Leak Confirms Apple's Work on Home Accessory</span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2024/07/04/leak-confirms-apples-work-on-home-accessory/')">
-    <img src="share.svg" alt="Share" />
-  </button>
 </article>
 <article class="article-card">
   <a href="https://www.macrumors.com/2024/05/14/vision-pro-chinese-database/" target="_blank" rel="noopener noreferrer">
   <img src="https://images.macrumors.com/t/QKhvAq5D9Ln0Tbtg9bloGOYld6I=/1600x0/article-new/2024/01/Apple-Vision-Pro-Dual-Loop-Band-Purple-Feature-2.jpg" alt="Apple Vision Pro" loading="lazy" decoding="async" width="800" height="450" />
   <span>Vision Pro Referenced in Chinese Regulatory Database</span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2024/05/14/vision-pro-chinese-database/')">
-    <img src="share.svg" alt="Share" />
-  </button>
 </article>
 <article class="article-card">
   <a href="https://www.macrumors.com/2024/03/27/ios-18-topographic-maps/" target="_blank" rel="noopener noreferrer">
   <img src="https://images.macrumors.com/t/J8H3fQ7niLo4PFtSwPXcm0KO22s=/1600x0/article-new/2023/04/watchos-10-maps-app.jpg" alt="Topographic map on Apple Watch" loading="lazy" decoding="async" width="800" height="450" />
   <span>iOS 18 to Add Topographic Maps</span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2024/03/27/ios-18-topographic-maps/')">
-    <img src="share.svg" alt="Share" />
-  </button>
 </article>
 <article class="article-card">
   <a href="https://www.macrumors.com/2024/03/26/apple-maps-custom-routes-ios-18/" target="_blank" rel="noopener noreferrer">
   <img src="https://images.macrumors.com/t/DahKijosREv4QETfFdx_rq-5p3M=/1600x0/article-new/2022/03/apple-maps-3d-feature.jpg" alt="Apple Maps route visualization" loading="lazy" decoding="async" width="800" height="450" />
   <span>Apple Maps Custom Routes Coming in iOS 18</span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2024/03/26/apple-maps-custom-routes-ios-18/')">
-    <img src="share.svg" alt="Share" />
-  </button>
 </article>
 <article class="article-card">
   <a href="https://www.macrumors.com/2024/03/13/vision-pro-keyboard-new-languages/" target="_blank" rel="noopener noreferrer">
   <img src="https://images.macrumors.com/t/Ptkf6AcSt00_uPpFlev4ur6v2CQ=/1600x0/article-new/2024/01/apple-vision-pro-virtual-keyboard.jpg" alt="Apple Vision Pro virtual keyboard" loading="lazy" decoding="async" width="800" height="450" />
   <span>Vision Pro Keyboard Gains New Languages</span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2024/03/13/vision-pro-keyboard-new-languages/')">
-    <img src="share.svg" alt="Share" />
-  </button>
 </article>
 <article class="article-card">
   <a href="https://www.macrumors.com/2024/02/29/apple-self-service-repair-m3-macs/" target="_blank" rel="noopener noreferrer">
   <img src="https://images.macrumors.com/t/4K_hSodkECIXXY6LVkCuNchR55M=/1600x0/article-new/2024/02/Apple-Self-Service-Repair-MacBook.jpeg" alt="MacBook self service repair" loading="lazy" decoding="async" width="800" height="450" />
   <span>Apple Adds M3 Macs to Self Service Repair Program</span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2024/02/29/apple-self-service-repair-m3-macs/')">
-    <img src="share.svg" alt="Share" />
-  </button>
 </article>
 <article class="article-card">
   <a href="https://www.macrumors.com/2024/02/02/apple-vision-pro-developer-strap-diagnostics-mode/" target="_blank" rel="noopener noreferrer">
   <img src="https://images.macrumors.com/t/q1rN3yG3rxDE8PU3EmIfJD59iL4=/1600x0/article-new/2024/02/vision-pro-developer-strap-diagnostics.jpg" alt="Vision Pro developer strap" loading="lazy" decoding="async" width="800" height="450" />
   <span>Vision Pro Developer Strap Has Diagnostics Mode</span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2024/02/02/apple-vision-pro-developer-strap-diagnostics-mode/')">
-    <img src="share.svg" alt="Share" />
-  </button>
 </article>
 <article class="article-card">
   <a href="https://www.macrumors.com/2024/01/29/tvos-17-4-homeos-mention/" target="_blank" rel="noopener noreferrer">
   <img src="https://images.macrumors.com/t/KalJGT_p_yW-QM1s6LQIA8V-XAQ=/1600x0/article-new/2021/06/homeOS2.jpg" alt="Apple homeOS concept" loading="lazy" decoding="async" width="800" height="450" />
   <span>tvOS 17.4 Beta Code References 'homeOS'</span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2024/01/29/tvos-17-4-homeos-mention/')">
-    <img src="share.svg" alt="Share" />
-  </button>
 </article>
+<!-- /build:articles -->
         </div>
       </div>
     </div>
@@ -1522,195 +1630,218 @@
       </div>
       <div class="carousel-wrapper">
         <div class="carousel">
-<article class="article-card">
-  <a href="https://www.macrumors.com/2026/03/03/apple-accidentally-leaks-macbook-neo/" target="_blank" rel="noopener noreferrer">
-  <img src="https://images.macrumors.com/t/hZIeerr6ybjJG9pCKiD7zzls50U=/800x0/article-new/2026/03/MacBook-Neo-Feature-Pastel-1.jpg?lossy" alt="MacBook Neo" loading="lazy" decoding="async" width="800" height="450" />
-  <span>MacBook Neo</span>
-  </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2026/03/03/apple-accidentally-leaks-macbook-neo/')">
-    <img src="share.svg" alt="Share" />
-  </button>
-</article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2025/10/27/apple-may-release-pixelmator-pro-for-ipad/" target="_blank" rel="noopener noreferrer">
-  <img src="https://images.macrumors.com/t/D_5GcVL5WdJWLSIUB70bpAuyLpI=/800x0/article-new/2026/01/Apple-Creator-Studio.jpg?lossy" alt="Creator Studios" loading="lazy" decoding="async" width="800" height="450" />
-  <span>Apple Creator Studios</span>
-  </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2025/10/27/apple-may-release-pixelmator-pro-for-ipad/')">
-    <img src="share.svg" alt="Share" />
-  </button>
-</article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2025/08/13/apple-code-confirms-vision-pro-with-m5-chip/" target="_blank" rel="noopener noreferrer">
-  <img src="https://images.macrumors.com/t/EoPFToaHPlLjW06jCuhFZcH-9R4=/800x0/article-new/2024/03/Apple-Vision-Pro-2-Feature-1.jpg?lossy" alt="Vision Pro (2nd generation)" loading="lazy" decoding="async" width="800" height="450" />
-  <span>Vision Pro (2nd generation)</span>
-  </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2025/08/13/apple-code-confirms-vision-pro-with-m5-chip/')">
-    <img src="share.svg" alt="Share" />
-  </button>
-</article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2025/08/13/new-apple-tv-coming-later-this-year-with-a17-pro-chip/" target="_blank" rel="noopener noreferrer">
+<!-- build:leaks -->
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2026/09/25/new-apple-tv-4k-leaked/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-1">
   <img src="https://images.macrumors.com/t/H2bvc83RWHtIzMGaYfTRwQNkOsY=/800x0/smart/article-new/2022/10/Apple-TV-2022-Feature-Blue.jpg?lossy" alt="Apple TV 4K (4th generation)" loading="lazy" decoding="async" width="800" height="450" />
-  <span>Apple TV 4K (4th generation)</span>
+  <span>Apple TV 4K (4th generation)<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2025/08/13/new-apple-tv-coming-later-this-year-with-a17-pro-chip/')">
-    <img src="share.svg" alt="Share" />
-  </button>
+  <div class="article-sources" id="leak-sources-1" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2026/09/25/new-apple-tv-4k-leaked/" target="_blank" rel="noopener noreferrer"><strong>New Apple TV 4K Leaked</strong><small>Sep 25, 2026</small></a><a href="https://www.macrumors.com/2025/08/13/new-apple-tv-coming-later-this-year-with-a17-pro-chip/" target="_blank" rel="noopener noreferrer"><strong>New Apple TV Coming Later This Year With A17 Pro Chip</strong><small>Aug 13, 2025</small></a></div></div>
 </article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2025/08/13/homepod-mini-new-chip/" target="_blank" rel="noopener noreferrer">
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2026/09/25/first-look-at-homepod-mini-2/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-2">
   <img src="https://images.macrumors.com/t/ZfTxcxeWSXo21QAJhE4sN9QuuzA=/800x0/article-new/2022/08/yellow-homepod-mini-image.jpg?lossy" alt="HomePod mini (2nd generation)" loading="lazy" decoding="async" width="800" height="450" />
-  <span>HomePod mini (2nd generation)</span>
+  <span>HomePod mini (2nd generation)<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2025/08/13/homepod-mini-new-chip/')">
-    <img src="share.svg" alt="Share" />
-  </button>
+  <div class="article-sources" id="leak-sources-2" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2026/09/25/first-look-at-homepod-mini-2/" target="_blank" rel="noopener noreferrer"><strong>Exclusive: First Look at HomePod Mini 2 in Three New Colors</strong><small>Sep 25, 2026</small></a><a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer"><strong>macOS Tahoe 26.7 is Full of References to Unreleased Apple Products</strong><small>Aug 17, 2026</small></a><a href="https://www.macrumors.com/2025/08/13/homepod-mini-new-chip/" target="_blank" rel="noopener noreferrer"><strong>HomePod Mini With Updated Chip Coming Soon</strong><small>Aug 13, 2025</small></a></div></div>
 </article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2025/08/13/apple-still-working-on-studio-display-2/" target="_blank" rel="noopener noreferrer">
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2026/09/25/ipad-mini-8-leaked/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-3">
+  <img src="https://images.macrumors.com/t/UF9T1HdmkOf-ucOs8ybVBiNIPAk=/800x0/article-new/2024/10/ipad-mini-7-feature-red-and-blue.jpg?lossy" alt="iPad mini (A20 Pro)" loading="lazy" decoding="async" width="800" height="450" />
+  <span>iPad mini (A20 Pro)<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-3" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2026/09/25/ipad-mini-8-leaked/" target="_blank" rel="noopener noreferrer"><strong>iPad Mini 8 Leaked: A20 Pro Chip, Landscape Camera, and More</strong><small>Sep 25, 2026</small></a><a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer"><strong>macOS Tahoe 26.7 is Full of References to Unreleased Apple Products</strong><small>Aug 17, 2026</small></a><a href="https://www.macrumors.com/2025/08/13/ipad-mini-a19-pro-chip/" target="_blank" rel="noopener noreferrer"><strong>Next iPad Mini to Feature A19 Pro Chip</strong><small>Aug 13, 2025</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2026/08/17/camera-equipped-airpods-macos-26-7/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-4">
+  <img src="https://images.macrumors.com/t/qMImvyw5mFJyi0_hWikgc1EzqFo=/1600x0/article-new/2026/08/apple-camera-airpods.jpg?lossy" alt="AirPods Pro 4" loading="lazy" decoding="async" width="800" height="450" />
+  <span>AirPods Pro 4<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-4" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2026/08/17/camera-equipped-airpods-macos-26-7/" target="_blank" rel="noopener noreferrer"><strong>Apple's Camera-Equipped AirPods Confirmed: See Them in Action</strong><small>Aug 17, 2026</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-5">
+  <img src="https://images.macrumors.com/t/SwcfeDJ7Vr5X9trxkhN6pdTAkJ4=/1600x0/article-new/2026/10/Apple-HomeView-lineup-feature5.jpg?lossy" alt="Apple HomeView" loading="lazy" decoding="async" width="800" height="450" />
+  <span>Apple HomeView<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-5" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer"><strong>macOS Tahoe 26.7 is Full of References to Unreleased Apple Products</strong><small>Aug 17, 2026</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-6">
+  <img src="https://images.macrumors.com/t/16VoF_k70P_Y3spUlVjOdMe-H5U=/1600x0/article-new/2026/08/Beats-360-Feature.jpg?lossy" alt="Beats 360" loading="lazy" decoding="async" width="800" height="450" />
+  <span>Beats 360<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-6" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer"><strong>macOS Tahoe 26.7 is Full of References to Unreleased Apple Products</strong><small>Aug 17, 2026</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-7">
+  <img src="https://images.macrumors.com/t/QClcFlFyzoAwMsjuuOl9mpBBmCo=/3840x/article-new/2026/10/Apple-MacBook-Pro-14-in-with-M6-Pixelmator-Pro-261027.jpg" alt="MacBook Pro 14-inch (M6)" loading="lazy" decoding="async" width="800" height="450" />
+  <span>MacBook Pro 14-inch (M6)<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-7" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer"><strong>macOS Tahoe 26.7 is Full of References to Unreleased Apple Products</strong><small>Aug 17, 2026</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-8">
+  <img src="https://images.macrumors.com/t/JoopkQn0dAHgsjS2imZqempM_Gc=/1600x0/article-new/2026/11/Apples-First-Touchscreen-Mac-is-Now-Arriving-to-Customers-Feature.jpg?lossy" alt="MacBook Pro (PROLED XDR, M5 Pro/Max)" loading="lazy" decoding="async" width="800" height="450" />
+  <span>MacBook Pro (PROLED XDR, M5 Pro/Max)<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-8" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer"><strong>macOS Tahoe 26.7 is Full of References to Unreleased Apple Products</strong><small>Aug 17, 2026</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-9">
+  <img src="https://images.macrumors.com/t/N7hZZTrFEwoo1RXSP-Z0c_p2Hzc=/1600x0/article-new/2026/10/M6-iMac-Feature-2.jpg?lossy" alt="iMac (24-inch, M6)" loading="lazy" decoding="async" width="800" height="450" />
+  <span>iMac (24-inch, M6)<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-9" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer"><strong>macOS Tahoe 26.7 is Full of References to Unreleased Apple Products</strong><small>Aug 17, 2026</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-10">
+  <img src="https://images.macrumors.com/t/Ra1S0MFIMLBf9MazmwDFbTaFUx4=/1600x0/article-new/2026/09/iPhone-18-Pro-Burgundy-Feature.jpeg?lossy" alt="iPhone 18 Series" loading="lazy" decoding="async" width="800" height="450" />
+  <span>iPhone 18 Series<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-10" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer"><strong>macOS Tahoe 26.7 is Full of References to Unreleased Apple Products</strong><small>Aug 17, 2026</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-11">
+  <img src="https://images.macrumors.com/t/pUSQMawnbO6nISkQxM9gFhhl_TI=/1600x0/article-new/2026/09/iphone-duo-split-keyboard.jpg?lossy" alt="iPhone Duo" loading="lazy" decoding="async" width="800" height="450" />
+  <span>iPhone Duo<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-11" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer"><strong>macOS Tahoe 26.7 is Full of References to Unreleased Apple Products</strong><small>Aug 17, 2026</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-12">
+  <img src="https://images.macrumors.com/t/luAvgiLAU92svw_cnyiljGcXB4s=/1600x0/article-new/2023/01/siri-remote-purple.jpg?lossy" alt="Siri Remote (4th generation)" loading="lazy" decoding="async" width="800" height="450" />
+  <span>Siri Remote (4th generation)<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-12" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2026/08/17/macos-26-7-unreleased-apple-devices/" target="_blank" rel="noopener noreferrer"><strong>macOS Tahoe 26.7 is Full of References to Unreleased Apple Products</strong><small>Aug 17, 2026</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2026/03/03/apple-accidentally-leaks-macbook-neo/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-13">
+  <img src="https://images.macrumors.com/t/hZIeerr6ybjJG9pCKiD7zzls50U=/800x0/article-new/2026/03/MacBook-Neo-Feature-Pastel-1.jpg?lossy" alt="MacBook Neo" loading="lazy" decoding="async" width="800" height="450" />
+  <span>MacBook Neo<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-13" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2026/03/03/apple-accidentally-leaks-macbook-neo/" target="_blank" rel="noopener noreferrer"><strong>Apple Accidentally Leaks 'MacBook Neo'</strong><small>Mar 3, 2026</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2025/10/27/apple-may-release-pixelmator-pro-for-ipad/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-14">
+  <img src="https://images.macrumors.com/t/D_5GcVL5WdJWLSIUB70bpAuyLpI=/800x0/article-new/2026/01/Apple-Creator-Studio.jpg?lossy" alt="Creator Studios" loading="lazy" decoding="async" width="800" height="450" />
+  <span>Apple Creator Studios<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-14" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2025/10/27/apple-may-release-pixelmator-pro-for-ipad/" target="_blank" rel="noopener noreferrer"><strong>Apple Might Release iPad Apps for Pixelmator Pro, MainStage, and More</strong><small>Oct 27, 2025</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2025/08/13/apple-code-confirms-vision-pro-with-m5-chip/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-15">
+  <img src="https://images.macrumors.com/t/EoPFToaHPlLjW06jCuhFZcH-9R4=/800x0/article-new/2024/03/Apple-Vision-Pro-2-Feature-1.jpg?lossy" alt="Vision Pro (2nd generation)" loading="lazy" decoding="async" width="800" height="450" />
+  <span>Vision Pro (2nd generation)<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-15" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2025/08/13/apple-code-confirms-vision-pro-with-m5-chip/" target="_blank" rel="noopener noreferrer"><strong>Apple Code Confirms Vision Pro With M5 Chip</strong><small>Aug 13, 2025</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2025/08/13/apple-still-working-on-studio-display-2/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-16">
   <img src="https://images.macrumors.com/t/_LQMOI-hcrbR_hTxTl0Jj3tQVhI=/800x0/article-new/2025/02/studio-display-new-purple.jpeg?lossy" alt="Studio Display (2nd generation)" loading="lazy" decoding="async" width="800" height="450" />
-  <span>Studio Display (2nd generation)</span>
+  <span>Studio Display (2nd generation)<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2025/08/13/apple-still-working-on-studio-display-2/')">
-    <img src="share.svg" alt="Share" />
-  </button>
+  <div class="article-sources" id="leak-sources-16" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2025/08/13/apple-still-working-on-studio-display-2/" target="_blank" rel="noopener noreferrer"><strong>Apple Still Working on Studio Display 2</strong><small>Aug 13, 2025</small></a></div></div>
 </article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2025/08/13/ipad-mini-a19-pro-chip/" target="_blank" rel="noopener noreferrer">
-  <img src="https://images.macrumors.com/t/UF9T1HdmkOf-ucOs8ybVBiNIPAk=/800x0/article-new/2024/10/ipad-mini-7-feature-red-and-blue.jpg?lossy" alt="iPad mini (A19 Pro)" loading="lazy" decoding="async" width="800" height="450" />
-  <span>iPad mini (A19 Pro)</span>
-  </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2025/08/13/ipad-mini-a19-pro-chip/')">
-    <img src="share.svg" alt="Share" />
-  </button>
-</article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2025/08/13/apple-watch-s11-chip-info/" target="_blank" rel="noopener noreferrer">
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2025/08/13/apple-watch-s11-chip-info/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-17">
   <img src="https://images.macrumors.com/t/8EalJ3vQTnk3yOhWx1w87l-3T3Y=/800x0/article-new/2023/09/apple-watch-ultra-pink.jpg?lossy" alt="Apple Watch S11" loading="lazy" decoding="async" width="800" height="450" />
-  <span>Apple Watch S11</span>
+  <span>Apple Watch S11<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2025/08/13/apple-watch-s11-chip-info/')">
-    <img src="share.svg" alt="Share" />
-  </button>
+  <div class="article-sources" id="leak-sources-17" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2025/08/13/apple-watch-s11-chip-info/" target="_blank" rel="noopener noreferrer"><strong>Leaked S11 Chip Details Reveal No Major Performance Upgrades for 2025 Apple Watches</strong><small>Aug 13, 2025</small></a></div></div>
 </article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2025/08/13/apple-watch-s11-chip-info/" target="_blank" rel="noopener noreferrer">
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2025/08/13/apple-watch-s11-chip-info/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-18">
   <img src="https://images.macrumors.com/t/31wNOrj3s4TyMv7MlUvDT4mi4s4=/800x0/article-new/2025/04/apple-watch-se-orange.jpeg?lossy" alt="Apple Watch SE (3rd generation)" loading="lazy" decoding="async" width="800" height="450" />
-  <span>Apple Watch SE (3rd generation)</span>
+  <span>Apple Watch SE (3rd generation)<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2025/08/13/apple-watch-s11-chip-info/')">
-    <img src="share.svg" alt="Share" />
-  </button>
+  <div class="article-sources" id="leak-sources-18" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2025/08/13/apple-watch-s11-chip-info/" target="_blank" rel="noopener noreferrer"><strong>Leaked S11 Chip Details Reveal No Major Performance Upgrades for 2025 Apple Watches</strong><small>Aug 13, 2025</small></a></div></div>
 </article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2025/08/05/apple-watch-ultra-3-display-size/" target="_blank" rel="noopener noreferrer">
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2025/08/05/apple-watch-ultra-3-display-size/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-19">
   <img src="https://images.macrumors.com/t/qcgpN6rcGic8eLtS38VJVyzEvsM=/800x0/article-new/2025/07/ultra-2-prime-day.jpeg?lossy" alt="Apple Watch Ultra 3" loading="lazy" decoding="async" width="800" height="450" />
-  <span>Apple Watch Ultra 3</span>
+  <span>Apple Watch Ultra 3<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2025/08/05/apple-watch-ultra-3-display-size/')">
-    <img src="share.svg" alt="Share" />
-  </button>
+  <div class="article-sources" id="leak-sources-19" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2025/08/05/apple-watch-ultra-3-display-size/" target="_blank" rel="noopener noreferrer"><strong>iOS 26 Beta Reveals Apple Watch Ultra 3 Display Size</strong><small>Aug 5, 2025</small></a></div></div>
 </article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2025/06/26/apple-codebase-unreleased-audio-product/" target="_blank" rel="noopener noreferrer">
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2025/06/26/apple-codebase-unreleased-audio-product/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-20">
   <img src="https://images.macrumors.com/t/nx9V28XkJ1ZfWzBrP0IlwVGtsW0=/800x0/article-new/2025/05/airpods-pro-2-pinnk.jpeg?lossy" alt="AirPods Pro 3" loading="lazy" decoding="async" width="800" height="450" />
-  <span>AirPods Pro 3</span>
+  <span>AirPods Pro 3<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2025/06/26/apple-codebase-unreleased-audio-product/')">
-    <img src="share.svg" alt="Share" />
-  </button>
+  <div class="article-sources" id="leak-sources-20" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2025/06/26/apple-codebase-unreleased-audio-product/" target="_blank" rel="noopener noreferrer"><strong>Unreleased Audio Product Spotted in Apple's Codebase</strong><small>Jun 26, 2025</small></a></div></div>
 </article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2023/03/21/ios-16-4-airpods-reference/" target="_blank" rel="noopener noreferrer">
-  <img src="https://images.macrumors.com/t/biWqlDz6FHZFiekTaZK2c_8ijVU=/800x0/article-new/2022/07/airpodsd-3-purple-4.jpg?lossy" alt="AirPods Pro 2" loading="lazy" decoding="async" width="800" height="450" />
-  <span>AirPods Pro 2</span>
-  </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2023/03/21/ios-16-4-airpods-reference/')">
-    <img src="share.svg" alt="Share" />
-  </button>
-</article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2024/09/16/mac-mini-5-usb-c-ports-leak/" target="_blank" rel="noopener noreferrer">
-  <img src="https://images.macrumors.com/t/DwD32v0RxVcwiXBFkftPFZDR5K4=/800x0/article-new/2024/08/M4-Mac-mini-Black-Ortho-Cooler.jpg?lossy" alt="Mac Mini (M4)" loading="lazy" decoding="async" width="800" height="450" />
-  <span>Mac Mini (M4)</span>
-  </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2024/09/16/mac-mini-5-usb-c-ports-leak/')">
-    <img src="share.svg" alt="Share" />
-  </button>
-</article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2023/08/09/tvos-code-a17-chip-iphone-15/" target="_blank" rel="noopener noreferrer">
-  <img src="https://images.macrumors.com/t/vdCo_Y6Bx5VlU1CuwRCgy_wR-pQ=/800x0/article-new/2023/08/iPhone-15-Blue-Three-Quarters-Perspective-Feature.jpg?lossy" alt="iPhone 15 Lineup" loading="lazy" decoding="async" width="800" height="450" />
-  <span>iPhone 15 Lineup</span>
-  </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2023/08/09/tvos-code-a17-chip-iphone-15/')">
-    <img src="share.svg" alt="Share" />
-  </button>
-</article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2023/05/09/apple-working-on-new-beats-studio-pro/" target="_blank" rel="noopener noreferrer">
-  <img src="https://images.macrumors.com/t/mWxGKdH69pNEyixG6ESpkW6AjWw=/800x0/article-new/2023/05/beats-studio-pro.jpg?lossy" alt="Beats Studio Pro" loading="lazy" decoding="async" width="800" height="450" />
-  <span>Beats Studio Pro</span>
-  </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2023/05/09/apple-working-on-new-beats-studio-pro/')">
-    <img src="share.svg" alt="Share" />
-  </button>
-</article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2024/02/27/apple-working-on-beats-solo-4-headphones/" target="_blank" rel="noopener noreferrer">
-  <img src="https://images.macrumors.com/t/rULS-Wc82cpgBPK3kG2shCbG9jM=/800x0/article-new/2024/02/new-beats-solo-4.jpg?lossy" alt="Beats Solo 4" loading="lazy" decoding="async" width="800" height="450" />
-  <span>Beats Solo 4</span>
-  </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2024/02/27/apple-working-on-beats-solo-4-headphones/')">
-    <img src="share.svg" alt="Share" />
-  </button>
-</article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2024/05/07/apple-beats-pill-ios-17-5/" target="_blank" rel="noopener noreferrer">
-  <img src="https://images.macrumors.com/t/dIzJ7x-turBMrUL6pctAhyFx60c=/800x0/article-new/2024/05/New-Beats-Pill-iOS-17.5-Feature.jpg?lossy" alt="Beats Pill" loading="lazy" decoding="async" width="800" height="450" />
-  <span>Beats Pill</span>
-  </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2024/05/07/apple-beats-pill-ios-17-5/')">
-    <img src="share.svg" alt="Share" />
-  </button>
-</article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2022/07/29/apple-new-beats-fit-pro-colors/" target="_blank" rel="noopener noreferrer">
-  <img src="https://images.macrumors.com/t/50A0ts1cGQQHUeciHTMIyiC6Ntk=/800x0/article-new/2022/07/Mica-Ochre-Umber-Beats-Feature.jpg?lossy" alt="Kim K Beats Fit Pro" loading="lazy" decoding="async" width="800" height="450" />
-  <span>Beats Fit Pro - Kim Kardashian Edition</span>
-  </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2022/07/29/apple-new-beats-fit-pro-colors/')">
-    <img src="share.svg" alt="Share" />
-  </button>
-</article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2022/06/23/ios-16-new-siri-remote-for-apple-tv-rumor/" target="_blank" rel="noopener noreferrer">
-  <img src="https://images.macrumors.com/t/yB1Davlw98iKUQOUDFv3RXtQ3wQ=/800x0/article-new/2021/04/apple-tv-4k-design-clue.jpg?lossy" alt="Siri Remote (3rd generation)" loading="lazy" decoding="async" width="800" height="450" />
-  <span>Siri Remote (3rd generation)</span>
-  </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2022/06/23/ios-16-new-siri-remote-for-apple-tv-rumor/')">
-    <img src="share.svg" alt="Share" />
-  </button>
-</article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2024/10/21/apple-new-magic-mouse-trackpad-keyboard/" target="_blank" rel="noopener noreferrer">
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2024/10/21/apple-new-magic-mouse-trackpad-keyboard/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-21">
   <img src="https://images.macrumors.com/t/rsT7_VUXXol4Wifu8PQHLygfa0o=/800x0/article-new/2022/02/mac-magic-keyboard.jpg?lossy" alt="USB-C Magic Accessories" loading="lazy" decoding="async" width="800" height="450" />
-  <span>USB-C Magic Accessories</span>
+  <span>USB-C Magic Accessories<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2024/10/21/apple-new-magic-mouse-trackpad-keyboard/')">
-    <img src="share.svg" alt="Share" />
-  </button>
+  <div class="article-sources" id="leak-sources-21" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2024/10/21/apple-new-magic-mouse-trackpad-keyboard/" target="_blank" rel="noopener noreferrer"><strong>Apple Working on New Magic Mouse 2, Magic Trackpad 2 and Magic Keyboard</strong><small>Oct 21, 2024</small></a></div></div>
 </article>
-<article class="article-card">
-  <a href="https://www.macrumors.com/2023/04/26/2023-apple-watch-price-face-band/" target="_blank" rel="noopener noreferrer">
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2024/09/16/mac-mini-5-usb-c-ports-leak/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-22">
+  <img src="https://images.macrumors.com/t/DwD32v0RxVcwiXBFkftPFZDR5K4=/800x0/article-new/2024/08/M4-Mac-mini-Black-Ortho-Cooler.jpg?lossy" alt="Mac Mini (M4)" loading="lazy" decoding="async" width="800" height="450" />
+  <span>Mac Mini (M4)<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-22" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2024/09/16/mac-mini-5-usb-c-ports-leak/" target="_blank" rel="noopener noreferrer"><strong>Apple Leaks New Mac Mini With 5 USB-C Ports</strong><small>Sep 16, 2024</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2024/05/07/apple-beats-pill-ios-17-5/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-23">
+  <img src="https://images.macrumors.com/t/dIzJ7x-turBMrUL6pctAhyFx60c=/800x0/article-new/2024/05/New-Beats-Pill-iOS-17.5-Feature.jpg?lossy" alt="Beats Pill" loading="lazy" decoding="async" width="800" height="450" />
+  <span>Beats Pill<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-23" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2024/05/07/apple-beats-pill-ios-17-5/" target="_blank" rel="noopener noreferrer"><strong>New Beats Pill Spotted in iOS 17.5 Beta</strong><small>May 7, 2024</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2024/02/27/apple-working-on-beats-solo-4-headphones/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-24">
+  <img src="https://images.macrumors.com/t/rULS-Wc82cpgBPK3kG2shCbG9jM=/800x0/article-new/2024/02/new-beats-solo-4.jpg?lossy" alt="Beats Solo 4" loading="lazy" decoding="async" width="800" height="450" />
+  <span>Beats Solo 4<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-24" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2024/02/27/apple-working-on-beats-solo-4-headphones/" target="_blank" rel="noopener noreferrer"><strong>Apple Working on Beats Solo 4 Headphones</strong><small>Feb 27, 2024</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2023/08/09/tvos-code-a17-chip-iphone-15/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-25">
+  <img src="https://images.macrumors.com/t/vdCo_Y6Bx5VlU1CuwRCgy_wR-pQ=/800x0/article-new/2023/08/iPhone-15-Blue-Three-Quarters-Perspective-Feature.jpg?lossy" alt="iPhone 15 Lineup" loading="lazy" decoding="async" width="800" height="450" />
+  <span>iPhone 15 Lineup<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-25" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2023/08/09/tvos-code-a17-chip-iphone-15/" target="_blank" rel="noopener noreferrer"><strong>tvOS 17 Code Confirms A17 Chip for iPhone 15 Pro, A16 for iPhone 15</strong><small>Aug 9, 2023</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2023/05/09/apple-working-on-new-beats-studio-pro/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-26">
+  <img src="https://images.macrumors.com/t/mWxGKdH69pNEyixG6ESpkW6AjWw=/800x0/article-new/2023/05/beats-studio-pro.jpg?lossy" alt="Beats Studio Pro" loading="lazy" decoding="async" width="800" height="450" />
+  <span>Beats Studio Pro<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-26" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2023/05/09/apple-working-on-new-beats-studio-pro/" target="_blank" rel="noopener noreferrer"><strong>Apple Working on New Beats Studio Pro Headphones</strong><small>May 9, 2023</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2023/04/26/2023-apple-watch-price-face-band/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-27">
   <img src="https://images.macrumors.com/t/g06yczIq9EUb7A6lcitU7Fhbivo=/800x0/article-new/2023/04/2023-pride-watch-face-band-feature.jpg?lossy" alt="2023 Pride Face/Band" loading="lazy" decoding="async" width="800" height="450" />
-  <span>2023 Pride Band</span>
+  <span>2023 Pride Band<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
   </a>
-  <button type="button" class="share-button-icon" onclick="shareArticle('https://www.macrumors.com/2023/04/26/2023-apple-watch-price-face-band/')">
-    <img src="share.svg" alt="Share" />
-  </button>
+  <div class="article-sources" id="leak-sources-27" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2023/04/26/2023-apple-watch-price-face-band/" target="_blank" rel="noopener noreferrer"><strong>2023 Apple Watch Pride Edition Face and Band Unearthed in Code</strong><small>Apr 26, 2023</small></a></div></div>
 </article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2023/03/21/ios-16-4-airpods-reference/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-28">
+  <img src="https://images.macrumors.com/t/biWqlDz6FHZFiekTaZK2c_8ijVU=/800x0/article-new/2022/07/airpodsd-3-purple-4.jpg?lossy" alt="AirPods Pro 2" loading="lazy" decoding="async" width="800" height="450" />
+  <span>AirPods Pro 2<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-28" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2023/03/21/ios-16-4-airpods-reference/" target="_blank" rel="noopener noreferrer"><strong>iOS 16.4 Seemingly References New AirPods and AirPods Case</strong><small>Mar 21, 2023</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2022/07/29/apple-new-beats-fit-pro-colors/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-29">
+  <img src="https://images.macrumors.com/t/50A0ts1cGQQHUeciHTMIyiC6Ntk=/800x0/article-new/2022/07/Mica-Ochre-Umber-Beats-Feature.jpg?lossy" alt="Kim K Beats Fit Pro" loading="lazy" decoding="async" width="800" height="450" />
+  <span>Beats Fit Pro - Kim Kardashian Edition<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-29" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2022/07/29/apple-new-beats-fit-pro-colors/" target="_blank" rel="noopener noreferrer"><strong>Apple Working on New Beats Fit Pro Colors</strong><small>Jul 29, 2022</small></a></div></div>
+</article>
+<article class="article-card has-sources">
+  <a href="https://www.macrumors.com/2022/06/23/ios-16-new-siri-remote-for-apple-tv-rumor/" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="leak-sources-30">
+  <img src="https://images.macrumors.com/t/yB1Davlw98iKUQOUDFv3RXtQ3wQ=/800x0/article-new/2021/04/apple-tv-4k-design-clue.jpg?lossy" alt="Siri Remote (3rd generation)" loading="lazy" decoding="async" width="800" height="450" />
+  <span>Siri Remote (3rd generation)<svg class="title-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3.5,6 8,10.5 12.5,6"/></svg></span>
+  </a>
+  <div class="article-sources" id="leak-sources-30" aria-hidden="true" inert><div class="article-sources-inner"><a href="https://www.macrumors.com/2022/06/23/ios-16-new-siri-remote-for-apple-tv-rumor/" target="_blank" rel="noopener noreferrer"><strong>New Siri Remote for Apple TV Seemingly Referenced in iOS 16 Beta</strong><small>Jun 23, 2022</small></a></div></div>
+</article>
+<!-- /build:leaks -->
         </div>
       </div>
     </div>
@@ -1839,29 +1970,24 @@
     </main>
   </div>
 
-  <div id="share-status" class="visually-hidden" role="status" aria-live="polite"></div>
-
   <script>
-    function announceShare(message) {
-      const status = document.getElementById('share-status');
-      status.textContent = '';
-      window.setTimeout(() => { status.textContent = message; }, 10);
+    // Leaked-product cards: click to expand the article links in place (one open at a time).
+    function setSourcesOpen(card, open) {
+      card.classList.toggle('expanded', open);
+      const list = card.querySelector('.article-sources');
+      list.setAttribute('aria-hidden', String(!open));
+      list.inert = !open;
+      card.querySelector(':scope > a').setAttribute('aria-expanded', String(open));
     }
-
-    async function shareArticle(url) {
-      try {
-        if (navigator.share) {
-          await navigator.share({ title: document.title, url });
-          announceShare('Share sheet opened.');
-        } else {
-          await navigator.clipboard.writeText(url);
-          announceShare('Link copied to clipboard.');
-        }
-      } catch (error) {
-        if (error && error.name === 'AbortError') return;
-        announceShare('Unable to share this link.');
-      }
-    }
+    document.querySelectorAll('.article-card.has-sources').forEach(card => {
+      card.addEventListener('click', event => {
+        if (event.target.closest('.article-sources')) return;
+        event.preventDefault();
+        const open = !card.classList.contains('expanded');
+        document.querySelectorAll('.article-card.has-sources.expanded').forEach(other => setSourcesOpen(other, false));
+        setSourcesOpen(card, open);
+      });
+    });
     function toggleDetails(clickedCard) {
       const allCards = document.querySelectorAll('.work-card');
       
@@ -1941,10 +2067,29 @@
       }
     }
 
+    const CHEVRON_SVG = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,6 8,10.5 12.5,6"/></svg>';
+
     document.querySelectorAll('.work-card').forEach((card, index) => {
       card.removeAttribute('onclick');
+      const shareLink = card.querySelector('.share-button-icon');
+      const icon = card.querySelector('.company-icon');
+      if (shareLink && icon) {
+        const iconLink = document.createElement('a');
+        iconLink.className = 'company-icon-link';
+        iconLink.href = shareLink.getAttribute('href');
+        if (shareLink.target) iconLink.target = shareLink.target;
+        if (iconLink.target === '_blank') iconLink.rel = 'noopener';
+        iconLink.setAttribute('aria-label', `Open ${icon.getAttribute('alt') || 'project'}`);
+        iconLink.addEventListener('click', event => event.stopPropagation());
+        icon.before(iconLink);
+        iconLink.appendChild(icon);
+      }
       const details = card.querySelector('.work-details');
       if (!details) return;
+      const inner = document.createElement('div');
+      inner.className = 'work-details-inner';
+      inner.append(...details.childNodes);
+      details.appendChild(inner);
       details.id = `work-details-${index + 1}`;
       details.setAttribute('aria-hidden', 'true');
       details.inert = true;
@@ -1953,7 +2098,7 @@
       toggle.className = 'details-toggle';
       toggle.setAttribute('aria-expanded', 'false');
       toggle.setAttribute('aria-controls', details.id);
-      toggle.innerHTML = `<span>${card.closest('#projects') ? 'View project details' : 'View roles'}</span><span class="details-toggle-icon" aria-hidden="true">⌄</span>`;
+      toggle.innerHTML = `<span>${card.closest('#projects') ? 'View project details' : 'View roles'}</span><span class="details-toggle-icon" aria-hidden="true">${CHEVRON_SVG}</span>`;
       toggle.addEventListener('click', event => {
         event.stopPropagation();
         toggleDetails(card);
@@ -1961,6 +2106,19 @@
       details.before(toggle);
       card.addEventListener('click', () => toggleDetails(card));
     });
+
+    // Give every CVE card header the height of the tallest one, so collapsed cards line up
+    // while the expand animation still starts from the first frame.
+    function equalizeCveHeaders() {
+      const headers = [...document.querySelectorAll('.cve-card-header')];
+      headers.forEach(header => { header.style.minHeight = ''; });
+      const content = header => header.getBoundingClientRect().height - parseFloat(getComputedStyle(header).paddingBottom);
+      const tallest = Math.max(0, ...headers.map(content));
+      headers.forEach(header => { header.style.minHeight = `${Math.ceil(tallest + parseFloat(getComputedStyle(header).paddingBottom))}px`; });
+    }
+    window.addEventListener('resize', equalizeCveHeaders);
+    window.addEventListener('load', equalizeCveHeaders);
+    document.fonts?.ready.then(equalizeCveHeaders);
 
     document.querySelectorAll('.cve-card').forEach((card, index) => {
       card.removeAttribute('onclick');
@@ -1976,7 +2134,7 @@
       toggle.setAttribute('aria-expanded', 'false');
       toggle.setAttribute('aria-controls', details.id);
       toggle.setAttribute('aria-label', `View impact for ${title}`);
-      toggle.innerHTML = '<span>View impact</span><span class="details-toggle-icon" aria-hidden="true">⌄</span>';
+      toggle.innerHTML = `<span>View impact</span><span class="details-toggle-icon" aria-hidden="true">${CHEVRON_SVG}</span>`;
       toggle.addEventListener('click', event => {
         event.stopPropagation();
         toggleCveDetails(card);

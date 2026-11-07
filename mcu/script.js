@@ -9,6 +9,10 @@ let pendingCatchupItem = null;
 let pendingCatchupEpisodes = [];
 let lastEpisodeWatchAction = null; // { id, show, season, time } - used for rapid-click detection
 let pendingWatchUndo = null;
+let pendingHideUndo = null; // { ids: string[], restore: boolean } - undo for hide/restore actions
+let hiddenIds = loadHiddenIds();
+let selectMode = false;
+const selectedIds = new Set();
 let watchUndoTimer = null;
 const WATCH_UNDO_DURATION_MS = 10000;
 const RAPID_WATCH_WINDOW_MS = 5000;
@@ -383,6 +387,166 @@ function clearFilterPanel(panelSelector) {
 }
 
 
+// ─── Hidden items (removed from the visible tracker and from all stats) ───
+function loadHiddenIds() {
+  try {
+    const saved = JSON.parse(localStorage.getItem("hidden_ids") || "[]");
+    return new Set(Array.isArray(saved) ? saved : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function saveHiddenIds() {
+  localStorage.setItem("hidden_ids", JSON.stringify([...hiddenIds]));
+}
+
+function isHidden(id) {
+  // A shared link carries the sender's hidden list, so a shared view mirrors their tracker.
+  if (sharedView) return sharedView.hidden ? sharedView.hidden.has(id) : false;
+  return hiddenIds.has(id);
+}
+
+function setHiddenIds(ids) {
+  hiddenIds = new Set(ids);
+  saveHiddenIds();
+}
+
+function visibleData() {
+  return fullData.filter(item => !isHidden(item.id));
+}
+
+function setSelectMode(on) {
+  selectMode = !!on && !sharedView;
+  selectedIds.clear();
+  document.body.classList.toggle("select-mode", selectMode);
+  const btn = document.getElementById("selectModeBtn");
+  if (btn) {
+    btn.setAttribute("aria-pressed", String(selectMode));
+    btn.querySelector(".btn-label").textContent = selectMode ? "Done" : "Select";
+  }
+  updateSelectionBar();
+  renderList(filteredData());
+}
+
+function toggleSelected(id) {
+  if (selectedIds.has(id)) selectedIds.delete(id);
+  else selectedIds.add(id);
+  updateSelectionBar();
+}
+
+// Add every title of the shows that already have a selected episode.
+function selectWholeShows() {
+  const shows = new Set(fullData.filter(item => selectedIds.has(item.id) && isEpisode(item)).map(item => item.show));
+  visibleData().forEach(item => {
+    if (isEpisode(item) && shows.has(item.show)) selectedIds.add(item.id);
+  });
+  updateSelectionBar();
+}
+
+function updateSelectionBar() {
+  const bar = document.getElementById("selectionBar");
+  if (!bar) return;
+  bar.hidden = !selectMode;
+  const n = selectedIds.size;
+  document.getElementById("selectionCount").textContent = `${n} selected`;
+  document.getElementById("hideSelectedBtn").disabled = n === 0;
+  document.getElementById("selectShowBtn").disabled =
+    !fullData.some(item => selectedIds.has(item.id) && isEpisode(item));
+  document.querySelectorAll("[data-select-id]").forEach(el => {
+    const on = selectedIds.has(el.dataset.selectId);
+    el.classList.toggle("is-selected", on);
+    el.setAttribute("aria-selected", String(on));
+  });
+}
+
+function updateHiddenButton() {
+  const btn = document.getElementById("hiddenItemsBtn");
+  if (!btn) return;
+  btn.hidden = hiddenIds.size === 0 || !!sharedView;
+  const count = btn.querySelector(".filter-count");
+  if (count) count.textContent = hiddenIds.size;
+}
+
+function hideItems(ids) {
+  const toHide = ids.filter(id => !isHidden(id));
+  if (!toHide.length) return;
+  clearWatchUndo();
+  toHide.forEach(id => hiddenIds.add(id));
+  saveHiddenIds();
+  pendingHideUndo = { ids: toHide, restore: false };
+  showUndoToast(`${toHide.length === 1 ? "1 item" : `${toHide.length} items`} hidden.`);
+}
+
+function restoreItems(ids, { withUndo = true } = {}) {
+  const toRestore = ids.filter(id => isHidden(id));
+  if (!toRestore.length) return;
+  clearWatchUndo();
+  toRestore.forEach(id => hiddenIds.delete(id));
+  saveHiddenIds();
+  if (withUndo) {
+    pendingHideUndo = { ids: toRestore, restore: true };
+    showUndoToast(`${toRestore.length === 1 ? "1 item" : `${toRestore.length} items`} restored.`);
+  }
+}
+
+function showUndoToast(message) {
+  document.getElementById("watchUndoToast").hidden = false;
+  document.getElementById("watchUndoMessage").textContent = message;
+  startWatchUndoTimer();
+}
+
+function createHideButton(ids, label) {
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "hide-btn";
+  btn.title = "Hide from tracker";
+  btn.setAttribute("aria-label", `Hide ${label}`);
+  btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19M14.12 14.12a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`;
+  btn.addEventListener("click", event => {
+    event.stopPropagation();
+    hideItems(ids);
+    updateHiddenButton();
+    renderList(filteredData());
+  });
+  return btn;
+}
+
+function hideSelected() {
+  const ids = [...selectedIds];
+  if (!ids.length) return;
+  hideItems(ids);
+  setSelectMode(false);
+  updateHiddenButton();
+}
+
+function renderHiddenList() {
+  const list = document.getElementById("hiddenItemsList");
+  list.innerHTML = "";
+  const items = fullData.filter(item => isHidden(item.id));
+  document.getElementById("restoreAllHiddenBtn").hidden = items.length === 0;
+  document.getElementById("hiddenItemsEmpty").hidden = items.length !== 0;
+  items.forEach(item => {
+    const row = document.createElement("div");
+    row.className = "hidden-item-row";
+    const label = document.createElement("span");
+    label.className = "hidden-item-title";
+    label.textContent = getDisplayTitle(item);
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "hidden-item-restore";
+    btn.textContent = "Restore";
+    btn.addEventListener("click", () => {
+      restoreItems([item.id], { withUndo: false });
+      renderHiddenList();
+      updateHiddenButton();
+      renderList(filteredData());
+    });
+    row.append(label, btn);
+    list.appendChild(row);
+  });
+}
+
 function isMarkedWatched(id) {
   if (sharedView) return sharedView.ids.has(id);
   return localStorage.getItem(`watched_${id}`) === "true";
@@ -424,6 +588,7 @@ function pauseWatchUndoTimer() {
 function clearWatchUndo() {
   pauseWatchUndoTimer();
   pendingWatchUndo = null;
+  pendingHideUndo = null;
   document.getElementById("watchUndoToast").hidden = true;
   document.getElementById("watchUndoMessage").textContent = "";
 }
@@ -432,7 +597,7 @@ function startWatchUndoTimer() {
   pauseWatchUndoTimer();
   const toast = document.getElementById("watchUndoToast");
   const modalOpen = !document.getElementById("progressModal").classList.contains("hidden");
-  if (!pendingWatchUndo || document.hidden || modalOpen || toast.contains(document.activeElement)) return;
+  if ((!pendingWatchUndo && !pendingHideUndo) || document.hidden || modalOpen || toast.contains(document.activeElement)) return;
   watchUndoTimer = setTimeout(clearWatchUndo, WATCH_UNDO_DURATION_MS);
 }
 
@@ -452,6 +617,15 @@ function markWatchedWithUndo(items, watched) {
 }
 
 function undoWatchChange() {
+  if (pendingHideUndo) {
+    const { ids, restore } = pendingHideUndo;
+    clearWatchUndo();
+    ids.forEach(id => (restore ? hiddenIds.add(id) : hiddenIds.delete(id)));
+    saveHiddenIds();
+    updateHiddenButton();
+    renderList(filteredData());
+    return;
+  }
   if (!pendingWatchUndo || sharedView) return;
   const previous = pendingWatchUndo;
   const restoreFocus = document.getElementById("watchUndoToast").contains(document.activeElement);
@@ -700,7 +874,7 @@ function isEpisode(item) {
 // Episodes from the same show + season, ordered by release date.
 function getSeasonEpisodes(item) {
   const season = Math.trunc(Number(item.season));
-  return fullData.filter(it =>
+  return visibleData().filter(it =>
     isEpisode(it)
     && it.id !== item.id
     && it.show === item.show
@@ -928,6 +1102,11 @@ function createSingleCard(item) {
     link.addEventListener("click", event => event.stopPropagation());
   });
 
+  if (!sharedView && !selectMode) {
+    const actions = card.querySelector(".card-actions");
+    actions.insertBefore(createHideButton([item.id], getDisplayTitle(item)), actions.querySelector(".watched-toggle"));
+  }
+
   const dateLabel = card.querySelector(".watched-date-label");
   const dateInput = card.querySelector(".watched-date-input");
   dateInput.addEventListener("click", event => {
@@ -940,8 +1119,16 @@ function createSingleCard(item) {
     dateLabel.textContent = formatWatchedDateShort(dateInput.value);
   });
 
+  if (selectMode) {
+    card.dataset.selectId = item.id;
+    card.setAttribute("role", "option");
+    card.setAttribute("aria-selected", String(selectedIds.has(item.id)));
+    card.classList.toggle("is-selected", selectedIds.has(item.id));
+  }
+
   card.addEventListener("click", () => {
     if (sharedView) return;
+    if (selectMode) { toggleSelected(item.id); return; }
     const isWatched = localStorage.getItem(`watched_${item.id}`) === "true";
     const willWatch = !isWatched;
     markWatchedWithUndo([item], willWatch);
@@ -954,7 +1141,7 @@ function createSingleCard(item) {
 
 function createGroupCard(group) {
   const key = `${group.show}|${group.items[0].id}`;
-  const expanded = expandedGroups.has(key);
+  const expanded = expandedGroups.has(key) || selectMode;
   const items = group.items;
   const type = items[0].type;
 
@@ -1030,6 +1217,11 @@ function createGroupCard(group) {
     </div>
   `;
 
+  if (!sharedView && !selectMode) {
+    const right = card.querySelector(".group-right");
+    right.insertBefore(createHideButton(items.map(it => it.id), `all ${items.length} episodes of ${group.show} ${seasonLabel}`), right.firstChild);
+  }
+
   // Episode list
   const epList = document.createElement("div");
   epList.className = "episode-list";
@@ -1093,11 +1285,20 @@ function createGroupCard(group) {
     row.append(badge, titleSpan, runtime);
     if (sourceLink) row.appendChild(sourceLink);
     row.appendChild(dateWrap);
+    if (!sharedView && !selectMode) row.appendChild(createHideButton([it.id], getDisplayTitle(it)));
     row.appendChild(toggle);
+
+    if (selectMode) {
+      row.dataset.selectId = it.id;
+      row.setAttribute("role", "option");
+      row.setAttribute("aria-selected", String(selectedIds.has(it.id)));
+      row.classList.toggle("is-selected", selectedIds.has(it.id));
+    }
 
     row.addEventListener("click", e => {
       e.stopPropagation();
       if (sharedView) return;
+      if (selectMode) { toggleSelected(it.id); return; }
       const nowWatched = localStorage.getItem(`watched_${it.id}`) === "true";
       const willWatch = !nowWatched;
       markWatchedWithUndo([it], willWatch);
@@ -1117,6 +1318,7 @@ function createGroupCard(group) {
   epList.addEventListener("click", e => e.stopPropagation());
 
   card.addEventListener("click", () => {
+    if (selectMode) return;
     if (expandedGroups.has(key)) {
       expandedGroups.delete(key);
       card.classList.remove("is-expanded");
@@ -1165,6 +1367,8 @@ function renderList(data) {
 
   updateStats(filteredData({ ignoreSearch: true, ignoreHideWatched: true }));
   updateFilterButtons();
+  updateHiddenButton();
+  updateSelectionBar();
 }
 
 function formatRuntime(minutes) {
@@ -1211,7 +1415,124 @@ function updateStats(data) {
   el("stat-time").textContent           = formatRuntimeShort(watchedRuntime);
   el("stat-time-remaining").textContent = formatRuntimeShort(totalRuntime - watchedRuntime);
   el("progressBar").style.width         = `${percent}%`;
+  updateNextUp();
+  updateStudioProgress();
 }
+
+// ─── Next up ───
+function getNextUpItem() {
+  const items = filteredData({ ignoreSearch: true, ignoreHideWatched: true });
+  const ordered = sortDirection === "desc" ? items.slice().reverse() : items;
+  return ordered.find(item => !isMarkedWatched(item.id)) || null;
+}
+
+function updateNextUp(data) {
+  const panel = document.getElementById("nextUp");
+  if (!panel) return;
+  const items = data || filteredData({ ignoreSearch: true, ignoreHideWatched: true });
+  if (sharedView || items.length === 0) {
+    panel.hidden = true;
+    return;
+  }
+  panel.hidden = false;
+  const ordered = sortDirection === "desc" ? items.slice().reverse() : items;
+  const next = ordered.find(item => !isMarkedWatched(item.id));
+  const title = document.getElementById("nextUpTitle");
+  const meta = document.getElementById("nextUpMeta");
+  panel.dataset.id = next ? next.id : "";
+  panel.classList.toggle("is-done", !next);
+  document.getElementById("nextUpWatchBtn").hidden = !next;
+  document.getElementById("nextUpShowBtn").hidden = !next;
+  if (!next) {
+    title.textContent = "You're all caught up";
+    meta.textContent = "Nothing left in the current view.";
+    return;
+  }
+  title.textContent = getDisplayTitle(next);
+  const left = ordered.filter(item => !isMarkedWatched(item.id)).length;
+  meta.textContent = `${formatRuntimeLong(next.runtime)} · ${left} left`;
+}
+
+function revealItem(id) {
+  const find = () => document.querySelector(`.watched-toggle[data-id="${CSS.escape(id)}"]`);
+  let toggle = find();
+  if (!toggle) {
+    // The search box may be filtering it out.
+    const search = document.getElementById("search");
+    if (search.value) {
+      search.value = "";
+      document.getElementById("searchClear").hidden = true;
+      saveFilterState();
+      renderList(filteredData());
+      toggle = find();
+    }
+  }
+  if (!toggle) return;
+  const list = toggle.closest(".episode-list");
+  if (list && list.hidden) list.closest(".group-card").click();
+  const target = toggle.closest(".episode-row, .mcu-card");
+  target.scrollIntoView({ block: "center", behavior: "smooth" });
+  target.classList.remove("flash-highlight");
+  void target.offsetWidth;
+  target.classList.add("flash-highlight");
+  setTimeout(() => target.classList.remove("flash-highlight"), 2000);
+}
+
+document.getElementById("nextUpWatchBtn")?.addEventListener("click", () => {
+  const next = fullData.find(item => item.id === document.getElementById("nextUp").dataset.id);
+  if (!next || sharedView) return;
+  markWatchedWithUndo([next], true);
+  renderList(filteredData());
+  checkSeasonCatchup(next);
+});
+document.getElementById("nextUpShowBtn")?.addEventListener("click", () => {
+  const id = document.getElementById("nextUp").dataset.id;
+  if (id) revealItem(id);
+});
+
+// ─── Progress by studio ───
+function updateStudioProgress() {
+  const wrap = document.getElementById("studioProgress");
+  if (!wrap) return;
+  const groups = new Map();
+  visibleData().forEach(item => {
+    const key = item.type || "Other";
+    const g = groups.get(key) || { total: 0, watched: 0, totalRuntime: 0, watchedRuntime: 0 };
+    const runtime = Number(item.runtime) || 0;
+    g.total += 1;
+    g.totalRuntime += runtime;
+    if (isMarkedWatched(item.id)) { g.watched += 1; g.watchedRuntime += runtime; }
+    groups.set(key, g);
+  });
+  wrap.hidden = groups.size === 0;
+  const list = document.getElementById("studioProgressList");
+  list.innerHTML = "";
+  [...groups.entries()].sort((a, b) => b[1].totalRuntime - a[1].totalRuntime).forEach(([name, g]) => {
+    const percent = g.totalRuntime ? Math.round((g.watchedRuntime / g.totalRuntime) * 100) : 0;
+    const row = document.createElement("div");
+    row.className = "studio-row";
+    row.style.setProperty("--studio-color", STUDIO_TINTS[name] || STUDIO_TINTS.Other);
+    row.innerHTML = `
+      <div class="studio-row-head">
+        <span class="studio-row-name"></span>
+        <span class="studio-row-stat"></span>
+      </div>
+      <div class="studio-row-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${percent}"><span style="width:${percent}%"></span></div>`;
+    row.querySelector(".studio-row-name").textContent = name;
+    row.querySelector(".studio-row-stat").textContent =
+      `${percent}% · ${g.watched}/${g.total} · ${formatRuntimeShort(g.totalRuntime - g.watchedRuntime)} left`;
+    list.appendChild(row);
+  });
+}
+
+(() => {
+  const details = document.getElementById("studioProgress");
+  if (!details) return;
+  try { details.open = localStorage.getItem("studio_progress_open") === "true"; } catch {}
+  details.addEventListener("toggle", () => {
+    try { localStorage.setItem("studio_progress_open", String(details.open)); } catch {}
+  });
+})();
 
 function formatRuntimeShort(minutes) {
   const totalSeconds = Math.round(minutes * 60);
@@ -1247,7 +1568,7 @@ function filteredData({ ignoreSearch = false, ignoreHideWatched = false } = {}) 
   const canonVals   = Array.from(document.querySelectorAll("#canonFilter input:checked")).map(c => c.value);
   const mvVals      = Array.from(multiverseFilterInputs(":checked")).map(c => c.value);
 
-  return fullData.filter(item => {
+  return visibleData().filter(item => {
     const isWatched  = isMarkedWatched(item.id);
     const typeMatch  = typeVals.length  === 0 || typeVals.includes(item.type);
     const canonMatch = canonVals.length === 0 || canonVals.includes(String(item.canon));
@@ -1298,7 +1619,7 @@ function summarizePrintValues(label, values) {
 function getPrintFilterSummary(dataCount) {
   const details = [
     `Order: ${getSortModeLabel()} (${sortDirection === "asc" ? "Old → New" : "New → Old"})`,
-    `Showing: ${dataCount} of ${fullData.length}`
+    `Showing: ${dataCount} of ${visibleData().length}`
   ];
 
   const query = document.getElementById("search")?.value.trim();
@@ -1481,14 +1802,39 @@ function matchMultiverseHeight() {
 }
 
 // ─── Progress export / import / share ───
+// Share codes are a base64 bitset over fullData: watched flags first, then (only
+// when something is hidden) a second bitset of the same size for hidden items.
+// Codes made before hiding existed have just the first half and still decode.
 function encodeProgress() {
-  const bytes = new Uint8Array(Math.ceil(fullData.length / 8));
+  const size = Math.ceil(fullData.length / 8);
+  const withHidden = hiddenIds.size > 0;
+  const bytes = new Uint8Array(withHidden ? size * 2 : size);
   fullData.forEach((item, i) => {
     if (localStorage.getItem(`watched_${item.id}`) === "true") {
       bytes[Math.floor(i / 8)] |= 1 << (i % 8);
     }
+    if (withHidden && hiddenIds.has(item.id)) {
+      bytes[size + Math.floor(i / 8)] |= 1 << (i % 8);
+    }
   });
   return btoa(String.fromCharCode(...bytes));
+}
+
+// The hidden ids carried by a share code, or null for codes that predate hiding.
+function parseHiddenFromCode(code) {
+  let bytes;
+  try {
+    bytes = Uint8Array.from(atob(code.trim()), c => c.charCodeAt(0));
+  } catch {
+    return null;
+  }
+  const size = Math.ceil(fullData.length / 8);
+  if (bytes.length < size * 2) return null;
+  const ids = new Set();
+  fullData.forEach((item, i) => {
+    if ((bytes[size + Math.floor(i / 8)] >> (i % 8)) & 1) ids.add(item.id);
+  });
+  return ids;
 }
 
 function parseProgressCode(code) {
@@ -1518,6 +1864,8 @@ function decodeProgress(code) {
       setWatchedDate(item.id, "");
     }
   });
+  const hidden = parseHiddenFromCode(code);
+  if (hidden) setHiddenIds(hidden);
   return true;
 }
 
@@ -1530,7 +1878,7 @@ function encodeProgressWithDates() {
       watched[item.id] = getWatchedDate(item.id) || null;
     }
   });
-  return btoa(JSON.stringify({ v: 2, watched }));
+  return btoa(JSON.stringify({ v: 3, watched, hidden: [...hiddenIds] }));
 }
 
 function decodeProgressWithDates(code) {
@@ -1554,6 +1902,11 @@ function decodeProgressWithDates(code) {
       setWatchedDate(item.id, "");
     }
   });
+  // Backups made before hiding existed have no "hidden" list: keep the current one.
+  if (Array.isArray(parsed.hidden)) {
+    const known = new Set(fullData.map(item => item.id));
+    setHiddenIds(parsed.hidden.filter(id => known.has(id)));
+  }
   return true;
 }
 
@@ -1565,13 +1918,14 @@ function resetProgress() {
   });
 }
 
-function statsForIds(ids) {
-  const totalRuntime   = fullData.reduce((s, item) => s + (Number(item.runtime) || 0), 0);
-  const watchedItems   = fullData.filter(item => ids.has(item.id));
+function statsForIds(ids, hidden = null) {
+  const items          = hidden ? fullData.filter(item => !hidden.has(item.id)) : fullData;
+  const totalRuntime   = items.reduce((s, item) => s + (Number(item.runtime) || 0), 0);
+  const watchedItems   = items.filter(item => ids.has(item.id));
   const watchedRuntime = watchedItems.reduce((s, item) => s + (Number(item.runtime) || 0), 0);
   return {
     watchedCount: watchedItems.length,
-    totalCount: fullData.length,
+    totalCount: items.length,
     percent: totalRuntime ? Math.round((watchedRuntime / totalRuntime) * 100) : 0
   };
 }
@@ -1632,7 +1986,7 @@ function updateSharedBanner() {
   if (!banner) return;
   banner.classList.toggle("hidden", !sharedView);
   if (sharedView) {
-    const stats = statsForIds(sharedView.ids);
+    const stats = statsForIds(sharedView.ids, sharedView.hidden);
     document.getElementById("sharedProgressMeta").textContent = `${stats.percent}% complete, ${stats.watchedCount} of ${stats.totalCount} titles`;
   }
 }
@@ -1647,7 +2001,8 @@ function exitSharedView({ stripParam = true } = {}) {
 
 function enterSharedView(code, ids) {
   clearWatchUndo();
-  sharedView = { code, ids };
+  sharedView = { code, ids, hidden: parseHiddenFromCode(code) };
+  if (selectMode) { selectMode = false; selectedIds.clear(); document.body.classList.remove("select-mode"); updateSelectionBar(); }
   sessionStorage.setItem(`progress_view_${code}`, "1");
   updateSharedBanner();
   renderList(filteredData());
@@ -1662,7 +2017,7 @@ function importSharedProgress(code) {
 function openSharedProgressModal(code, ids) {
   pendingSharedCode = code;
   pendingSharedIds = ids;
-  const stats = statsForIds(ids);
+  const stats = statsForIds(ids, parseHiddenFromCode(code));
   document.getElementById("sharedProgressDesc").textContent =
     `This link contains someone's watch progress - ${stats.percent}% complete (${stats.watchedCount} of ${stats.totalCount} titles watched). You can view it without touching your own progress, or import it to overwrite what you have now.`;
   openProgressModal("shared");
@@ -1696,13 +2051,15 @@ function openProgressModal(mode) {
   const resetContent = document.getElementById("resetContent");
   const sharedContent = document.getElementById("sharedContent");
   const seasonCatchupContent = document.getElementById("seasonCatchupContent");
+  const hiddenContent = document.getElementById("hiddenContent");
 
   const titles = {
     export: "Export Progress",
     import: "Import Progress",
     reset: "Reset Progress",
     shared: "Shared Progress",
-    seasonCatchup: "Catch Up Season?"
+    seasonCatchup: "Catch Up Season?",
+    hidden: "Hidden Items"
   };
   title.textContent = titles[mode] || titles.export;
   exportContent.classList.toggle("hidden", mode !== "export");
@@ -1710,6 +2067,8 @@ function openProgressModal(mode) {
   resetContent.classList.toggle("hidden", mode !== "reset");
   sharedContent.classList.toggle("hidden", mode !== "shared");
   seasonCatchupContent.classList.toggle("hidden", mode !== "seasonCatchup");
+  hiddenContent.classList.toggle("hidden", mode !== "hidden");
+  if (mode === "hidden") renderHiddenList();
 
   if (mode === "export") {
     document.getElementById("progressCode").value = encodeProgressWithDates();
@@ -1742,6 +2101,30 @@ watchUndoToast.addEventListener("mouseleave", startWatchUndoTimer);
 watchUndoToast.addEventListener("focusin", pauseWatchUndoTimer);
 watchUndoToast.addEventListener("focusout", () => requestAnimationFrame(startWatchUndoTimer));
 document.addEventListener("visibilitychange", startWatchUndoTimer);
+
+document.getElementById("selectModeBtn")?.addEventListener("click", () => setSelectMode(!selectMode));
+document.getElementById("cancelSelectBtn")?.addEventListener("click", () => setSelectMode(false));
+document.getElementById("hideSelectedBtn")?.addEventListener("click", hideSelected);
+document.getElementById("selectShowBtn")?.addEventListener("click", selectWholeShows);
+document.getElementById("selectAllBtn")?.addEventListener("click", () => {
+  const shown = filteredData();
+  const allSelected = shown.length > 0 && shown.every(item => selectedIds.has(item.id));
+  shown.forEach(item => (allSelected ? selectedIds.delete(item.id) : selectedIds.add(item.id)));
+  updateSelectionBar();
+});
+document.getElementById("hiddenItemsBtn")?.addEventListener("click", () => {
+  closeAllDropdowns();
+  openProgressModal("hidden");
+});
+document.getElementById("restoreAllHiddenBtn")?.addEventListener("click", () => {
+  restoreItems([...hiddenIds]);
+  closeProgressModal();
+  updateHiddenButton();
+  renderList(filteredData());
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && selectMode && document.getElementById("progressModal").classList.contains("hidden")) setSelectMode(false);
+});
 
 document.getElementById("exportProgressBtn")?.addEventListener("click", () => {
   closeAllDropdowns();
