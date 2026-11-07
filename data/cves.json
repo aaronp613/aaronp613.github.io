@@ -1,0 +1,92 @@
+[
+  {
+    "title": "CVE-2020-9829",
+    "fixed": [
+      {
+        "label": "iOS 13.5",
+        "url": "https://support.apple.com/en-us/103029"
+      },
+      {
+        "label": "tvOS 13.4.5",
+        "url": "https://support.apple.com/en-us/102845"
+      },
+      {
+        "label": "watchOS 6.2.5",
+        "url": "https://support.apple.com/en-us/103030"
+      }
+    ],
+    "impact": "Processing a maliciously crafted text message may lead to application denial of service."
+  },
+  {
+    "title": "Internal Files Published",
+    "fixed": [
+      {
+        "label": "November 2025",
+        "url": "https://support.apple.com/en-us/102774#:~:text=November%202025-,Aaron%20Perris%20(%40aaronp613)"
+      }
+    ],
+    "impact": "Internal Apple files were published online which exposed confidential information."
+  },
+  {
+    "title": "Internal Staging Environment Exposed",
+    "fixed": [
+      {
+        "label": "August 2025",
+        "url": "https://support.apple.com/en-us/102774#:~:text=0xdln-,Aaron%20Perris%20(%40aaronp613),-ABDUL%20RAZACK%20KT"
+      }
+    ],
+    "impact": "Apple's privacy policy linked to a PDF which contained information regarding an internal staging environment."
+  },
+  {
+    "title": "Exposed Employee Credentials & Confidential Documents",
+    "fixed": [
+      {
+        "label": "July 2025",
+        "url": "https://support.apple.com/en-us/102774#:~:text=%40Youssef%20Desouki-,Aaron%20Perris%20(%40aaronp613),-Abdulaziz%20Alzahrani"
+      }
+    ],
+    "impact": "Multiple Apple contractor credentials were publicly exposed online, potentially granting unauthorized access to confidential information. Furthermore, confidential documents were discovered stored with inadequate security measures.",
+    "note": {
+      "text": "Apple Bug Bounty Received"
+    }
+  },
+  {
+    "title": "Improper Dashboard Access",
+    "fixed": [
+      {
+        "label": "December 2024",
+        "url": "https://support.apple.com/en-us/122162#:~:text=December%202024-,Aaron%20Perris%20(%40aaronp613),-abdellah%20kouba%20(%40koubaabdellah"
+      }
+    ],
+    "impact": "Visiting the affected site temporarily exposed confidential dashboard content before redirecting to the authentication page."
+  },
+  {
+    "title": "Exposed Employee Credentials",
+    "fixed": [
+      {
+        "label": "September 2024",
+        "url": "https://support.apple.com/en-us/122162#:~:text=ABDUL%20RAZACK%20KT-,Aaron%20Perris%20(%40aaronp613),-Abhijeet%20Singh%20(%40abhiunix"
+      }
+    ],
+    "impact": "Two Apple contractor credentials were publicly exposed online, potentially granting access to confidential information.",
+    "note": {
+      "text": "Apple Bug Bounty Received"
+    }
+  },
+  {
+    "title": "iCloud Credential Dump",
+    "fixed": [],
+    "impact": "A leaked database of roughly one million iCloud account credentials was discovered and reported to Apple Product Security, who confirmed they were taking appropriate action.",
+    "fixedText": "July 2020"
+  },
+  {
+    "title": "Gmail Credential Dump",
+    "fixed": [],
+    "impact": "A leaked database of roughly 92 million Gmail account credentials was discovered and reported to Google; affected users whose current password matched the leaked credentials were forced to reset it.",
+    "fixedText": "July 2020",
+    "note": {
+      "text": "Google Bug Hunters Hall of Fame",
+      "url": "https://bughunters.google.com/profile/96a1ab05-8dcd-42c0-9aa2-462acb5f1d40/awards"
+    }
+  }
+]

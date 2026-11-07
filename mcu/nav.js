@@ -115,7 +115,7 @@
     document.body.classList.toggle("dark", theme === "dark");
     // single meta (faq/upcoming/shows/changelog)
     const single = document.getElementById("theme-color-meta");
-    if (single) single.setAttribute("content", theme === "dark" ? "#0d1016" : "#eef1f6");
+    if (single) single.setAttribute("content", theme === "dark" ? "#1d2d4f" : "#c6d4ec");
     // dual meta (index)
     const light = document.getElementById("theme-color-light");
     const dark  = document.getElementById("theme-color-dark");

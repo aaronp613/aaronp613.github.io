@@ -14,9 +14,8 @@ test.describe("portfolio", () => {
     const leaks = page.locator("#leaks .article-card");
     expect(await leaks.count()).toBeGreaterThan(20);
     expect(await page.locator("#articles .article-card").count()).toBeGreaterThan(0);
-    // The stat is generated from the data file.
-    const stat = await page.locator('[data-build="leak-count"]').textContent();
-    expect(stat).toBe(`${await leaks.count()}+`);
+    // The stat is generated from the data file. It counts up on load, so wait for it to settle.
+    await expect(page.locator('[data-build="leak-count"]')).toHaveText(`${await leaks.count()}+`);
     expect(errors).toEqual([]);
   });
 

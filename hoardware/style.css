@@ -165,7 +165,7 @@ h2 {
   align-items:center;
   gap:10px;
   min-height:642px;
-  padding:66px 10px 62px
+  padding:66px 10px 24px
 }
 .app-name {
   display:flex;
@@ -402,17 +402,8 @@ h1>span {
   color:var(--muted);
   letter-spacing:.025em
 }
-.intro-strip {
-  border-block:1px solid var(--border);
-  display:flex;
-  justify-content:center;
-  gap:68px;
-  padding:22px 10px;
-  font-size:.83rem;
-  color:var(--muted)
-}
 .features-section {
-  padding-top:92px
+  padding-top:44px
 }
 .section-heading {
   display:flex;
@@ -450,7 +441,8 @@ h1>span {
 .feature-wide {
   grid-column:span 2;
   display:grid;
-  grid-template-columns:1.1fr 1fr;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
+  grid-template-rows:1fr auto auto auto 1fr;
   column-gap:25px
 }
 .feature-icon {
@@ -463,6 +455,20 @@ h1>span {
   color:var(--accent);
   font-size:23px;
   margin-bottom:22px
+}
+.feature-icon svg {
+  width:22px;
+  height:22px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round
+}
+.feature-icon svg.siri-orb {
+  width:28px;
+  height:28px;
+  stroke:none
 }
 .feature h3 {
   font-size:1.45rem;
@@ -477,9 +483,15 @@ h1>span {
 .feature-wide .feature-icon,.feature-wide h3,.feature-wide p {
   grid-column:1
 }
+.feature-full p {
+  max-width:460px
+}
+.feature-wide .feature-icon { grid-row:2 }
+.feature-wide h3 { grid-row:3 }
+.feature-wide p { grid-row:4 }
 .firmware-example {
   grid-column:2;
-  grid-row:1/4;
+  grid-row:1/6;
   align-self:center;
   background:var(--strong);
   border:1px solid var(--border);
@@ -526,12 +538,12 @@ h1>span {
   color:var(--muted)
 }
 .coverage {
-  display:flex;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
   gap:8px;
   margin-top:25px
 }
 .coverage>span {
-  flex:1;
   background:var(--accent-soft);
   color:var(--accent);
   padding:10px;
@@ -574,6 +586,406 @@ h1>span {
   border:1px solid var(--border);
   border-radius:8px;
   background:var(--strong)
+}
+.feature-full {
+  grid-column:1/-1
+}
+.feature-wide>.feature-motif {
+  grid-column:2;
+  grid-row:1/6;
+  align-self:center
+}
+.chat-example {
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:24px;
+  font-size:.74rem;
+  line-height:1.45
+}
+.chat-example span {
+  max-width:88%;
+  padding:9px 14px;
+  border-radius:18px
+}
+.chat-example span {
+  position:relative
+}
+.bubble-you {
+  align-self:flex-end;
+  background:var(--accent);
+  color:#fff;
+  margin-right:7px
+}
+.chat-example .bubble-you {
+  border-bottom-right-radius:0
+}
+.bubble-ai {
+  align-self:flex-start;
+  background:#e7ecf6;
+  color:var(--text);
+  margin-left:7px
+}
+.chat-example .bubble-ai {
+  border-bottom-left-radius:0
+}
+:root[data-theme=dark] .bubble-ai {
+  background:#252d3d
+}
+/* iMessage-style tails: a hooked flare with a curved underside. */
+.bubble-you::after,.bubble-ai::after {
+  content:"";
+  position:absolute;
+  bottom:0;
+  width:18px;
+  height:20px;
+  background:inherit;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 20'%3E%3Cpath d='M0 0H12V9C12 15 14 19 18 20H0Z'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 20'%3E%3Cpath d='M0 0H12V9C12 15 14 19 18 20H0Z'/%3E%3C/svg%3E") center/100% 100% no-repeat
+}
+.bubble-you::after {
+  right:-6px
+}
+.bubble-ai::after {
+  left:-6px;
+  transform:scaleX(-1)
+}
+.shortcut-example {
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:24px
+}
+.shortcut-example span {
+  font-size:.7rem;
+  padding:8px 11px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:var(--strong)
+}
+.alert-example {
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin-top:0;
+  padding:12px;
+  background:var(--strong);
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:var(--shadow)
+}
+.alert-stack {
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:24px
+}
+.alert-stack .alert-example {
+  transition:opacity .5s ease,transform .65s cubic-bezier(.2,.8,.3,1)
+}
+/* Plays once when the card scrolls into view, then the alerts stay. */
+.alert-stack.is-pending .alert-example {
+  opacity:0;
+  transform:translateY(-16px) scale(.95)
+}
+.alert-stack.is-pending.is-in .alert-example {
+  opacity:1;
+  transform:none
+}
+.alert-stack.is-pending.is-in .alert-example:nth-child(2) { transition-delay:.9s }
+.alert-stack.is-pending.is-in .alert-example:nth-child(3) { transition-delay:1.8s }
+@media(prefers-reduced-motion:reduce) {
+  .alert-stack .alert-example,.alert-stack.is-pending .alert-example {
+    opacity:1;
+    transform:none;
+    transition:none
+  }
+}
+.alert-example img {
+  border-radius:8px;
+  flex:none
+}
+.alert-example b,.alert-example small {
+  display:block
+}
+.alert-example b {
+  font-size:.76rem;
+  font-weight:600;
+  color:var(--text)
+}
+.alert-example small {
+  font-size:.7rem;
+  color:var(--muted);
+  margin-top:2px
+}
+.file-example {
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  margin-top:24px
+}
+.file-example span {
+  font:12px ui-monospace,monospace;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:var(--strong)
+}
+.label-example {
+  display:block;
+  width:100%;
+  max-width:340px;
+  justify-self:center;
+  transform:rotate(-3deg);
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:var(--shadow)
+}
+.label-example svg {
+  display:block;
+  width:100%;
+  height:auto
+}
+/* A white label glares on a dark page, so dim it a little there. */
+:root[data-theme=dark] .label-example svg {
+  filter:brightness(.8)
+}
+:root[data-theme=dark] .label-example {
+  box-shadow:0 12px 30px rgba(0,0,0,.45)
+}
+/* Hoardalytics example: a miniature of the app's color palette card. */
+.chart-example {
+  --pal-bg:#f7f7fa;
+  --pal-text:#1c1c1e;
+  --pal-muted:#6e6e73;
+  --pal-tile:#ebebf0;
+  --pal-line:rgba(0,0,0,.12);
+  --pal-ring:#1c1c1e;
+  width:100%;
+  max-width:360px;
+  justify-self:center;
+  min-width:0;
+  background:var(--pal-bg);
+  color:var(--pal-text);
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:24px;
+  padding:16px 16px 14px;
+  box-shadow:var(--shadow)
+}
+.palette-head strong {
+  display:block;
+  font-size:1.05rem;
+  letter-spacing:-.025em;
+  color:var(--pal-text)
+}
+.palette-head small {
+  display:block;
+  font-size:.68rem;
+  color:var(--pal-muted);
+  margin-top:3px
+}
+.palette-ring {
+  position:relative;
+  width:min(100%,172px);
+  margin:12px auto 4px
+}
+/* Faint glow in the selected color behind the ring. */
+.palette-ring::before {
+  content:"";
+  position:absolute;
+  inset:-8%;
+  border-radius:50%;
+  background:radial-gradient(closest-side,var(--c) 0%,var(--c) 38%,transparent 100%);
+  opacity:.26;
+  pointer-events:none
+}
+.palette-ring svg {
+  position:relative;
+  display:block;
+  width:100%;
+  overflow:visible
+}
+.seg {
+  cursor:pointer;
+  opacity:.6;
+  transition:opacity .25s ease
+}
+.seg:hover {
+  opacity:.8
+}
+.seg.is-active {
+  opacity:1
+}
+.palette-center {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+  text-align:center
+}
+.palette-pct {
+  font-size:1.75rem;
+  font-weight:700;
+  letter-spacing:-.05em;
+  line-height:1;
+  color:var(--pal-text)
+}
+.palette-name {
+  font-size:.82rem;
+  font-weight:600;
+  margin-top:5px
+}
+.palette-count {
+  font-size:.68rem;
+  color:var(--pal-muted);
+  margin-top:2px
+}
+.palette-swatches {
+  display:flex;
+  gap:2px;
+  overflow-x:auto;
+  padding:10px 2px 6px;
+  scroll-snap-type:x proximity;
+  scrollbar-width:none
+}
+.palette-swatches::-webkit-scrollbar {
+  display:none
+}
+.swatch {
+  transform:scale(.94);
+  transition:transform .25s ease;
+  flex:1 1 0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  min-width:0;
+  white-space:nowrap;
+  padding:0;
+  border:0;
+  background:none;
+  color:var(--pal-muted);
+  font:inherit;
+  font-size:.6rem;
+  cursor:pointer;
+  scroll-snap-align:center
+}
+.swatch i {
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  border:1px solid var(--pal-line);
+  transition:box-shadow .2s ease
+}
+.swatch.is-active {
+  transform:scale(1.05);
+  color:var(--pal-text);
+  font-weight:600
+}
+.swatch.is-active i {
+  box-shadow:0 0 0 3px var(--pal-bg),0 0 0 5px var(--pal-ring)
+}
+.swatch:focus-visible {
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:8px
+}
+.palette-tiles {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:8px
+}
+.palette-tile {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  padding:8px 8px 8px;
+  border-radius:16px;
+  background:var(--pal-tile);
+  font-size:.7rem;
+  font-weight:600;
+  text-align:center;
+  color:var(--pal-text);
+  position:relative;
+  overflow:hidden
+}
+.palette-tile::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 50% 38%,var(--c) 0%,transparent 62%);
+  opacity:.2;
+  pointer-events:none
+}
+.mock {
+  position:relative;
+  width:60px;
+  height:60px;
+  filter:drop-shadow(0 6px 10px rgba(0,0,0,.45))
+}
+@media(prefers-reduced-motion:reduce) {
+  .seg,.swatch,.swatch i { transition:none }
+}
+/* Hoardshelf in tent mode: two panels hinged along the top edge, seen in perspective. */
+.duo-example {
+  position:relative;
+  display:block;
+  width:100%;
+  max-width:440px;
+  justify-self:center;
+  padding:10px 0 30px;
+  perspective:1000px
+}
+.duo-example::after {
+  content:"";
+  position:absolute;
+  left:8%;
+  right:2%;
+  bottom:10px;
+  height:18px;
+  background:radial-gradient(ellipse at center,rgba(0,0,0,.45),transparent 70%);
+  filter:blur(6px)
+}
+.tent {
+  position:relative;
+  width:68%;
+  margin:0 0 0 22%;
+  aspect-ratio:280/218;
+  transform-style:preserve-3d;
+  transform:rotateY(var(--tent-yaw,30deg)) rotateX(-3deg)
+}
+.tent-front,.tent-back {
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  transform-origin:50% 0
+}
+.tent-front {
+  padding:3px;
+  background:linear-gradient(135deg,#ece8de,#b9b4a8 55%,#8f8a7f);
+  transform:rotateX(var(--tent-hinge,22deg))
+}
+.tent-bezel {
+  height:100%;
+  padding:6px;
+  border-radius:15px;
+  background:#050507
+}
+.tent-back {
+  background:linear-gradient(100deg,#08090c,#1c1d25);
+  box-shadow:inset 0 0 0 3px #bdb8ac;
+  transform:rotateX(calc(var(--tent-hinge,22deg) * -1))
+}
+.duo-screen {
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:11px
 }
 .questions-section {
   display:grid;
@@ -692,9 +1104,6 @@ footer {
   .feature-wide {
     grid-column:span 2
   }
-  .intro-strip {
-    gap:30px
-  }
   .topbar nav {
     gap:20px
   }
@@ -738,12 +1147,6 @@ footer {
     height:460px;
     justify-self:center;
     transform:none
-  }
-  .intro-strip {
-    gap:14px;
-    justify-content:space-between;
-    font-size:.67rem;
-    padding:18px 0
   }
   .features-section {
     padding-top:62px
@@ -874,10 +1277,6 @@ footer {
     margin:30px 8px 5px;
     transform:rotate(-2deg)
   }
-  .intro-strip {
-    font-size:.6rem;
-    gap:7px
-  }
   .hero-actions .button {
     font-size:.87rem
   }
@@ -913,25 +1312,509 @@ footer {
 }
 
 /* Small accessories orbit the original hardware illustration. */
-.intro-strip > span {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-.intro-strip svg {
-  width: 17px;
-  height: 17px;
-  flex-shrink: 0;
-  color: var(--accent);
-}
 @media (max-width: 760px) {
-  .intro-strip > span { gap: 5px; }
-  .intro-strip svg { width: 13px; height: 13px; }
 }
 @media (max-width: 480px) {
-  .intro-strip > span { gap: 4px; }
-  .intro-strip svg { width: 11px; height: 11px; }
 }
 @media (max-width: 360px) {
-  .intro-strip { flex-wrap: wrap; justify-content: center; gap: 10px 16px; }
+}
+
+.feature-wide>.export-types {
+  margin-top:0;
+  flex-wrap:wrap;
+  justify-content:center
+}
+@media(max-width:480px) {
+  .feature-wide>.feature-motif {
+    margin:30px 8px 5px
+  }
+  .feature-wide>.export-types {
+    margin:26px 0 0
+  }
+}
+
+/* ─── Colorful feature icons (delete this block to revert to the single-color tiles) ─── */
+.feature-icon[class*="tone-"] {
+  color:#fff;
+  box-shadow:0 6px 14px -4px var(--tone-glow,transparent)
+}
+.tone-graphite { background:linear-gradient(145deg,#7a869a,#3b4658); --tone-glow:rgba(59,70,88,.5) }
+.tone-sky { background:linear-gradient(145deg,#5ac8fa,#0a84ff); --tone-glow:rgba(10,132,255,.5) }
+.tone-green { background:linear-gradient(145deg,#5be39a,#16a05c); --tone-glow:rgba(22,160,92,.5) }
+.tone-orange { background:linear-gradient(145deg,#ffb454,#ff6a2b); --tone-glow:rgba(255,106,43,.5) }
+.tone-purple { background:linear-gradient(145deg,#b794ff,#7b3ff2); --tone-glow:rgba(123,63,242,.5) }
+.tone-siri {
+  position:relative;
+  z-index:0;
+  background:none;
+  box-shadow:none
+}
+/* Siri-style aura: a soft multicolor glow that slowly drifts around a dark tile. */
+.tone-siri::before,.tone-siri::after {
+  content:"";
+  position:absolute;
+  border-radius:inherit;
+  z-index:-1
+}
+.tone-siri::before {
+  inset:-5px;
+  background:conic-gradient(from 0deg,#27d3ff,#7a5cff,#ff3d9a,#ffb454,#27d3ff);
+  filter:blur(9px);
+  opacity:.85;
+  animation:siri-aura 7s linear infinite
+}
+.tone-siri::after {
+  inset:0;
+  background:linear-gradient(145deg,#1b1b2b,#07070d)
+}
+@keyframes siri-aura {
+  to { transform:rotate(360deg) }
+}
+@media(prefers-reduced-motion:reduce) {
+  .tone-siri::before { animation:none }
+}
+.tone-red { background:linear-gradient(145deg,#ff8a80,#f0383a); --tone-glow:rgba(240,56,58,.5) }
+.tone-amber { background:linear-gradient(145deg,#ffd75a,#f59e0b); --tone-glow:rgba(245,158,11,.5) }
+.tone-teal { background:linear-gradient(145deg,#4fe0cf,#0e9488); --tone-glow:rgba(14,148,136,.5) }
+.tone-indigo { background:linear-gradient(145deg,#8f9bff,#4b4fe0); --tone-glow:rgba(75,79,224,.5) }
+.tone-pink { background:linear-gradient(145deg,#ff8ec2,#e0307f); --tone-glow:rgba(224,48,127,.5) }
+.tone-cyan { background:linear-gradient(145deg,#4fe3f0,#0a8fb5); --tone-glow:rgba(10,143,181,.5) }
+
+/* ─── Per-icon effects (part of the colorful icons set; all calm, all off with reduced motion) ─── */
+.feature-icon[class*="tone-"]:not(.tone-siri) {
+  animation:tone-pulse 3.6s ease-in-out infinite
+}
+.feature-icon[class*="tone-"] svg {
+  transform-box:fill-box;
+  transform-origin:center
+}
+@keyframes tone-pulse {
+  0%,100% { box-shadow:0 6px 14px -4px var(--tone-glow) }
+  50% { box-shadow:0 6px 22px 0 var(--tone-glow) }
+}
+.tone-green::after,.tone-red::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  border:2px solid var(--tone-glow);
+  pointer-events:none;
+  opacity:0;
+  animation:tone-ring 3s ease-out infinite
+}
+.tone-red::after { animation-duration:4s }
+@keyframes tone-ring {
+  0% { transform:scale(1); opacity:.9 }
+  70%,100% { transform:scale(1.7); opacity:0 }
+}
+.tone-green,.tone-red { position:relative }
+.tone-graphite { --tone-glow:rgba(120,170,255,.6) }
+.tone-sky svg { animation:tone-bob 4s ease-in-out infinite }
+@keyframes tone-bob {
+  0%,100% { transform:translateY(1px) }
+  50% { transform:translateY(-2.5px) }
+}
+.tone-purple svg { animation:tone-twinkle 2.6s ease-in-out infinite }
+@keyframes tone-twinkle {
+  0%,100% { transform:scale(1) rotate(0) }
+  50% { transform:scale(1.2) rotate(14deg) }
+}
+.tone-red svg {
+  transform-origin:50% 12%;
+  animation:tone-ring-bell 4s ease-in-out infinite
+}
+@keyframes tone-ring-bell {
+  0%,50%,100% { transform:rotate(0) }
+  8% { transform:rotate(15deg) }
+  16% { transform:rotate(-13deg) }
+  24% { transform:rotate(9deg) }
+  32% { transform:rotate(-6deg) }
+  40% { transform:rotate(3deg) }
+}
+.tone-pink svg { animation:tone-write 2.2s ease-in-out infinite }
+@keyframes tone-write {
+  0%,100% { transform:translate(0,0) rotate(0) }
+  25% { transform:translate(1.5px,-1px) rotate(-7deg) }
+  50% { transform:translate(-.5px,1px) rotate(3deg) }
+  75% { transform:translate(1px,0) rotate(-4deg) }
+}
+@media(prefers-reduced-motion:reduce) {
+  .feature-icon[class*="tone-"]:not(.tone-siri),
+  .feature-icon[class*="tone-"] svg {
+    animation:none
+  }
+  .tone-green::after,.tone-red::after {
+    display:none
+  }
+  .feature-icon [class*="fx-"] {
+    animation:none !important
+  }
+  .feature-icon .fx-bar-1 { transform:scaleY(.45) }
+  .feature-icon .fx-bar-2 { transform:scaleY(.75) }
+  .feature-icon .fx-bar-3 { transform:scaleY(1) }
+  .feature-icon .fx-bar-4 { transform:scaleY(.6) }
+}
+
+/* ─── Custom animated icons: chip glitch, chart bars, scanner, receipt, fold, send ─── */
+.feature-icon [class*="fx-"] {
+  transform-box:fill-box;
+  transform-origin:center
+}
+/* Firmware chip: mostly still, then a short RGB-split glitch burst. */
+.fx-glitch-r,.fx-glitch-c { opacity:0 }
+.fx-glitch-main { animation:fx-glitch-main 3.2s steps(1,end) infinite }
+.fx-glitch-r { animation:fx-glitch-r 3.2s steps(1,end) infinite }
+.fx-glitch-c { animation:fx-glitch-c 3.2s steps(1,end) infinite }
+@keyframes fx-glitch-main {
+  0%,84%,100% { transform:none; opacity:1 }
+  85% { transform:translate(1.4px,0) skewX(-10deg); opacity:.85 }
+  88% { transform:translate(-1.6px,.6px); opacity:1 }
+  91% { transform:translate(.8px,-.8px) skewX(8deg); opacity:.7 }
+  94% { transform:translate(-.6px,0); opacity:1 }
+  97% { transform:none; opacity:.9 }
+}
+@keyframes fx-glitch-r {
+  0%,84%,100% { opacity:0; transform:none }
+  85% { opacity:.9; transform:translate(-2px,.4px) }
+  88% { opacity:.9; transform:translate(2px,-.4px) }
+  91% { opacity:.8; transform:translate(-1.2px,1px) }
+  94% { opacity:0 }
+}
+@keyframes fx-glitch-c {
+  0%,84%,100% { opacity:0; transform:none }
+  85% { opacity:.9; transform:translate(2px,-.4px) }
+  88% { opacity:.9; transform:translate(-2px,.8px) }
+  91% { opacity:.8; transform:translate(1.4px,-1px) }
+  94% { opacity:0 }
+}
+/* Hoardalytics: bars rise and fall at different speeds. */
+.feature-icon .fx-bar { transform-origin:50% 100% }
+.fx-bar-1 { animation:fx-bar-a 2.6s ease-in-out infinite }
+.fx-bar-2 { animation:fx-bar-b 3.1s ease-in-out infinite -.8s }
+.fx-bar-3 { animation:fx-bar-c 2.3s ease-in-out infinite -1.4s }
+.fx-bar-4 { animation:fx-bar-b 2.9s ease-in-out infinite -.3s; opacity:1 }
+@keyframes fx-bar-a { 0%,100% { transform:scaleY(.35) } 50% { transform:scaleY(.95) } }
+@keyframes fx-bar-b { 0%,100% { transform:scaleY(.85) } 50% { transform:scaleY(.3) } }
+@keyframes fx-bar-c { 0%,100% { transform:scaleY(.5) } 35% { transform:scaleY(1) } 70% { transform:scaleY(.25) } }
+/* Asset tag: a laser sweeps across the barcode. */
+.fx-scan {
+  animation:fx-scan 2.2s ease-in-out infinite alternate;
+  filter:drop-shadow(0 0 1.5px #ff3b30)
+}
+@keyframes fx-scan { from { transform:translateY(-5px) } to { transform:translateY(5px) } }
+/* Paperwork: a receipt that prints its lines and sways slightly. */
+.feature-icon .fx-paper {
+  transform-origin:50% 0;
+  animation:fx-sway 4.2s ease-in-out infinite
+}
+@keyframes fx-sway {
+  0%,100% { transform:rotate(-2.5deg) }
+  50% { transform:rotate(2.5deg) }
+}
+.fx-line {
+  stroke-dasharray:1;
+  animation:fx-print 3.6s ease-in-out infinite
+}
+.fx-line-2 { animation-delay:.35s }
+.fx-line-3 { animation-delay:.7s }
+@keyframes fx-print {
+  0% { stroke-dashoffset:1 }
+  30%,80% { stroke-dashoffset:0 }
+  100% { stroke-dashoffset:1 }
+}
+/* Fold: the right half folds shut around the hinge, then opens again. */
+.feature-icon .fx-fold-right {
+  transform-box:view-box;
+  transform-origin:12px 12px;
+  animation:fx-fold 3.6s ease-in-out infinite
+}
+@keyframes fx-fold {
+  0%,15% { transform:scaleX(1) skewY(0); fill-opacity:0 }
+  50%,60% { transform:scaleX(.12) skewY(10deg); fill-opacity:.55 }
+  95%,100% { transform:scaleX(1) skewY(0); fill-opacity:0 }
+}
+/* Export: the arrow launches out of the tray and fades away. */
+.fx-send { animation:fx-send 2.4s ease-in infinite }
+@keyframes fx-send {
+  0% { transform:translateY(5px); opacity:0 }
+  25% { transform:translateY(0); opacity:1 }
+  65% { transform:translateY(-2px); opacity:1 }
+  100% { transform:translateY(-9px); opacity:0 }
+}
+
+/* Siri pill: drops out of the card's top edge like the iOS Dynamic Island swipe-down (animated by script.js), once, when first scrolled into view. */
+.feature-siri {
+  position:relative;
+  /* A solid surface (the same color the other cards show) so the pill's neck can match it exactly. */
+  background:#fafbfc
+}
+:root[data-theme=dark] .feature-siri {
+  background:#14181d
+}
+/* Hide the 1px top border while the pill emerges, so the neck joins the surface without a seam. */
+.feature-siri.siri-animating {
+  border-top-color:transparent
+}
+.siri-pill {
+  position:absolute;
+  top:30px;
+  left:78px;
+  right:18px;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  height:39px;
+  padding:0 13px 0 15px;
+  border-radius:999px;
+  background:linear-gradient(180deg,#1d1d22 0%,#09090b 100%);
+  color:#fff;
+  font-size:.84rem;
+  font-weight:400;
+  white-space:nowrap;
+  box-shadow:0 10px 26px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.2),inset 0 0 0 .5px rgba(255,255,255,.16)
+}
+.siri-line {
+  display:flex;
+  align-items:center;
+  flex:1;
+  min-width:0
+}
+.siri-text {
+  overflow:hidden;
+  text-overflow:ellipsis;
+  color:#fff
+}
+.siri-line.is-placeholder .siri-text {
+  color:#8e8e93
+}
+.siri-caret {
+  flex:none;
+  width:2px;
+  height:19px;
+  margin-right:3px;
+  border-radius:1px;
+  background:#fff;
+  box-shadow:0 0 7px rgba(255,255,255,.65);
+  animation:siri-caret 1.05s steps(1) infinite;
+  display:none
+}
+.siri-line.is-typing .siri-caret {
+  display:block
+}
+/* The cursor stops blinking and fades away 5 seconds after the pill settles. */
+.siri-line.caret-off .siri-caret {
+  animation:none;
+  opacity:0;
+  transition:opacity .35s ease
+}
+.siri-line.is-typing:not(.is-placeholder) .siri-caret {
+  order:2;
+  margin:0 0 0 2px
+}
+@keyframes siri-caret {
+  50% { opacity:0 }
+}
+.siri-mic {
+  flex:none;
+  width:17px;
+  height:21px;
+  color:#8e8e93
+}
+.siri-pill.is-pending {
+  opacity:0
+}
+/* The neck that stretches between the card's top edge and the falling pill (drawn by script.js). */
+.siri-neck {
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1;
+  pointer-events:none
+}
+
+/* Hoardini chat demo: the exchange plays once, the first time the card scrolls into view. */
+.chat-example .is-hidden {
+  opacity:0;
+  transform:scale(.82) translateY(8px)
+}
+.chat-example .bubble-you.is-hidden {
+  transform-origin:100% 100%
+}
+.chat-example .bubble-ai.is-hidden {
+  transform-origin:0 100%
+}
+.chat-example .is-shown {
+  transition:opacity .25s ease,transform .45s cubic-bezier(.2,1.3,.4,1)
+}
+.chat-example .bubble-ai .txt {
+  display:block;
+  font-style:normal;
+  font-weight:inherit;
+  white-space:nowrap;
+  overflow:hidden;
+  opacity:1;
+  transition:opacity .3s ease .12s
+}
+.chat-example .bubble-ai.is-thinking {
+  width:54px;
+  padding-left:0;
+  padding-right:0
+}
+.chat-example .bubble-ai.is-thinking .txt {
+  opacity:0;
+  transition:none
+}
+.chat-example .bubble-ai.is-growing {
+  transition:width .5s cubic-bezier(.3,1.15,.4,1),padding .5s ease
+}
+.chat-example .dots {
+  position:absolute;
+  left:0;
+  right:0;
+  top:50%;
+  display:flex;
+  justify-content:center;
+  gap:4px;
+  margin-top:-3px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .15s ease
+}
+.chat-example .bubble-ai.is-thinking .dots {
+  opacity:1
+}
+.chat-example .dots i {
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#8e9bb5;
+  animation:chat-dot 1s ease-in-out infinite
+}
+.chat-example .dots i:nth-child(2) { animation-delay:.16s }
+.chat-example .dots i:nth-child(3) { animation-delay:.32s }
+@keyframes chat-dot {
+  0%,60%,100% { opacity:.35; transform:translateY(0) }
+  30% { opacity:1; transform:translateY(-3px) }
+}
+
+/* Coverage demo: the generations fill in one by one the first time the card is scrolled into view. */
+.coverage.is-pending > span {
+  opacity:0;
+  transform:translateY(10px) scale(.88)
+}
+.coverage.is-pending.is-in > span {
+  opacity:1;
+  transform:none;
+  transition:opacity .35s ease,transform .5s cubic-bezier(.2,1.3,.4,1);
+  transition-delay:calc(var(--i) * 110ms)
+}
+.coverage.is-pending > span b {
+  display:inline-block;
+  transform:scale(0)
+}
+.coverage.is-pending.is-in > span b {
+  transform:scale(1);
+  transition:transform .4s cubic-bezier(.2,1.8,.4,1);
+  transition-delay:calc(var(--i) * 110ms + 220ms)
+}
+@media(prefers-reduced-motion:reduce) {
+  .coverage.is-pending > span,.coverage.is-pending > span b {
+    opacity:1;
+    transform:none;
+    transition:none
+  }
+}
+
+/* Keep the longer "Download Free on the App Store" label on one line on the narrowest phones. */
+@media(max-width:380px) {
+  .button {
+    gap:10px;
+    padding:14px 16px;
+    font-size:.85rem;
+    white-space:nowrap
+  }
+}
+
+/* Firmware card: the installed version ticks through a few releases, then lands on the real one. */
+.fw-ver,.fw-build {
+  display:block
+}
+.fw-ver.is-tick,.fw-build.is-tick {
+  animation:fw-tick .38s cubic-bezier(.2,.9,.3,1) both
+}
+@keyframes fw-tick {
+  0% { opacity:0; transform:translateY(14px) }
+  100% { opacity:1; transform:none }
+}
+.firmware-example.is-settling {
+  animation:fw-settle .7s cubic-bezier(.2,1.4,.4,1) both
+}
+@keyframes fw-settle {
+  0% { transform:rotate(-7deg) scale(.97) }
+  100% { transform:rotate(-4deg) scale(1) }
+}
+
+/* Sync card: a sync pass travels Mac -> iCloud -> iPhone, lighting each device in turn. */
+.sync-motif span {
+  transition:background .4s ease,color .4s ease,box-shadow .4s ease,transform .4s cubic-bezier(.2,1.5,.4,1)
+}
+.sync-motif.is-pending span {
+  opacity:.45
+}
+.sync-motif span.is-lit {
+  opacity:1;
+  background:var(--accent);
+  color:#fff;
+  transform:scale(1.12);
+  box-shadow:0 6px 16px -4px var(--accent)
+}
+.sync-motif.is-pending span.is-done {
+  opacity:1;
+  background:var(--accent-soft);
+  color:var(--text);
+  transform:none;
+  box-shadow:none
+}
+.sync-motif i {
+  position:relative;
+  width:22px;
+  text-align:center
+}
+.sync-motif i::after {
+  content:"";
+  position:absolute;
+  top:50%;
+  left:0;
+  width:6px;
+  height:6px;
+  margin-top:-3px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 8px var(--accent);
+  opacity:0
+}
+.sync-motif i.is-flowing::after {
+  animation:sync-dot .55s ease-in-out both
+}
+@keyframes sync-dot {
+  0% { opacity:0; transform:translateX(-2px) }
+  20% { opacity:1 }
+  80% { opacity:1 }
+  100% { opacity:0; transform:translateX(18px) }
+}
+@media(prefers-reduced-motion:reduce) {
+  .fw-ver.is-tick,.fw-build.is-tick,.firmware-example.is-settling,.sync-motif i.is-flowing::after { animation:none }
+  .sync-motif.is-pending span { opacity:1 }
+}
+
+/* Dark theme: the palette card keeps its original dark look. */
+:root[data-theme=dark] .chart-example {
+  --pal-bg:#1c1c1e;
+  --pal-text:#fff;
+  --pal-muted:#a1a1a6;
+  --pal-tile:#2c2c2e;
+  --pal-line:rgba(255,255,255,.2);
+  --pal-ring:#fff;
+  border-color:rgba(255,255,255,.08)
 }

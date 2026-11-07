@@ -1,20 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ff8cc8"/>
-      <stop offset="100%" stop-color="#e0007a"/>
+      <stop offset="0%" stop-color="#3a1070"/>
+      <stop offset="52%" stop-color="#a1156f"/>
+      <stop offset="100%" stop-color="#ff3d8f"/>
     </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="46%" r="55%">
+      <stop offset="0" stop-color="#ff7ac0" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#ff7ac0" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   <rect width="56" height="56" fill="url(#bg)"/>
-  <!-- Film strip side bars -->
-  <rect x="7" y="10" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
-  <rect x="7" y="19" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
-  <rect x="7" y="28" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
-  <rect x="7" y="37" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
-  <rect x="43" y="10" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
-  <rect x="43" y="19" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
-  <rect x="43" y="28" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
-  <rect x="43" y="37" width="6" height="5" rx="1" fill="white" opacity="0.35"/>
-  <!-- Play triangle -->
-  <polygon points="22,18 22,38 40,28" fill="white" opacity="0.95"/>
+  <rect width="56" height="56" fill="url(#glow)"/>
+  <g>
+    <g fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5.2"><path d="M31.17 9.06A19.2 19.2 0 0 1 45.03 19.13" opacity="0.46"/><path d="M46.99 25.16A19.2 19.2 0 0 1 41.69 41.46" opacity="0.58"/><path d="M36.57 45.18A19.2 19.2 0 0 1 19.43 45.18" opacity="0.72"/><path d="M14.31 41.46A19.2 19.2 0 0 1 9.01 25.16" opacity="0.86"/><path d="M10.97 19.13A19.2 19.2 0 0 1 24.83 9.06" opacity="1"/></g>
+    <path d="M23.6 19.4V36.6L38.4 28Z" fill="#fff" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
+  </g>
 </svg>

@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  # Rebuild every 6 hours so the Hoardware release-alert demo picks up new AppleDB releases.
+  schedule:
+    - cron: '17 */6 * * *'
 
 permissions:
   contents: read
@@ -31,8 +34,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Renders data/*.json into index.html, minifies the MCU assets and stamps the
-      # MCU service worker with a content hash. These change the CI checkout only.
+      # Renders data/*.json into index.html, bakes the latest AppleDB releases into the Hoardware
+      # alert demo, minifies the MCU assets and stamps the MCU service worker with a content hash.
+      # These change the CI checkout only.
       - name: Build
         run: npm run build:ci
 

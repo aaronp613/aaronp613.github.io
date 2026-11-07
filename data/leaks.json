@@ -1,7 +1,7 @@
 [
   {
     "name": "Apple TV 4K (4th generation)",
-    "image": "https://images.macrumors.com/t/H2bvc83RWHtIzMGaYfTRwQNkOsY=/800x0/smart/article-new/2022/10/Apple-TV-2022-Feature-Blue.jpg?lossy",
+    "image": "/images/cards/7cab699c676d.webp",
     "alt": "Apple TV 4K (4th generation)",
     "articles": [
       {
@@ -14,11 +14,12 @@
         "title": "New Apple TV Coming Later This Year With A17 Pro Chip",
         "date": "2025-08-13"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/H2bvc83RWHtIzMGaYfTRwQNkOsY=/800x0/smart/article-new/2022/10/Apple-TV-2022-Feature-Blue.jpg?lossy"
   },
   {
     "name": "HomePod mini (2nd generation)",
-    "image": "https://images.macrumors.com/t/ZfTxcxeWSXo21QAJhE4sN9QuuzA=/800x0/article-new/2022/08/yellow-homepod-mini-image.jpg?lossy",
+    "image": "/images/cards/1690d59f7447.webp",
     "alt": "HomePod mini (2nd generation)",
     "articles": [
       {
@@ -36,11 +37,12 @@
         "title": "HomePod Mini With Updated Chip Coming Soon",
         "date": "2025-08-13"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/ZfTxcxeWSXo21QAJhE4sN9QuuzA=/800x0/article-new/2022/08/yellow-homepod-mini-image.jpg?lossy"
   },
   {
     "name": "iPad mini (A20 Pro)",
-    "image": "https://images.macrumors.com/t/UF9T1HdmkOf-ucOs8ybVBiNIPAk=/800x0/article-new/2024/10/ipad-mini-7-feature-red-and-blue.jpg?lossy",
+    "image": "/images/cards/e4d45a61cc08.webp",
     "alt": "iPad mini (A20 Pro)",
     "articles": [
       {
@@ -58,11 +60,12 @@
         "title": "Next iPad Mini to Feature A19 Pro Chip",
         "date": "2025-08-13"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/UF9T1HdmkOf-ucOs8ybVBiNIPAk=/800x0/article-new/2024/10/ipad-mini-7-feature-red-and-blue.jpg?lossy"
   },
   {
     "name": "AirPods Pro 4",
-    "image": "https://images.macrumors.com/t/qMImvyw5mFJyi0_hWikgc1EzqFo=/1600x0/article-new/2026/08/apple-camera-airpods.jpg?lossy",
+    "image": "/images/cards/1cc7b92fcf4a.webp",
     "alt": "AirPods Pro 4",
     "articles": [
       {
@@ -70,11 +73,12 @@
         "title": "Apple's Camera-Equipped AirPods Confirmed: See Them in Action",
         "date": "2026-08-17"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/qMImvyw5mFJyi0_hWikgc1EzqFo=/1600x0/article-new/2026/08/apple-camera-airpods.jpg?lossy"
   },
   {
     "name": "Apple HomeView",
-    "image": "https://images.macrumors.com/t/SwcfeDJ7Vr5X9trxkhN6pdTAkJ4=/1600x0/article-new/2026/10/Apple-HomeView-lineup-feature5.jpg?lossy",
+    "image": "/images/cards/177526e5c851.webp",
     "alt": "Apple HomeView",
     "articles": [
       {
@@ -82,11 +86,12 @@
         "title": "macOS Tahoe 26.7 is Full of References to Unreleased Apple Products",
         "date": "2026-08-17"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/SwcfeDJ7Vr5X9trxkhN6pdTAkJ4=/1600x0/article-new/2026/10/Apple-HomeView-lineup-feature5.jpg?lossy"
   },
   {
     "name": "Beats 360",
-    "image": "https://images.macrumors.com/t/16VoF_k70P_Y3spUlVjOdMe-H5U=/1600x0/article-new/2026/08/Beats-360-Feature.jpg?lossy",
+    "image": "/images/cards/d0f9e5612546.webp",
     "alt": "Beats 360",
     "articles": [
       {
@@ -94,11 +99,12 @@
         "title": "macOS Tahoe 26.7 is Full of References to Unreleased Apple Products",
         "date": "2026-08-17"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/16VoF_k70P_Y3spUlVjOdMe-H5U=/1600x0/article-new/2026/08/Beats-360-Feature.jpg?lossy"
   },
   {
     "name": "MacBook Pro 14-inch (M6)",
-    "image": "https://images.macrumors.com/t/QClcFlFyzoAwMsjuuOl9mpBBmCo=/3840x/article-new/2026/10/Apple-MacBook-Pro-14-in-with-M6-Pixelmator-Pro-261027.jpg",
+    "image": "/images/cards/023f62f68df6.webp",
     "alt": "MacBook Pro 14-inch (M6)",
     "articles": [
       {
@@ -106,11 +112,12 @@
         "title": "macOS Tahoe 26.7 is Full of References to Unreleased Apple Products",
         "date": "2026-08-17"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/QClcFlFyzoAwMsjuuOl9mpBBmCo=/3840x/article-new/2026/10/Apple-MacBook-Pro-14-in-with-M6-Pixelmator-Pro-261027.jpg"
   },
   {
     "name": "MacBook Pro (PROLED XDR, M5 Pro/Max)",
-    "image": "https://images.macrumors.com/t/JoopkQn0dAHgsjS2imZqempM_Gc=/1600x0/article-new/2026/11/Apples-First-Touchscreen-Mac-is-Now-Arriving-to-Customers-Feature.jpg?lossy",
+    "image": "/images/cards/b1c2efe375ed.webp",
     "alt": "MacBook Pro (PROLED XDR, M5 Pro/Max)",
     "articles": [
       {
@@ -118,11 +125,12 @@
         "title": "macOS Tahoe 26.7 is Full of References to Unreleased Apple Products",
         "date": "2026-08-17"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/JoopkQn0dAHgsjS2imZqempM_Gc=/1600x0/article-new/2026/11/Apples-First-Touchscreen-Mac-is-Now-Arriving-to-Customers-Feature.jpg?lossy"
   },
   {
     "name": "iMac (24-inch, M6)",
-    "image": "https://images.macrumors.com/t/N7hZZTrFEwoo1RXSP-Z0c_p2Hzc=/1600x0/article-new/2026/10/M6-iMac-Feature-2.jpg?lossy",
+    "image": "/images/cards/a520764f4f1c.webp",
     "alt": "iMac (24-inch, M6)",
     "articles": [
       {
@@ -130,11 +138,12 @@
         "title": "macOS Tahoe 26.7 is Full of References to Unreleased Apple Products",
         "date": "2026-08-17"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/N7hZZTrFEwoo1RXSP-Z0c_p2Hzc=/1600x0/article-new/2026/10/M6-iMac-Feature-2.jpg?lossy"
   },
   {
     "name": "iPhone 18 Series",
-    "image": "https://images.macrumors.com/t/Ra1S0MFIMLBf9MazmwDFbTaFUx4=/1600x0/article-new/2026/09/iPhone-18-Pro-Burgundy-Feature.jpeg?lossy",
+    "image": "/images/cards/0b1cd15fbeb5.webp",
     "alt": "iPhone 18 Series",
     "articles": [
       {
@@ -142,11 +151,12 @@
         "title": "macOS Tahoe 26.7 is Full of References to Unreleased Apple Products",
         "date": "2026-08-17"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/Ra1S0MFIMLBf9MazmwDFbTaFUx4=/1600x0/article-new/2026/09/iPhone-18-Pro-Burgundy-Feature.jpeg?lossy"
   },
   {
     "name": "iPhone Duo",
-    "image": "https://images.macrumors.com/t/pUSQMawnbO6nISkQxM9gFhhl_TI=/1600x0/article-new/2026/09/iphone-duo-split-keyboard.jpg?lossy",
+    "image": "/images/cards/46a8c5ac48ba.webp",
     "alt": "iPhone Duo",
     "articles": [
       {
@@ -154,11 +164,12 @@
         "title": "macOS Tahoe 26.7 is Full of References to Unreleased Apple Products",
         "date": "2026-08-17"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/pUSQMawnbO6nISkQxM9gFhhl_TI=/1600x0/article-new/2026/09/iphone-duo-split-keyboard.jpg?lossy"
   },
   {
     "name": "Siri Remote (4th generation)",
-    "image": "https://images.macrumors.com/t/luAvgiLAU92svw_cnyiljGcXB4s=/1600x0/article-new/2023/01/siri-remote-purple.jpg?lossy",
+    "image": "/images/cards/acd720d882a7.webp",
     "alt": "Siri Remote (4th generation)",
     "articles": [
       {
@@ -166,11 +177,12 @@
         "title": "macOS Tahoe 26.7 is Full of References to Unreleased Apple Products",
         "date": "2026-08-17"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/luAvgiLAU92svw_cnyiljGcXB4s=/1600x0/article-new/2023/01/siri-remote-purple.jpg?lossy"
   },
   {
     "name": "MacBook Neo",
-    "image": "https://images.macrumors.com/t/hZIeerr6ybjJG9pCKiD7zzls50U=/800x0/article-new/2026/03/MacBook-Neo-Feature-Pastel-1.jpg?lossy",
+    "image": "/images/cards/5057e3fc4820.webp",
     "alt": "MacBook Neo",
     "articles": [
       {
@@ -178,11 +190,12 @@
         "title": "Apple Accidentally Leaks 'MacBook Neo'",
         "date": "2026-03-03"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/hZIeerr6ybjJG9pCKiD7zzls50U=/800x0/article-new/2026/03/MacBook-Neo-Feature-Pastel-1.jpg?lossy"
   },
   {
     "name": "Apple Creator Studios",
-    "image": "https://images.macrumors.com/t/D_5GcVL5WdJWLSIUB70bpAuyLpI=/800x0/article-new/2026/01/Apple-Creator-Studio.jpg?lossy",
+    "image": "/images/cards/f9aa6d2124bb.webp",
     "alt": "Creator Studios",
     "articles": [
       {
@@ -190,11 +203,12 @@
         "title": "Apple Might Release iPad Apps for Pixelmator Pro, MainStage, and More",
         "date": "2025-10-27"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/D_5GcVL5WdJWLSIUB70bpAuyLpI=/800x0/article-new/2026/01/Apple-Creator-Studio.jpg?lossy"
   },
   {
     "name": "Vision Pro (2nd generation)",
-    "image": "https://images.macrumors.com/t/EoPFToaHPlLjW06jCuhFZcH-9R4=/800x0/article-new/2024/03/Apple-Vision-Pro-2-Feature-1.jpg?lossy",
+    "image": "/images/cards/b94f13632593.webp",
     "alt": "Vision Pro (2nd generation)",
     "articles": [
       {
@@ -202,11 +216,12 @@
         "title": "Apple Code Confirms Vision Pro With M5 Chip",
         "date": "2025-08-13"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/EoPFToaHPlLjW06jCuhFZcH-9R4=/800x0/article-new/2024/03/Apple-Vision-Pro-2-Feature-1.jpg?lossy"
   },
   {
     "name": "Studio Display (2nd generation)",
-    "image": "https://images.macrumors.com/t/_LQMOI-hcrbR_hTxTl0Jj3tQVhI=/800x0/article-new/2025/02/studio-display-new-purple.jpeg?lossy",
+    "image": "/images/cards/9f9d4024004f.webp",
     "alt": "Studio Display (2nd generation)",
     "articles": [
       {
@@ -214,11 +229,12 @@
         "title": "Apple Still Working on Studio Display 2",
         "date": "2025-08-13"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/_LQMOI-hcrbR_hTxTl0Jj3tQVhI=/800x0/article-new/2025/02/studio-display-new-purple.jpeg?lossy"
   },
   {
     "name": "Apple Watch S11",
-    "image": "https://images.macrumors.com/t/8EalJ3vQTnk3yOhWx1w87l-3T3Y=/800x0/article-new/2023/09/apple-watch-ultra-pink.jpg?lossy",
+    "image": "/images/cards/6b692662e308.webp",
     "alt": "Apple Watch S11",
     "articles": [
       {
@@ -226,11 +242,12 @@
         "title": "Leaked S11 Chip Details Reveal No Major Performance Upgrades for 2025 Apple Watches",
         "date": "2025-08-13"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/8EalJ3vQTnk3yOhWx1w87l-3T3Y=/800x0/article-new/2023/09/apple-watch-ultra-pink.jpg?lossy"
   },
   {
     "name": "Apple Watch SE (3rd generation)",
-    "image": "https://images.macrumors.com/t/31wNOrj3s4TyMv7MlUvDT4mi4s4=/800x0/article-new/2025/04/apple-watch-se-orange.jpeg?lossy",
+    "image": "/images/cards/fcc0384d4fb5.webp",
     "alt": "Apple Watch SE (3rd generation)",
     "articles": [
       {
@@ -238,11 +255,12 @@
         "title": "Leaked S11 Chip Details Reveal No Major Performance Upgrades for 2025 Apple Watches",
         "date": "2025-08-13"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/31wNOrj3s4TyMv7MlUvDT4mi4s4=/800x0/article-new/2025/04/apple-watch-se-orange.jpeg?lossy"
   },
   {
     "name": "Apple Watch Ultra 3",
-    "image": "https://images.macrumors.com/t/qcgpN6rcGic8eLtS38VJVyzEvsM=/800x0/article-new/2025/07/ultra-2-prime-day.jpeg?lossy",
+    "image": "/images/cards/405b85498eed.webp",
     "alt": "Apple Watch Ultra 3",
     "articles": [
       {
@@ -250,11 +268,12 @@
         "title": "iOS 26 Beta Reveals Apple Watch Ultra 3 Display Size",
         "date": "2025-08-05"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/qcgpN6rcGic8eLtS38VJVyzEvsM=/800x0/article-new/2025/07/ultra-2-prime-day.jpeg?lossy"
   },
   {
     "name": "AirPods Pro 3",
-    "image": "https://images.macrumors.com/t/nx9V28XkJ1ZfWzBrP0IlwVGtsW0=/800x0/article-new/2025/05/airpods-pro-2-pinnk.jpeg?lossy",
+    "image": "/images/cards/722620a0bbb9.webp",
     "alt": "AirPods Pro 3",
     "articles": [
       {
@@ -262,11 +281,12 @@
         "title": "Unreleased Audio Product Spotted in Apple's Codebase",
         "date": "2025-06-26"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/nx9V28XkJ1ZfWzBrP0IlwVGtsW0=/800x0/article-new/2025/05/airpods-pro-2-pinnk.jpeg?lossy"
   },
   {
     "name": "USB-C Magic Accessories",
-    "image": "https://images.macrumors.com/t/rsT7_VUXXol4Wifu8PQHLygfa0o=/800x0/article-new/2022/02/mac-magic-keyboard.jpg?lossy",
+    "image": "/images/cards/aa5fbc436d25.webp",
     "alt": "USB-C Magic Accessories",
     "articles": [
       {
@@ -274,11 +294,12 @@
         "title": "Apple Working on New Magic Mouse 2, Magic Trackpad 2 and Magic Keyboard",
         "date": "2024-10-21"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/rsT7_VUXXol4Wifu8PQHLygfa0o=/800x0/article-new/2022/02/mac-magic-keyboard.jpg?lossy"
   },
   {
     "name": "Mac Mini (M4)",
-    "image": "https://images.macrumors.com/t/DwD32v0RxVcwiXBFkftPFZDR5K4=/800x0/article-new/2024/08/M4-Mac-mini-Black-Ortho-Cooler.jpg?lossy",
+    "image": "/images/cards/8cb289653c6b.webp",
     "alt": "Mac Mini (M4)",
     "articles": [
       {
@@ -286,11 +307,12 @@
         "title": "Apple Leaks New Mac Mini With 5 USB-C Ports",
         "date": "2024-09-16"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/DwD32v0RxVcwiXBFkftPFZDR5K4=/800x0/article-new/2024/08/M4-Mac-mini-Black-Ortho-Cooler.jpg?lossy"
   },
   {
     "name": "Beats Pill",
-    "image": "https://images.macrumors.com/t/dIzJ7x-turBMrUL6pctAhyFx60c=/800x0/article-new/2024/05/New-Beats-Pill-iOS-17.5-Feature.jpg?lossy",
+    "image": "/images/cards/a1e9c72ec711.webp",
     "alt": "Beats Pill",
     "articles": [
       {
@@ -298,11 +320,12 @@
         "title": "New Beats Pill Spotted in iOS 17.5 Beta",
         "date": "2024-05-07"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/dIzJ7x-turBMrUL6pctAhyFx60c=/800x0/article-new/2024/05/New-Beats-Pill-iOS-17.5-Feature.jpg?lossy"
   },
   {
     "name": "Beats Solo 4",
-    "image": "https://images.macrumors.com/t/rULS-Wc82cpgBPK3kG2shCbG9jM=/800x0/article-new/2024/02/new-beats-solo-4.jpg?lossy",
+    "image": "/images/cards/7f060ecbd0ff.webp",
     "alt": "Beats Solo 4",
     "articles": [
       {
@@ -310,11 +333,12 @@
         "title": "Apple Working on Beats Solo 4 Headphones",
         "date": "2024-02-27"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/rULS-Wc82cpgBPK3kG2shCbG9jM=/800x0/article-new/2024/02/new-beats-solo-4.jpg?lossy"
   },
   {
     "name": "iPhone 15 Lineup",
-    "image": "https://images.macrumors.com/t/vdCo_Y6Bx5VlU1CuwRCgy_wR-pQ=/800x0/article-new/2023/08/iPhone-15-Blue-Three-Quarters-Perspective-Feature.jpg?lossy",
+    "image": "/images/cards/3161e326f740.webp",
     "alt": "iPhone 15 Lineup",
     "articles": [
       {
@@ -322,11 +346,12 @@
         "title": "tvOS 17 Code Confirms A17 Chip for iPhone 15 Pro, A16 for iPhone 15",
         "date": "2023-08-09"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/vdCo_Y6Bx5VlU1CuwRCgy_wR-pQ=/800x0/article-new/2023/08/iPhone-15-Blue-Three-Quarters-Perspective-Feature.jpg?lossy"
   },
   {
     "name": "Beats Studio Pro",
-    "image": "https://images.macrumors.com/t/mWxGKdH69pNEyixG6ESpkW6AjWw=/800x0/article-new/2023/05/beats-studio-pro.jpg?lossy",
+    "image": "/images/cards/2312cd713bb5.webp",
     "alt": "Beats Studio Pro",
     "articles": [
       {
@@ -334,11 +359,12 @@
         "title": "Apple Working on New Beats Studio Pro Headphones",
         "date": "2023-05-09"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/mWxGKdH69pNEyixG6ESpkW6AjWw=/800x0/article-new/2023/05/beats-studio-pro.jpg?lossy"
   },
   {
     "name": "2023 Pride Band",
-    "image": "https://images.macrumors.com/t/g06yczIq9EUb7A6lcitU7Fhbivo=/800x0/article-new/2023/04/2023-pride-watch-face-band-feature.jpg?lossy",
+    "image": "/images/cards/8e53b2e23af0.webp",
     "alt": "2023 Pride Face/Band",
     "articles": [
       {
@@ -346,11 +372,12 @@
         "title": "2023 Apple Watch Pride Edition Face and Band Unearthed in Code",
         "date": "2023-04-26"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/g06yczIq9EUb7A6lcitU7Fhbivo=/800x0/article-new/2023/04/2023-pride-watch-face-band-feature.jpg?lossy"
   },
   {
     "name": "AirPods Pro 2",
-    "image": "https://images.macrumors.com/t/biWqlDz6FHZFiekTaZK2c_8ijVU=/800x0/article-new/2022/07/airpodsd-3-purple-4.jpg?lossy",
+    "image": "/images/cards/813162a20a0e.webp",
     "alt": "AirPods Pro 2",
     "articles": [
       {
@@ -358,11 +385,12 @@
         "title": "iOS 16.4 Seemingly References New AirPods and AirPods Case",
         "date": "2023-03-21"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/biWqlDz6FHZFiekTaZK2c_8ijVU=/800x0/article-new/2022/07/airpodsd-3-purple-4.jpg?lossy"
   },
   {
     "name": "Beats Fit Pro - Kim Kardashian Edition",
-    "image": "https://images.macrumors.com/t/50A0ts1cGQQHUeciHTMIyiC6Ntk=/800x0/article-new/2022/07/Mica-Ochre-Umber-Beats-Feature.jpg?lossy",
+    "image": "/images/cards/e16306f20a40.webp",
     "alt": "Kim K Beats Fit Pro",
     "articles": [
       {
@@ -370,11 +398,12 @@
         "title": "Apple Working on New Beats Fit Pro Colors",
         "date": "2022-07-29"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/50A0ts1cGQQHUeciHTMIyiC6Ntk=/800x0/article-new/2022/07/Mica-Ochre-Umber-Beats-Feature.jpg?lossy"
   },
   {
     "name": "Siri Remote (3rd generation)",
-    "image": "https://images.macrumors.com/t/yB1Davlw98iKUQOUDFv3RXtQ3wQ=/800x0/article-new/2021/04/apple-tv-4k-design-clue.jpg?lossy",
+    "image": "/images/cards/25a693cda264.webp",
     "alt": "Siri Remote (3rd generation)",
     "articles": [
       {
@@ -382,6 +411,7 @@
         "title": "New Siri Remote for Apple TV Seemingly Referenced in iOS 16 Beta",
         "date": "2022-06-23"
       }
-    ]
+    ],
+    "imageSource": "https://images.macrumors.com/t/yB1Davlw98iKUQOUDFv3RXtQ3wQ=/800x0/article-new/2021/04/apple-tv-4k-design-clue.jpg?lossy"
   }
 ]

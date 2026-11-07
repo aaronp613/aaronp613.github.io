@@ -2,8 +2,9 @@
 //
 //   node scripts/build.mjs render    render data/*.json into index.html (commit the result)
 //   node scripts/build.mjs minify    minify mcu/script.js and mcu/style.css in place (CI only)
+//   node scripts/build.mjs releases  bake the latest AppleDB releases into the Hoardware release-alert demo (needs network)
 //   node scripts/build.mjs stamp     set the MCU service worker cache version from a content hash (CI only)
-//   node scripts/build.mjs all       render, minify, stamp (what CI runs before deploying)
+//   node scripts/build.mjs all       render, releases, minify, stamp (what CI runs before deploying)
 //
 // `render` is idempotent and is the only step meant for local use. `minify` and
 // `stamp` overwrite source files, so CI runs them on its own checkout only.
@@ -64,6 +65,29 @@ function articleCard(entry) {
 `;
 }
 
+function cveCard(entry) {
+  const links = (entry.fixed ?? []).map(link =>
+    `<a href="${escapeHtml(link.url)}" ${EXTERNAL}>${escapeHtml(link.label)}</a>`).join(",\n              ");
+  const fixed = [links, entry.fixedText ? escapeHtml(entry.fixedText) : ""].filter(Boolean).join(" ");
+  const note = entry.note
+    ? `<br />${entry.note.url ? `<a href="${escapeHtml(entry.note.url)}" ${EXTERNAL}>${escapeHtml(entry.note.text)}</a>` : escapeHtml(entry.note.text)}`
+    : "";
+  return `        <div class="cve-card">
+          <div class="cve-card-header">
+            <strong>${escapeHtml(entry.title)}</strong>
+            <p class="fixed"><em>Fixed in:</em>
+              ${fixed}${note}
+            </p>
+          </div>
+          <div class="cve-details-wrap">
+            <div class="cve-details">
+              <p><em>Impact:</em> ${escapeHtml(entry.impact)}</p>
+            </div>
+          </div>
+        </div>
+`;
+}
+
 function replaceBetween(html, name, content) {
   const start = `<!-- build:${name} -->\n`;
   const end = `<!-- /build:${name} -->`;
@@ -89,7 +113,18 @@ function render() {
   validate("articles", articles, ["url", "title", "image", "date"]);
   articles.sort(byDateDesc);
 
+  const cves = json("data/cves.json");
+  validate("cves", cves, ["title", "impact"]);
+  cves.forEach((cve, i) => {
+    if ((cve.fixed ?? []).length === 0 && !cve.fixedText) throw new Error(`cves[${i}] (${cve.title}) needs "fixed" links or "fixedText"`);
+  });
+
   let html = read("index.html");
+  html = replaceBetween(html, "cves", cves.map(cveCard).join(""));
+  html = html.replace(
+    /(<span class="metric-value" data-build="cve-count">)[^<]*(<\/span>)/,
+    `$1${cves.length}$2`
+  );
   html = replaceBetween(html, "leaks", leaks.map(leakCard).join(""));
   html = replaceBetween(html, "articles", articles.map(articleCard).join(""));
   html = html.replace(
@@ -97,7 +132,72 @@ function render() {
     `$1${leaks.length}+$2`
   );
   writeFileSync("index.html", html);
-  console.log(`render: ${leaks.length} leaked products, ${articles.length} articles`);
+  console.log(`render: ${leaks.length} leaked products, ${articles.length} articles, ${cves.length} CVEs`);
+}
+
+
+// ─── Hoardware release alerts demo ───
+// The three notifications show the newest software AppleDB lists for each device: the latest beta
+// when it is newer than the latest stable release, otherwise the stable release.
+const ALERT_DEVICES = [
+  { os: "iOS", id: "iPhone18,1", name: "iPhone 17 Pro" },
+  { os: "macOS", id: "Mac17,2", name: "MacBook Pro 14-inch (M5)" },
+  { os: "watchOS", id: "Watch7,12", name: "Apple Watch Ultra 3" }
+];
+
+function releaseKey(entry) {
+  const version = String(entry.version);
+  const numbers = (version.match(/^\d+(?:\.\d+)*/)?.[0] ?? "0").split(".").map(Number);
+  while (numbers.length < 4) numbers.push(0);
+  const beta = entry.beta === true || /beta/i.test(version);
+  const rc = entry.rc === true || /\bRC\b/i.test(version);
+  const rank = beta ? 1 : rc ? 2 : 3; // a final release outranks its own RCs, which outrank its betas
+  const sequence = Number(version.match(/(?:beta|RC)\s*(\d+)/i)?.[1] ?? 1);
+  return [...numbers, rank, sequence, entry.released ?? ""];
+}
+
+function compareKeys(a, b) {
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] === b[i]) continue;
+    return a[i] < b[i] ? -1 : 1;
+  }
+  return 0;
+}
+
+function latestRelease(entries, device) {
+  const candidates = entries.filter(entry =>
+    entry.osStr === device.os && !entry.internal && !entry.sdk && (entry.deviceMap ?? []).includes(device.id));
+  if (candidates.length === 0) return null;
+  return candidates.reduce((best, entry) => (compareKeys(releaseKey(entry), releaseKey(best)) > 0 ? entry : best));
+}
+
+function alertTitle(entry) {
+  const name = `${entry.osStr} ${entry.version}`;
+  if (entry.beta === true || /beta/i.test(entry.version)) return `Beta released: ${name}`;
+  if (entry.rc === true || /\bRC\b/i.test(entry.version)) return `Release candidate: ${name}`;
+  return `Released: ${name}`;
+}
+
+async function releases() {
+  const picked = [];
+  try {
+    for (const device of ALERT_DEVICES) {
+      const response = await fetch(`https://api.appledb.dev/ios/${device.os}/main.json`);
+      if (!response.ok) throw new Error(`${device.os}: HTTP ${response.status}`);
+      const entry = latestRelease(await response.json(), device);
+      if (!entry) throw new Error(`${device.os}: no release found for ${device.id}`);
+      picked.push({ device, entry });
+    }
+  } catch (error) {
+    console.warn(`releases: skipped (${error.message}); keeping the existing alerts`);
+    return;
+  }
+  const alerts = picked.map(({ device, entry }) => `<div class="alert-example"><img src="/hoardware/icon-168.png" width="34" height="34" alt=""><span><b>${escapeHtml(alertTitle(entry))}</b><small>Available for ${escapeHtml(device.name)}</small></span></div>`).join("");
+  const label = picked.map(({ device, entry }) => `${alertTitle(entry)} for ${device.name}`).join(", ");
+  const stack = `<div class="alert-stack" role="img" aria-label="Example notifications: ${escapeHtml(label)}">${alerts}</div>\n`;
+  const html = replaceBetween(read("hoardware/index.html"), "alerts", stack);
+  writeFileSync("hoardware/index.html", html);
+  console.log(`releases: ${picked.map(({ device, entry }) => `${device.os} ${entry.version}`).join(", ")}`);
 }
 
 async function minify() {
@@ -134,10 +234,11 @@ function stamp() {
   console.log(`stamp: mcu cache version ${version}`);
 }
 
-const steps = { render, minify, stamp };
+const steps = { render, releases, minify, stamp };
 const command = process.argv[2];
 if (command === "all") {
   render();
+  await releases();
   await minify();
   stamp();
 } else if (steps[command]) {
