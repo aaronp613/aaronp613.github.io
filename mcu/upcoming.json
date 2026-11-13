@@ -1,18 +1,15 @@
 [
   {
+    "id": "spider_man_bnd_rerelease",
+    "type": "Marvel Studios",
+    "title": "Spider-Man: Brand New Day (Re-release)",
+    "release_date": "2026-12-04"
+  },
+  {
     "id": "avengers_doomsday",
     "type": "Marvel Studios",
     "title": "Avengers: Doomsday",
     "release_date": "2026-12-18"
-  },
-  {
-    "id": "vision_quest_s1_e8",
-    "type": "Disney+",
-    "show": "VisionQuest",
-    "season": 1,
-    "episode": 8,
-    "ep_title": "Forever",
-    "release_date": "2026-11-10"
   },
   {
     "id": "yfnspiderman_s2_e1",
